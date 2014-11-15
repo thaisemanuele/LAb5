@@ -86,7 +86,7 @@ public class TelaOrganiza extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Digite as informações desejadas nos campos abaixo e clique em inserir");
 

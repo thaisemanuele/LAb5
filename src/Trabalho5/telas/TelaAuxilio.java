@@ -101,7 +101,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jComboBox7 = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Selecione e digite as informações desejadas e clique em inserir");
 

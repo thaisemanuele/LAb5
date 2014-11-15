@@ -72,7 +72,7 @@ public class TelaEscreve extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Selecione as informações desejadas nos campos abaixo e clique em inserir");
 

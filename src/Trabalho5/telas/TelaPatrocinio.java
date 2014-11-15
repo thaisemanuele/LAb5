@@ -97,7 +97,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Selecione e digite as informações desejadas no campo abaixo e clique em inserir");
 

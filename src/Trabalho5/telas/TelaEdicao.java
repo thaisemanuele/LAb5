@@ -117,7 +117,7 @@ public class TelaEdicao extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jTextField26 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setText("Escolha o evento e a edição a serem modificados:");
 
