@@ -569,9 +569,15 @@ public class TelaEventos extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             EventoBD.inserir(campoNomeEv.getText(), campoDescEv.getText(), campoSiteEv.getText());
+            JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso " , "Success", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex){
             System.err.println("SQL Error: " + ex.getMessage());
             JOptionPane.showMessageDialog(null, "Erro de SQL: " + ex.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
+        }
+        finally{
+            campoNomeEv.setText(" ");
+            campoDescEv.setText(" ");
+            campoSiteEv.setText(" ");
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

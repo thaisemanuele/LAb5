@@ -52,7 +52,7 @@ public class EventoBD {
     
     public static void inserir(String nomeEv, String descricaoEv, String website) throws SQLException{
         
-         String insert = "INSERT INTO Evento VALUES( " + 13 + ", '" +nomeEv+ "','" +descricaoEv+ "', '" +website+"', " + 0 +" )";
+        String insert = "INSERT INTO Evento VALUES( " + getSeq() + ", '" +nomeEv+ "','" +descricaoEv+ "', '" +website+"', " + 0 +" )";
         System.out.println("insert statement " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
@@ -83,8 +83,10 @@ public class EventoBD {
         String selectSql = "SELECT max(codEv) from Evento";
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectSql);
-        seqCodEv = rs.getInt("codEv");
-        return seqCodEv + 1;
+        if(rs.next()){
+            seqCodEv = rs.getInt(1);
+        }
+       return seqCodEv + 1;
         
         
         
