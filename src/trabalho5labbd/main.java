@@ -6,10 +6,20 @@
 
 package trabalho5labbd;
 
+import Trabalho5.bd.dbConnection;
+import Trabalho5.telas.TelaMenu;
+
 /**
  *
  * @author Gabriela
  */
 public class main {
+     public static void main(String[] args) throws Exception {
+        // TODO code application logic here
+        dbConnection db = new dbConnection();
+        TelaMenu telap = new TelaMenu();
+        telap.setVisible(true);
+        
+    }
     
 }
