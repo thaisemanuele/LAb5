@@ -5,6 +5,11 @@
  */
 
 package Trabalho5.telas;
+import Trabalho5.bd.EventoBD;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,11 +51,11 @@ public class TelaEventos extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         TextoNomeEv = new javax.swing.JLabel();
-        CampoNomeEv = new javax.swing.JTextField();
+        campoNomeEv = new javax.swing.JTextField();
         TextoDescEv = new javax.swing.JLabel();
-        CampoDescEv = new javax.swing.JTextField();
+        campoDescEv = new javax.swing.JTextField();
         TextoSiteEv = new javax.swing.JLabel();
-        CampoSiteEv = new javax.swing.JTextField();
+        campoSiteEv = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -187,29 +192,34 @@ public class TelaEventos extends javax.swing.JFrame {
 
         TextoNomeEv.setText("Nome do Evento:");
 
-        CampoNomeEv.addActionListener(new java.awt.event.ActionListener() {
+        campoNomeEv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoNomeEvActionPerformed(evt);
+                campoNomeEvActionPerformed(evt);
             }
         });
 
         TextoDescEv.setText("Descrição:");
 
-        CampoDescEv.addActionListener(new java.awt.event.ActionListener() {
+        campoDescEv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoDescEvActionPerformed(evt);
+                campoDescEvActionPerformed(evt);
             }
         });
 
         TextoSiteEv.setText("Website:");
 
-        CampoSiteEv.addActionListener(new java.awt.event.ActionListener() {
+        campoSiteEv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoSiteEvActionPerformed(evt);
+                campoSiteEvActionPerformed(evt);
             }
         });
 
         jButton1.setText("Inserir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel13.setText("Digite as informações desejadas nos campos abaixo e clique em \"inserir\"");
 
@@ -222,15 +232,15 @@ public class TelaEventos extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CampoNomeEv, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(CampoSiteEv, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(campoNomeEv, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(campoSiteEv, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TextoNomeEv, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TextoDescEv)
                             .addComponent(TextoSiteEv, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(CampoDescEv)
+                    .addComponent(campoDescEv)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1)
@@ -250,15 +260,15 @@ public class TelaEventos extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(TextoNomeEv, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CampoNomeEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoNomeEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(TextoSiteEv)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CampoSiteEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoSiteEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(TextoDescEv)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CampoDescEv, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoDescEv, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -539,21 +549,32 @@ public class TelaEventos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CampoNomeEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoNomeEvActionPerformed
+    private void campoNomeEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeEvActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CampoNomeEvActionPerformed
+    }//GEN-LAST:event_campoNomeEvActionPerformed
 
-    private void CampoDescEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoDescEvActionPerformed
+    private void campoDescEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDescEvActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CampoDescEvActionPerformed
+    }//GEN-LAST:event_campoDescEvActionPerformed
 
-    private void CampoSiteEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoSiteEvActionPerformed
+    private void campoSiteEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSiteEvActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CampoSiteEvActionPerformed
+    }//GEN-LAST:event_campoSiteEvActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            EventoBD.inserir(campoNomeEv.getText(), campoDescEv.getText(), campoSiteEv.getText());
+        } catch (SQLException ex){
+            System.err.println("SQL Error: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro de SQL: " + ex.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -591,13 +612,13 @@ public class TelaEventos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CampoDescEv;
-    private javax.swing.JTextField CampoNomeEv;
-    private javax.swing.JTextField CampoSiteEv;
-    private javax.swing.JTabbedPane TelaEventosInserir;
+    protected javax.swing.JTabbedPane TelaEventosInserir;
     private javax.swing.JLabel TextoDescEv;
     private javax.swing.JLabel TextoNomeEv;
     private javax.swing.JLabel TextoSiteEv;
+    private javax.swing.JTextField campoDescEv;
+    private javax.swing.JTextField campoNomeEv;
+    private javax.swing.JTextField campoSiteEv;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;

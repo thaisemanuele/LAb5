@@ -306,6 +306,9 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void InserirEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirEventosActionPerformed
         // TODO add your handling code here:
+        TelaEventos tela = new TelaEventos();
+        tela.TelaEventosInserir.setSelectedIndex(1);
+        tela.setVisible(true);
     }//GEN-LAST:event_InserirEventosActionPerformed
 
     private void InserirPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirPessoaActionPerformed

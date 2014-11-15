@@ -52,10 +52,11 @@ public class EventoBD {
     
     public static void inserir(String nomeEv, String descricaoEv, String website) throws SQLException{
         
-        String insert = "INSERT INTO Evento VALUES('" + getSeq()+ "','" +nomeEv+ "','" +descricaoEv+ "','" +website+" )";
-        System.out.println("insert statement" + insert);
+         String insert = "INSERT INTO Evento VALUES( " + 13 + ", '" +nomeEv+ "','" +descricaoEv+ "', '" +website+"', " + 0 +" )";
+        System.out.println("insert statement " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
+
     }
     
     public static void atualizar(Integer codEv, String nomeEv, String descricaoEv, String website) throws SQLException{
