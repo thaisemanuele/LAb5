@@ -94,12 +94,12 @@ public class TelaMenu extends javax.swing.JFrame {
 
         Inserir.setText("Inserir");
         Inserir.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                InserirMenuSelected(evt);
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                InserirMenuSelected(evt);
             }
         });
 
@@ -117,6 +117,11 @@ public class TelaMenu extends javax.swing.JFrame {
         Inserir.add(InserirEventos);
 
         InserirEdicao.setText("Edição");
+        InserirEdicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InserirEdicaoActionPerformed(evt);
+            }
+        });
         Inserir.add(InserirEdicao);
 
         InserirPessoa.setText("Pessoa");
@@ -128,18 +133,38 @@ public class TelaMenu extends javax.swing.JFrame {
         Inserir.add(InserirPessoa);
 
         InserirInscrito.setText("Inscrito");
+        InserirInscrito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InserirInscritoActionPerformed(evt);
+            }
+        });
         Inserir.add(InserirInscrito);
 
         InserirArtigo.setText("Artigo");
+        InserirArtigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InserirArtigoActionPerformed(evt);
+            }
+        });
         Inserir.add(InserirArtigo);
 
         InserirEscreve.setText("Escreve");
+        InserirEscreve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InserirEscreveActionPerformed(evt);
+            }
+        });
         Inserir.add(InserirEscreve);
 
         InserirOrganiza.setText("Organiza");
+        InserirOrganiza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InserirOrganizaActionPerformed(evt);
+            }
+        });
         Inserir.add(InserirOrganiza);
 
-        InserirPatrocinio.setText("Patrocinador");
+        InserirPatrocinio.setText("Patrocinio");
         InserirPatrocinio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InserirPatrocinioActionPerformed(evt);
@@ -147,13 +172,28 @@ public class TelaMenu extends javax.swing.JFrame {
         });
         Inserir.add(InserirPatrocinio);
 
-        InserirPatrocinador.setText("Patrocinio");
+        InserirPatrocinador.setText("Patrocinador");
+        InserirPatrocinador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InserirPatrocinadorActionPerformed(evt);
+            }
+        });
         Inserir.add(InserirPatrocinador);
 
         InserirDespesa.setText("Despesa");
+        InserirDespesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InserirDespesaActionPerformed(evt);
+            }
+        });
         Inserir.add(InserirDespesa);
 
         InserirAuxilio.setText("Auxílio");
+        InserirAuxilio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InserirAuxilioActionPerformed(evt);
+            }
+        });
         Inserir.add(InserirAuxilio);
 
         jMenuBar1.add(Inserir);
@@ -161,9 +201,19 @@ public class TelaMenu extends javax.swing.JFrame {
         Deletar.setText("Deletar");
 
         jMenuItem1.setText("Evento");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         Deletar.add(jMenuItem1);
 
         DeletarEdicao.setText("Edicao");
+        DeletarEdicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarEdicaoActionPerformed(evt);
+            }
+        });
         Deletar.add(DeletarEdicao);
 
         DeletarPessoa.setText("Pessoa");
@@ -175,27 +225,67 @@ public class TelaMenu extends javax.swing.JFrame {
         Deletar.add(DeletarPessoa);
 
         DeletarInscrito.setText("Inscrito");
+        DeletarInscrito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarInscritoActionPerformed(evt);
+            }
+        });
         Deletar.add(DeletarInscrito);
 
         DeletarArtigo.setText("Artigo");
+        DeletarArtigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarArtigoActionPerformed(evt);
+            }
+        });
         Deletar.add(DeletarArtigo);
 
         DeletarEscreve.setText("Escreve");
+        DeletarEscreve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarEscreveActionPerformed(evt);
+            }
+        });
         Deletar.add(DeletarEscreve);
 
         DeletarOrganiza.setText("Organiza");
+        DeletarOrganiza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarOrganizaActionPerformed(evt);
+            }
+        });
         Deletar.add(DeletarOrganiza);
 
         DeletarPatrocinador.setText("Patrocinador");
+        DeletarPatrocinador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarPatrocinadorActionPerformed(evt);
+            }
+        });
         Deletar.add(DeletarPatrocinador);
 
         DeletarPatrocinio.setText("Patrocinio");
+        DeletarPatrocinio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarPatrocinioActionPerformed(evt);
+            }
+        });
         Deletar.add(DeletarPatrocinio);
 
         DeletarDespesa.setText("Despesa");
+        DeletarDespesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarDespesaActionPerformed(evt);
+            }
+        });
         Deletar.add(DeletarDespesa);
 
         DeletarAuxilio.setText("Auxílio");
+        DeletarAuxilio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarAuxilioActionPerformed(evt);
+            }
+        });
         Deletar.add(DeletarAuxilio);
 
         jMenuBar1.add(Deletar);
@@ -203,15 +293,35 @@ public class TelaMenu extends javax.swing.JFrame {
         Editar.setText("Editar");
 
         EditarEvento.setText("Evento");
+        EditarEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarEventoActionPerformed(evt);
+            }
+        });
         Editar.add(EditarEvento);
 
         EditarEdicao.setText("Edição");
+        EditarEdicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarEdicaoActionPerformed(evt);
+            }
+        });
         Editar.add(EditarEdicao);
 
         EditarPessoa.setText("Pessoa");
+        EditarPessoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarPessoaActionPerformed(evt);
+            }
+        });
         Editar.add(EditarPessoa);
 
         EditarInscrito.setText("Inscrito");
+        EditarInscrito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarInscritoActionPerformed(evt);
+            }
+        });
         Editar.add(EditarInscrito);
 
         EditarArtigo.setText("Artigo");
@@ -231,18 +341,43 @@ public class TelaMenu extends javax.swing.JFrame {
         Editar.add(EditarEscreve);
 
         EditarOrganiza.setText("Organiza");
+        EditarOrganiza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarOrganizaActionPerformed(evt);
+            }
+        });
         Editar.add(EditarOrganiza);
 
         EditarPatrocinador.setText("Patrocinador");
+        EditarPatrocinador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarPatrocinadorActionPerformed(evt);
+            }
+        });
         Editar.add(EditarPatrocinador);
 
         EditarPatrocinio.setText("Patrocínio");
+        EditarPatrocinio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarPatrocinioActionPerformed(evt);
+            }
+        });
         Editar.add(EditarPatrocinio);
 
         EditarDespesa.setText("Despesa");
+        EditarDespesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarDespesaActionPerformed(evt);
+            }
+        });
         Editar.add(EditarDespesa);
 
         EditarAuxilio.setText("Auxílio");
+        EditarAuxilio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarAuxilioActionPerformed(evt);
+            }
+        });
         Editar.add(EditarAuxilio);
 
         jMenuBar1.add(Editar);
@@ -250,36 +385,91 @@ public class TelaMenu extends javax.swing.JFrame {
         Buscar.setText("Buscar");
 
         BuscarEvento.setText("Evento");
+        BuscarEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarEventoActionPerformed(evt);
+            }
+        });
         Buscar.add(BuscarEvento);
 
         BuscarEdicao.setText("Edição");
+        BuscarEdicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarEdicaoActionPerformed(evt);
+            }
+        });
         Buscar.add(BuscarEdicao);
 
         BuscarPessoa.setText("Pessoa");
+        BuscarPessoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarPessoaActionPerformed(evt);
+            }
+        });
         Buscar.add(BuscarPessoa);
 
         BuscarInscrito.setText("Inscrito");
+        BuscarInscrito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarInscritoActionPerformed(evt);
+            }
+        });
         Buscar.add(BuscarInscrito);
 
         BuscarArtigo.setText("Artigo");
+        BuscarArtigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarArtigoActionPerformed(evt);
+            }
+        });
         Buscar.add(BuscarArtigo);
 
         BuscarEscreve.setText("Escreve");
+        BuscarEscreve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarEscreveActionPerformed(evt);
+            }
+        });
         Buscar.add(BuscarEscreve);
 
         BuscarOrganiza.setText("Organiza");
+        BuscarOrganiza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarOrganizaActionPerformed(evt);
+            }
+        });
         Buscar.add(BuscarOrganiza);
 
         BuscarPatrocinador.setText("Patrocinador");
+        BuscarPatrocinador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarPatrocinadorActionPerformed(evt);
+            }
+        });
         Buscar.add(BuscarPatrocinador);
 
         BuscarPatrocinio.setText("Patrocínio");
+        BuscarPatrocinio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarPatrocinioActionPerformed(evt);
+            }
+        });
         Buscar.add(BuscarPatrocinio);
 
         BuscarDespesa.setText("Despesa");
+        BuscarDespesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarDespesaActionPerformed(evt);
+            }
+        });
         Buscar.add(BuscarDespesa);
 
         BuscarAuxilio.setText("Auxilio");
+        BuscarAuxilio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarAuxilioActionPerformed(evt);
+            }
+        });
         Buscar.add(BuscarAuxilio);
 
         jMenuBar1.add(Buscar);
@@ -306,35 +496,329 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void InserirEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirEventosActionPerformed
         // TODO add your handling code here:
-        TelaEventos tela = new TelaEventos();
-        tela.TelaEventosInserir.setSelectedIndex(1);
-        tela.setVisible(true);
+        TelaEventos telaEvento = new TelaEventos();
+        telaEvento.TelaEventosInserir.setSelectedIndex(1);
+        telaEvento.setVisible(true);
     }//GEN-LAST:event_InserirEventosActionPerformed
 
     private void InserirPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirPessoaActionPerformed
         // TODO add your handling code here:
+        TelaPessoa telaPessoa = new TelaPessoa();
+        telaPessoa.pessoaTPane.setSelectedIndex(1);
+        telaPessoa.setVisible(true);
     }//GEN-LAST:event_InserirPessoaActionPerformed
 
     private void InserirPatrocinioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirPatrocinioActionPerformed
         // TODO add your handling code here:
+        TelaPatrocinio telaPatrocinio = new TelaPatrocinio();
+        telaPatrocinio.patrocinioTPane.setSelectedIndex(1);
+        telaPatrocinio.setVisible(true);
     }//GEN-LAST:event_InserirPatrocinioActionPerformed
 
     private void DeletarPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarPessoaActionPerformed
         // TODO add your handling code here:
+        TelaPessoa telaPessoa = new TelaPessoa();
+        telaPessoa.pessoaTPane.setSelectedIndex(2);
+        telaPessoa.setVisible(true);
+        
     }//GEN-LAST:event_DeletarPessoaActionPerformed
 
     private void InserirEventosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InserirEventosMouseClicked
-        TelaMenu tela = new TelaMenu();
-        tela.setVisible(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_InserirEventosMouseClicked
 
     private void EditarEscreveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarEscreveActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
+        TelaEscreve telaEscreve = new TelaEscreve();
+        telaEscreve.escreveTPane.setSelectedIndex(3);
+        telaEscreve.setVisible(true);
     }//GEN-LAST:event_EditarEscreveActionPerformed
 
     private void EditarArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarArtigoActionPerformed
         // TODO add your handling code here:
+        TelaArtigo telaArtigo = new TelaArtigo();
+        telaArtigo.artigoTPane.setSelectedIndex(2);
+        telaArtigo.setVisible(true);
+        
     }//GEN-LAST:event_EditarArtigoActionPerformed
+
+    private void InserirEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirEdicaoActionPerformed
+        // TODO add your handling code here:
+        TelaEdicao telaEdicao = new TelaEdicao();
+        telaEdicao.edicaoTPane.setSelectedIndex(1);
+        telaEdicao.setVisible(true);
+    }//GEN-LAST:event_InserirEdicaoActionPerformed
+
+    private void InserirInscritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirInscritoActionPerformed
+        // TODO add your handling code here:
+        TelaInscrito telaInscrito = new TelaInscrito();
+        telaInscrito.inscritoTPane.setSelectedIndex(0);
+        telaInscrito.setVisible(true);
+    }//GEN-LAST:event_InserirInscritoActionPerformed
+
+    private void InserirArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirArtigoActionPerformed
+        // TODO add your handling code here:
+        TelaArtigo telaArtigo = new TelaArtigo();
+        telaArtigo.artigoTPane.setSelectedIndex(0);
+        telaArtigo.setVisible(true);
+    }//GEN-LAST:event_InserirArtigoActionPerformed
+
+    private void InserirEscreveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirEscreveActionPerformed
+        // TODO add your handling code here:
+        TelaEscreve telaEscreve = new TelaEscreve();
+        telaEscreve.escreveTPane.setSelectedIndex(0);
+        telaEscreve.setVisible(true);
+    }//GEN-LAST:event_InserirEscreveActionPerformed
+
+    private void InserirOrganizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirOrganizaActionPerformed
+        // TODO add your handling code here:
+        TelaOrganiza telaOrganiza = new TelaOrganiza();
+        telaOrganiza.organizaTPane.setSelectedIndex(0);
+        telaOrganiza.setVisible(true);
+    }//GEN-LAST:event_InserirOrganizaActionPerformed
+
+    private void InserirPatrocinadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirPatrocinadorActionPerformed
+        // TODO add your handling code here:
+        TelaPatrocinador telaPatrocinador = new TelaPatrocinador();
+        telaPatrocinador.patrocinadorTPane.setSelectedIndex(0);
+        telaPatrocinador.setVisible(true);
+    }//GEN-LAST:event_InserirPatrocinadorActionPerformed
+
+    private void InserirDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirDespesaActionPerformed
+        // TODO add your handling code here:
+        TelaDespesas telaDespesa = new TelaDespesas();
+        telaDespesa.despesaTPane.setSelectedIndex(0);
+        telaDespesa.setVisible(true);
+    }//GEN-LAST:event_InserirDespesaActionPerformed
+
+    private void InserirAuxilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirAuxilioActionPerformed
+        // TODO add your handling code here:
+        TelaAuxilio telaAuxilio = new TelaAuxilio();
+        telaAuxilio.auxilioTPane.setSelectedIndex(0);
+        telaAuxilio.setVisible(true);
+    }//GEN-LAST:event_InserirAuxilioActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        TelaEventos telaEvento = new TelaEventos();
+        telaEvento.TelaEventosInserir.setSelectedIndex(3);
+        telaEvento.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void DeletarEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarEdicaoActionPerformed
+        // TODO add your handling code here:
+        TelaEdicao telaEdicao = new TelaEdicao();
+        telaEdicao.edicaoTPane.setSelectedIndex(3);
+        telaEdicao.setVisible(true);
+    }//GEN-LAST:event_DeletarEdicaoActionPerformed
+
+    private void DeletarInscritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarInscritoActionPerformed
+        // TODO add your handling code here:
+         TelaInscrito telaInscrito = new TelaInscrito();
+        telaInscrito.inscritoTPane.setSelectedIndex(2);
+        telaInscrito.setVisible(true);
+    }//GEN-LAST:event_DeletarInscritoActionPerformed
+
+    private void DeletarArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarArtigoActionPerformed
+        // TODO add your handling code here:
+         // TODO add your handling code here:
+        TelaArtigo telaArtigo = new TelaArtigo();
+        telaArtigo.artigoTPane.setSelectedIndex(3);
+        telaArtigo.setVisible(true);
+    }//GEN-LAST:event_DeletarArtigoActionPerformed
+
+    private void DeletarEscreveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarEscreveActionPerformed
+        // TODO add your handling code here:
+        TelaEscreve telaEscreve = new TelaEscreve();
+        telaEscreve.escreveTPane.setSelectedIndex(2);
+        telaEscreve.setVisible(true);
+    }//GEN-LAST:event_DeletarEscreveActionPerformed
+
+    private void DeletarOrganizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarOrganizaActionPerformed
+        // TODO add your handling code here:
+        TelaOrganiza telaOrganiza = new TelaOrganiza();
+        telaOrganiza.organizaTPane.setSelectedIndex(3);
+        telaOrganiza.setVisible(true);
+        
+    }//GEN-LAST:event_DeletarOrganizaActionPerformed
+
+    private void DeletarPatrocinadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarPatrocinadorActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        TelaPatrocinador telaPatrocinador = new TelaPatrocinador();
+        telaPatrocinador.patrocinadorTPane.setSelectedIndex(2);
+        telaPatrocinador.setVisible(true);
+    }//GEN-LAST:event_DeletarPatrocinadorActionPerformed
+
+    private void DeletarPatrocinioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarPatrocinioActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        TelaPatrocinio telaPatrocinio = new TelaPatrocinio();
+        telaPatrocinio.patrocinioTPane.setSelectedIndex(2);
+        telaPatrocinio.setVisible(true);
+    }//GEN-LAST:event_DeletarPatrocinioActionPerformed
+
+    private void DeletarDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarDespesaActionPerformed
+        // TODO add your handling code here:
+        TelaDespesas telaDespesa = new TelaDespesas();
+        telaDespesa.despesaTPane.setSelectedIndex(2);
+        telaDespesa.setVisible(true);
+    }//GEN-LAST:event_DeletarDespesaActionPerformed
+
+    private void DeletarAuxilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarAuxilioActionPerformed
+        // TODO add your handling code here:
+        TelaAuxilio telaAuxilio = new TelaAuxilio();
+        telaAuxilio.auxilioTPane.setSelectedIndex(2);
+        telaAuxilio.setVisible(true);
+        
+    }//GEN-LAST:event_DeletarAuxilioActionPerformed
+
+    private void EditarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarEventoActionPerformed
+        // TODO add your handling code here:
+        TelaEventos telaEvento = new TelaEventos();
+        telaEvento.TelaEventosInserir.setSelectedIndex(0);
+        telaEvento.setVisible(true);
+    }//GEN-LAST:event_EditarEventoActionPerformed
+
+    private void EditarEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarEdicaoActionPerformed
+        // TODO add your handling code here:
+        TelaEdicao telaEdicao = new TelaEdicao();
+        telaEdicao.edicaoTPane.setSelectedIndex(0);
+        telaEdicao.setVisible(true);
+    }//GEN-LAST:event_EditarEdicaoActionPerformed
+
+    private void EditarPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarPessoaActionPerformed
+        // TODO add your handling code here:
+         TelaPessoa telaPessoa = new TelaPessoa();
+        telaPessoa.pessoaTPane.setSelectedIndex(3);
+        telaPessoa.setVisible(true);
+    }//GEN-LAST:event_EditarPessoaActionPerformed
+
+    private void EditarInscritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarInscritoActionPerformed
+        // TODO add your handling code here:
+         TelaInscrito telaInscrito = new TelaInscrito();
+        telaInscrito.inscritoTPane.setSelectedIndex(3);
+        telaInscrito.setVisible(true);
+    }//GEN-LAST:event_EditarInscritoActionPerformed
+
+    private void EditarOrganizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarOrganizaActionPerformed
+        // TODO add your handling code here:
+        TelaOrganiza telaOrganiza = new TelaOrganiza();
+        telaOrganiza.organizaTPane.setSelectedIndex(2);
+        telaOrganiza.setVisible(true);
+    }//GEN-LAST:event_EditarOrganizaActionPerformed
+
+    private void EditarPatrocinadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarPatrocinadorActionPerformed
+        // TODO add your handling code here:
+        TelaPatrocinador telaPatrocinador = new TelaPatrocinador();
+        telaPatrocinador.patrocinadorTPane.setSelectedIndex(3);
+        telaPatrocinador.setVisible(true);
+        
+    }//GEN-LAST:event_EditarPatrocinadorActionPerformed
+
+    private void EditarPatrocinioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarPatrocinioActionPerformed
+        // TODO add your handling code here:
+        TelaPatrocinio telaPatrocinio = new TelaPatrocinio();
+        telaPatrocinio.patrocinioTPane.setSelectedIndex(3);
+        telaPatrocinio.setVisible(true);
+    }//GEN-LAST:event_EditarPatrocinioActionPerformed
+
+    private void EditarDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarDespesaActionPerformed
+        // TODO add your handling code here:
+        TelaDespesas telaDespesa = new TelaDespesas();
+        telaDespesa.despesaTPane.setSelectedIndex(3);
+        telaDespesa.setVisible(true);
+    }//GEN-LAST:event_EditarDespesaActionPerformed
+
+    private void EditarAuxilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarAuxilioActionPerformed
+        // TODO add your handling code here:
+        TelaAuxilio telaAuxilio = new TelaAuxilio();
+        telaAuxilio.auxilioTPane.setSelectedIndex(3);
+        telaAuxilio.setVisible(true);
+    }//GEN-LAST:event_EditarAuxilioActionPerformed
+
+    private void BuscarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarEventoActionPerformed
+        // TODO add your handling code here:
+        TelaEventos telaEvento = new TelaEventos();
+        telaEvento.TelaEventosInserir.setSelectedIndex(2);
+        telaEvento.setVisible(true);
+        
+    }//GEN-LAST:event_BuscarEventoActionPerformed
+
+    private void BuscarPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarPessoaActionPerformed
+        // TODO add your handling code here:
+         TelaPessoa telaPessoa = new TelaPessoa();
+        telaPessoa.pessoaTPane.setSelectedIndex(0);
+        telaPessoa.setVisible(true);
+    }//GEN-LAST:event_BuscarPessoaActionPerformed
+
+    private void BuscarEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarEdicaoActionPerformed
+        // TODO add your handling code here:
+        TelaEdicao telaEdicao = new TelaEdicao();
+        telaEdicao.edicaoTPane.setSelectedIndex(2);
+        telaEdicao.setVisible(true);
+        
+    }//GEN-LAST:event_BuscarEdicaoActionPerformed
+
+    private void BuscarInscritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarInscritoActionPerformed
+        // TODO add your handling code here:
+        TelaInscrito telaInscrito = new TelaInscrito();
+        telaInscrito.inscritoTPane.setSelectedIndex(1);
+        telaInscrito.setVisible(true);
+    }//GEN-LAST:event_BuscarInscritoActionPerformed
+
+    private void BuscarArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarArtigoActionPerformed
+        // TODO add your handling code here:
+        TelaArtigo telaArtigo = new TelaArtigo();
+        telaArtigo.artigoTPane.setSelectedIndex(1);
+        telaArtigo.setVisible(true);
+    }//GEN-LAST:event_BuscarArtigoActionPerformed
+
+    private void BuscarEscreveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarEscreveActionPerformed
+        // TODO add your handling code here:
+        TelaEscreve telaEscreve = new TelaEscreve();
+        telaEscreve.escreveTPane.setSelectedIndex(1);
+        telaEscreve.setVisible(true);
+    }//GEN-LAST:event_BuscarEscreveActionPerformed
+
+    private void BuscarOrganizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarOrganizaActionPerformed
+        // TODO add your handling code here:
+        TelaOrganiza telaOrganiza = new TelaOrganiza();
+        telaOrganiza.organizaTPane.setSelectedIndex(1);
+        telaOrganiza.setVisible(true);
+    }//GEN-LAST:event_BuscarOrganizaActionPerformed
+
+    private void BuscarPatrocinadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarPatrocinadorActionPerformed
+        // TODO add your handling code here:
+        TelaPatrocinador telaPatrocinador = new TelaPatrocinador();
+        telaPatrocinador.patrocinadorTPane.setSelectedIndex(1);
+        telaPatrocinador.setVisible(true);
+    }//GEN-LAST:event_BuscarPatrocinadorActionPerformed
+
+    private void BuscarPatrocinioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarPatrocinioActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        TelaPatrocinio telaPatrocinio = new TelaPatrocinio();
+        telaPatrocinio.patrocinioTPane.setSelectedIndex(1);
+        telaPatrocinio.setVisible(true);
+        
+    }//GEN-LAST:event_BuscarPatrocinioActionPerformed
+
+    private void BuscarDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDespesaActionPerformed
+        // TODO add your handling code here:
+        TelaDespesas telaDespesa = new TelaDespesas();
+        telaDespesa.despesaTPane.setSelectedIndex(1);
+        telaDespesa.setVisible(true);
+    }//GEN-LAST:event_BuscarDespesaActionPerformed
+
+    private void BuscarAuxilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarAuxilioActionPerformed
+        // TODO add your handling code here:
+        TelaAuxilio telaAuxilio = new TelaAuxilio();
+        telaAuxilio.auxilioTPane.setSelectedIndex(1);
+        telaAuxilio.setVisible(true);
+    }//GEN-LAST:event_BuscarAuxilioActionPerformed
 
     /**
      * @param args the command line arguments
