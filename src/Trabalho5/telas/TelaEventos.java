@@ -51,7 +51,7 @@ public class TelaEventos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         editDescription = new javax.swing.JTextField();
         editWebSite = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        editButton = new javax.swing.JButton();
         jComboBox5 = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         editNameEvent = new javax.swing.JTextField();
@@ -116,7 +116,12 @@ public class TelaEventos extends javax.swing.JFrame {
 
         editDescription.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
-        jButton3.setText("Editar");
+        editButton.setText("Editar");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "item 1" }));
         jComboBox5.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +169,7 @@ public class TelaEventos extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
+                        .addComponent(editButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2))))
             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -199,7 +204,7 @@ public class TelaEventos extends javax.swing.JFrame {
                 .addComponent(editDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
+                    .addComponent(editButton)
                     .addComponent(jButton2)
                     .addComponent(jLabel14))
                 .addGap(37, 37, 37))
@@ -617,6 +622,25 @@ public class TelaEventos extends javax.swing.JFrame {
                 
     }//GEN-LAST:event_jComboBox5ActionPerformed
 
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        String codEv = new String(jComboBox5.getSelectedItem().toString());
+        String name = new String(editNameEvent.getText());
+        String desc = new String(editDescription.getText());
+        String site = new String(editWebSite.getText());
+        try {
+            EventoBD.atualizar(Integer.parseInt(codEv), name, desc, site);
+             JOptionPane.showMessageDialog
+        (null, "Valores atualizados " , "Edição de Evento", JOptionPane.INFORMATION_MESSAGE);
+        jComboBox5.setSelectedIndex(0);
+        editNameEvent.setText("");
+        editDescription.setText("");
+        editWebSite.setText("");
+             
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_editButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -661,13 +685,13 @@ public class TelaEventos extends javax.swing.JFrame {
     private javax.swing.JTextField campoDescEv;
     private javax.swing.JTextField campoNomeEv;
     private javax.swing.JTextField campoSiteEv;
+    private javax.swing.JButton editButton;
     private javax.swing.JTextField editDescription;
     private javax.swing.JTextField editNameEvent;
     private javax.swing.JTextField editWebSite;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

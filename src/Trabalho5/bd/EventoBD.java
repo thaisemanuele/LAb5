@@ -65,7 +65,7 @@ public class EventoBD {
     }
     
     public static void atualizar(Integer codEv, String nomeEv, String descricaoEv, String website) throws SQLException{
-        String update = "UPDATE Evento SET nomeEv = '" +nomeEv+ "',descricaoEv = '" +descricaoEv+ "',website = '" +website+ " WHERE codEv = '" + codEv + "'";
+        String update = "UPDATE Evento SET nomeEv = '" +nomeEv+ "',descricaoEv = '" +descricaoEv+ "',websiteEv = '" +website+ "' WHERE codEv = '" + codEv + "'";
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(update);
     }
