@@ -116,6 +116,7 @@ public class EventoBD {
         String selectSql = "SELECT codEv from Evento";
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectSql);
+        model.addElement(" --- ");
         while(rs.next()){
             System.out.println(rs.getString("codEv"));
             model.addElement(rs.getString("codEv"));
