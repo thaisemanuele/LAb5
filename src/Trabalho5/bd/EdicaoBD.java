@@ -42,7 +42,7 @@ public class EdicaoBD {
     public static void inserir(Integer codEv, Integer numEd, String descricaoEd, 
             String dataInicioEd, String dataFimEd, String localEd, String taxaEd) throws SQLException, ParseException{
         String insert = "INSERT INTO Edicao VALUES( " 
-                + codEv + ", "+ numEd +", '" +descricaoEd+ "',TO_DATE('" +dataInicioEd+"','YYYY-MM-DD')"+",TO_DATE('" +dataInicioEd+"','YYYY-MM-DD')" +",'"+localEd+"',"+Integer.parseInt(taxaEd)+","+0+","+0+")";
+                + codEv + ", "+ numEd +", '" +descricaoEd+ "',TO_DATE('" +dataInicioEd+"','YYYY-MM-DD')"+",TO_DATE('" +dataFimEd+"','YYYY-MM-DD')" +",'"+localEd+"',"+Integer.parseInt(taxaEd)+","+0+","+0+")";
         System.out.println("insert statement " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
@@ -50,11 +50,12 @@ public class EdicaoBD {
     }
     
     public static void atualizar(Integer codEv, Integer numEd,String descricaoEd, 
-            Date dataInicioEd, Date dataFimEd, String localEd, String taxaEd) throws SQLException{
+            String dataInicioEd, String dataFimEd, String localEd, String taxaEd) throws SQLException{
         String update = "UPDATE Edicao SET descricaoEd = '" 
-                +descricaoEd+ "',dataInicioEd = '" +dataInicioEd+"',dataFimEd = '" +dataFimEd+
-                "',localEd = '" +localEd+"',taxaEd = '" +taxaEd+ 
+                +descricaoEd+ "',dataInicioEd = TO_DATE('" +dataInicioEd+"','YYYY-MM-DD')"+",dataFimEd = TO_DATE('" +dataFimEd+"','YYYY-MM-DD')"+
+                ",localEd = '" +localEd+"',taxaEd = " +taxaEd+ 
                 " WHERE numEd = '" + numEd + "' and codEv = '" + codEv + "'";
+        System.out.println("insert statement " + update);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(update);
     }
