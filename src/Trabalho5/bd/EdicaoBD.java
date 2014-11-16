@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -64,11 +65,18 @@ public class EdicaoBD {
         statement.executeUpdate(delete);
     }
     
-    public static void buscar(Integer codEv, Integer numEd) throws SQLException, ParseException{
-        String selectTableSQL = "SELECT descricaoEd, dataInicioEd, dataFimEd, localEd, taxaEd  "
+    public static ArrayList<String> buscar(Integer codEv, Integer numEd) throws SQLException, ParseException{
+        String selectTableSQL = "SELECT descricaoEd, TO_CHAR(dataInicioEd, 'DD-MM-YYYY'), TO_CHAR(dataFimEd, 'DD-MM-YYYY'), localEd, taxaEd  "
                 + " FROM Edicao WHERE numEd = '" + numEd + "' and codEv = '" + codEv + "'";
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
+        ArrayList<String> details = new ArrayList<String>();
+        rs.next();
+        for(int i=1; i<=5;i++){
+            
+            details.add(rs.getString(i));
+        }
+        return details;
     }
     
     public static DefaultComboBoxModel getEditions(Integer codEv) throws SQLException{
