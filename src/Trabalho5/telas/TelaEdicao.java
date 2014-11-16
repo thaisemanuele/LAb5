@@ -15,6 +15,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
+
+
 
 /**
  *
@@ -62,21 +66,21 @@ public class TelaEdicao extends javax.swing.JFrame {
         edicaoInserir = new javax.swing.JPanel();
         TextoCodEv = new javax.swing.JLabel();
         TextoNomeEv = new javax.swing.JLabel();
-        CampoNomeEv = new javax.swing.JTextField();
+        campoNumEd = new javax.swing.JTextField();
         TextoDescEv = new javax.swing.JLabel();
-        CampoDescEv = new javax.swing.JTextField();
+        campoDescEd = new javax.swing.JTextField();
         TextoSiteEv = new javax.swing.JLabel();
-        CampoSiteEv = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        localInsertEd = new javax.swing.JTextField();
+        insertEdButton = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        taxaInsertEd = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
+        selectInsertEv = new javax.swing.JComboBox();
+        jXDatePickerIni = new org.jdesktop.swingx.JXDatePicker();
+        jXDatePickerFim = new org.jdesktop.swingx.JXDatePicker();
         edicaoBuscar = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -152,6 +156,11 @@ public class TelaEdicao extends javax.swing.JFrame {
         });
 
         jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Realmente deseja editar as informações?");
 
@@ -258,29 +267,34 @@ public class TelaEdicao extends javax.swing.JFrame {
 
         TextoNomeEv.setText("Número da Edição:");
 
-        CampoNomeEv.addActionListener(new java.awt.event.ActionListener() {
+        campoNumEd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoNomeEvActionPerformed(evt);
+                campoNumEdActionPerformed(evt);
             }
         });
 
         TextoDescEv.setText("Descrição:");
 
-        CampoDescEv.addActionListener(new java.awt.event.ActionListener() {
+        campoDescEd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoDescEvActionPerformed(evt);
+                campoDescEdActionPerformed(evt);
             }
         });
 
         TextoSiteEv.setText("Local:");
 
-        CampoSiteEv.addActionListener(new java.awt.event.ActionListener() {
+        localInsertEd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoSiteEvActionPerformed(evt);
+                localInsertEdActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Inserir");
+        insertEdButton.setText("Inserir");
+        insertEdButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertEdButtonActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Data de Início:");
 
@@ -297,7 +311,7 @@ public class TelaEdicao extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectInsertEv.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout edicaoInserirLayout = new javax.swing.GroupLayout(edicaoInserir);
         edicaoInserir.setLayout(edicaoInserirLayout);
@@ -306,45 +320,46 @@ public class TelaEdicao extends javax.swing.JFrame {
             .addGroup(edicaoInserirLayout.createSequentialGroup()
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(taxaInsertEd, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(edicaoInserirLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(edicaoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(edicaoInserirLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 446, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(insertEdButton)
                         .addGap(5, 5, 5)
                         .addComponent(jButton8))
                     .addGroup(edicaoInserirLayout.createSequentialGroup()
-                        .addGroup(edicaoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(edicaoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(TextoCodEv, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TextoNomeEv))
-                            .addGroup(edicaoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(CampoNomeEv, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CampoDescEv, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(edicaoInserirLayout.createSequentialGroup()
-                                    .addComponent(jLabel10)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel11)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(edicaoInserirLayout.createSequentialGroup()
-                                    .addComponent(TextoSiteEv, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(CampoSiteEv))
-                                .addGroup(edicaoInserirLayout.createSequentialGroup()
-                                    .addGap(98, 98, 98)
-                                    .addComponent(jLabel6)))
+                        .addGap(10, 10, 10)
+                        .addGroup(edicaoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextoCodEv, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoDescEd, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(edicaoInserirLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(18, 18, 18)
+                                .addComponent(jXDatePickerIni, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42)
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jXDatePickerFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(edicaoInserirLayout.createSequentialGroup()
+                                .addGap(98, 98, 98)
+                                .addComponent(jLabel6))
                             .addGroup(edicaoInserirLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(TextoDescEv))
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(selectInsertEv, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(edicaoInserirLayout.createSequentialGroup()
+                                .addComponent(TextoSiteEv, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(localInsertEd)))
+                        .addGap(0, 81, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(edicaoInserirLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TextoNomeEv)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         edicaoInserirLayout.setVerticalGroup(
             edicaoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,34 +368,34 @@ public class TelaEdicao extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TextoCodEv)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addComponent(selectInsertEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(TextoNomeEv, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(CampoNomeEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TextoDescEv)
                 .addGap(8, 8, 8)
-                .addComponent(CampoDescEv, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoDescEd, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addGroup(edicaoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jXDatePickerIni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jXDatePickerFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(edicaoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextoSiteEv)
-                    .addComponent(CampoSiteEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(localInsertEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(edicaoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(taxaInsertEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(edicaoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(insertEdButton)
                     .addComponent(jButton8))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         edicaoTPane.addTab("Inserir", edicaoInserir);
@@ -725,17 +740,17 @@ public class TelaEdicao extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CampoSiteEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoSiteEvActionPerformed
+    private void localInsertEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localInsertEdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CampoSiteEvActionPerformed
+    }//GEN-LAST:event_localInsertEdActionPerformed
 
-    private void CampoDescEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoDescEvActionPerformed
+    private void campoDescEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDescEdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CampoDescEvActionPerformed
+    }//GEN-LAST:event_campoDescEdActionPerformed
 
-    private void CampoNomeEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoNomeEvActionPerformed
+    private void campoNumEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNumEdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CampoNomeEvActionPerformed
+    }//GEN-LAST:event_campoNumEdActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
@@ -783,11 +798,40 @@ public class TelaEdicao extends javax.swing.JFrame {
             localEdicao.setText(details.get(3));
             taxaEdicao.setText(details.get(4));
         } catch (SQLException ex) {
-            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaEdicao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
-            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaEdicao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_selectEdicaoNumActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void insertEdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertEdButtonActionPerformed
+        if(selectInsertEv.getSelectedIndex()==0) return;
+        Integer evento = Integer.parseInt(selectInsertEv.getSelectedItem().toString());
+        String desc = new String(campoDescEd.getText());
+        java.sql.Date sqlIniDate = new java.sql.Date(jXDatePickerIni.getDate().getTime());
+        java.sql.Date sqlFimDate = new java.sql.Date(jXDatePickerFim.getDate().getTime());
+        try{
+          Integer num = Integer.parseInt(campoNumEd.getText());
+          System.out.println(num);
+            try {
+                EdicaoBD.inserir(evento, num, desc, sqlIniDate.toString(), sqlFimDate.toString(), localInsertEd.getText(),taxaInsertEd.getText());
+            } catch (ParseException ex) {
+                Logger.getLogger(TelaEdicao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (NumberFormatException e){
+            System.err.println("SQL Error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Numero de Edição inválido", "Erro", JOptionPane.WARNING_MESSAGE);
+            campoNumEd.setText("");
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEdicao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_insertEdButtonActionPerformed
 
     private void loadComboBox(){
         DefaultComboBoxModel model = new DefaultComboBoxModel();
@@ -798,6 +842,7 @@ public class TelaEdicao extends javax.swing.JFrame {
             emptyModel.addElement(" Selecione um Evento ");
             selectEdicaoEvento.setModel(model);
             selectEdicaoNum.setModel(emptyModel);
+            selectInsertEv.setModel(model);
             
         } catch (SQLException ex) {
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
@@ -839,13 +884,12 @@ public class TelaEdicao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CampoDescEv;
-    private javax.swing.JTextField CampoNomeEv;
-    private javax.swing.JTextField CampoSiteEv;
     private javax.swing.JLabel TextoCodEv;
     private javax.swing.JLabel TextoDescEv;
     private javax.swing.JLabel TextoNomeEv;
     private javax.swing.JLabel TextoSiteEv;
+    private javax.swing.JTextField campoDescEd;
+    private javax.swing.JTextField campoNumEd;
     private javax.swing.JTextField descEdicao;
     private javax.swing.JPanel edicaoBuscar;
     private javax.swing.JPanel edicaoDeletar;
@@ -854,7 +898,7 @@ public class TelaEdicao extends javax.swing.JFrame {
     protected javax.swing.JTabbedPane edicaoTPane;
     private javax.swing.JTextField fimEdicao;
     private javax.swing.JTextField iniEdicao;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton insertEdButton;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
@@ -863,7 +907,6 @@ public class TelaEdicao extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JLabel jLabel1;
@@ -903,9 +946,6 @@ public class TelaEdicao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
@@ -923,9 +963,14 @@ public class TelaEdicao extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private org.jdesktop.swingx.JXDatePicker jXDatePickerFim;
+    private org.jdesktop.swingx.JXDatePicker jXDatePickerIni;
     private javax.swing.JTextField localEdicao;
+    private javax.swing.JTextField localInsertEd;
     private javax.swing.JComboBox selectEdicaoEvento;
     private javax.swing.JComboBox selectEdicaoNum;
+    private javax.swing.JComboBox selectInsertEv;
     private javax.swing.JTextField taxaEdicao;
+    private javax.swing.JTextField taxaInsertEd;
     // End of variables declaration//GEN-END:variables
 }

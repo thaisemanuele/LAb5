@@ -6,9 +6,11 @@
 package Trabalho5.bd;
 
 import java.sql.ResultSet;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 
@@ -38,11 +40,9 @@ public class EdicaoBD {
     }
   
     public static void inserir(Integer codEv, Integer numEd, String descricaoEd, 
-            String dataIni, String dataFim, String localEd, String taxaEd) throws SQLException{
-        
+            String dataInicioEd, String dataFimEd, String localEd, String taxaEd) throws SQLException, ParseException{
         String insert = "INSERT INTO Edicao VALUES( " 
-                + codEv + ", "+ numEd +", '" +descricaoEd+ "','" 
-                    +dataIni+ "','"+dataFim+"','"+localEd+"','"+taxaEd+"')";
+                + codEv + ", "+ numEd +", '" +descricaoEd+ "',TO_DATE('" +dataInicioEd+"','YYYY-MM-DD')"+",TO_DATE('" +dataInicioEd+"','YYYY-MM-DD')" +",'"+localEd+"',"+Integer.parseInt(taxaEd)+","+0+","+0+")";
         System.out.println("insert statement " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
@@ -50,7 +50,7 @@ public class EdicaoBD {
     }
     
     public static void atualizar(Integer codEv, Integer numEd,String descricaoEd, 
-            String dataInicioEd, String dataFimEd, String localEd, String taxaEd) throws SQLException{
+            Date dataInicioEd, Date dataFimEd, String localEd, String taxaEd) throws SQLException{
         String update = "UPDATE Edicao SET descricaoEd = '" 
                 +descricaoEd+ "',dataInicioEd = '" +dataInicioEd+"',dataFimEd = '" +dataFimEd+
                 "',localEd = '" +localEd+"',taxaEd = '" +taxaEd+ 
@@ -66,7 +66,8 @@ public class EdicaoBD {
     }
     
     public static ArrayList<String> buscar(Integer codEv, Integer numEd) throws SQLException, ParseException{
-        String selectTableSQL = "SELECT descricaoEd, TO_CHAR(dataInicioEd, 'DD-MM-YYYY'), TO_CHAR(dataFimEd, 'DD-MM-YYYY'), localEd, taxaEd  "
+        String selectTableSQL = "SELECT descricaoEd, TO_CHAR(dataInicioEd, 'DD-MM-YYYY'), "
+                + "TO_CHAR(dataFimEd, 'DD-MM-YYYY'), localEd, TO_CHAR ( taxaEd, 'FML999G999D99')"
                 + " FROM Edicao WHERE numEd = '" + numEd + "' and codEv = '" + codEv + "'";
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
