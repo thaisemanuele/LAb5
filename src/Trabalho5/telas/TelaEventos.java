@@ -707,7 +707,8 @@ public class TelaEventos extends javax.swing.JFrame {
             EventoBD.atualizar(Integer.parseInt(codEv), name, desc, site);
              JOptionPane.showMessageDialog
         (null, "Valores atualizados " , "Edição de Evento", JOptionPane.INFORMATION_MESSAGE);
-        clearFields();     
+        clearFields();
+        loadComboBox();   
         } catch (SQLException ex) {
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
         }
