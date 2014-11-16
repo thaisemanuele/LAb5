@@ -11,7 +11,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Vector;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -79,6 +84,20 @@ public class EventoBD {
         if (rs.next()) return new EventoBD(rs.getInt("codeEv"), rs.getString("nomeEv"),rs.getString("descricaoEv"), rs.getString("website"),rs.getInt("totalArtigosApresentados"));
         else return null;
     }
+    
+    public static ArrayList<String> fetchEvent(String codEv) throws SQLException, ParseException{
+        String selectTableSQL = "SELECT codEv, nomeEv, descricaoEv, websiteEv FROM Evento WHERE codEv = '" + codEv + "'";
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectTableSQL);
+        ArrayList<String> details = new ArrayList<String>();
+        rs.next();
+        for(int i=1; i<=4;i++){
+            
+            details.add(rs.getString(i));
+        }
+        return details;
+    }
+    
     private static Integer getSeq()throws SQLException{
         String selectSql = "SELECT max(codEv) from Evento";
         Statement statement = dbConnection.createStatement();
@@ -86,10 +105,23 @@ public class EventoBD {
         if(rs.next()){
             seqCodEv = rs.getInt(1);
         }
-       return seqCodEv + 1;
-        
-        
-        
+       return seqCodEv + 1;  
+    }
+    
+     public static DefaultComboBoxModel getEventsCode() throws SQLException{
+         int i=1;
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox codes = new JComboBox();
+        codes.isEditable();
+        String selectSql = "SELECT codEv from Evento";
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectSql);
+        while(rs.next()){
+            System.out.println(rs.getString("codEv"));
+            model.addElement(rs.getString("codEv"));
+            i++;
+        }
+       return model;
     }
     
 }
