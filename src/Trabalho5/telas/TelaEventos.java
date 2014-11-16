@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.MutableComboBoxModel;
@@ -26,12 +27,15 @@ public class TelaEventos extends javax.swing.JFrame {
      */
     public TelaEventos() {
         initComponents();
-         try {
-            jComboBox5.setModel(EventoBD.getEventsCode());
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        try {
+            model = EventoBD.getEventsCode();
+            jComboBox5.setModel(model);
+            searchForCode.setModel(model);
         } catch (SQLException ex) {
-            System.out.println("ERRor ");
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
     /**
@@ -73,14 +77,14 @@ public class TelaEventos extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        searchDescription = new javax.swing.JTextField();
+        searchWebSite = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         searchForCode = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        searchNameEvent = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        searchCodEv = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jComboBox8 = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
@@ -309,6 +313,11 @@ public class TelaEventos extends javax.swing.JFrame {
         jButton5.setText("Buscar");
 
         searchForCode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchForCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchForCodeActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Nome do Evento:");
 
@@ -370,10 +379,10 @@ public class TelaEventos extends javax.swing.JFrame {
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel8))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField8)
-                            .addComponent(jTextField2))
+                            .addComponent(searchCodEv, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(searchDescription, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(searchWebSite)
+                            .addComponent(searchNameEvent))
                         .addContainerGap())))
         );
         jPanel6Layout.setVerticalGroup(
@@ -396,19 +405,19 @@ public class TelaEventos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchCodEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchNameEvent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchWebSite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6)
                 .addContainerGap())
@@ -614,7 +623,6 @@ public class TelaEventos extends javax.swing.JFrame {
             editNameEvent.setText(details.get(1));
             editDescription.setText(details.get(2));
             editWebSite.setText(details.get(3));
-            System.out.println(details.get(3));
         } catch (SQLException ex) {
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
@@ -642,6 +650,24 @@ public class TelaEventos extends javax.swing.JFrame {
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_editButtonActionPerformed
+
+    private void searchForCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchForCodeActionPerformed
+        ArrayList <String> details = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        if(jcb.getSelectedIndex()==0) return;
+        try {
+            details = EventoBD.fetchEvent(jcb.getSelectedItem().toString());
+            searchCodEv.setText(details.get(0));
+            searchNameEvent.setText(details.get(1));
+            searchDescription.setText(details.get(2));
+            searchWebSite.setText(details.get(3));
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchForCodeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -737,10 +763,10 @@ public class TelaEventos extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField searchCodEv;
+    private javax.swing.JTextField searchDescription;
     private javax.swing.JComboBox searchForCode;
+    private javax.swing.JTextField searchNameEvent;
+    private javax.swing.JTextField searchWebSite;
     // End of variables declaration//GEN-END:variables
 }
