@@ -124,5 +124,32 @@ public class EventoBD {
         }
        return model;
     }
+     
+     public static DefaultComboBoxModel getEventsName() throws SQLException{
+         int i=1;
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        String selectSql = "SELECT NomeEv from Evento";
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectSql);
+        model.addElement(" --- ");
+        while(rs.next()){
+            
+            model.addElement(rs.getString("NomeEv"));
+            i++;
+        }
+       return model;
+    }
     
+     public static ArrayList<String> fetchNameEvent(String nomeEv) throws SQLException, ParseException{
+        String selectTableSQL = "SELECT codEv, nomeEv, descricaoEv, websiteEv FROM Evento WHERE nomeEv = '" + nomeEv + "'";
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectTableSQL);
+        ArrayList<String> details = new ArrayList<String>();
+        rs.next();
+        for(int i=1; i<=4;i++){
+            
+            details.add(rs.getString(i));
+        }
+        return details;
+    }
 }
