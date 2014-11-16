@@ -771,7 +771,8 @@ public class TelaEdicao extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -835,6 +836,7 @@ public class TelaEdicao extends javax.swing.JFrame {
                 EdicaoBD.inserir(evento, num, desc, sqlIniDate.toString(), sqlFimDate.toString(), localInsertEd.getText(),taxaInsertEd.getText());
                 JOptionPane.showMessageDialog
         (null, "Edição Cadastrada" , "Nova Edição", JOptionPane.INFORMATION_MESSAGE);
+                clearFields();
             } catch (ParseException ex) {
                 Logger.getLogger(TelaEdicao.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -855,8 +857,21 @@ public class TelaEdicao extends javax.swing.JFrame {
         java.sql.Date sqlIniDate = new java.sql.Date(datePickerEditIni.getDate().getTime());
         java.sql.Date sqlFimDate = new java.sql.Date(datePickerEditFim.getDate().getTime());
         Integer num = Integer.parseInt(selectEdicaoNum.getSelectedItem().toString());
+        String taxa = new String();
+        taxa = taxaEdicao.getText();
+        if(taxa.startsWith("£")||(taxa.startsWith("$"))){
+            System.out.println(taxa);
+            taxa = taxa.substring(1);
+        }
+        if(taxa.contains("R$")) taxa = taxa.substring(2);
+        if(taxa.contains(",")){
+            taxa = taxa.replace(",", "");
+        }
+        if(taxa.endsWith(".")) taxa = taxa.replace(".", "");
+        System.out.println(taxa);
+            
         try {
-            EdicaoBD.atualizar(evento, num, desc, sqlIniDate.toString(), sqlFimDate.toString(), localEdicao.getText(),taxaEdicao.getText().substring(1));
+            EdicaoBD.atualizar(evento, num, desc, sqlIniDate.toString(), sqlFimDate.toString(), localEdicao.getText(),taxa);
             JOptionPane.showMessageDialog
             (null, "Valores Atualizados" , "Atualizar Edição", JOptionPane.INFORMATION_MESSAGE);
             clearFields();
@@ -892,6 +907,14 @@ public class TelaEdicao extends javax.swing.JFrame {
         datePickerEditFim.setDate(null);
         localEdicao.setText("");
         taxaEdicao.setText("");
+        //Campos da Inserção
+        selectInsertEv.setSelectedIndex(0);
+        campoNumEd.setText("");
+        campoDescEd.setText("");
+        jXDatePickerIni.setDate(null);
+        jXDatePickerFim.setDate(null);
+        localInsertEd.setText("");
+        taxaInsertEd.setText("");
     }
     /**
      * @param args the command line arguments
