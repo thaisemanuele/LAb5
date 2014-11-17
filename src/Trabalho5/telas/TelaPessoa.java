@@ -6,6 +6,16 @@
 
 package Trabalho5.telas;
 
+import Trabalho5.bd.EdicaoBD;
+import Trabalho5.bd.PessoaBD;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author Gabriela
@@ -17,6 +27,7 @@ public class TelaPessoa extends javax.swing.JFrame {
      */
     public TelaPessoa() {
         initComponents();
+        loadComboBox();
     }
 
     /**
@@ -37,24 +48,24 @@ public class TelaPessoa extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
+        checkOrg = new javax.swing.JCheckBox();
+        checkPart = new javax.swing.JCheckBox();
+        checkAut = new javax.swing.JCheckBox();
         jButton7 = new javax.swing.JButton();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
+        campoNomePe = new javax.swing.JTextField();
+        campoEmailPe = new javax.swing.JTextField();
+        campoTelPe = new javax.swing.JTextField();
+        campoNacPe = new javax.swing.JTextField();
+        campoInstPe = new javax.swing.JTextField();
+        campoEndPe = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        selectIdPe = new javax.swing.JComboBox();
         jButton9 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
+        selectEmailPe = new javax.swing.JComboBox();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
+        campoIdPe = new javax.swing.JTextField();
         pessoaInserir = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -150,39 +161,44 @@ public class TelaPessoa extends javax.swing.JFrame {
 
         jLabel22.setText("Endereço:");
 
-        jCheckBox7.setText("Organizador");
-        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+        checkOrg.setText("Organizador");
+        checkOrg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox7ActionPerformed(evt);
+                checkOrgActionPerformed(evt);
             }
         });
 
-        jCheckBox8.setText("Participante");
-        jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
+        checkPart.setText("Participante");
+        checkPart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox8ActionPerformed(evt);
+                checkPartActionPerformed(evt);
             }
         });
 
-        jCheckBox9.setText("Autor");
+        checkAut.setText("Autor");
 
         jButton7.setText("Buscar");
 
-        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+        campoEmailPe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField14ActionPerformed(evt);
+                campoEmailPeActionPerformed(evt);
             }
         });
 
-        jTextField18.addActionListener(new java.awt.event.ActionListener() {
+        campoEndPe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField18ActionPerformed(evt);
+                campoEndPeActionPerformed(evt);
             }
         });
 
         jLabel23.setText("1) Buscar por ID:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectIdPe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectIdPe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectIdPeActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Voltar");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +209,12 @@ public class TelaPessoa extends javax.swing.JFrame {
 
         jLabel13.setText("2) Buscar por e-mail:");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectEmailPe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectEmailPe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectEmailPeActionPerformed(evt);
+            }
+        });
 
         jLabel16.setText("As seguintes informações foram encontradas: ");
 
@@ -209,40 +230,26 @@ public class TelaPessoa extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pessoaBuscarLayout.createSequentialGroup()
                         .addComponent(jLabel23)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(selectIdPe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pessoaBuscarLayout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addGap(77, 77, 77)
-                        .addComponent(jTextField19))
-                    .addGroup(pessoaBuscarLayout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(54, 54, 54)
-                        .addComponent(jTextField13))
-                    .addGroup(pessoaBuscarLayout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addGap(49, 49, 49)
-                        .addComponent(jTextField14))
-                    .addGroup(pessoaBuscarLayout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addGap(24, 24, 24)
-                        .addComponent(jTextField17))
-                    .addGroup(pessoaBuscarLayout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addGap(37, 37, 37)
-                        .addComponent(jTextField15))
-                    .addGroup(pessoaBuscarLayout.createSequentialGroup()
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField16))
-                    .addGroup(pessoaBuscarLayout.createSequentialGroup()
-                        .addComponent(jLabel22)
-                        .addGap(34, 34, 34)
-                        .addComponent(jTextField18))
-                    .addGroup(pessoaBuscarLayout.createSequentialGroup()
-                        .addComponent(jCheckBox8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(checkOrg)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkPart)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkAut)
+                        .addGap(46, 46, 46)
                         .addComponent(jButton9)
                         .addGap(107, 107, 107))
+                    .addGroup(pessoaBuscarLayout.createSequentialGroup()
+                        .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(campoIdPe, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                            .addComponent(campoNomePe))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pessoaBuscarLayout.createSequentialGroup()
                         .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pessoaBuscarLayout.createSequentialGroup()
@@ -251,12 +258,28 @@ public class TelaPessoa extends javax.swing.JFrame {
                             .addGroup(pessoaBuscarLayout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jCheckBox7)
-                                .addGroup(pessoaBuscarLayout.createSequentialGroup()
-                                    .addComponent(jCheckBox9)
-                                    .addGap(39, 39, 39))))
+                                .addComponent(selectEmailPe, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pessoaBuscarLayout.createSequentialGroup()
+                                    .addComponent(jLabel20)
+                                    .addGap(26, 26, 26)
+                                    .addComponent(campoTelPe))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pessoaBuscarLayout.createSequentialGroup()
+                                    .addComponent(jLabel18)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(campoInstPe))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pessoaBuscarLayout.createSequentialGroup()
+                                    .addComponent(jLabel15)
+                                    .addGap(40, 40, 40)
+                                    .addComponent(campoEmailPe, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pessoaBuscarLayout.createSequentialGroup()
+                                    .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel22)
+                                        .addComponent(jLabel21))
+                                    .addGap(13, 13, 13)
+                                    .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(campoNacPe)
+                                        .addComponent(campoEndPe)))))
                         .addGap(0, 23, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(pessoaBuscarLayout.createSequentialGroup()
@@ -270,11 +293,11 @@ public class TelaPessoa extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(selectIdPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(selectEmailPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -282,40 +305,38 @@ public class TelaPessoa extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoIdPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoNomePe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoEmailPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoInstPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoTelPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoNacPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel22)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addComponent(jCheckBox7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jCheckBox8)
-                    .addComponent(jButton9))
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox9)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(campoEndPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton9)
+                    .addComponent(checkAut)
+                    .addComponent(checkPart)
+                    .addComponent(checkOrg))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
 
         pessoaTPane.addTab("Buscar", pessoaBuscar);
@@ -858,24 +879,25 @@ public class TelaPessoa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+    private void checkOrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkOrgActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox7ActionPerformed
+    }//GEN-LAST:event_checkOrgActionPerformed
 
-    private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
+    private void checkPartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkPartActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox8ActionPerformed
+    }//GEN-LAST:event_checkPartActionPerformed
 
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+    private void campoEmailPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmailPeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField14ActionPerformed
+    }//GEN-LAST:event_campoEmailPeActionPerformed
 
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+    private void campoEndPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEndPeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
+    }//GEN-LAST:event_campoEndPeActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jCheckBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox10ActionPerformed
@@ -898,6 +920,93 @@ public class TelaPessoa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    private void selectIdPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectIdPeActionPerformed
+        if(selectIdPe.getSelectedIndex() ==0)return;
+        selectEmailPe.setSelectedIndex(0);
+        clearFields();
+        ArrayList <String> details = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        try {
+            details = PessoaBD.buscar(Integer.parseInt(jcb.getSelectedItem().toString()));
+            campoIdPe.setText(details.get(0));
+            campoNomePe.setText(details.get(1));
+            campoEmailPe.setText(details.get(2));
+            campoInstPe.setText(details.get(3));
+            campoTelPe.setText(details.get(4));
+            campoNacPe.setText(details.get(5));
+            campoEndPe.setText(details.get(6));
+            if(Integer.parseInt(details.get(7))==1)
+                checkOrg.setSelected(true);
+            if(Integer.parseInt(details.get(8))==1)
+                checkPart.setSelected(true);
+            if(Integer.parseInt(details.get(9))==1)
+                checkAut.setSelected(true);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectIdPeActionPerformed
+
+    private void selectEmailPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectEmailPeActionPerformed
+        if(selectEmailPe.getSelectedIndex() ==0)return;
+        selectIdPe.setSelectedIndex(0);
+        clearFields();
+        ArrayList <String> details = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        try {
+            details = PessoaBD.searchByEmail(jcb.getSelectedItem().toString());
+            campoIdPe.setText(details.get(0));
+            campoNomePe.setText(details.get(1));
+            campoEmailPe.setText(details.get(2));
+            campoInstPe.setText(details.get(3));
+            campoTelPe.setText(details.get(4));
+            campoNacPe.setText(details.get(5));
+            campoEndPe.setText(details.get(6));
+            if(Integer.parseInt(details.get(7))==1)
+                checkOrg.setSelected(true);
+            if(Integer.parseInt(details.get(8))==1)
+                checkPart.setSelected(true);
+            if(Integer.parseInt(details.get(9))==1)
+                checkAut.setSelected(true);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectEmailPeActionPerformed
+
+    private void loadComboBox(){
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        DefaultComboBoxModel emailsModel = new DefaultComboBoxModel();
+        try {
+            model = PessoaBD.getIdPe();
+            emailsModel = PessoaBD.getEmailPe();
+            selectIdPe.setModel(model);
+            selectEmailPe.setModel(emailsModel);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void clearFields(){
+        //Busca
+        campoIdPe.setText("");
+        campoNomePe.setText("");
+        campoEmailPe.setText("");
+        campoInstPe.setText("");
+        campoTelPe.setText("");
+        campoNacPe.setText("");
+        campoEndPe.setText("");
+        checkOrg.setSelected(false);
+        checkPart.setSelected(false);
+        checkAut.setSelected(false);
+    }
     /**
      * @param args the command line arguments
      */
@@ -934,6 +1043,16 @@ public class TelaPessoa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField campoEmailPe;
+    private javax.swing.JTextField campoEndPe;
+    private javax.swing.JTextField campoIdPe;
+    private javax.swing.JTextField campoInstPe;
+    private javax.swing.JTextField campoNacPe;
+    private javax.swing.JTextField campoNomePe;
+    private javax.swing.JTextField campoTelPe;
+    private javax.swing.JCheckBox checkAut;
+    private javax.swing.JCheckBox checkOrg;
+    private javax.swing.JCheckBox checkPart;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
@@ -953,12 +1072,7 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JLabel jLabel1;
@@ -1003,13 +1117,6 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
@@ -1030,5 +1137,7 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JPanel pessoaEditar;
     private javax.swing.JPanel pessoaInserir;
     protected javax.swing.JTabbedPane pessoaTPane;
+    private javax.swing.JComboBox selectEmailPe;
+    private javax.swing.JComboBox selectIdPe;
     // End of variables declaration//GEN-END:variables
 }
