@@ -141,6 +141,11 @@ public class TelaDespesas extends javax.swing.JFrame {
         });
 
         jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout despesaInserirLayout = new javax.swing.GroupLayout(despesaInserir);
         despesaInserir.setLayout(despesaInserirLayout);
@@ -238,6 +243,11 @@ public class TelaDespesas extends javax.swing.JFrame {
         jLabel18.setText("Valor da despesa:");
 
         jButton4.setText("Voltar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout despesaBuscarLayout = new javax.swing.GroupLayout(despesaBuscar);
         despesaBuscar.setLayout(despesaBuscarLayout);
@@ -373,6 +383,11 @@ public class TelaDespesas extends javax.swing.JFrame {
         jLabel28.setText("Valor da despesa:");
 
         jButton6.setText("Voltar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jLabel29.setText("Realmente deseja deletar?");
 
@@ -515,6 +530,11 @@ public class TelaDespesas extends javax.swing.JFrame {
         jLabel39.setText("Valor da despesa:");
 
         jButton9.setText("Voltar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jLabel40.setText("Realmente deseja editar?");
 
@@ -653,6 +673,30 @@ public class TelaDespesas extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments

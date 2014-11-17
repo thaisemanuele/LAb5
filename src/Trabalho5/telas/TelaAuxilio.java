@@ -132,6 +132,11 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jButton1.setText("Inserir");
 
         jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout auxilioInserirLayout = new javax.swing.GroupLayout(auxilioInserir);
         auxilioInserir.setLayout(auxilioInserirLayout);
@@ -239,6 +244,11 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jLabel15.setText("Tipo de auxílio:");
 
         jButton4.setText("Voltar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout auxilioBuscarLayout = new javax.swing.GroupLayout(auxilioBuscar);
         auxilioBuscar.setLayout(auxilioBuscarLayout);
@@ -356,6 +366,11 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jLabel23.setText("Tipo de auxílio:");
 
         jButton6.setText("Voltar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Deletar");
 
@@ -479,6 +494,11 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jLabel32.setText("Tipo de auxílio:");
 
         jButton9.setText("Voltar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jButton10.setText("Deletar");
 
@@ -591,6 +611,30 @@ public class TelaAuxilio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         this.setVisible(false);
+         dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
