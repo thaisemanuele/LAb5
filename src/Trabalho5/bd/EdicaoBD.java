@@ -67,19 +67,20 @@ public class EdicaoBD {
     }
     
     public static ArrayList<String> buscar(Integer codEv, Integer numEd) throws SQLException, ParseException{
-        String selectTableSQL = "SELECT descricaoEd, TO_CHAR(dataInicioEd, 'DD-MM-YYYY'), "
-                + "TO_CHAR(dataFimEd, 'DD-MM-YYYY'), localEd, TO_CHAR ( taxaEd, 'FML999G999D99')"
+        String selectTableSQL = "SELECT codEv, numEd, descricaoEd, TO_CHAR(dataInicioEd, 'DD-MM-YYYY'), "
+                + "TO_CHAR(dataFimEd, 'DD-MM-YYYY'), localEd, TO_CHAR ( taxaEd, 'FML999G999D99'), saldoFinanceiroEd, qtdArtigosApresentadosEd"
                 + " FROM Edicao WHERE numEd = '" + numEd + "' and codEv = '" + codEv + "'";
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
         ArrayList<String> details = new ArrayList<String>();
         rs.next();
-        for(int i=1; i<=5;i++){
+        for(int i=1; i<=9;i++){
             
             details.add(rs.getString(i));
         }
         return details;
     }
+    
     
     public static DefaultComboBoxModel getEditions(Integer codEv) throws SQLException{
          int i=1;

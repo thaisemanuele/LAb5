@@ -8,7 +8,6 @@ package Trabalho5.telas;
 
 import Trabalho5.bd.EdicaoBD;
 import Trabalho5.bd.EventoBD;
-import java.beans.PropertyVetoException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -47,6 +46,7 @@ public class TelaEdicao extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
         edicaoTPane = new javax.swing.JTabbedPane();
         edicaoEditar = new javax.swing.JPanel();
@@ -85,30 +85,6 @@ public class TelaEdicao extends javax.swing.JFrame {
         selectInsertEv = new javax.swing.JComboBox();
         jXDatePickerIni = new org.jdesktop.swingx.JXDatePicker();
         jXDatePickerFim = new org.jdesktop.swingx.JXDatePicker();
-        edicaoBuscar = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jComboBox4 = new javax.swing.JComboBox();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        jLabel22 = new javax.swing.JLabel();
-        jTextField23 = new javax.swing.JTextField();
-        jLabel33 = new javax.swing.JLabel();
-        jTextField24 = new javax.swing.JTextField();
         edicaoDeletar = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -135,6 +111,41 @@ public class TelaEdicao extends javax.swing.JFrame {
         jTextField25 = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
         jTextField26 = new javax.swing.JTextField();
+        edicaoBuscar = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        searchDateIni = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        searchDateFim = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        searchLocal = new javax.swing.JTextField();
+        searchTaxa = new javax.swing.JTextField();
+        searchEd = new javax.swing.JComboBox();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
+        searchQtdArtigos = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        searchSaldo = new javax.swing.JTextField();
+        searchEdNum = new javax.swing.JComboBox();
+        editionCode = new javax.swing.JTextField();
+        editionNumber = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        editionDescription = new javax.swing.JTextArea();
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -337,35 +348,37 @@ public class TelaEdicao extends javax.swing.JFrame {
                     .addGroup(edicaoInserirLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(insertEdButton)
-                        .addGap(5, 5, 5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton8))
                     .addGroup(edicaoInserirLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(edicaoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(TextoCodEv, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoDescEd, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(edicaoInserirLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(jXDatePickerIni, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 42, 42)
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jXDatePickerFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(edicaoInserirLayout.createSequentialGroup()
                                 .addGap(98, 98, 98)
                                 .addComponent(jLabel6))
                             .addGroup(edicaoInserirLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(TextoDescEv))
-                            .addComponent(selectInsertEv, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoDescEd)
+                            .addComponent(campoNumEd)
+                            .addComponent(selectInsertEv, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(edicaoInserirLayout.createSequentialGroup()
-                                .addComponent(TextoSiteEv, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(localInsertEd)))
-                        .addGap(0, 81, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel10)
+                                .addGap(28, 28, 28)
+                                .addComponent(jXDatePickerIni, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel11)
+                                .addGap(26, 26, 26)
+                                .addComponent(jXDatePickerFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17))
+                            .addGroup(edicaoInserirLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(TextoSiteEv, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(localInsertEd, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(79, Short.MAX_VALUE))
             .addGroup(edicaoInserirLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(TextoNomeEv)
@@ -395,8 +408,8 @@ public class TelaEdicao extends javax.swing.JFrame {
                     .addComponent(jXDatePickerFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(edicaoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextoSiteEv)
-                    .addComponent(localInsertEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(localInsertEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextoSiteEv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(edicaoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
@@ -409,160 +422,6 @@ public class TelaEdicao extends javax.swing.JFrame {
         );
 
         edicaoTPane.addTab("Inserir", edicaoInserir);
-
-        jLabel5.setText("Escolha o evento e a edição a serem buscados:");
-
-        jLabel14.setText("Descrição:");
-
-        jLabel15.setText("Data de  Início:");
-
-        jButton6.setText("Buscar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        jLabel16.setText("Data Fim:");
-
-        jLabel17.setText("Local:");
-
-        jLabel18.setText("Taxa de inscrição:");
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel13.setText("As informações encontradas foram:");
-
-        jLabel20.setText("Código do Evento:");
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jLabel21.setText("Número da Edição:");
-
-        jButton4.setText("Voltar");
-
-        jLabel22.setText("Saldo Financeiro:");
-
-        jLabel33.setText("Quantidade de artigos apresentados:");
-
-        javax.swing.GroupLayout edicaoBuscarLayout = new javax.swing.GroupLayout(edicaoBuscar);
-        edicaoBuscar.setLayout(edicaoBuscarLayout);
-        edicaoBuscarLayout.setHorizontalGroup(
-            edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, edicaoBuscarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(41, 41, 41))
-            .addGroup(edicaoBuscarLayout.createSequentialGroup()
-                .addGap(237, 237, 237)
-                .addComponent(jButton6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(edicaoBuscarLayout.createSequentialGroup()
-                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(edicaoBuscarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel33)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(edicaoBuscarLayout.createSequentialGroup()
-                            .addGap(155, 155, 155)
-                            .addComponent(jLabel13))
-                        .addGroup(edicaoBuscarLayout.createSequentialGroup()
-                            .addGap(163, 163, 163)
-                            .addComponent(jLabel5))
-                        .addGroup(edicaoBuscarLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField7)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, edicaoBuscarLayout.createSequentialGroup()
-                                    .addComponent(jLabel20)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel21)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jComboBox4, 0, 545, Short.MAX_VALUE)))
-                        .addGroup(edicaoBuscarLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(edicaoBuscarLayout.createSequentialGroup()
-                                    .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel15)
-                                        .addComponent(jLabel17))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(edicaoBuscarLayout.createSequentialGroup()
-                                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jLabel16)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jTextField16)))
-                                .addGroup(edicaoBuscarLayout.createSequentialGroup()
-                                    .addComponent(jLabel18)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel22)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField23))))))
-                .addGap(0, 28, Short.MAX_VALUE))
-        );
-        edicaoBuscarLayout.setVerticalGroup(
-            edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(edicaoBuscarLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
-                .addGap(9, 9, 9)
-                .addComponent(jLabel13)
-                .addGap(43, 43, 43)
-                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
-                .addGap(18, 18, 18)
-                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel22)
-                        .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel33)
-                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
-                .addGap(227, 227, 227))
-        );
-
-        edicaoTPane.addTab("Buscar", edicaoBuscar);
 
         jLabel23.setText("Escolha o evento e a edição a serem buscados:");
 
@@ -669,7 +528,7 @@ public class TelaEdicao extends javax.swing.JFrame {
                         .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton9)
                             .addComponent(jLabel29))))
-                .addGap(0, 28, Short.MAX_VALUE))
+                .addGap(0, 40, Short.MAX_VALUE))
         );
         edicaoDeletarLayout.setVerticalGroup(
             edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -723,6 +582,160 @@ public class TelaEdicao extends javax.swing.JFrame {
 
         edicaoTPane.addTab("Deletar", edicaoDeletar);
 
+        jLabel5.setText("Escolha o evento e a edição a serem buscados:");
+
+        jLabel14.setText("Descrição:");
+
+        jLabel15.setText("Data de  Início:");
+
+        jLabel16.setText("Data Fim:");
+
+        jLabel17.setText("Local:");
+
+        jLabel18.setText("Taxa de inscrição:");
+
+        searchEd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchEd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchEdActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("Código do Evento:");
+
+        jLabel21.setText("Número da Edição:");
+
+        jButton4.setText("Voltar");
+
+        jLabel22.setText("Saldo Financeiro:");
+
+        jLabel33.setText("Artigos apresentados:");
+
+        searchEdNum.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchEdNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchEdNumActionPerformed(evt);
+            }
+        });
+
+        editionDescription.setColumns(20);
+        editionDescription.setRows(5);
+        jScrollPane1.setViewportView(editionDescription);
+
+        javax.swing.GroupLayout edicaoBuscarLayout = new javax.swing.GroupLayout(edicaoBuscar);
+        edicaoBuscar.setLayout(edicaoBuscarLayout);
+        edicaoBuscarLayout.setHorizontalGroup(
+            edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(edicaoBuscarLayout.createSequentialGroup()
+                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(edicaoBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel33))
+                    .addGroup(edicaoBuscarLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(searchEdNum, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchEd, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(edicaoBuscarLayout.createSequentialGroup()
+                                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel21))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(editionCode, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                                    .addComponent(editionNumber)))))
+                    .addGroup(edicaoBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel17))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(edicaoBuscarLayout.createSequentialGroup()
+                                .addComponent(searchDateIni, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(78, 78, 78)
+                                .addComponent(jLabel16)
+                                .addGap(18, 18, 18)
+                                .addComponent(searchDateFim, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(searchLocal)))
+                    .addGroup(edicaoBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel22))
+                    .addGroup(edicaoBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel18)
+                        .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, edicaoBuscarLayout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(searchTaxa, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(edicaoBuscarLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(searchQtdArtigos, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                                    .addComponent(searchSaldo))))))
+                .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, edicaoBuscarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, edicaoBuscarLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(205, 205, 205))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, edicaoBuscarLayout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addGap(253, 253, 253))))
+        );
+        edicaoBuscarLayout.setVerticalGroup(
+            edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(edicaoBuscarLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(searchEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(searchEdNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editionCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editionNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14)
+                .addGap(3, 3, 3)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(searchDateIni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchDateFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addGap(23, 23, 23)
+                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(searchTaxa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(searchSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchQtdArtigos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel33))
+                .addGap(55, 55, 55)
+                .addComponent(jButton4)
+                .addGap(55, 55, 55))
+        );
+
+        edicaoTPane.addTab("Buscar", edicaoBuscar);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -762,14 +775,6 @@ public class TelaEdicao extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNumEdActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         this.setVisible(false);
         dispose();
@@ -805,11 +810,11 @@ public class TelaEdicao extends javax.swing.JFrame {
         if(jcb.getSelectedIndex()==0) return;
         try {
             details = EdicaoBD.buscar(Integer.parseInt(selectEdicaoEvento.getSelectedItem().toString()),Integer.parseInt(jcb.getSelectedItem().toString()));
-            descEdicao.setText(details.get(0));
-            datePickerEditIni.setDate(dateFormat.parse(details.get(1)));
-            datePickerEditFim.setDate(dateFormat.parse(details.get(2)));
-            localEdicao.setText(details.get(3));
-            taxaEdicao.setText(details.get(4));
+            descEdicao.setText(details.get(2));
+            datePickerEditIni.setDate(dateFormat.parse(details.get(3)));
+            datePickerEditFim.setDate(dateFormat.parse(details.get(4)));
+            localEdicao.setText(details.get(5));
+            taxaEdicao.setText(details.get(6));
             
         } catch (SQLException ex) {
             Logger.getLogger(TelaEdicao.class.getName()).log(Level.SEVERE, null, ex);
@@ -880,6 +885,43 @@ public class TelaEdicao extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_EditarEdButtonActionPerformed
 
+    private void searchEdNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEdNumActionPerformed
+        if(searchEd.getSelectedIndex() ==0)return;
+        ArrayList <String> details = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        try {
+            details = EdicaoBD.buscar(Integer.parseInt(searchEd.getSelectedItem().toString()),Integer.parseInt(jcb.getSelectedItem().toString()));
+            editionCode.setText(details.get(0));
+            editionNumber.setText(details.get(1));
+            editionDescription.setText(details.get(2));
+            searchDateIni.setText(details.get(3));
+            searchDateFim.setText(details.get(4));
+            searchLocal.setText(details.get(5));
+            searchTaxa.setText(details.get(6));
+            searchSaldo.setText(details.get(7));
+            searchQtdArtigos.setText(details.get(8));
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchEdNumActionPerformed
+
+    private void searchEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEdActionPerformed
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        if(jcb.getSelectedIndex()==0) return;
+        try {
+            model = EdicaoBD.getEditions(Integer.parseInt(jcb.getSelectedItem().toString()));
+            searchEdNum.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEdicao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchEdActionPerformed
+
     private void loadComboBox(){
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         DefaultComboBoxModel emptyModel = new DefaultComboBoxModel();
@@ -890,6 +932,8 @@ public class TelaEdicao extends javax.swing.JFrame {
             selectEdicaoEvento.setModel(model);
             selectEdicaoNum.setModel(emptyModel);
             selectInsertEv.setModel(model);
+            searchEd.setModel(model);
+            searchEdNum.setModel(emptyModel);
             
         } catch (SQLException ex) {
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
@@ -967,21 +1011,22 @@ public class TelaEdicao extends javax.swing.JFrame {
     private javax.swing.JPanel edicaoEditar;
     private javax.swing.JPanel edicaoInserir;
     protected javax.swing.JTabbedPane edicaoTPane;
+    private javax.swing.JTextField editionCode;
+    private javax.swing.JTextArea editionDescription;
+    private javax.swing.JTextField editionNumber;
     private javax.swing.JButton insertEdButton;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -1013,28 +1058,28 @@ public class TelaEdicao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField26;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private org.jdesktop.swingx.JXDatePicker jXDatePickerFim;
     private org.jdesktop.swingx.JXDatePicker jXDatePickerIni;
     private javax.swing.JTextField localEdicao;
     private javax.swing.JTextField localInsertEd;
+    private javax.swing.JTextField searchDateFim;
+    private javax.swing.JTextField searchDateIni;
+    private javax.swing.JComboBox searchEd;
+    private javax.swing.JComboBox searchEdNum;
+    private javax.swing.JTextField searchLocal;
+    private javax.swing.JTextField searchQtdArtigos;
+    private javax.swing.JTextField searchSaldo;
+    private javax.swing.JTextField searchTaxa;
     private javax.swing.JComboBox selectEdicaoEvento;
     private javax.swing.JComboBox selectEdicaoNum;
     private javax.swing.JComboBox selectInsertEv;
