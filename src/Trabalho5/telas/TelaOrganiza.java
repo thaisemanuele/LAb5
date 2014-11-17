@@ -107,6 +107,11 @@ public class TelaOrganiza extends javax.swing.JFrame {
         jButton1.setText("Inserir");
 
         jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout organizaInserirLayout = new javax.swing.GroupLayout(organizaInserir);
         organizaInserir.setLayout(organizaInserirLayout);
@@ -194,6 +199,11 @@ public class TelaOrganiza extends javax.swing.JFrame {
         jLabel12.setText("Cargo:");
 
         jButton4.setText("Voltar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout organizaBuscarLayout = new javax.swing.GroupLayout(organizaBuscar);
         organizaBuscar.setLayout(organizaBuscarLayout);
@@ -286,6 +296,11 @@ public class TelaOrganiza extends javax.swing.JFrame {
         jTextField9.setText("jTextField5");
 
         jButton6.setText("Voltar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jLabel16.setText("Realmente deseja editar o cargo?");
 
@@ -377,6 +392,11 @@ public class TelaOrganiza extends javax.swing.JFrame {
         jLabel24.setText("Cargo:");
 
         jButton9.setText("Voltar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jLabel25.setText("Realmente deseja deletar o organizador?");
 
@@ -493,6 +513,30 @@ public class TelaOrganiza extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments

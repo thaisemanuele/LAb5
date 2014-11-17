@@ -120,6 +120,11 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         jButton1.setText("Inserir");
 
         jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout patrocinioInserirLayout = new javax.swing.GroupLayout(patrocinioInserir);
         patrocinioInserir.setLayout(patrocinioInserirLayout);
@@ -208,6 +213,11 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         jLabel14.setText("Saldo do patrocínio:");
 
         jButton4.setText("Voltar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout patrocinioBuscarLayout = new javax.swing.GroupLayout(patrocinioBuscar);
         patrocinioBuscar.setLayout(patrocinioBuscarLayout);
@@ -322,6 +332,11 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         jLabel30.setText("Saldo do patrocínio:");
 
         jButton8.setText("Voltar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jLabel31.setText("Realmente deseja deletar?");
 
@@ -441,6 +456,11 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         jLabel39.setText("Saldo do patrocínio:");
 
         jButton11.setText("Voltar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jLabel40.setText("Realmente deseja editar?");
 
@@ -548,6 +568,30 @@ public class TelaPatrocinio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton11ActionPerformed
 
     /**
      * @param args the command line arguments
