@@ -375,6 +375,11 @@ public class TelaPessoa extends javax.swing.JFrame {
         jLabel25.setText("Digite as informações desejadas nos campos abaixo e clique em \"inserir\"");
 
         jButton3.setText("Voltar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pessoaInserirLayout = new javax.swing.GroupLayout(pessoaInserir);
         pessoaInserir.setLayout(pessoaInserirLayout);
@@ -877,6 +882,8 @@ public class TelaPessoa extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void checkOrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkOrgActionPerformed
@@ -918,6 +925,8 @@ public class TelaPessoa extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void selectIdPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectIdPeActionPerformed
@@ -1007,6 +1016,12 @@ public class TelaPessoa extends javax.swing.JFrame {
         checkPart.setSelected(false);
         checkAut.setSelected(false);
     }
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
