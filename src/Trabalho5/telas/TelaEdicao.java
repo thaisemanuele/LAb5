@@ -89,28 +89,27 @@ public class TelaEdicao extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
-        jTextField19 = new javax.swing.JTextField();
-        jButton9 = new javax.swing.JButton();
+        deleteDescription = new javax.swing.JTextField();
+        deleteDataIni = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        jTextField20 = new javax.swing.JTextField();
+        deleteDataFim = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jTextField21 = new javax.swing.JTextField();
-        jTextField22 = new javax.swing.JTextField();
-        jComboBox5 = new javax.swing.JComboBox();
-        jLabel29 = new javax.swing.JLabel();
+        deleteLocal = new javax.swing.JTextField();
+        deleteTaxa = new javax.swing.JTextField();
+        selectDeleteEd = new javax.swing.JComboBox();
         jLabel30 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        deleteCodeEv = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        deleteNumEd = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
-        jButton11 = new javax.swing.JButton();
+        deleteEdButton = new javax.swing.JButton();
         jLabel34 = new javax.swing.JLabel();
-        jTextField25 = new javax.swing.JTextField();
+        deleteSaldo = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
-        jTextField26 = new javax.swing.JTextField();
+        deleteQtdArtigos = new javax.swing.JTextField();
+        selectDeleteNumEd = new javax.swing.JComboBox();
         edicaoBuscar = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -429,106 +428,118 @@ public class TelaEdicao extends javax.swing.JFrame {
 
         jLabel25.setText("Data de  Início:");
 
-        jButton9.setText("Carregar Informações");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
         jLabel26.setText("Data Fim:");
 
         jLabel27.setText("Local:");
 
         jLabel28.setText("Taxa de inscrição:");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel29.setText("As informações encontradas foram:");
+        selectDeleteEd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectDeleteEd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectDeleteEdActionPerformed(evt);
+            }
+        });
 
         jLabel30.setText("Código do Evento:");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        deleteCodeEv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                deleteCodeEvActionPerformed(evt);
             }
         });
 
         jLabel31.setText("Número da Edição:");
 
         jButton10.setText("Voltar");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jLabel32.setText("Realmente deseja deletar a edição?");
 
-        jButton11.setText("Deletar");
+        deleteEdButton.setText("Deletar");
+        deleteEdButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteEdButtonActionPerformed(evt);
+            }
+        });
 
         jLabel34.setText("Saldo financeiro:");
 
         jLabel35.setText("Quantidade de artigos apresentados:");
+
+        selectDeleteNumEd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectDeleteNumEd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectDeleteNumEdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout edicaoDeletarLayout = new javax.swing.GroupLayout(edicaoDeletar);
         edicaoDeletar.setLayout(edicaoDeletarLayout);
         edicaoDeletarLayout.setHorizontalGroup(
             edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(edicaoDeletarLayout.createSequentialGroup()
-                .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(edicaoDeletarLayout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(jLabel23))
-                    .addGroup(edicaoDeletarLayout.createSequentialGroup()
+                .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, edicaoDeletarLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField18)
-                            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, edicaoDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel30)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel31)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox5, 0, 545, Short.MAX_VALUE)))
-                    .addGroup(edicaoDeletarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, edicaoDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel28)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel34)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField25))
-                            .addGroup(edicaoDeletarLayout.createSequentialGroup()
-                                .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel25)
-                                    .addComponent(jLabel27))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(edicaoDeletarLayout.createSequentialGroup()
-                                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel26)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextField21)))
-                            .addGroup(edicaoDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel32)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton10))
-                            .addGroup(edicaoDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel35)
-                                .addGap(1, 1, 1)
-                                .addComponent(jTextField26))))
-                    .addGroup(edicaoDeletarLayout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton9)
-                            .addComponent(jLabel29))))
-                .addGap(0, 40, Short.MAX_VALUE))
+                        .addComponent(selectDeleteNumEd, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(edicaoDeletarLayout.createSequentialGroup()
+                            .addGap(163, 163, 163)
+                            .addComponent(jLabel23))
+                        .addGroup(edicaoDeletarLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(deleteDescription)
+                                .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, edicaoDeletarLayout.createSequentialGroup()
+                                    .addComponent(jLabel30)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(deleteCodeEv, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel31)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(deleteNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(selectDeleteEd, 0, 545, Short.MAX_VALUE)))
+                        .addGroup(edicaoDeletarLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, edicaoDeletarLayout.createSequentialGroup()
+                                    .addComponent(jLabel28)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(deleteTaxa, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel34)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(deleteSaldo))
+                                .addGroup(edicaoDeletarLayout.createSequentialGroup()
+                                    .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel25)
+                                        .addComponent(jLabel27))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(edicaoDeletarLayout.createSequentialGroup()
+                                            .addComponent(deleteDataIni, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jLabel26)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(deleteDataFim, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(deleteLocal)))
+                                .addGroup(edicaoDeletarLayout.createSequentialGroup()
+                                    .addComponent(jLabel32)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(deleteEdButton)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jButton10))
+                                .addGroup(edicaoDeletarLayout.createSequentialGroup()
+                                    .addComponent(jLabel35)
+                                    .addGap(1, 1, 1)
+                                    .addComponent(deleteQtdArtigos))))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         edicaoDeletarLayout.setVerticalGroup(
             edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -536,37 +547,35 @@ public class TelaEdicao extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel23)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(jButton9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel29)
-                .addGap(43, 43, 43)
+                .addComponent(selectDeleteEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(selectDeleteNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
                 .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteCodeEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deleteNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(deleteDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteDataIni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deleteDataFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27))
                 .addGap(18, 18, 18)
                 .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteTaxa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel34)
-                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deleteSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(edicaoDeletarLayout.createSequentialGroup()
@@ -574,9 +583,9 @@ public class TelaEdicao extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addGroup(edicaoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel32)
-                            .addComponent(jButton11)
+                            .addComponent(deleteEdButton)
                             .addComponent(jButton10)))
-                    .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deleteQtdArtigos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(209, 209, 209))
         );
 
@@ -606,6 +615,11 @@ public class TelaEdicao extends javax.swing.JFrame {
         jLabel21.setText("Número da Edição:");
 
         jButton4.setText("Voltar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel22.setText("Saldo Financeiro:");
 
@@ -741,12 +755,13 @@ public class TelaEdicao extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(edicaoTPane, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(edicaoTPane, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(edicaoTPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -780,13 +795,9 @@ public class TelaEdicao extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void deleteCodeEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCodeEvActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_deleteCodeEvActionPerformed
 
     private void selectEdicaoEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectEdicaoEventoActionPerformed
         DefaultComboBoxModel model = new DefaultComboBoxModel();
@@ -922,6 +933,68 @@ public class TelaEdicao extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchEdActionPerformed
 
+    private void selectDeleteEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDeleteEdActionPerformed
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        if(jcb.getSelectedIndex()==0) return;
+        try {
+            model = EdicaoBD.getEditions(Integer.parseInt(jcb.getSelectedItem().toString()));
+            selectDeleteNumEd.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEdicao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectDeleteEdActionPerformed
+
+    private void selectDeleteNumEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDeleteNumEdActionPerformed
+        if(selectDeleteNumEd.getSelectedIndex() ==0)return;
+        ArrayList <String> details = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        try {
+            details = EdicaoBD.buscar(Integer.parseInt(selectDeleteEd.getSelectedItem().toString()),Integer.parseInt(jcb.getSelectedItem().toString()));
+            deleteCodeEv.setText(details.get(0));
+            deleteNumEd.setText(details.get(1));
+            deleteDescription.setText(details.get(2));
+            deleteDataIni.setText(details.get(3));
+            deleteDataFim.setText(details.get(4));
+            deleteLocal.setText(details.get(5));
+            deleteTaxa.setText(details.get(6));
+            deleteSaldo.setText(details.get(7));
+            deleteQtdArtigos.setText(details.get(8));
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectDeleteNumEdActionPerformed
+
+    private void deleteEdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEdButtonActionPerformed
+        if(selectDeleteEd.getSelectedIndex()==0) return;
+        String codEv = selectDeleteEd.getSelectedItem().toString();
+        String numEd = selectDeleteNumEd.getSelectedItem().toString();
+        try {
+            EdicaoBD.excluir(Integer.parseInt(codEv),Integer.parseInt(numEd));
+            JOptionPane.showMessageDialog
+        (null, "Edicao removida" , "Remoção", JOptionPane.INFORMATION_MESSAGE);
+        clearFields();
+        loadComboBox();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deleteEdButtonActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void loadComboBox(){
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         DefaultComboBoxModel emptyModel = new DefaultComboBoxModel();
@@ -934,6 +1007,8 @@ public class TelaEdicao extends javax.swing.JFrame {
             selectInsertEv.setModel(model);
             searchEd.setModel(model);
             searchEdNum.setModel(emptyModel);
+            selectDeleteEd.setModel(model);
+            selectDeleteNumEd.setModel(emptyModel);
             
         } catch (SQLException ex) {
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
@@ -959,6 +1034,16 @@ public class TelaEdicao extends javax.swing.JFrame {
         jXDatePickerFim.setDate(null);
         localInsertEd.setText("");
         taxaInsertEd.setText("");
+        //Campos da Remoção
+        deleteCodeEv.setText("");
+        deleteNumEd.setText("");
+        deleteDescription.setText("");
+        deleteDataIni.setText("");
+        deleteDataFim.setText("");
+        deleteLocal.setText("");
+        deleteTaxa.setText("");
+        deleteSaldo.setText("");
+        deleteQtdArtigos.setText("");
     }
     /**
      * @param args the command line arguments
@@ -1005,6 +1090,16 @@ public class TelaEdicao extends javax.swing.JFrame {
     private javax.swing.JTextField campoNumEd;
     private org.jdesktop.swingx.JXDatePicker datePickerEditFim;
     private org.jdesktop.swingx.JXDatePicker datePickerEditIni;
+    private javax.swing.JTextField deleteCodeEv;
+    private javax.swing.JTextField deleteDataFim;
+    private javax.swing.JTextField deleteDataIni;
+    private javax.swing.JTextField deleteDescription;
+    private javax.swing.JButton deleteEdButton;
+    private javax.swing.JTextField deleteLocal;
+    private javax.swing.JTextField deleteNumEd;
+    private javax.swing.JTextField deleteQtdArtigos;
+    private javax.swing.JTextField deleteSaldo;
+    private javax.swing.JTextField deleteTaxa;
     private javax.swing.JTextField descEdicao;
     private javax.swing.JPanel edicaoBuscar;
     private javax.swing.JPanel edicaoDeletar;
@@ -1016,12 +1111,9 @@ public class TelaEdicao extends javax.swing.JFrame {
     private javax.swing.JTextField editionNumber;
     private javax.swing.JButton insertEdButton;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox jComboBox5;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1043,7 +1135,6 @@ public class TelaEdicao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
@@ -1059,15 +1150,6 @@ public class TelaEdicao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private org.jdesktop.swingx.JXDatePicker jXDatePickerFim;
     private org.jdesktop.swingx.JXDatePicker jXDatePickerIni;
     private javax.swing.JTextField localEdicao;
@@ -1080,6 +1162,8 @@ public class TelaEdicao extends javax.swing.JFrame {
     private javax.swing.JTextField searchQtdArtigos;
     private javax.swing.JTextField searchSaldo;
     private javax.swing.JTextField searchTaxa;
+    private javax.swing.JComboBox selectDeleteEd;
+    private javax.swing.JComboBox selectDeleteNumEd;
     private javax.swing.JComboBox selectEdicaoEvento;
     private javax.swing.JComboBox selectEdicaoNum;
     private javax.swing.JComboBox selectInsertEv;

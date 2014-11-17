@@ -42,18 +42,6 @@ public class TelaMenu extends javax.swing.JFrame {
         InserirPatrocinador = new javax.swing.JMenuItem();
         InserirDespesa = new javax.swing.JMenuItem();
         InserirAuxilio = new javax.swing.JMenuItem();
-        Deletar = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        DeletarEdicao = new javax.swing.JMenuItem();
-        DeletarPessoa = new javax.swing.JMenuItem();
-        DeletarInscrito = new javax.swing.JMenuItem();
-        DeletarArtigo = new javax.swing.JMenuItem();
-        DeletarEscreve = new javax.swing.JMenuItem();
-        DeletarOrganiza = new javax.swing.JMenuItem();
-        DeletarPatrocinador = new javax.swing.JMenuItem();
-        DeletarPatrocinio = new javax.swing.JMenuItem();
-        DeletarDespesa = new javax.swing.JMenuItem();
-        DeletarAuxilio = new javax.swing.JMenuItem();
         Editar = new javax.swing.JMenu();
         EditarEvento = new javax.swing.JMenuItem();
         EditarEdicao = new javax.swing.JMenuItem();
@@ -78,6 +66,18 @@ public class TelaMenu extends javax.swing.JFrame {
         BuscarPatrocinio = new javax.swing.JMenuItem();
         BuscarDespesa = new javax.swing.JMenuItem();
         BuscarAuxilio = new javax.swing.JMenuItem();
+        Deletar = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        DeletarEdicao = new javax.swing.JMenuItem();
+        DeletarPessoa = new javax.swing.JMenuItem();
+        DeletarInscrito = new javax.swing.JMenuItem();
+        DeletarArtigo = new javax.swing.JMenuItem();
+        DeletarEscreve = new javax.swing.JMenuItem();
+        DeletarOrganiza = new javax.swing.JMenuItem();
+        DeletarPatrocinador = new javax.swing.JMenuItem();
+        DeletarPatrocinio = new javax.swing.JMenuItem();
+        DeletarDespesa = new javax.swing.JMenuItem();
+        DeletarAuxilio = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -197,98 +197,6 @@ public class TelaMenu extends javax.swing.JFrame {
         Inserir.add(InserirAuxilio);
 
         jMenuBar1.add(Inserir);
-
-        Deletar.setText("Deletar");
-
-        jMenuItem1.setText("Evento");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        Deletar.add(jMenuItem1);
-
-        DeletarEdicao.setText("Edicao");
-        DeletarEdicao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletarEdicaoActionPerformed(evt);
-            }
-        });
-        Deletar.add(DeletarEdicao);
-
-        DeletarPessoa.setText("Pessoa");
-        DeletarPessoa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletarPessoaActionPerformed(evt);
-            }
-        });
-        Deletar.add(DeletarPessoa);
-
-        DeletarInscrito.setText("Inscrito");
-        DeletarInscrito.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletarInscritoActionPerformed(evt);
-            }
-        });
-        Deletar.add(DeletarInscrito);
-
-        DeletarArtigo.setText("Artigo");
-        DeletarArtigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletarArtigoActionPerformed(evt);
-            }
-        });
-        Deletar.add(DeletarArtigo);
-
-        DeletarEscreve.setText("Escreve");
-        DeletarEscreve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletarEscreveActionPerformed(evt);
-            }
-        });
-        Deletar.add(DeletarEscreve);
-
-        DeletarOrganiza.setText("Organiza");
-        DeletarOrganiza.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletarOrganizaActionPerformed(evt);
-            }
-        });
-        Deletar.add(DeletarOrganiza);
-
-        DeletarPatrocinador.setText("Patrocinador");
-        DeletarPatrocinador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletarPatrocinadorActionPerformed(evt);
-            }
-        });
-        Deletar.add(DeletarPatrocinador);
-
-        DeletarPatrocinio.setText("Patrocinio");
-        DeletarPatrocinio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletarPatrocinioActionPerformed(evt);
-            }
-        });
-        Deletar.add(DeletarPatrocinio);
-
-        DeletarDespesa.setText("Despesa");
-        DeletarDespesa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletarDespesaActionPerformed(evt);
-            }
-        });
-        Deletar.add(DeletarDespesa);
-
-        DeletarAuxilio.setText("Auxílio");
-        DeletarAuxilio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletarAuxilioActionPerformed(evt);
-            }
-        });
-        Deletar.add(DeletarAuxilio);
-
-        jMenuBar1.add(Deletar);
 
         Editar.setText("Editar");
 
@@ -474,6 +382,98 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(Buscar);
 
+        Deletar.setText("Deletar");
+
+        jMenuItem1.setText("Evento");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        Deletar.add(jMenuItem1);
+
+        DeletarEdicao.setText("Edicao");
+        DeletarEdicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarEdicaoActionPerformed(evt);
+            }
+        });
+        Deletar.add(DeletarEdicao);
+
+        DeletarPessoa.setText("Pessoa");
+        DeletarPessoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarPessoaActionPerformed(evt);
+            }
+        });
+        Deletar.add(DeletarPessoa);
+
+        DeletarInscrito.setText("Inscrito");
+        DeletarInscrito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarInscritoActionPerformed(evt);
+            }
+        });
+        Deletar.add(DeletarInscrito);
+
+        DeletarArtigo.setText("Artigo");
+        DeletarArtigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarArtigoActionPerformed(evt);
+            }
+        });
+        Deletar.add(DeletarArtigo);
+
+        DeletarEscreve.setText("Escreve");
+        DeletarEscreve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarEscreveActionPerformed(evt);
+            }
+        });
+        Deletar.add(DeletarEscreve);
+
+        DeletarOrganiza.setText("Organiza");
+        DeletarOrganiza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarOrganizaActionPerformed(evt);
+            }
+        });
+        Deletar.add(DeletarOrganiza);
+
+        DeletarPatrocinador.setText("Patrocinador");
+        DeletarPatrocinador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarPatrocinadorActionPerformed(evt);
+            }
+        });
+        Deletar.add(DeletarPatrocinador);
+
+        DeletarPatrocinio.setText("Patrocinio");
+        DeletarPatrocinio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarPatrocinioActionPerformed(evt);
+            }
+        });
+        Deletar.add(DeletarPatrocinio);
+
+        DeletarDespesa.setText("Despesa");
+        DeletarDespesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarDespesaActionPerformed(evt);
+            }
+        });
+        Deletar.add(DeletarDespesa);
+
+        DeletarAuxilio.setText("Auxílio");
+        DeletarAuxilio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletarAuxilioActionPerformed(evt);
+            }
+        });
+        Deletar.add(DeletarAuxilio);
+
+        jMenuBar1.add(Deletar);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -610,7 +610,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private void DeletarEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarEdicaoActionPerformed
         // TODO add your handling code here:
         TelaEdicao telaEdicao = new TelaEdicao();
-        telaEdicao.edicaoTPane.setSelectedIndex(3);
+        telaEdicao.edicaoTPane.setSelectedIndex(2);
         telaEdicao.setVisible(true);
     }//GEN-LAST:event_DeletarEdicaoActionPerformed
 
@@ -757,7 +757,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private void BuscarEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarEdicaoActionPerformed
         // TODO add your handling code here:
         TelaEdicao telaEdicao = new TelaEdicao();
-        telaEdicao.edicaoTPane.setSelectedIndex(2);
+        telaEdicao.edicaoTPane.setSelectedIndex(3);
         telaEdicao.setVisible(true);
         
     }//GEN-LAST:event_BuscarEdicaoActionPerformed
