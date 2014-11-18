@@ -37,12 +37,12 @@ public class PessoaBD {
     public static void atualizar(Integer idPe, String nomePe, String emailPe, String instituicaoPe,
             String telefonePe, String nacionalidadePe, String enderecoPe,
             Integer tipoOrganizador, Integer tipoParticipante, Integer tipoAutor) throws SQLException{
-        String update = "UPDATE Edicao SET nomePe = '" 
+        String update = "UPDATE Pessoa SET nomePe = '" 
                 +nomePe+ "',emailPe = '" +emailPe+"',instituicaoPe = '" +instituicaoPe+"',telefonePe= '"
                 +telefonePe+"',nacionalidadePe = '" +nacionalidadePe+"',enderecoPe = '" +enderecoPe+
-                "',tipoOrganizador = '" +tipoOrganizador+"',tipoParticipante = '" +tipoParticipante+
-                "',tipoAutor = '" +tipoAutor+
-                "' WHERE idPe = '" + idPe +"'";
+                "',tipoOrganizador = " +tipoOrganizador+",tipoParticipante = " +tipoParticipante+
+                ",tipoAutor = " +tipoAutor+
+                " WHERE idPe = " + idPe +"";
         System.out.println("insert statement " + update);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(update);
@@ -57,7 +57,7 @@ public class PessoaBD {
     public static ArrayList<String> buscar(Integer idPe) throws SQLException, ParseException{
         String selectTableSQL = "SELECT idPe, nomePe, emailPe, instituicaoPe, telefonePe, nacionalidadePe,"
                 + " enderecoPe,tipoOrganizador, tipoParticipante, tipoAutor"
-                + " FROM Pessoa WHERE idPe = '" + idPe +"'";
+                + " FROM Pessoa WHERE idPe = " + idPe +"";
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
         ArrayList<String> details = new ArrayList<String>();
@@ -110,6 +110,17 @@ public class PessoaBD {
             i++;
         }
        return model;
+    }
+    
+    public static Integer getIdByEmail(String email) throws SQLException{
+        Integer id = -1;
+        String selectSql = "SELECT idPe from Pessoa WHERE emailPe = '"+email+"'";
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectSql);
+        if(rs.next()){
+            id = Integer.parseInt(rs.getString("idPe"));
+        }
+       return id;
     }
     
     public static DefaultComboBoxModel getEmailPe() throws SQLException{

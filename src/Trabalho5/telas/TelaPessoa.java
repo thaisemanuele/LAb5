@@ -119,22 +119,23 @@ public class TelaPessoa extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jButton2 = new javax.swing.JButton();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
+        searchOrgType = new javax.swing.JCheckBox();
+        searchPartType = new javax.swing.JCheckBox();
+        searchAutType = new javax.swing.JCheckBox();
+        editPeButton = new javax.swing.JButton();
+        searchNomePe = new javax.swing.JTextField();
+        searchEmailPe = new javax.swing.JTextField();
+        searchTelPe = new javax.swing.JTextField();
+        searchNacPe = new javax.swing.JTextField();
+        searchInstPe = new javax.swing.JTextField();
+        searchEndPe = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jButton5 = new javax.swing.JButton();
+        selectSearchIdPe = new javax.swing.JComboBox();
         jButton6 = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
+        selectSearchEmailPe = new javax.swing.JComboBox();
+        jLabel38 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -673,41 +674,49 @@ public class TelaPessoa extends javax.swing.JFrame {
 
         jLabel12.setText("Endereço:");
 
-        jCheckBox4.setText("Organizador");
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+        searchOrgType.setText("Organizador");
+        searchOrgType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
+                searchOrgTypeActionPerformed(evt);
             }
         });
 
-        jCheckBox5.setText("Participante");
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        searchPartType.setText("Participante");
+        searchPartType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                searchPartTypeActionPerformed(evt);
             }
         });
 
-        jCheckBox6.setText("Autor");
+        searchAutType.setText("Autor");
 
-        jButton2.setText("Editar");
-
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        editPeButton.setText("Editar");
+        editPeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                editPeButtonActionPerformed(evt);
             }
         });
 
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        searchEmailPe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                searchEmailPeActionPerformed(evt);
             }
         });
 
-        jLabel19.setText("ID da pessoa a ser editada:");
+        searchEndPe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchEndPeActionPerformed(evt);
+            }
+        });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel19.setText("buscar por Id:");
 
-        jButton5.setText("Carregar Informações");
+        selectSearchIdPe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectSearchIdPe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectSearchIdPeActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Voltar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -720,68 +729,82 @@ public class TelaPessoa extends javax.swing.JFrame {
 
         jLabel26.setText("Edite as informações abaixo:");
 
+        selectSearchEmailPe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectSearchEmailPe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectSearchEmailPeActionPerformed(evt);
+            }
+        });
+
+        jLabel38.setText("buscar por email:");
+
         javax.swing.GroupLayout pessoaEditarLayout = new javax.swing.GroupLayout(pessoaEditar);
         pessoaEditar.setLayout(pessoaEditarLayout);
         pessoaEditarLayout.setHorizontalGroup(
             pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pessoaEditarLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
                 .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pessoaEditarLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
                         .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pessoaEditarLayout.createSequentialGroup()
-                                .addGap(0, 11, Short.MAX_VALUE)
-                                .addComponent(jLabel19)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pessoaEditarLayout.createSequentialGroup()
-                                .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addGap(52, 52, 52)
-                                .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField8)
-                                    .addComponent(jTextField7)))
                             .addGroup(pessoaEditarLayout.createSequentialGroup()
                                 .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel10))
                                 .addGap(27, 27, 27)
                                 .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pessoaEditarLayout.createSequentialGroup()
-                                        .addComponent(jTextField11)
-                                        .addGap(5, 5, 5))
-                                    .addComponent(jTextField9)))
+                                    .addComponent(searchTelPe)
+                                    .addComponent(searchInstPe)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pessoaEditarLayout.createSequentialGroup()
+                                    .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel8))
+                                    .addGap(52, 52, 52)
+                                    .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(searchNomePe, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
+                                        .addComponent(searchEmailPe)))
+                                .addGroup(pessoaEditarLayout.createSequentialGroup()
+                                    .addGap(40, 40, 40)
+                                    .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(pessoaEditarLayout.createSequentialGroup()
+                                            .addComponent(jLabel38)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(selectSearchEmailPe, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(pessoaEditarLayout.createSequentialGroup()
+                                            .addComponent(jLabel19)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(selectSearchIdPe, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(pessoaEditarLayout.createSequentialGroup()
                                 .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel12)
                                     .addComponent(jLabel11))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField10)
-                                    .addComponent(jTextField12))))
-                        .addContainerGap())
+                                    .addGroup(pessoaEditarLayout.createSequentialGroup()
+                                        .addComponent(searchOrgType)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(searchNacPe)
+                                    .addComponent(searchEndPe)))))
                     .addGroup(pessoaEditarLayout.createSequentialGroup()
                         .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox6)
-                            .addComponent(jCheckBox5)
-                            .addComponent(jCheckBox4))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(pessoaEditarLayout.createSequentialGroup()
-                .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pessoaEditarLayout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel26)
-                            .addComponent(jButton5)))
-                    .addGroup(pessoaEditarLayout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(jLabel24)
-                        .addGap(39, 39, 39)
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton6)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(pessoaEditarLayout.createSequentialGroup()
+                                .addGap(174, 174, 174)
+                                .addComponent(jLabel26))
+                            .addGroup(pessoaEditarLayout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(searchPartType)
+                                    .addGroup(pessoaEditarLayout.createSequentialGroup()
+                                        .addComponent(jLabel24)
+                                        .addGap(39, 39, 39)
+                                        .addComponent(editPeButton)))
+                                .addGap(18, 18, 18)
+                                .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton6)
+                                    .addComponent(searchAutType))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         pessoaEditarLayout.setVerticalGroup(
             pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -789,45 +812,46 @@ public class TelaPessoa extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5)
-                .addGap(37, 37, 37)
+                    .addComponent(selectSearchIdPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(selectSearchEmailPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchNomePe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchEmailPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchInstPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchTelPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchNacPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(jCheckBox4)
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox5)
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox6)
-                .addGap(41, 41, 41)
+                    .addComponent(searchEndPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
+                .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchOrgType)
+                    .addComponent(searchPartType)
+                    .addComponent(searchAutType))
+                .addGap(108, 108, 108)
                 .addGroup(pessoaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2)
+                    .addComponent(editPeButton)
                     .addComponent(jButton6))
                 .addGap(178, 178, 178))
         );
@@ -861,21 +885,21 @@ public class TelaPessoa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_insertOrgTypeActionPerformed
 
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+    private void searchOrgTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrgTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox4ActionPerformed
+    }//GEN-LAST:event_searchOrgTypeActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void searchEmailPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEmailPeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_searchEmailPeActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void searchEndPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEndPeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+    }//GEN-LAST:event_searchEndPeActionPerformed
 
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+    private void searchPartTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPartTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
+    }//GEN-LAST:event_searchPartTypeActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
@@ -927,14 +951,14 @@ public class TelaPessoa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void selectIdPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectIdPeActionPerformed
-        if(selectIdPe.getSelectedIndex() ==0)return;
+        if(selectIdPe.getSelectedIndex()==0)return;
         selectEmailPe.setSelectedIndex(0);
-        clearFields();
         ArrayList <String> details = new ArrayList<String>();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         try {
             details = PessoaBD.buscar(Integer.parseInt(jcb.getSelectedItem().toString()));
+            clearFields();
             campoIdPe.setText(details.get(0));
             campoNomePe.setText(details.get(1));
             campoEmailPe.setText(details.get(2));
@@ -968,12 +992,12 @@ public class TelaPessoa extends javax.swing.JFrame {
     private void selectEmailPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectEmailPeActionPerformed
         if(selectEmailPe.getSelectedIndex() ==0)return;
         selectIdPe.setSelectedIndex(0);
-        clearFields();
         ArrayList <String> details = new ArrayList<String>();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         try {
             details = PessoaBD.searchByEmail(jcb.getSelectedItem().toString());
+            clearFields();
             campoIdPe.setText(details.get(0));
             campoNomePe.setText(details.get(1));
             campoEmailPe.setText(details.get(2));
@@ -1010,7 +1034,9 @@ public class TelaPessoa extends javax.swing.JFrame {
             model = PessoaBD.getIdPe();
             emailsModel = PessoaBD.getEmailPe();
             selectIdPe.setModel(model);
+            selectSearchIdPe.setModel(model);
             selectEmailPe.setModel(emailsModel);
+            selectSearchEmailPe.setModel(emailsModel);
             
         } catch (SQLException ex) {
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
@@ -1045,6 +1071,16 @@ public class TelaPessoa extends javax.swing.JFrame {
         insertOrgType.setSelected(false);
         insertPartType.setSelected(false);
         insertAutType.setSelected(false);
+        //Busca
+        searchNomePe.setText("");
+        searchEmailPe.setText("");
+        searchInstPe.setText("");
+        searchTelPe.setText("");
+        searchNacPe.setText("");
+        searchEndPe.setText("");
+        searchOrgType.setSelected(false);
+        searchPartType.setSelected(false);
+        searchAutType.setSelected(false);
         
     }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1071,6 +1107,99 @@ public class TelaPessoa extends javax.swing.JFrame {
             Logger.getLogger(TelaPessoa.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_InsertPeButtonActionPerformed
+
+    private void selectSearchIdPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectSearchIdPeActionPerformed
+        if(selectSearchIdPe.getSelectedIndex()==0)return;
+        selectSearchEmailPe.setSelectedIndex(0);
+        ArrayList <String> details = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        try {
+            details = PessoaBD.buscar(Integer.parseInt(jcb.getSelectedItem().toString()));
+            searchNomePe.setText(details.get(1));
+            searchEmailPe.setText(details.get(2));
+            searchInstPe.setText(details.get(3));
+            searchTelPe.setText(details.get(4));
+            searchNacPe.setText(details.get(5));
+            searchEndPe.setText(details.get(6));
+            if(Integer.parseInt(details.get(7))==1){
+                searchOrgType.setSelected(true);
+            }
+            if(Integer.parseInt(details.get(8))==1){
+                searchPartType.setSelected(true);
+            }
+            if(Integer.parseInt(details.get(9))==1){
+                searchAutType.setSelected(true);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectSearchIdPeActionPerformed
+
+    private void selectSearchEmailPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectSearchEmailPeActionPerformed
+        if(selectSearchEmailPe.getSelectedIndex() ==0)return;
+        selectSearchIdPe.setSelectedIndex(0);
+        ArrayList <String> details = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        try {
+            details = PessoaBD.searchByEmail(jcb.getSelectedItem().toString());
+            searchNomePe.setText(details.get(1));
+            searchEmailPe.setText(details.get(2));
+            searchInstPe.setText(details.get(3));
+            searchTelPe.setText(details.get(4));
+            searchNacPe.setText(details.get(5));
+            searchEndPe.setText(details.get(6));
+            if(Integer.parseInt(details.get(7))==1){
+                searchOrgType.setSelected(true);
+            }
+            if(Integer.parseInt(details.get(8))==1){
+                searchPartType.setSelected(true);
+            }
+            if(Integer.parseInt(details.get(9))==1){
+                searchAutType.setSelected(true);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectSearchEmailPeActionPerformed
+
+    private void editPeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPeButtonActionPerformed
+        if(selectSearchIdPe.getSelectedIndex()==0 && selectSearchEmailPe.getSelectedIndex()==0) return;
+        Integer idPe=0;
+        Integer tipoOrganizador=0, tipoParticipante=0,tipoAutor=0;
+        if(selectSearchEmailPe.getSelectedIndex()==0){
+            idPe = Integer.parseInt(selectSearchIdPe.getSelectedItem().toString());
+        }else{
+            try {   
+                idPe = PessoaBD.getIdByEmail(selectSearchEmailPe.getSelectedItem().toString());
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaPessoa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if(searchOrgType.isSelected()) tipoOrganizador=1;
+        if(searchPartType.isSelected()) tipoParticipante=1;
+        if(searchAutType.isSelected()) tipoAutor=1;
+        try {
+            PessoaBD.atualizar(idPe, searchNomePe.getText(), searchEmailPe.getText(), searchInstPe.getText(),
+                    searchTelPe.getText(), searchNacPe.getText(), searchEndPe.getText(),
+                    tipoOrganizador, tipoParticipante, tipoAutor);
+            
+                JOptionPane.showMessageDialog
+        (null, "Dados Atualizados" , "Editar Cadastro", JOptionPane.INFORMATION_MESSAGE);
+         clearFields();
+         selectSearchIdPe.setSelectedIndex(0);
+         selectSearchEmailPe.setSelectedIndex(0);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPessoa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_editPeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1119,6 +1248,7 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkAut;
     private javax.swing.JCheckBox checkOrg;
     private javax.swing.JCheckBox checkPart;
+    private javax.swing.JButton editPeButton;
     private javax.swing.JCheckBox insertAutType;
     private javax.swing.JTextField insertEmailPe;
     private javax.swing.JTextField insertEndPe;
@@ -1129,20 +1259,14 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JCheckBox insertPartType;
     private javax.swing.JTextField insertTelPe;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox10;
     private javax.swing.JCheckBox jCheckBox11;
     private javax.swing.JCheckBox jCheckBox12;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JLabel jLabel1;
@@ -1176,6 +1300,7 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1183,9 +1308,6 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
@@ -1193,15 +1315,23 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel pessoaBuscar;
     private javax.swing.JPanel pessoaDeletar;
     private javax.swing.JPanel pessoaEditar;
     private javax.swing.JPanel pessoaInserir;
     protected javax.swing.JTabbedPane pessoaTPane;
+    private javax.swing.JCheckBox searchAutType;
+    private javax.swing.JTextField searchEmailPe;
+    private javax.swing.JTextField searchEndPe;
+    private javax.swing.JTextField searchInstPe;
+    private javax.swing.JTextField searchNacPe;
+    private javax.swing.JTextField searchNomePe;
+    private javax.swing.JCheckBox searchOrgType;
+    private javax.swing.JCheckBox searchPartType;
+    private javax.swing.JTextField searchTelPe;
     private javax.swing.JComboBox selectEmailPe;
     private javax.swing.JComboBox selectIdPe;
+    private javax.swing.JComboBox selectSearchEmailPe;
+    private javax.swing.JComboBox selectSearchIdPe;
     // End of variables declaration//GEN-END:variables
 }
