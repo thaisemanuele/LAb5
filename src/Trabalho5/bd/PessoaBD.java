@@ -5,6 +5,7 @@
  */
 package Trabalho5.bd;
 
+import static Trabalho5.bd.EventoBD.seqCodEv;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,13 +20,14 @@ import javax.swing.JComboBox;
  */
 public class PessoaBD {
     
-    public static void inserir(Integer idPe, String nomePe, String emailPe, String instituicaoPe,
+    public static void inserir(String nomePe, String emailPe, String instituicaoPe,
             String telefonePe, String nacionalidadePe, String enderecoPe,
             Integer tipoOrganizador, Integer tipoParticipante, Integer tipoAutor) throws SQLException, ParseException{
-        String insert = "INSERT INTO Edicao VALUES( " 
-                + idPe + ", "+ nomePe +", '" +emailPe+ "', " +instituicaoPe+"',"+"'" +telefonePe
-                +"','"+nacionalidadePe+"','"+enderecoPe+"','"+tipoOrganizador+
-                "','"+tipoParticipante+"','"+tipoAutor+")";
+        Integer idPe = getSeq();
+        String insert = "INSERT INTO Pessoa VALUES( " 
+                + idPe + ", '"+ nomePe +"', '" +emailPe+ "', '" +instituicaoPe+"',"+"'" +telefonePe
+                +"','"+nacionalidadePe+"','"+enderecoPe+"',"+tipoOrganizador+
+                ","+tipoParticipante+","+tipoAutor+")";
         System.out.println("insert statement " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
@@ -65,6 +67,17 @@ public class PessoaBD {
             details.add(rs.getString(i));
         }
         return details;
+    }
+    
+    private static Integer getSeq()throws SQLException{
+        String selectSql = "SELECT max(idPe) from Pessoa";
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectSql);
+        int seqIdPe = -1;
+        if(rs.next()){
+            seqIdPe = rs.getInt(1);
+        }
+       return seqIdPe + 1;  
     }
     
     public static ArrayList<String> searchByEmail(String emailPe) throws SQLException, ParseException{

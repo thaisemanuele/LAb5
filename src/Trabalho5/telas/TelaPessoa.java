@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -72,16 +73,16 @@ public class TelaPessoa extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        insertOrgType = new javax.swing.JCheckBox();
+        insertPartType = new javax.swing.JCheckBox();
+        insertAutType = new javax.swing.JCheckBox();
+        InsertPeButton = new javax.swing.JButton();
+        insertNomePe = new javax.swing.JTextField();
+        insertEmailPe = new javax.swing.JTextField();
+        insertTelPe = new javax.swing.JTextField();
+        insertNacPe = new javax.swing.JTextField();
+        insertInstPe = new javax.swing.JTextField();
+        insertEndPe = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         pessoaDeletar = new javax.swing.JPanel();
@@ -345,26 +346,31 @@ public class TelaPessoa extends javax.swing.JFrame {
 
         jLabel6.setText("Endereço:");
 
-        jCheckBox1.setText("Organizador");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        insertOrgType.setText("Organizador");
+        insertOrgType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                insertOrgTypeActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setText("Participante");
+        insertPartType.setText("Participante");
 
-        jCheckBox3.setText("Autor");
+        insertAutType.setText("Autor");
 
-        jButton1.setText("Inserir");
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        InsertPeButton.setText("Inserir");
+        InsertPeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                InsertPeButtonActionPerformed(evt);
             }
         });
 
-        jLabel25.setText("Digite as informações desejadas nos campos abaixo e clique em \"inserir\"");
+        insertEmailPe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertEmailPeActionPerformed(evt);
+            }
+        });
+
+        jLabel25.setText("Digite as informações desejadas:");
 
         jButton3.setText("Voltar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -382,13 +388,13 @@ public class TelaPessoa extends javax.swing.JFrame {
                 .addGroup(pessoaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pessoaInserirLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jCheckBox1)
+                        .addComponent(insertOrgType)
                         .addGap(26, 26, 26)
-                        .addComponent(jCheckBox2)
+                        .addComponent(insertPartType)
                         .addGap(28, 28, 28)
-                        .addComponent(jCheckBox3)
+                        .addComponent(insertAutType)
                         .addGap(25, 25, 25)
-                        .addComponent(jButton1)
+                        .addComponent(InsertPeButton)
                         .addGap(18, 18, 18)
                         .addComponent(jButton3)
                         .addContainerGap(60, Short.MAX_VALUE))
@@ -402,10 +408,10 @@ public class TelaPessoa extends javax.swing.JFrame {
                                     .addComponent(jLabel1))
                                 .addGap(18, 18, 18)
                                 .addGroup(pessoaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jTextField5)))
+                                    .addComponent(insertNomePe)
+                                    .addComponent(insertEmailPe)
+                                    .addComponent(insertTelPe)
+                                    .addComponent(insertInstPe)))
                             .addGroup(pessoaInserirLayout.createSequentialGroup()
                                 .addGroup(pessoaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pessoaInserirLayout.createSequentialGroup()
@@ -415,49 +421,49 @@ public class TelaPessoa extends javax.swing.JFrame {
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                                 .addGroup(pessoaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField6)
-                                    .addComponent(jTextField4))))
+                                    .addComponent(insertEndPe)
+                                    .addComponent(insertNacPe))))
                         .addGap(49, 49, 49))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pessoaInserirLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel25)
-                .addGap(27, 27, 27))
+                .addGap(175, 175, 175))
         );
         pessoaInserirLayout.setVerticalGroup(
             pessoaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pessoaInserirLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel25)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addGroup(pessoaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(insertNomePe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(pessoaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(insertEmailPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(pessoaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(insertInstPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(pessoaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(insertTelPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(pessoaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(insertNacPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(pessoaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(insertEndPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(pessoaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jButton1)
+                    .addComponent(insertOrgType)
+                    .addComponent(insertPartType)
+                    .addComponent(insertAutType)
+                    .addComponent(InsertPeButton)
                     .addComponent(jButton3))
                 .addContainerGap(343, Short.MAX_VALUE))
         );
@@ -847,13 +853,13 @@ public class TelaPessoa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void insertEmailPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertEmailPeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_insertEmailPeActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void insertOrgTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertOrgTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_insertOrgTypeActionPerformed
 
     private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
         // TODO add your handling code here:
@@ -1026,12 +1032,45 @@ public class TelaPessoa extends javax.swing.JFrame {
         checkOrg.setSelected(false);
         checkPart.setSelected(false);
         checkAut.setSelected(false);
+        //Insercao
+        insertNomePe.setText("");
+        insertEmailPe.setText("");
+        insertInstPe.setText("");
+        insertTelPe.setText("");
+        insertNacPe.setText("");
+        insertEndPe.setText("");
+        insertOrgType.setEnabled(true);
+        insertPartType.setEnabled(true);
+        insertAutType.setEnabled(true);
+        insertOrgType.setSelected(false);
+        insertPartType.setSelected(false);
+        insertAutType.setSelected(false);
+        
     }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void InsertPeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPeButtonActionPerformed
+        Integer tipoOrg=0,tipoPart=0,tipoAut=0;
+        if(insertOrgType.isSelected()) tipoOrg = 1;
+        if(insertPartType.isSelected())tipoPart = 1;
+        if(insertAutType.isSelected()) tipoAut = 1;
+        try {
+            PessoaBD.inserir(insertNomePe.getText(), insertEmailPe.getText(), insertInstPe.getText(),
+                    insertNacPe.getText(), insertTelPe.getText(),insertEndPe.getText(), tipoOrg, tipoPart, tipoAut);
+            JOptionPane.showMessageDialog
+            (null, "Cadastro Realizado" , "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+            clearFields();
+                
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPessoa.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaPessoa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_InsertPeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1069,6 +1108,7 @@ public class TelaPessoa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton InsertPeButton;
     private javax.swing.JTextField campoEmailPe;
     private javax.swing.JTextField campoEndPe;
     private javax.swing.JTextField campoIdPe;
@@ -1079,7 +1119,15 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkAut;
     private javax.swing.JCheckBox checkOrg;
     private javax.swing.JCheckBox checkPart;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox insertAutType;
+    private javax.swing.JTextField insertEmailPe;
+    private javax.swing.JTextField insertEndPe;
+    private javax.swing.JTextField insertInstPe;
+    private javax.swing.JTextField insertNacPe;
+    private javax.swing.JTextField insertNomePe;
+    private javax.swing.JCheckBox insertOrgType;
+    private javax.swing.JCheckBox insertPartType;
+    private javax.swing.JTextField insertTelPe;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -1088,12 +1136,9 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox10;
     private javax.swing.JCheckBox jCheckBox11;
     private javax.swing.JCheckBox jCheckBox12;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JCheckBox jCheckBox6;
@@ -1138,11 +1183,9 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
@@ -1150,10 +1193,6 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
