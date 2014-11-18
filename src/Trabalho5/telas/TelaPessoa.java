@@ -92,26 +92,25 @@ public class TelaPessoa extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jCheckBox10 = new javax.swing.JCheckBox();
-        jCheckBox11 = new javax.swing.JCheckBox();
-        jCheckBox12 = new javax.swing.JCheckBox();
-        jButton8 = new javax.swing.JButton();
-        jTextField20 = new javax.swing.JTextField();
-        jTextField21 = new javax.swing.JTextField();
-        jTextField22 = new javax.swing.JTextField();
-        jTextField23 = new javax.swing.JTextField();
-        jTextField24 = new javax.swing.JTextField();
-        jTextField25 = new javax.swing.JTextField();
+        deleteOrgType = new javax.swing.JCheckBox();
+        deletePartType = new javax.swing.JCheckBox();
+        deleteAutType = new javax.swing.JCheckBox();
+        deleteNomePe = new javax.swing.JTextField();
+        deleteEmailPe = new javax.swing.JTextField();
+        deleteTelPe = new javax.swing.JTextField();
+        deleteNacPe = new javax.swing.JTextField();
+        deleteInstPe = new javax.swing.JTextField();
+        deleteEndPe = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
+        selectDeletePe = new javax.swing.JComboBox();
         jButton10 = new javax.swing.JButton();
         jLabel34 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox();
+        selectDeleteEmailPe = new javax.swing.JComboBox();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
-        jTextField26 = new javax.swing.JTextField();
+        deleteIdPe = new javax.swing.JTextField();
         jLabel37 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        deletePeButton = new javax.swing.JButton();
         pessoaEditar = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -252,27 +251,26 @@ public class TelaPessoa extends javax.swing.JFrame {
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(selectEmailPe, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pessoaBuscarLayout.createSequentialGroup()
-                                    .addComponent(jLabel20)
-                                    .addGap(26, 26, 26)
-                                    .addComponent(campoTelPe))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pessoaBuscarLayout.createSequentialGroup()
-                                    .addComponent(jLabel18)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(campoInstPe))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pessoaBuscarLayout.createSequentialGroup()
-                                    .addComponent(jLabel15)
-                                    .addGap(40, 40, 40)
-                                    .addComponent(campoEmailPe, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pessoaBuscarLayout.createSequentialGroup()
-                                    .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel22)
-                                        .addComponent(jLabel21))
-                                    .addGap(13, 13, 13)
-                                    .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(campoNacPe)
-                                        .addComponent(campoEndPe))))
+                            .addGroup(pessoaBuscarLayout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addGap(26, 26, 26)
+                                .addComponent(campoTelPe))
+                            .addGroup(pessoaBuscarLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(18, 18, 18)
+                                .addComponent(campoInstPe))
+                            .addGroup(pessoaBuscarLayout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addGap(40, 40, 40)
+                                .addComponent(campoEmailPe, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pessoaBuscarLayout.createSequentialGroup()
+                                .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel22)
+                                    .addComponent(jLabel21))
+                                .addGap(13, 13, 13)
+                                .addGroup(pessoaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(campoNacPe)
+                                    .addComponent(campoEndPe)))
                             .addGroup(pessoaBuscarLayout.createSequentialGroup()
                                 .addComponent(jLabel23)
                                 .addGap(18, 18, 18)
@@ -483,39 +481,42 @@ public class TelaPessoa extends javax.swing.JFrame {
 
         jLabel32.setText("Endereço:");
 
-        jCheckBox10.setText("Organizador");
-        jCheckBox10.addActionListener(new java.awt.event.ActionListener() {
+        deleteOrgType.setText("Organizador");
+        deleteOrgType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox10ActionPerformed(evt);
+                deleteOrgTypeActionPerformed(evt);
             }
         });
 
-        jCheckBox11.setText("Participante");
-        jCheckBox11.addActionListener(new java.awt.event.ActionListener() {
+        deletePartType.setText("Participante");
+        deletePartType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox11ActionPerformed(evt);
+                deletePartTypeActionPerformed(evt);
             }
         });
 
-        jCheckBox12.setText("Autor");
+        deleteAutType.setText("Autor");
 
-        jButton8.setText("Carregar Informações");
-
-        jTextField21.addActionListener(new java.awt.event.ActionListener() {
+        deleteEmailPe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField21ActionPerformed(evt);
+                deleteEmailPeActionPerformed(evt);
             }
         });
 
-        jTextField25.addActionListener(new java.awt.event.ActionListener() {
+        deleteEndPe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField25ActionPerformed(evt);
+                deleteEndPeActionPerformed(evt);
             }
         });
 
         jLabel33.setText("1) Buscar por ID:");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectDeletePe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectDeletePe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectDeletePeActionPerformed(evt);
+            }
+        });
 
         jButton10.setText("Voltar");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -526,7 +527,12 @@ public class TelaPessoa extends javax.swing.JFrame {
 
         jLabel34.setText("2) Buscar por e-mail:");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectDeleteEmailPe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectDeleteEmailPe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectDeleteEmailPeActionPerformed(evt);
+            }
+        });
 
         jLabel35.setText("As seguintes informações foram encontradas: ");
 
@@ -534,7 +540,12 @@ public class TelaPessoa extends javax.swing.JFrame {
 
         jLabel37.setText("Deseja deletar as informações acima?");
 
-        jButton4.setText("Deletar");
+        deletePeButton.setText("Deletar");
+        deletePeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletePeButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pessoaDeletarLayout = new javax.swing.GroupLayout(pessoaDeletar);
         pessoaDeletar.setLayout(pessoaDeletarLayout);
@@ -549,24 +560,16 @@ public class TelaPessoa extends javax.swing.JFrame {
                             .addComponent(jLabel31))
                         .addGap(12, 12, 12)
                         .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField23, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField25)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pessoaDeletarLayout.createSequentialGroup()
-                        .addComponent(jLabel33)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(deleteNacPe, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(deleteEndPe)))
                     .addGroup(pessoaDeletarLayout.createSequentialGroup()
                         .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel36)
                             .addComponent(jLabel27))
                         .addGap(64, 64, 64)
                         .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField20)
-                            .addComponent(jTextField26)))
-                    .addGroup(pessoaDeletarLayout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(jLabel35)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(deleteNomePe)
+                            .addComponent(deleteIdPe)))
                     .addGroup(pessoaDeletarLayout.createSequentialGroup()
                         .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel30)
@@ -574,18 +577,22 @@ public class TelaPessoa extends javax.swing.JFrame {
                             .addComponent(jLabel28))
                         .addGap(34, 34, 34)
                         .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField21)
-                            .addComponent(jTextField24)
-                            .addComponent(jTextField22)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pessoaDeletarLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel34)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(deleteEmailPe)
+                            .addComponent(deleteInstPe)
+                            .addComponent(deleteTelPe)))
+                    .addGroup(pessoaDeletarLayout.createSequentialGroup()
                         .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pessoaDeletarLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jButton8))
-                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel33)
+                                .addGap(18, 18, 18)
+                                .addComponent(selectDeletePe, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pessoaDeletarLayout.createSequentialGroup()
+                                .addComponent(jLabel34)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel35)
+                                    .addComponent(selectDeleteEmailPe, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 21, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(pessoaDeletarLayout.createSequentialGroup()
                 .addContainerGap()
@@ -593,15 +600,15 @@ public class TelaPessoa extends javax.swing.JFrame {
                     .addGroup(pessoaDeletarLayout.createSequentialGroup()
                         .addComponent(jLabel37)
                         .addGap(2, 2, 2)
-                        .addComponent(jButton4)
+                        .addComponent(deletePeButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton10))
                     .addGroup(pessoaDeletarLayout.createSequentialGroup()
-                        .addComponent(jCheckBox10)
+                        .addComponent(deleteOrgType)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox11)
+                        .addComponent(deletePartType)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox12)))
+                        .addComponent(deleteAutType)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pessoaDeletarLayout.setVerticalGroup(
@@ -610,54 +617,52 @@ public class TelaPessoa extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(selectDeletePe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(selectDeleteEmailPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addComponent(jLabel35)
-                .addGap(17, 17, 17)
+                .addGap(28, 28, 28)
                 .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
-                    .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deleteIdPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deleteNomePe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteEmailPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28))
                 .addGap(35, 35, 35)
                 .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteInstPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel29))
                 .addGap(25, 25, 25)
                 .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteTelPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel30))
                 .addGap(37, 37, 37)
                 .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel31)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deleteNacPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel32)
-                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deleteEndPe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox10)
-                    .addComponent(jCheckBox11)
-                    .addComponent(jCheckBox12))
+                    .addComponent(deleteOrgType)
+                    .addComponent(deletePartType)
+                    .addComponent(deleteAutType))
                 .addGap(37, 37, 37)
                 .addGroup(pessoaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
+                    .addComponent(deletePeButton)
                     .addComponent(jButton10)
                     .addComponent(jLabel37))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         pessoaTPane.addTab("Deletar", pessoaDeletar);
@@ -928,21 +933,21 @@ public class TelaPessoa extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void jCheckBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox10ActionPerformed
+    private void deleteOrgTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteOrgTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox10ActionPerformed
+    }//GEN-LAST:event_deleteOrgTypeActionPerformed
 
-    private void jCheckBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox11ActionPerformed
+    private void deletePartTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePartTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox11ActionPerformed
+    }//GEN-LAST:event_deletePartTypeActionPerformed
 
-    private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
+    private void deleteEmailPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEmailPeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField21ActionPerformed
+    }//GEN-LAST:event_deleteEmailPeActionPerformed
 
-    private void jTextField25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField25ActionPerformed
+    private void deleteEndPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEndPeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField25ActionPerformed
+    }//GEN-LAST:event_deleteEndPeActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
@@ -1035,8 +1040,10 @@ public class TelaPessoa extends javax.swing.JFrame {
             emailsModel = PessoaBD.getEmailPe();
             selectIdPe.setModel(model);
             selectSearchIdPe.setModel(model);
+            selectDeletePe.setModel(model);
             selectEmailPe.setModel(emailsModel);
             selectSearchEmailPe.setModel(emailsModel);
+            selectDeleteEmailPe.setModel(emailsModel);
             
         } catch (SQLException ex) {
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
@@ -1081,6 +1088,17 @@ public class TelaPessoa extends javax.swing.JFrame {
         searchOrgType.setSelected(false);
         searchPartType.setSelected(false);
         searchAutType.setSelected(false);
+        //Delete
+        deleteIdPe.setText("");
+        deleteNomePe.setText("");
+        deleteEmailPe.setText("");
+        deleteInstPe.setText("");
+        deleteTelPe.setText("");
+        deleteNacPe.setText("");
+        deleteEndPe.setText("");
+        deleteOrgType.setSelected(false);
+        deletePartType.setSelected(false);
+        deleteAutType.setSelected(false);
         
     }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1201,6 +1219,101 @@ public class TelaPessoa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_editPeButtonActionPerformed
 
+    private void selectDeletePeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDeletePeActionPerformed
+        if(selectDeletePe.getSelectedIndex()==0) return;
+        selectDeleteEmailPe.setSelectedIndex(0);
+        ArrayList <String> details = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        try {
+            details = PessoaBD.buscar(Integer.parseInt(jcb.getSelectedItem().toString()));
+            clearFields();
+            deleteIdPe.setText(details.get(0));
+            deleteNomePe.setText(details.get(1));
+            deleteEmailPe.setText(details.get(2));
+            deleteInstPe.setText(details.get(3));
+            deleteTelPe.setText(details.get(4));
+            deleteNacPe.setText(details.get(5));
+            deleteEndPe.setText(details.get(6));
+            if(Integer.parseInt(details.get(7))==1){
+                deleteOrgType.setSelected(true);
+            }
+            if(Integer.parseInt(details.get(8))==1){
+                deletePartType.setSelected(true);
+            }
+            if(Integer.parseInt(details.get(9))==1){
+                deleteAutType.setSelected(true);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectDeletePeActionPerformed
+
+    private void selectDeleteEmailPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDeleteEmailPeActionPerformed
+        if(selectDeleteEmailPe.getSelectedIndex()==0) return;
+        selectDeletePe.setSelectedIndex(0);
+        ArrayList <String> details = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        Integer idPe = 0;
+        try {
+            idPe = PessoaBD.getIdByEmail(selectDeleteEmailPe.getSelectedItem().toString());
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPessoa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            details = PessoaBD.searchByEmail(jcb.getSelectedItem().toString());
+            clearFields();
+            deleteIdPe.setText(idPe.toString());
+            deleteNomePe.setText(details.get(1));
+            deleteEmailPe.setText(details.get(2));
+            deleteInstPe.setText(details.get(3));
+            deleteTelPe.setText(details.get(4));
+            deleteNacPe.setText(details.get(5));
+            deleteEndPe.setText(details.get(6));
+            if(Integer.parseInt(details.get(7))==1){
+                deleteOrgType.setSelected(true);
+            }
+            if(Integer.parseInt(details.get(8))==1){
+                deletePartType.setSelected(true);
+            }
+            if(Integer.parseInt(details.get(9))==1){
+                deleteAutType.setSelected(true);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectDeleteEmailPeActionPerformed
+
+    private void deletePeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePeButtonActionPerformed
+        if(selectDeletePe.getSelectedIndex()==0 && selectDeleteEmailPe.getSelectedIndex()==0) return;
+        Integer idPe=0;
+        if(selectDeleteEmailPe.getSelectedIndex()==0){
+            idPe = Integer.parseInt(selectDeletePe.getSelectedItem().toString());
+        }else{
+            try {   
+                idPe = PessoaBD.getIdByEmail(selectDeleteEmailPe.getSelectedItem().toString());
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaPessoa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        try {
+            PessoaBD.excluir(idPe);
+            JOptionPane.showMessageDialog
+        (null, "Cadastro Removido" , "Remoção", JOptionPane.INFORMATION_MESSAGE);
+         clearFields();
+         loadComboBox();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPessoa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deletePeButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1248,6 +1361,17 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkAut;
     private javax.swing.JCheckBox checkOrg;
     private javax.swing.JCheckBox checkPart;
+    private javax.swing.JCheckBox deleteAutType;
+    private javax.swing.JTextField deleteEmailPe;
+    private javax.swing.JTextField deleteEndPe;
+    private javax.swing.JTextField deleteIdPe;
+    private javax.swing.JTextField deleteInstPe;
+    private javax.swing.JTextField deleteNacPe;
+    private javax.swing.JTextField deleteNomePe;
+    private javax.swing.JCheckBox deleteOrgType;
+    private javax.swing.JCheckBox deletePartType;
+    private javax.swing.JButton deletePeButton;
+    private javax.swing.JTextField deleteTelPe;
     private javax.swing.JButton editPeButton;
     private javax.swing.JCheckBox insertAutType;
     private javax.swing.JTextField insertEmailPe;
@@ -1260,15 +1384,8 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JTextField insertTelPe;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JCheckBox jCheckBox10;
-    private javax.swing.JCheckBox jCheckBox11;
-    private javax.swing.JCheckBox jCheckBox12;
-    private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1308,13 +1425,6 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
     private javax.swing.JPanel pessoaBuscar;
     private javax.swing.JPanel pessoaDeletar;
     private javax.swing.JPanel pessoaEditar;
@@ -1329,6 +1439,8 @@ public class TelaPessoa extends javax.swing.JFrame {
     private javax.swing.JCheckBox searchOrgType;
     private javax.swing.JCheckBox searchPartType;
     private javax.swing.JTextField searchTelPe;
+    private javax.swing.JComboBox selectDeleteEmailPe;
+    private javax.swing.JComboBox selectDeletePe;
     private javax.swing.JComboBox selectEmailPe;
     private javax.swing.JComboBox selectIdPe;
     private javax.swing.JComboBox selectSearchEmailPe;
