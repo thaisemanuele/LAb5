@@ -13,6 +13,7 @@ import Trabalho5.bd.PessoaBD;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -77,29 +78,17 @@ public class TelaInscrito extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
+        deleteApType = new javax.swing.JCheckBox();
+        deleteInscDate = new javax.swing.JTextField();
+        deleteNomePart = new javax.swing.JTextField();
+        selectDeleteInscEmail = new javax.swing.JComboBox();
         jLabel24 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        inscritoEditar = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jCheckBox4 = new javax.swing.JCheckBox();
+        deleteInscButton = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
-        jLabel28 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
+        selectDeleteInscEv = new javax.swing.JComboBox();
+        selectDeleteInscEd = new javax.swing.JComboBox();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -158,7 +147,7 @@ public class TelaInscrito extends javax.swing.JFrame {
                         .addComponent(jLabel10))
                     .addGroup(inscritoInserirLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoInserirLayout.createSequentialGroup()
                                 .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
@@ -176,8 +165,8 @@ public class TelaInscrito extends javax.swing.JFrame {
                                         .addComponent(jButton10))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoInserirLayout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(selectInsertInscPart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(selectInsertInscPart, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoInserirLayout.createSequentialGroup()
                                 .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
@@ -277,42 +266,42 @@ public class TelaInscrito extends javax.swing.JFrame {
         inscritoBuscarLayout.setHorizontalGroup(
             inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inscritoBuscarLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16)
                     .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addComponent(searchDataInscPart)
-                                .addGap(18, 18, 18)
-                                .addComponent(searchInscApType)
-                                .addGap(16, 16, 16))
-                            .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoBuscarLayout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(inscNomePart))
-                                .addComponent(selectInscEmailPart, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoBuscarLayout.createSequentialGroup()
-                                    .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel6))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(searchEventosPart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                                            .addComponent(searchEdPart, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(0, 0, Short.MAX_VALUE)))))))
-                    .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(jLabel15)))
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchDataInscPart)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchInscApType)
+                        .addGap(16, 16, 16))
+                    .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoBuscarLayout.createSequentialGroup()
+                            .addComponent(jLabel7)
+                            .addGap(18, 18, 18)
+                            .addComponent(inscNomePart))
+                        .addComponent(selectInscEmailPart, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoBuscarLayout.createSequentialGroup()
+                            .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel6))
+                            .addGap(18, 18, 18)
+                            .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(searchEventosPart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(inscritoBuscarLayout.createSequentialGroup()
+                                    .addComponent(searchEdPart, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE))))))
                 .addGap(111, 111, 111))
             .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                .addGap(192, 192, 192)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(inscritoBuscarLayout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(inscritoBuscarLayout.createSequentialGroup()
+                        .addGap(182, 182, 182)
+                        .addComponent(jLabel15)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         inscritoBuscarLayout.setVerticalGroup(
@@ -352,32 +341,33 @@ public class TelaInscrito extends javax.swing.JFrame {
 
         inscritoTPane.addTab("Buscar", inscritoBuscar);
 
-        jLabel18.setText("Código do Evento:");
+        jLabel18.setText(" Evento:");
 
-        jLabel19.setText("Número da Edição:");
+        jLabel19.setText(" Edição:");
 
-        jLabel20.setText("Identificador do Participante:");
+        jLabel20.setText("Participante:");
 
         jLabel21.setText("Data de Inscrição:");
 
-        jCheckBox3.setText("Apresentador");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        deleteApType.setText("Apresentador");
+        deleteApType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                deleteApTypeActionPerformed(evt);
             }
         });
 
-        jTextField18.addActionListener(new java.awt.event.ActionListener() {
+        deleteNomePart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField18ActionPerformed(evt);
+                deleteNomePartActionPerformed(evt);
             }
         });
 
-        jLabel22.setText("Selecione uma opção abaixo:");
-
-        jLabel23.setText("Buscar por número de inscrito de acordo com a edição e o evento:");
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectDeleteInscEmail.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectDeleteInscEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectDeleteInscEmailActionPerformed(evt);
+            }
+        });
 
         jLabel24.setText("As seguintes informações foram encontradas:");
 
@@ -390,7 +380,28 @@ public class TelaInscrito extends javax.swing.JFrame {
 
         jLabel25.setText("Realmente deseja deletar o inscrito?");
 
-        jButton8.setText("Deletar");
+        deleteInscButton.setText("Deletar");
+        deleteInscButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteInscButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setText("email do participante:");
+
+        selectDeleteInscEv.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectDeleteInscEv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectDeleteInscEvActionPerformed(evt);
+            }
+        });
+
+        selectDeleteInscEd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectDeleteInscEd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectDeleteInscEdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout inscritoDeletarLayout = new javax.swing.GroupLayout(inscritoDeletar);
         inscritoDeletar.setLayout(inscritoDeletarLayout);
@@ -398,171 +409,75 @@ public class TelaInscrito extends javax.swing.JFrame {
             inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inscritoDeletarLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel23)
-                    .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                            .addComponent(jLabel20)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField18, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE))
-                        .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                            .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel18)
-                                .addComponent(jLabel19))
-                            .addGap(28, 28, 28)
-                            .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField15, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
-                                .addComponent(jTextField16))))
+                .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(selectDeleteInscEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26)
+                    .addGroup(inscritoDeletarLayout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(deleteNomePart))
                     .addGroup(inscritoDeletarLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jLabel25)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton8)
+                        .addComponent(deleteInscButton)
                         .addGap(18, 18, 18)
                         .addComponent(jButton7))
                     .addGroup(inscritoDeletarLayout.createSequentialGroup()
                         .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel21)
-                            .addComponent(jCheckBox3))
-                        .addGap(26, 26, 26)
-                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(58, Short.MAX_VALUE))
-            .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                .addGap(218, 218, 218)
-                .addComponent(jLabel22)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inscritoDeletarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addComponent(jLabel24)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel18))
+                        .addGap(18, 18, 18)
+                        .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(selectDeleteInscEv, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(inscritoDeletarLayout.createSequentialGroup()
+                                .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel24)
+                                    .addComponent(selectDeleteInscEd, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(inscritoDeletarLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(deleteInscDate, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteApType)))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         inscritoDeletarLayout.setVerticalGroup(
             inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel22)
+                .addContainerGap()
+                .addComponent(jLabel26)
+                .addGap(1, 1, 1)
+                .addComponent(selectDeleteInscEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(selectDeleteInscEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(selectDeleteInscEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(jLabel24)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
                 .addGap(18, 18, 18)
                 .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19))
-                .addGap(18, 18, 18)
-                .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel20)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(deleteNomePart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox3)
-                .addGap(18, 18, 18)
+                    .addComponent(deleteInscDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteApType))
+                .addGap(41, 41, 41)
                 .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8)
+                    .addComponent(deleteInscButton)
                     .addComponent(jButton7))
                 .addGap(61, 61, 61))
         );
 
         inscritoTPane.addTab("Deletar", inscritoDeletar);
-
-        jLabel12.setText("Data de Inscrição:");
-
-        jCheckBox4.setText("Apresentador");
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
-            }
-        });
-
-        jLabel26.setText("Selecione uma opção abaixo:");
-
-        jLabel27.setText("Buscar por número de inscrito de acordo com a edição e o evento:");
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel28.setText("Edite as informações abaixo:");
-
-        jButton9.setText("Voltar");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setText("Realmente deseja editar as informações?");
-
-        jButton4.setText("Editar");
-
-        javax.swing.GroupLayout inscritoEditarLayout = new javax.swing.GroupLayout(inscritoEditar);
-        inscritoEditar.setLayout(inscritoEditarLayout);
-        inscritoEditarLayout.setHorizontalGroup(
-            inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(inscritoEditarLayout.createSequentialGroup()
-                .addGroup(inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(inscritoEditarLayout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(jLabel26))
-                    .addGroup(inscritoEditarLayout.createSequentialGroup()
-                        .addGap(216, 216, 216)
-                        .addComponent(jLabel28))
-                    .addGroup(inscritoEditarLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(inscritoEditarLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton9))
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel27)
-                            .addGroup(inscritoEditarLayout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(jCheckBox4)))))
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
-        inscritoEditarLayout.setVerticalGroup(
-            inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(inscritoEditarLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel26)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel27)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(jLabel28)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addGroup(inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jLabel12)
-                    .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton9))
-                .addGap(99, 99, 99))
-        );
-
-        inscritoTPane.addTab("Editar", inscritoEditar);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -589,67 +504,63 @@ public class TelaInscrito extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void searchInscApTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchInscApTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchInscApTypeActionPerformed
-
-    private void insertInscApTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertInscApTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_insertInscApTypeActionPerformed
-
-    private void inscNomePartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscNomePartActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inscNomePartActionPerformed
-
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
-
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
-
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox4ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        dispose();
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void deleteNomePartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteNomePartActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        dispose();
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_deleteNomePartActionPerformed
 
-    private void selectInsertInscCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectInsertInscCodActionPerformed
-        if(selectInsertInscCod.getSelectedIndex()==0) return;
+    private void deleteApTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteApTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteApTypeActionPerformed
+
+    private void searchEdPartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEdPartActionPerformed
+        if(searchEventosPart.getSelectedIndex()==0) return;
+        if(searchEdPart.getSelectedIndex()==0) return;
+        DefaultComboBoxModel evPartModel = new DefaultComboBoxModel();
+        DefaultComboBoxModel edPartModel = new DefaultComboBoxModel();
+        ArrayList<String> details = new ArrayList<String>();
+        Integer codEv;
         try {
-            DefaultComboBoxModel model = new DefaultComboBoxModel();
-            Integer code = EventoBD.getCodeByName(selectInsertInscCod.getSelectedItem().toString());
-            model = EdicaoBD.getEditions(code);
-            selectInsertInscNumEd.setModel(model);
-                       
+            codEv = EventoBD.getCodeByName(searchEventosPart.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(searchEdPart.getSelectedItem().toString());
+            evPartModel = InscritoBD.getEventParts(codEv,numEd);
+            edPartModel = InscritoBD.getEditionParts(codEv,numEd);
+            selectInscEmailPart.setModel(edPartModel);
+            inscNomePart.setText("");
+
         } catch (SQLException ex) {
             Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }//GEN-LAST:event_selectInsertInscCodActionPerformed
+
+    }//GEN-LAST:event_searchEdPartActionPerformed
+
+    private void searchEventosPartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEventosPartActionPerformed
+        if(searchEventosPart.getSelectedIndex()==0) return;
+        DefaultComboBoxModel edModel = new DefaultComboBoxModel();
+        JComboBox jcb = (JComboBox) evt.getSource();
+        Integer idPart;
+        try {
+            Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
+            idPart = PessoaBD.getIdByEmail(selectInscEmailPart.getSelectedItem().toString());
+            edModel = EdicaoBD.getEditions(codEv);System.out.println("codEV "+codEv);
+            searchEdPart.setModel(edModel);
+            inscNomePart.setText("");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchEventosPartActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void selectInscEmailPartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectInscEmailPartActionPerformed
         if(searchEventosPart.getSelectedIndex()==0 || searchEdPart.getSelectedIndex()==0)return;
@@ -667,57 +578,47 @@ public class TelaInscrito extends javax.swing.JFrame {
             searchInscApType.setSelected(false);
             Integer codEv = EventoBD.getCodeByName(searchEventosPart.getSelectedItem().toString());
             details2 = InscritoBD.buscar(codEv,
-                        Integer.parseInt(searchEdPart.getSelectedItem().toString()),idPart);
+                Integer.parseInt(searchEdPart.getSelectedItem().toString()),idPart);
             searchDataInscPart.setText(details2.get(3));
             if(Integer.parseInt(details2.get(4))==1) searchInscApType.setSelected(true);
             else searchInscApType.setSelected(false);
             searchInscApType.setEnabled(false);
             details.clear();
             details2.clear();
-            
+
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_selectInscEmailPartActionPerformed
 
-    private void searchEventosPartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEventosPartActionPerformed
-        if(searchEventosPart.getSelectedIndex()==0) return;
-        DefaultComboBoxModel edModel = new DefaultComboBoxModel();
-        JComboBox jcb = (JComboBox) evt.getSource();
-        Integer idPart;
-        try {
-            Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
-            idPart = PessoaBD.getIdByEmail(selectInscEmailPart.getSelectedItem().toString());
-            edModel = EdicaoBD.getEditions(codEv);System.out.println("codEV "+codEv);
-            searchEdPart.setModel(edModel);
-            inscNomePart.setText("");
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_searchEventosPartActionPerformed
+    private void inscNomePartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscNomePartActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inscNomePartActionPerformed
 
-    private void searchEdPartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEdPartActionPerformed
-        if(searchEventosPart.getSelectedIndex()==0) return;
-        if(searchEdPart.getSelectedIndex()==0) return;
-        DefaultComboBoxModel evPartModel = new DefaultComboBoxModel();
-        DefaultComboBoxModel edPartModel = new DefaultComboBoxModel();
-        ArrayList<String> details = new ArrayList<String>();
-        Integer codEv;
+    private void searchInscApTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchInscApTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchInscApTypeActionPerformed
+
+    private void selectInsertInscCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectInsertInscCodActionPerformed
+        if(selectInsertInscCod.getSelectedIndex()==0) return;
         try {
-            codEv = EventoBD.getCodeByName(searchEventosPart.getSelectedItem().toString());
-            Integer numEd = Integer.parseInt(searchEdPart.getSelectedItem().toString());
-            evPartModel = InscritoBD.getEventParts(codEv,numEd);
-            edPartModel = InscritoBD.getEditionParts(codEv,numEd);
-            selectInscEmailPart.setModel(edPartModel);
-            inscNomePart.setText("");
-            
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            Integer code = EventoBD.getCodeByName(selectInsertInscCod.getSelectedItem().toString());
+            model = EdicaoBD.getEditions(code);
+            selectInsertInscNumEd.setModel(model);
+
         } catch (SQLException ex) {
             Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }//GEN-LAST:event_searchEdPartActionPerformed
+
+    }//GEN-LAST:event_selectInsertInscCodActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     private void inserirInsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirInsButtonActionPerformed
         Integer check = 0;
@@ -727,13 +628,116 @@ public class TelaInscrito extends javax.swing.JFrame {
             Integer codEv = EventoBD.getCodeByName(selectInsertInscCod.getSelectedItem().toString());
             Integer idPe = PessoaBD.getIdByEmail(selectInsertInscPart.getSelectedItem().toString());
             InscritoBD.inserir(codEv,Integer.parseInt(selectInsertInscNumEd.getSelectedItem().toString()),
-                    idPe,dataInsc.toString(), check);
+                idPe,dataInsc.toString(), check);
             JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso " , "Successo", JOptionPane.INFORMATION_MESSAGE);
+            clearFields();
+            loadComboBox();
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_inserirInsButtonActionPerformed
 
+    private void insertInscApTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertInscApTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_insertInscApTypeActionPerformed
+
+    private void selectDeleteInscEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDeleteInscEvActionPerformed
+        if(selectDeleteInscEv.getSelectedIndex()==0) return;
+        DefaultComboBoxModel edModel = new DefaultComboBoxModel();
+        JComboBox jcb = (JComboBox) evt.getSource();
+        Integer idPart;
+        try {
+            Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
+            idPart = PessoaBD.getIdByEmail(selectDeleteInscEmail.getSelectedItem().toString());
+            edModel = EdicaoBD.getEditions(codEv);
+            selectDeleteInscEd.setModel(edModel);
+            clearFields();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectDeleteInscEvActionPerformed
+
+    private void selectDeleteInscEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDeleteInscEdActionPerformed
+        if(selectDeleteInscEv.getSelectedIndex()==0) return;
+        if(selectDeleteInscEd.getSelectedIndex()==0) return;
+        DefaultComboBoxModel evPartModel = new DefaultComboBoxModel();
+        DefaultComboBoxModel edPartModel = new DefaultComboBoxModel();
+        ArrayList<String> details = new ArrayList<String>();
+        Integer codEv;
+        try {
+            codEv = EventoBD.getCodeByName(selectDeleteInscEv.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(selectDeleteInscEd.getSelectedItem().toString());
+            evPartModel = InscritoBD.getEventParts(codEv,numEd);
+            edPartModel = InscritoBD.getEditionParts(codEv,numEd);
+            selectDeleteInscEmail.setModel(edPartModel);
+            clearFields();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectDeleteInscEdActionPerformed
+
+    private void selectDeleteInscEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDeleteInscEmailActionPerformed
+        if(selectDeleteInscEv.getSelectedIndex()==0 || selectDeleteInscEd.getSelectedIndex()==0)return;
+        if(selectDeleteInscEmail.getSelectedIndex()==0) return;
+        ArrayList <String> details = new ArrayList<String>();
+        ArrayList <String> details2 = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        try {
+            DefaultComboBoxModel evPartModel = new DefaultComboBoxModel();
+            //Integer idPart = PessoaBD.getIdByEmail(selectInsertInscCod.getSelectedItem().toString());
+            Integer idPart = PessoaBD.getIdByEmail(jcb.getSelectedItem().toString());
+            details = PessoaBD.buscar(idPart);
+            deleteApType.setEnabled(true);
+            deleteApType.setSelected(false);
+            Integer codEv = EventoBD.getCodeByName(selectDeleteInscEv.getSelectedItem().toString());
+            details2 = InscritoBD.buscar(codEv,
+                Integer.parseInt(selectDeleteInscEd.getSelectedItem().toString()),idPart);
+            deleteNomePart.setText(details.get(1));
+            deleteInscDate.setText(details2.get(3));
+            if(Integer.parseInt(details2.get(4))==1) deleteApType.setSelected(true);
+            else searchInscApType.setSelected(false);
+            searchInscApType.setEnabled(false);
+            details.clear();
+            details2.clear();
+
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectDeleteInscEmailActionPerformed
+
+    private void deleteInscButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteInscButtonActionPerformed
+        if(selectDeleteInscEmail.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(null, "Selecione o Participante! " , "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        try {
+            Integer codEv = EventoBD.getCodeByName(selectDeleteInscEv.getSelectedItem().toString());
+            Integer idPart = PessoaBD.getIdByEmail(selectDeleteInscEmail.getSelectedItem().toString());
+            InscritoBD.excluir(codEv,
+                    Integer.parseInt(selectDeleteInscEd.getSelectedItem().toString()),idPart);
+            JOptionPane.showMessageDialog(null, "Inscrição removida " , "Remoção", JOptionPane.INFORMATION_MESSAGE);
+            clearFields();
+            loadComboBox();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deleteInscButtonActionPerformed
+
+    public void clearFields(){
+        insertInscApType.setEnabled(true);
+        insertInscApType.setSelected(false);
+        insertInscDate.setDate(null);
+        
+        //Delete
+        searchInscApType.setEnabled(true);
+        searchInscApType.setSelected(false);
+        deleteNomePart.setText("");
+        deleteInscDate.setText("");
+        deleteApType.setText("");
+    }
     public void loadComboBox(){
          
         DefaultComboBoxModel evModel = new DefaultComboBoxModel();
@@ -753,6 +757,9 @@ public class TelaInscrito extends javax.swing.JFrame {
             selectInscEmailPart.setModel(emptyModel2);
             searchEventosPart.setModel(evModel);
             searchEdPart.setModel(emptyModel);
+            selectDeleteInscEmail.setModel(emptyModel2);
+            selectDeleteInscEd.setModel(emptyModel);
+            selectDeleteInscEv.setModel(evModel);
             
         } catch (SQLException ex) {
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
@@ -795,29 +802,24 @@ public class TelaInscrito extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox deleteApType;
+    private javax.swing.JButton deleteInscButton;
+    private javax.swing.JTextField deleteInscDate;
+    private javax.swing.JTextField deleteNomePart;
     private javax.swing.JTextField inscNomePart;
     private javax.swing.JPanel inscritoBuscar;
     private javax.swing.JPanel inscritoDeletar;
-    private javax.swing.JPanel inscritoEditar;
     private javax.swing.JPanel inscritoInserir;
     protected javax.swing.JTabbedPane inscritoTPane;
     private javax.swing.JButton inserirInsButton;
     private javax.swing.JCheckBox insertInscApType;
     private org.jdesktop.swingx.JXDatePicker insertInscDate;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
@@ -825,30 +827,23 @@ public class TelaInscrito extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     private javax.swing.JTextField searchDataInscPart;
     private javax.swing.JComboBox searchEdPart;
     private javax.swing.JComboBox searchEventosPart;
     private javax.swing.JCheckBox searchInscApType;
+    private javax.swing.JComboBox selectDeleteInscEd;
+    private javax.swing.JComboBox selectDeleteInscEmail;
+    private javax.swing.JComboBox selectDeleteInscEv;
     private javax.swing.JComboBox selectInscEmailPart;
     private javax.swing.JComboBox selectInsertInscCod;
     private javax.swing.JComboBox selectInsertInscNumEd;

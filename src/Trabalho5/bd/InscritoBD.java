@@ -46,6 +46,23 @@ public class InscritoBD {
         return details;
     }
     
+    public static void atualizar(Integer codEv, Integer numEd,Integer idPart,
+        String dataInsc, Integer tipoApresentador) throws SQLException{
+        String update = "UPDATE Inscrito SET dataInsc = TO_DATE('" +dataInsc+"','YYYY-MM-DD')"
+                + ",tipoApresentador = " +tipoApresentador+ 
+                " WHERE numEd = '" + numEd + "' and idPart = '" + idPart +"' and codEv = '" + codEv + "'";
+        System.out.println("insert statement " + update);
+        Statement statement = dbConnection.createStatement();
+        statement.executeUpdate(update);
+    }
+    
+    public static void excluir(Integer codEv, Integer numEd,Integer idPart) throws SQLException{
+        String delete = "DELETE FROM Inscrito WHERE numEd = '" + numEd +"' and idPart = '" + idPart + "' and codEv = '" + codEv + "'";
+        Statement statement = dbConnection.createStatement();
+        statement.executeUpdate(delete);
+    }
+    
+    
     public static DefaultComboBoxModel getPartEvents(Integer idPart) throws SQLException{
         int i=1;
         DefaultComboBoxModel model = new DefaultComboBoxModel();

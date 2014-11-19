@@ -46,7 +46,6 @@ public class TelaMenu extends javax.swing.JFrame {
         EditarEvento = new javax.swing.JMenuItem();
         EditarEdicao = new javax.swing.JMenuItem();
         EditarPessoa = new javax.swing.JMenuItem();
-        EditarInscrito = new javax.swing.JMenuItem();
         EditarArtigo = new javax.swing.JMenuItem();
         EditarEscreve = new javax.swing.JMenuItem();
         EditarOrganiza = new javax.swing.JMenuItem();
@@ -223,14 +222,6 @@ public class TelaMenu extends javax.swing.JFrame {
             }
         });
         Editar.add(EditarPessoa);
-
-        EditarInscrito.setText("Inscrição");
-        EditarInscrito.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarInscritoActionPerformed(evt);
-            }
-        });
-        Editar.add(EditarInscrito);
 
         EditarArtigo.setText("Artigo");
         EditarArtigo.addActionListener(new java.awt.event.ActionListener() {
@@ -696,13 +687,6 @@ public class TelaMenu extends javax.swing.JFrame {
         telaPessoa.setVisible(true);
     }//GEN-LAST:event_EditarPessoaActionPerformed
 
-    private void EditarInscritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarInscritoActionPerformed
-        // TODO add your handling code here:
-         TelaInscrito telaInscrito = new TelaInscrito();
-        telaInscrito.inscritoTPane.setSelectedIndex(3);
-        telaInscrito.setVisible(true);
-    }//GEN-LAST:event_EditarInscritoActionPerformed
-
     private void EditarOrganizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarOrganizaActionPerformed
         // TODO add your handling code here:
         TelaOrganiza telaOrganiza = new TelaOrganiza();
@@ -886,7 +870,6 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem EditarEdicao;
     private javax.swing.JMenuItem EditarEscreve;
     private javax.swing.JMenuItem EditarEvento;
-    private javax.swing.JMenuItem EditarInscrito;
     private javax.swing.JMenuItem EditarOrganiza;
     private javax.swing.JMenuItem EditarPatrocinador;
     private javax.swing.JMenuItem EditarPatrocinio;
