@@ -132,7 +132,7 @@ public class TelaMenu extends javax.swing.JFrame {
         });
         Inserir.add(InserirPessoa);
 
-        InserirInscrito.setText("Inscrito");
+        InserirInscrito.setText("Inscrição");
         InserirInscrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InserirInscritoActionPerformed(evt);
@@ -224,7 +224,7 @@ public class TelaMenu extends javax.swing.JFrame {
         });
         Editar.add(EditarPessoa);
 
-        EditarInscrito.setText("Inscrito");
+        EditarInscrito.setText("Inscrição");
         EditarInscrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EditarInscritoActionPerformed(evt);
@@ -316,7 +316,7 @@ public class TelaMenu extends javax.swing.JFrame {
         });
         Buscar.add(BuscarPessoa);
 
-        BuscarInscrito.setText("Inscrito");
+        BuscarInscrito.setText("Inscrição");
         BuscarInscrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscarInscritoActionPerformed(evt);
@@ -408,7 +408,7 @@ public class TelaMenu extends javax.swing.JFrame {
         });
         Deletar.add(DeletarPessoa);
 
-        DeletarInscrito.setText("Inscrito");
+        DeletarInscrito.setText("Inscrição");
         DeletarInscrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeletarInscritoActionPerformed(evt);

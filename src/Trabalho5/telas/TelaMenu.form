@@ -39,7 +39,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="InserirInscrito">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Inscrito"/>
+                <Property name="text" type="java.lang.String" value="Inscri&#xe7;&#xe3;o"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InserirInscritoActionPerformed"/>
@@ -134,7 +134,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="EditarInscrito">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Inscrito"/>
+                <Property name="text" type="java.lang.String" value="Inscri&#xe7;&#xe3;o"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EditarInscritoActionPerformed"/>
@@ -229,7 +229,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="BuscarInscrito">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Inscrito"/>
+                <Property name="text" type="java.lang.String" value="Inscri&#xe7;&#xe3;o"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BuscarInscritoActionPerformed"/>
@@ -324,7 +324,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="DeletarInscrito">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Inscrito"/>
+                <Property name="text" type="java.lang.String" value="Inscri&#xe7;&#xe3;o"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeletarInscritoActionPerformed"/>
