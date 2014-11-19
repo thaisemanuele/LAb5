@@ -152,4 +152,26 @@ public class EventoBD {
         }
         return details;
     }
+     
+     public static Integer getCodeByName(String name) throws SQLException{
+        Integer id = -1;
+        String selectSql = "SELECT codEv from Evento WHERE nomeEv = '"+name+"'";
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectSql);
+        if(rs.next()){
+            id = Integer.parseInt(rs.getString("codEv"));
+        }
+       return id;
+    }
+     
+     public static String getNameByCode(String code) throws SQLException{
+        String name = null;
+        String selectSql = "SELECT nomeEv from Evento WHERE codEv = '"+code+"'";
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectSql);
+        if(rs.next()){
+            name = rs.getString("nomeEv");
+        }
+       return name;
+    }
 }

@@ -123,6 +123,17 @@ public class PessoaBD {
        return id;
     }
     
+    public static String getEmailById(Integer idPe) throws SQLException{
+        String email = new String();
+        String selectSql = "SELECT emailPe from Pessoa WHERE idPe = "+idPe+"";
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectSql);
+        if(rs.next()){
+            email = rs.getString("emailPe");
+        }
+       return email;
+    }
+    
     public static DefaultComboBoxModel getEmailPe() throws SQLException{
          int i=1;
         DefaultComboBoxModel model = new DefaultComboBoxModel();

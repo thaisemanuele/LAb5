@@ -6,6 +6,19 @@
 
 package Trabalho5.telas;
 
+import Trabalho5.bd.EdicaoBD;
+import Trabalho5.bd.EventoBD;
+import Trabalho5.bd.InscritoBD;
+import Trabalho5.bd.PessoaBD;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gabriela
@@ -17,6 +30,7 @@ public class TelaInscrito extends javax.swing.JFrame {
      */
     public TelaInscrito() {
         initComponents();
+        loadComboBox();
     }
 
     /**
@@ -36,30 +50,28 @@ public class TelaInscrito extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        insertInscApType = new javax.swing.JCheckBox();
+        inserirInsButton = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
-        jComboBox5 = new javax.swing.JComboBox();
-        jComboBox6 = new javax.swing.JComboBox();
-        jComboBox7 = new javax.swing.JComboBox();
-        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
+        selectInsertInscCod = new javax.swing.JComboBox();
+        selectInsertInscNumEd = new javax.swing.JComboBox();
+        selectInsertInscPart = new javax.swing.JComboBox();
+        insertInscDate = new org.jdesktop.swingx.JXDatePicker();
         inscritoBuscar = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        searchInscApType = new javax.swing.JCheckBox();
+        searchDataInscPart = new javax.swing.JTextField();
+        inscNomePart = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
-        jLabel17 = new javax.swing.JLabel();
+        selectInscEmailPart = new javax.swing.JComboBox();
         jButton5 = new javax.swing.JButton();
+        searchEventosPart = new javax.swing.JComboBox();
+        searchEdPart = new javax.swing.JComboBox();
         inscritoDeletar = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -70,7 +82,6 @@ public class TelaInscrito extends javax.swing.JFrame {
         jTextField16 = new javax.swing.JTextField();
         jTextField17 = new javax.swing.JTextField();
         jTextField18 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox();
@@ -81,8 +92,6 @@ public class TelaInscrito extends javax.swing.JFrame {
         inscritoEditar = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jCheckBox4 = new javax.swing.JCheckBox();
-        jTextField11 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox();
@@ -90,27 +99,33 @@ public class TelaInscrito extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Código do Evento:");
+        jLabel1.setText("Evento:");
 
-        jLabel2.setText("Número da Edição:");
+        jLabel2.setText("Edição:");
 
         jLabel3.setText("Participante:");
 
         jLabel4.setText("Data de Inscrição:");
 
-        jCheckBox1.setText("Apresentador");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        insertInscApType.setText("Apresentador");
+        insertInscApType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                insertInscApTypeActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Inserir");
+        inserirInsButton.setText("Inserir");
+        inserirInsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inserirInsButtonActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Digite as informações desejadas nos campos abaixo e clique em \"inserir\"");
 
@@ -121,11 +136,16 @@ public class TelaInscrito extends javax.swing.JFrame {
             }
         });
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectInsertInscCod.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectInsertInscCod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectInsertInscCodActionPerformed(evt);
+            }
+        });
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectInsertInscNumEd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectInsertInscPart.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout inscritoInserirLayout = new javax.swing.GroupLayout(inscritoInserir);
         inscritoInserir.setLayout(inscritoInserirLayout);
@@ -134,100 +154,102 @@ public class TelaInscrito extends javax.swing.JFrame {
             .addGroup(inscritoInserirLayout.createSequentialGroup()
                 .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(inscritoInserirLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(inscritoInserirLayout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(inscritoInserirLayout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButton1))
-                                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(inscritoInserirLayout.createSequentialGroup()
-                                        .addGap(69, 69, 69)
-                                        .addComponent(jCheckBox1))
-                                    .addGroup(inscritoInserirLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton10))))
-                            .addGroup(inscritoInserirLayout.createSequentialGroup()
-                                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jComboBox6, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox7, javax.swing.GroupLayout.Alignment.LEADING, 0, 369, Short.MAX_VALUE)
-                                    .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(inscritoInserirLayout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(jLabel10)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                        .addComponent(jLabel10))
+                    .addGroup(inscritoInserirLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoInserirLayout.createSequentialGroup()
+                                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addGroup(inscritoInserirLayout.createSequentialGroup()
+                                        .addGap(109, 109, 109)
+                                        .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(insertInscDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(inserirInsButton))))
+                                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(inscritoInserirLayout.createSequentialGroup()
+                                        .addGap(32, 32, 32)
+                                        .addComponent(insertInscApType))
+                                    .addGroup(inscritoInserirLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton10))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoInserirLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(selectInsertInscPart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoInserirLayout.createSequentialGroup()
+                                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(42, 42, 42)
+                                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(selectInsertInscCod, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(selectInsertInscNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         inscritoInserirLayout.setVerticalGroup(
             inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inscritoInserirLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jLabel10)
-                .addGap(49, 49, 49)
-                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(52, 52, 52)
+                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                    .addComponent(selectInsertInscCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
+                    .addComponent(selectInsertInscNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(selectInsertInscPart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(48, 48, 48)
-                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCheckBox1)))
-                .addGap(51, 51, 51)
                 .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(insertInscDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(insertInscApType))
+                .addGap(18, 18, 18)
+                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inserirInsButton)
                     .addComponent(jButton10))
-                .addGap(103, 103, 103))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         inscritoTPane.addTab("Inserir", inscritoInserir);
 
-        jLabel5.setText("Código do Evento:");
+        jLabel5.setText("Eventos:");
 
-        jLabel6.setText("Número da Edição:");
+        jLabel6.setText("Edição:");
 
-        jLabel7.setText("Identificador do Participante:");
+        jLabel7.setText(" Participante:");
 
         jLabel8.setText("Data de Inscrição:");
 
-        jCheckBox2.setText("Apresentador");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        searchInscApType.setText("Apresentador");
+        searchInscApType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                searchInscApTypeActionPerformed(evt);
             }
         });
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        inscNomePart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                inscNomePartActionPerformed(evt);
             }
         });
-
-        jButton2.setText("Buscar");
 
         jLabel15.setText("Selecione uma opção abaixo:");
 
-        jLabel16.setText("Buscar por número de inscrito de acordo com a edição e o evento:");
+        jLabel16.setText("email do participante:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel17.setText("As seguintes informações foram encontradas:");
+        selectInscEmailPart.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectInscEmailPart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectInscEmailPartActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Voltar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -236,52 +258,62 @@ public class TelaInscrito extends javax.swing.JFrame {
             }
         });
 
+        searchEventosPart.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchEventosPart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchEventosPartActionPerformed(evt);
+            }
+        });
+
+        searchEdPart.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchEdPart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchEdPartActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout inscritoBuscarLayout = new javax.swing.GroupLayout(inscritoBuscar);
         inscritoBuscar.setLayout(inscritoBuscarLayout);
         inscritoBuscarLayout.setHorizontalGroup(
             inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel16)
-                                .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                                        .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jCheckBox2))
-                                        .addGap(26, 26, 26)
-                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(inscritoBuscarLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addGroup(inscritoBuscarLayout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(searchDataInscPart)
+                                .addGap(18, 18, 18)
+                                .addComponent(searchInscApType)
+                                .addGap(16, 16, 16))
+                            .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoBuscarLayout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(inscNomePart))
+                                .addComponent(selectInscEmailPart, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoBuscarLayout.createSequentialGroup()
                                     .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(searchEventosPart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                                            .addComponent(jLabel7)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                                            .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel5)
-                                                .addComponent(jLabel6))
-                                            .addGap(28, 28, 28)
-                                            .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                                    .addGap(140, 140, 140)
-                                    .addComponent(jLabel17))))
-                        .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                            .addGap(218, 218, 218)
-                            .addComponent(jLabel15))
-                        .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                            .addGap(217, 217, 217)
-                            .addComponent(jButton2))))
-                .addContainerGap(38, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inscritoBuscarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addGap(46, 46, 46))
+                                            .addComponent(searchEdPart, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(0, 0, Short.MAX_VALUE)))))))
+                    .addGroup(inscritoBuscarLayout.createSequentialGroup()
+                        .addGap(218, 218, 218)
+                        .addComponent(jLabel15)))
+                .addGap(111, 111, 111))
+            .addGroup(inscritoBuscarLayout.createSequentialGroup()
+                .addGap(192, 192, 192)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         inscritoBuscarLayout.setVerticalGroup(
             inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,32 +323,31 @@ public class TelaInscrito extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox2)
-                .addGap(31, 31, 31)
+                .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(inscritoBuscarLayout.createSequentialGroup()
+                        .addComponent(selectInscEmailPart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(inscNomePart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(searchEventosPart, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(searchEdPart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel8))
+                    .addGroup(inscritoBuscarLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(searchDataInscPart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchInscApType))))
+                .addGap(40, 40, 40)
                 .addComponent(jButton5)
-                .addGap(43, 43, 43))
+                .addGap(163, 163, 163))
         );
 
         inscritoTPane.addTab("Buscar", inscritoBuscar);
@@ -342,8 +373,6 @@ public class TelaInscrito extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("Carregar Informações");
-
         jLabel22.setText("Selecione uma opção abaixo:");
 
         jLabel23.setText("Buscar por número de inscrito de acordo com a edição e o evento:");
@@ -368,51 +397,48 @@ public class TelaInscrito extends javax.swing.JFrame {
         inscritoDeletarLayout.setHorizontalGroup(
             inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(30, 30, 30)
+                .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23)
+                    .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
+                            .addComponent(jLabel20)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jTextField18, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE))
+                        .addGroup(inscritoDeletarLayout.createSequentialGroup()
                             .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel23)
-                                .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                                            .addComponent(jLabel20)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                                            .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel18)
-                                                .addComponent(jLabel19))
-                                            .addGap(28, 28, 28)
-                                            .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                                            .addGap(85, 85, 85)
-                                            .addComponent(jLabel25)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jButton8)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jButton7))
-                                        .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                                            .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel21)
-                                                .addComponent(jCheckBox3))
-                                            .addGap(26, 26, 26)
-                                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                                    .addGap(140, 140, 140)
-                                    .addComponent(jLabel24))))
-                        .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                            .addGap(218, 218, 218)
-                            .addComponent(jLabel22))
-                        .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                            .addGap(217, 217, 217)
-                            .addComponent(jButton6))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                                .addComponent(jLabel18)
+                                .addComponent(jLabel19))
+                            .addGap(28, 28, 28)
+                            .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField15, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+                                .addComponent(jTextField16))))
+                    .addGroup(inscritoDeletarLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel25)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton8)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton7))
+                    .addGroup(inscritoDeletarLayout.createSequentialGroup()
+                        .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel21)
+                            .addComponent(jCheckBox3))
+                        .addGap(26, 26, 26)
+                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(58, Short.MAX_VALUE))
+            .addGroup(inscritoDeletarLayout.createSequentialGroup()
+                .addGap(218, 218, 218)
+                .addComponent(jLabel22)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inscritoDeletarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(inscritoDeletarLayout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(jLabel24)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         inscritoDeletarLayout.setVerticalGroup(
             inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -423,11 +449,9 @@ public class TelaInscrito extends javax.swing.JFrame {
                 .addComponent(jLabel23)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel24)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18))
@@ -445,12 +469,12 @@ public class TelaInscrito extends javax.swing.JFrame {
                     .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jCheckBox3)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8))
-                .addGap(49, 49, 49))
+                    .addComponent(jButton8)
+                    .addComponent(jButton7))
+                .addGap(61, 61, 61))
         );
 
         inscritoTPane.addTab("Deletar", inscritoDeletar);
@@ -463,8 +487,6 @@ public class TelaInscrito extends javax.swing.JFrame {
                 jCheckBox4ActionPerformed(evt);
             }
         });
-
-        jButton3.setText("Carregar Informações");
 
         jLabel26.setText("Selecione uma opção abaixo:");
 
@@ -490,36 +512,31 @@ public class TelaInscrito extends javax.swing.JFrame {
         inscritoEditarLayout.setHorizontalGroup(
             inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inscritoEditarLayout.createSequentialGroup()
-                .addGroup(inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(inscritoEditarLayout.createSequentialGroup()
+                        .addGap(218, 218, 218)
+                        .addComponent(jLabel26))
+                    .addGroup(inscritoEditarLayout.createSequentialGroup()
+                        .addGap(216, 216, 216)
+                        .addComponent(jLabel28))
+                    .addGroup(inscritoEditarLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
                         .addGroup(inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(inscritoEditarLayout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel27))
-                            .addGroup(inscritoEditarLayout.createSequentialGroup()
-                                .addGap(218, 218, 218)
-                                .addComponent(jLabel26))
-                            .addGroup(inscritoEditarLayout.createSequentialGroup()
-                                .addGap(215, 215, 215)
-                                .addGroup(inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel28)
-                                    .addComponent(jButton3))))
-                        .addGap(121, 121, 121))
-                    .addGroup(inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCheckBox4)
-                        .addGroup(inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(inscritoEditarLayout.createSequentialGroup()
                                 .addComponent(jLabel9)
-                                .addGap(38, 38, 38)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton4)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton9))
+                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel27)
                             .addGroup(inscritoEditarLayout.createSequentialGroup()
                                 .addComponent(jLabel12)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(jCheckBox4)))))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         inscritoEditarLayout.setVerticalGroup(
             inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -530,22 +547,19 @@ public class TelaInscrito extends javax.swing.JFrame {
                 .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addGap(18, 18, 18)
+                .addGap(52, 52, 52)
                 .addComponent(jLabel28)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox4)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox4)
-                .addGap(76, 76, 76)
+                    .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
                 .addGroup(inscritoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
-                .addGap(86, 86, 86))
+                    .addComponent(jButton4)
+                    .addComponent(jButton9))
+                .addGap(99, 99, 99))
         );
 
         inscritoTPane.addTab("Editar", inscritoEditar);
@@ -554,15 +568,11 @@ public class TelaInscrito extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(inscritoTPane, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 10, Short.MAX_VALUE))
+            .addComponent(inscritoTPane, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(inscritoTPane)
-                .addContainerGap())
+            .addComponent(inscritoTPane, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -573,25 +583,23 @@ public class TelaInscrito extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void searchInscApTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchInscApTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_searchInscApTypeActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void insertInscApTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertInscApTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_insertInscApTypeActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void inscNomePartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscNomePartActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_inscNomePartActionPerformed
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
         // TODO add your handling code here:
@@ -629,6 +637,128 @@ public class TelaInscrito extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void selectInsertInscCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectInsertInscCodActionPerformed
+        if(selectInsertInscCod.getSelectedIndex()==0) return;
+        try {
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            Integer code = EventoBD.getCodeByName(selectInsertInscCod.getSelectedItem().toString());
+            model = EdicaoBD.getEditions(code);
+            selectInsertInscNumEd.setModel(model);
+                       
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_selectInsertInscCodActionPerformed
+
+    private void selectInscEmailPartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectInscEmailPartActionPerformed
+        if(searchEventosPart.getSelectedIndex()==0 || searchEdPart.getSelectedIndex()==0)return;
+        ArrayList <String> details = new ArrayList<String>();
+        ArrayList <String> details2 = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        try {
+            DefaultComboBoxModel evPartModel = new DefaultComboBoxModel();
+            //Integer idPart = PessoaBD.getIdByEmail(selectInsertInscCod.getSelectedItem().toString());
+            Integer idPart = PessoaBD.getIdByEmail(jcb.getSelectedItem().toString());
+            details = PessoaBD.buscar(idPart);
+            inscNomePart.setText(details.get(1));
+            searchInscApType.setEnabled(true);
+            searchInscApType.setSelected(false);
+            Integer codEv = EventoBD.getCodeByName(searchEventosPart.getSelectedItem().toString());
+            details2 = InscritoBD.buscar(codEv,
+                        Integer.parseInt(searchEdPart.getSelectedItem().toString()),idPart);
+            searchDataInscPart.setText(details2.get(3));
+            if(Integer.parseInt(details2.get(4))==1) searchInscApType.setSelected(true);
+            else searchInscApType.setSelected(false);
+            searchInscApType.setEnabled(false);
+            details.clear();
+            details2.clear();
+            
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_selectInscEmailPartActionPerformed
+
+    private void searchEventosPartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEventosPartActionPerformed
+        if(searchEventosPart.getSelectedIndex()==0) return;
+        DefaultComboBoxModel edModel = new DefaultComboBoxModel();
+        JComboBox jcb = (JComboBox) evt.getSource();
+        Integer idPart;
+        try {
+            Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
+            idPart = PessoaBD.getIdByEmail(selectInscEmailPart.getSelectedItem().toString());
+            edModel = EdicaoBD.getEditions(codEv);System.out.println("codEV "+codEv);
+            searchEdPart.setModel(edModel);
+            inscNomePart.setText("");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchEventosPartActionPerformed
+
+    private void searchEdPartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchEdPartActionPerformed
+        if(searchEventosPart.getSelectedIndex()==0) return;
+        if(searchEdPart.getSelectedIndex()==0) return;
+        DefaultComboBoxModel evPartModel = new DefaultComboBoxModel();
+        DefaultComboBoxModel edPartModel = new DefaultComboBoxModel();
+        ArrayList<String> details = new ArrayList<String>();
+        Integer codEv;
+        try {
+            codEv = EventoBD.getCodeByName(searchEventosPart.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(searchEdPart.getSelectedItem().toString());
+            evPartModel = InscritoBD.getEventParts(codEv,numEd);
+            edPartModel = InscritoBD.getEditionParts(codEv,numEd);
+            selectInscEmailPart.setModel(edPartModel);
+            inscNomePart.setText("");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_searchEdPartActionPerformed
+
+    private void inserirInsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirInsButtonActionPerformed
+        Integer check = 0;
+        if(insertInscApType.isSelected()) check = 1;
+        java.sql.Date dataInsc = new java.sql.Date(insertInscDate.getDate().getTime());
+        try {
+            Integer codEv = EventoBD.getCodeByName(selectInsertInscCod.getSelectedItem().toString());
+            Integer idPe = PessoaBD.getIdByEmail(selectInsertInscPart.getSelectedItem().toString());
+            InscritoBD.inserir(codEv,Integer.parseInt(selectInsertInscNumEd.getSelectedItem().toString()),
+                    idPe,dataInsc.toString(), check);
+            JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso " , "Successo", JOptionPane.INFORMATION_MESSAGE);
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_inserirInsButtonActionPerformed
+
+    public void loadComboBox(){
+         
+        DefaultComboBoxModel evModel = new DefaultComboBoxModel();
+        DefaultComboBoxModel emptyModel = new DefaultComboBoxModel();
+        DefaultComboBoxModel emptyModel2 = new DefaultComboBoxModel();
+        DefaultComboBoxModel emailsModel = new DefaultComboBoxModel();
+        try {
+            evModel = EventoBD.getEventsName();
+            emailsModel = PessoaBD.getEmailPe();
+            emptyModel.addElement(" --- ");
+            emptyModel.addElement(" Selecione um Evento ");
+            emptyModel2.addElement(" --- ");
+            emptyModel2.addElement(" Selecione Evento e Edição ");
+            selectInsertInscCod.setModel(evModel);
+            selectInsertInscNumEd.setModel(emptyModel);
+            selectInsertInscPart.setModel(emailsModel);
+            selectInscEmailPart.setModel(emptyModel2);
+            searchEventosPart.setModel(evModel);
+            searchEdPart.setModel(emptyModel);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -665,38 +795,31 @@ public class TelaInscrito extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField inscNomePart;
     private javax.swing.JPanel inscritoBuscar;
     private javax.swing.JPanel inscritoDeletar;
     private javax.swing.JPanel inscritoEditar;
     private javax.swing.JPanel inscritoInserir;
     protected javax.swing.JTabbedPane inscritoTPane;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton inserirInsButton;
+    private javax.swing.JCheckBox insertInscApType;
+    private org.jdesktop.swingx.JXDatePicker insertInscDate;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JComboBox jComboBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -717,15 +840,18 @@ public class TelaInscrito extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
+    private javax.swing.JTextField searchDataInscPart;
+    private javax.swing.JComboBox searchEdPart;
+    private javax.swing.JComboBox searchEventosPart;
+    private javax.swing.JCheckBox searchInscApType;
+    private javax.swing.JComboBox selectInscEmailPart;
+    private javax.swing.JComboBox selectInsertInscCod;
+    private javax.swing.JComboBox selectInsertInscNumEd;
+    private javax.swing.JComboBox selectInsertInscPart;
     // End of variables declaration//GEN-END:variables
 }
