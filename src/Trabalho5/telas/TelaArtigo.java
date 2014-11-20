@@ -21,6 +21,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
 
 /**
  *
@@ -55,7 +56,6 @@ public class TelaArtigo extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         InseretituloArt = new javax.swing.JTextField();
-        insereHoraAp = new javax.swing.JTextField();
         insereArtApr = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
@@ -63,6 +63,7 @@ public class TelaArtigo extends javax.swing.JFrame {
         selectInsereNumEd = new javax.swing.JComboBox();
         selectInsereAp = new javax.swing.JComboBox();
         insereDataAp = new org.jdesktop.swingx.JXDatePicker();
+        insereTimeAp = new javax.swing.JComboBox();
         artigoBuscar = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -151,12 +152,6 @@ public class TelaArtigo extends javax.swing.JFrame {
 
         jLabel6.setText("Apresentador:");
 
-        insereHoraAp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                insereHoraApActionPerformed(evt);
-            }
-        });
-
         insereArtApr.setText("Inserir");
         insereArtApr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,6 +189,8 @@ public class TelaArtigo extends javax.swing.JFrame {
             }
         });
 
+        insereTimeAp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout artigoInserirLayout = new javax.swing.GroupLayout(artigoInserir);
         artigoInserir.setLayout(artigoInserirLayout);
         artigoInserirLayout.setHorizontalGroup(
@@ -208,27 +205,28 @@ public class TelaArtigo extends javax.swing.JFrame {
                     .addGroup(artigoInserirLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(artigoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(InseretituloArt, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13)
                             .addComponent(jLabel1)
-                            .addGroup(artigoInserirLayout.createSequentialGroup()
-                                .addGroup(artigoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addGap(18, 18, 18)
-                                .addGroup(artigoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(selectInsereAp, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(selectInsereNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(selectInsereCodEv, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(artigoInserirLayout.createSequentialGroup()
-                                        .addComponent(insereDataAp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(insereHoraAp, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(8, 8, 8)))))))
+                            .addGroup(artigoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(artigoInserirLayout.createSequentialGroup()
+                                    .addGroup(artigoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(artigoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(selectInsereAp, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(selectInsereNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(selectInsereCodEv, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(artigoInserirLayout.createSequentialGroup()
+                                            .addComponent(insereDataAp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel3)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(insereTimeAp, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(20, 20, 20))))
+                                .addComponent(InseretituloArt, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(0, 516, Short.MAX_VALUE))
         );
         artigoInserirLayout.setVerticalGroup(
@@ -240,12 +238,12 @@ public class TelaArtigo extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(InseretituloArt, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(artigoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(insereDataAp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(insereHoraAp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(insereTimeAp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(artigoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -808,19 +806,21 @@ public class TelaArtigo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void insereArtAprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insereArtAprActionPerformed
-        
-        SimpleDateFormat dateFormat = new SimpleDateFormat("DD-MM-YYYY"); 
-        java.util.Date dataApr = new java.sql.Date(insereDataAp.getDate().getTime());
+        if(insereTimeAp.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(null, "Selecione hora da Apresentação" , "ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        java.sql.Date dataApr = new java.sql.Date(insereDataAp.getDate().getTime());
+       
         try {
-       //     dataApr = dateFormat.parse(dataApr.toString());
             Integer codEv = EventoBD.getCodeByName(selectInsereCodEv.getSelectedItem().toString());
             Integer idPe = PessoaBD.getIdByEmail(selectInsereAp.getSelectedItem().toString());
             Integer numEd = Integer.parseInt(selectInsereNumEd.getSelectedItem().toString());
             String titulo = InseretituloArt.getText();
-            String hora = insereHoraAp.getText();
-            ArtigoBD.inserir(titulo,dataApr.toString(),hora,codEv,numEd,idPe);
+            ArtigoBD.inserir(titulo,dataApr.toString(),insereTimeAp.getSelectedItem().toString(),codEv,numEd,idPe);
             JOptionPane.showMessageDialog(null, "Artigo Cadastrado " , "Successo", JOptionPane.INFORMATION_MESSAGE);
             loadComboBox();
+            clearFields();
         } catch (SQLException ex) {
             Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
@@ -851,10 +851,6 @@ public class TelaArtigo extends javax.swing.JFrame {
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void insereHoraApActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insereHoraApActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_insereHoraApActionPerformed
 
     private void selectInsereCodEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectInsereCodEvActionPerformed
         if(selectInsereCodEv.getSelectedIndex()==0) return;
@@ -895,22 +891,42 @@ public class TelaArtigo extends javax.swing.JFrame {
     }//GEN-LAST:event_selectInsereApActionPerformed
 
     public void loadComboBox(){
+        String time = new String();
         DefaultComboBoxModel evModel = new DefaultComboBoxModel();
         DefaultComboBoxModel emptyModel = new DefaultComboBoxModel();
         DefaultComboBoxModel emptyModel2 = new DefaultComboBoxModel();
-            
+        DefaultComboBoxModel timeModel = new DefaultComboBoxModel();
         try {
             evModel = EventoBD.getEventsName();
             emptyModel.addElement(" --- ");
             emptyModel.addElement(" Selecione um Evento ");
             emptyModel2.addElement(" --- ");
             emptyModel2.addElement(" Selecione Evento e Edição ");
+            timeModel.addElement(" --- ");
+            for(int i=8;i<18;i++){
+                for(int j=0;j<2;j++){
+                    if(j==0) time = i+":00";
+                    if(j==1) time = i+":30";
+                    timeModel.addElement(time);
+                }
+            }
             selectInsereCodEv.setModel(evModel);
             selectInsereNumEd.setModel(emptyModel);
             selectInsereAp.setModel(emptyModel2);
+            
+            insereTimeAp.setModel(timeModel);
         } catch (SQLException ex) {
             Logger.getLogger(TelaArtigo.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void clearFields(){
+        InseretituloArt.setText("");
+        insereDataAp.setDate(null);
+        insereTimeAp.setSelectedIndex(0);
+        selectInsereCodEv.setSelectedIndex(0);
+        selectInsereNumEd.setSelectedIndex(0);
+        selectInsereAp.setSelectedIndex(0);
     }
     /**
      * @param args the command line arguments
@@ -956,7 +972,7 @@ public class TelaArtigo extends javax.swing.JFrame {
     protected javax.swing.JTabbedPane artigoTPane;
     private javax.swing.JButton insereArtApr;
     private org.jdesktop.swingx.JXDatePicker insereDataAp;
-    private javax.swing.JTextField insereHoraAp;
+    private javax.swing.JComboBox insereTimeAp;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

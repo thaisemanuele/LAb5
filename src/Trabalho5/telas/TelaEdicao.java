@@ -332,6 +332,17 @@ public class TelaEdicao extends javax.swing.JFrame {
         });
 
         selectInsertEv.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectInsertEv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectInsertEvActionPerformed(evt);
+            }
+        });
+
+        jXDatePickerIni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jXDatePickerIniActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout edicaoInserirLayout = new javax.swing.GroupLayout(edicaoInserir);
         edicaoInserir.setLayout(edicaoInserirLayout);
@@ -994,6 +1005,14 @@ public class TelaEdicao extends javax.swing.JFrame {
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jXDatePickerIniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXDatePickerIniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jXDatePickerIniActionPerformed
+
+    private void selectInsertEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectInsertEvActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectInsertEvActionPerformed
 
     private void loadComboBox(){
         DefaultComboBoxModel model = new DefaultComboBoxModel();

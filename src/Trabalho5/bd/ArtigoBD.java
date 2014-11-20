@@ -20,8 +20,8 @@ public class ArtigoBD {
     public static void inserir(String tituloArt, String dataApresArt, String horaApresArt, 
             Integer codEv, Integer numEd,Integer idApr) throws SQLException, ParseException{
             String insert = "INSERT INTO Artigo VALUES( " +
-                getSeq()+ ", '"+tituloArt+"',TO_DATE('" +dataApresArt+"','YYYY-MM-DD'), '" 
-                        +horaApresArt+ "', "+codEv + ", "+numEd+ ", "+idApr+")";
+                getSeq()+ ", '"+tituloArt+"',TO_DATE('" +dataApresArt+"','YYYY-MM-DD'), TO_DATE('"
+                    +horaApresArt+"', 'HH24:MI')"+ ", "+codEv + ", "+numEd+ ", "+idApr+")";
         System.out.println("insert statement " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
