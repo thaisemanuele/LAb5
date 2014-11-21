@@ -58,6 +58,12 @@ public class ArtigoBD {
 
     }
     
+    public static void excluir(Integer idArt) throws SQLException{
+        String delete = "DELETE FROM Artigo WHERE idArt = '" + idArt + "'";
+        Statement statement = dbConnection.createStatement();
+        statement.executeUpdate(delete);
+    }
+    
     public static DefaultComboBoxModel getArtigos(Integer codEv, Integer numEd) throws SQLException, ParseException{
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         String selectTableSQL = "SELECT idArt FROM Artigo WHERE codEv = " + codEv +" AND numEd = " + numEd + "";
