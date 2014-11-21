@@ -86,29 +86,6 @@ public class TelaArtigo extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         searchArtAp = new javax.swing.JComboBox();
         jLabel25 = new javax.swing.JLabel();
-        artigoEditar = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField22 = new javax.swing.JTextField();
-        jTextField23 = new javax.swing.JTextField();
-        jTextField24 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
-        jLabel34 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox();
-        jLabel35 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox();
-        jButton8 = new javax.swing.JButton();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         artigoDeletar = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
@@ -134,6 +111,23 @@ public class TelaArtigo extends javax.swing.JFrame {
         jLabel48 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        artigoEditar = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        editTituloArt = new javax.swing.JTextField();
+        jButton7 = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
+        selectEditArtEv = new javax.swing.JComboBox();
+        jLabel34 = new javax.swing.JLabel();
+        selectEditArtEd = new javax.swing.JComboBox();
+        jLabel35 = new javax.swing.JLabel();
+        selectEditIdArt = new javax.swing.JComboBox();
+        jButton3 = new javax.swing.JButton();
+        editDataArt = new org.jdesktop.swingx.JXDatePicker();
+        editHoraArt = new javax.swing.JComboBox();
+        jLabel17 = new javax.swing.JLabel();
+        editAprArt = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -224,7 +218,7 @@ public class TelaArtigo extends javax.swing.JFrame {
                                             .addComponent(insereTimeAp, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(20, 20, 20))))
                                 .addComponent(InseretituloArt, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 516, Short.MAX_VALUE))
+                .addGap(0, 79, Short.MAX_VALUE))
         );
         artigoInserirLayout.setVerticalGroup(
             artigoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,7 +251,7 @@ public class TelaArtigo extends javax.swing.JFrame {
                 .addGroup(artigoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(insereArtApr)
                     .addComponent(jButton5))
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         artigoTPane.addTab("Inserir", artigoInserir);
@@ -356,7 +350,7 @@ public class TelaArtigo extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(searchArtNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addComponent(searchArtNamePart))))
-                        .addGap(0, 639, Short.MAX_VALUE))
+                        .addGap(0, 206, Short.MAX_VALUE))
                     .addGroup(artigoBuscarLayout.createSequentialGroup()
                         .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -413,172 +407,10 @@ public class TelaArtigo extends javax.swing.JFrame {
                     .addComponent(searchArtNamePart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addComponent(jButton2)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         artigoTPane.addTab("Buscar", artigoBuscar);
-
-        jLabel26.setText("Título:");
-
-        jLabel27.setText("Data de Apresentação:");
-
-        jLabel28.setText("Hora de Apresentação:");
-
-        jLabel29.setText("Código do Evento:");
-
-        jLabel30.setText("Número da Edição:");
-
-        jButton7.setText("Voltar");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-
-        jLabel32.setText("Selecione uma das opções abaixo:");
-
-        jLabel33.setText("1) Buscar por título de acordo com a edição e o evento");
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel34.setText("2) Buscar por ID do artigo de acordo com a edição e o evento");
-
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel35.setText("3) Buscar por ID do apresentador de acordo com a edição e o evento");
-
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jButton8.setText("Carregar Informações");
-
-        jLabel36.setText("Edite as informações desejadas abaixo:");
-
-        jLabel14.setText("Realmente deseja editar as informações?");
-
-        jButton3.setText("Editar");
-
-        javax.swing.GroupLayout artigoEditarLayout = new javax.swing.GroupLayout(artigoEditar);
-        artigoEditar.setLayout(artigoEditarLayout);
-        artigoEditarLayout.setHorizontalGroup(
-            artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(artigoEditarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(artigoEditarLayout.createSequentialGroup()
-                        .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(artigoEditarLayout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel30)
-                                        .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addGroup(artigoEditarLayout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
-                                        .addComponent(jLabel28)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 535, Short.MAX_VALUE)
-                                .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(artigoEditarLayout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(artigoEditarLayout.createSequentialGroup()
-                                        .addComponent(jLabel26)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField13))
-                                    .addGroup(artigoEditarLayout.createSequentialGroup()
-                                        .addComponent(jLabel27)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(16, 16, 16))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, artigoEditarLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, artigoEditarLayout.createSequentialGroup()
-                        .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(artigoEditarLayout.createSequentialGroup()
-                        .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jComboBox6, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(artigoEditarLayout.createSequentialGroup()
-                        .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(artigoEditarLayout.createSequentialGroup()
-                                .addGap(188, 188, 188)
-                                .addComponent(jLabel32)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, artigoEditarLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton7)
-                        .addGap(30, 30, 30))))
-            .addGroup(artigoEditarLayout.createSequentialGroup()
-                .addGap(207, 207, 207)
-                .addComponent(jButton8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, artigoEditarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(181, 181, 181))
-        );
-        artigoEditarLayout.setVerticalGroup(
-            artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(artigoEditarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel32)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel33)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel34)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel35)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel36)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26))
-                .addGap(18, 18, 18)
-                .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27))
-                .addGap(26, 26, 26)
-                .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28))
-                .addGap(18, 18, 18)
-                .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel29))
-                .addGap(18, 18, 18)
-                .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel30))
-                .addGap(64, 64, 64)
-                .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7)
-                    .addComponent(jLabel14)
-                    .addComponent(jButton3))
-                .addGap(17, 17, 17))
-        );
-
-        artigoTPane.addTab("Editar", artigoEditar);
 
         jLabel38.setText("Título:");
 
@@ -640,7 +472,7 @@ public class TelaArtigo extends javax.swing.JFrame {
                                     .addGroup(artigoDeletarLayout.createSequentialGroup()
                                         .addGap(3, 3, 3)
                                         .addComponent(jLabel40)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 535, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                                 .addGroup(artigoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -716,7 +548,7 @@ public class TelaArtigo extends javax.swing.JFrame {
                 .addComponent(jButton10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel48)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(artigoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel38))
@@ -750,19 +582,139 @@ public class TelaArtigo extends javax.swing.JFrame {
 
         artigoTPane.addTab("Deletar", artigoDeletar);
 
+        jLabel26.setText("Título:");
+
+        jLabel27.setText("Data de Apresentação:");
+
+        jLabel28.setText("Hora de Apresentação:");
+
+        jButton7.setText("Voltar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jLabel33.setText("Evento");
+
+        selectEditArtEv.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectEditArtEv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectEditArtEvActionPerformed(evt);
+            }
+        });
+
+        jLabel34.setText("Edição");
+
+        selectEditArtEd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectEditArtEd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectEditArtEdActionPerformed(evt);
+            }
+        });
+
+        jLabel35.setText("Id do Artigo");
+
+        selectEditIdArt.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectEditIdArt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectEditIdArtActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Editar");
+
+        editHoraArt.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel17.setText("Apresentador:");
+
+        editAprArt.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout artigoEditarLayout = new javax.swing.GroupLayout(artigoEditar);
+        artigoEditar.setLayout(artigoEditarLayout);
+        artigoEditarLayout.setHorizontalGroup(
+            artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(artigoEditarLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectEditIdArt, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectEditArtEd, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectEditArtEv, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editTituloArt, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26)
+                    .addGroup(artigoEditarLayout.createSequentialGroup()
+                        .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, artigoEditarLayout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButton3)
+                            .addGroup(artigoEditarLayout.createSequentialGroup()
+                                .addComponent(editDataArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(editHoraArt, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(27, 27, 27)
+                        .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(editAprArt, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton7)
+                            .addComponent(jLabel17))))
+                .addContainerGap(95, Short.MAX_VALUE))
+        );
+        artigoEditarLayout.setVerticalGroup(
+            artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(artigoEditarLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(selectEditArtEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(selectEditArtEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(selectEditIdArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editTituloArt, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabel17))
+                .addGap(8, 8, 8)
+                .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editDataArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editHoraArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editAprArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton7))
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+
+        artigoTPane.addTab("Editar", artigoEditar);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(artigoTPane)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(artigoTPane, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(artigoTPane, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(artigoTPane, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -777,7 +729,7 @@ public class TelaArtigo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -934,6 +886,70 @@ public class TelaArtigo extends javax.swing.JFrame {
         
     }//GEN-LAST:event_searchArtApActionPerformed
 
+    private void selectEditArtEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectEditArtEvActionPerformed
+        if(selectEditArtEv.getSelectedIndex()==0) return;
+        DefaultComboBoxModel edModel = new DefaultComboBoxModel();
+        JComboBox jcb = (JComboBox) evt.getSource();
+        try {
+            Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
+            edModel = EdicaoBD.getEditions(codEv);
+            selectEditArtEd.setModel(edModel);
+            editTituloArt.setText("");
+            editDataArt.setDate(null);
+            editHoraArt.setSelectedIndex(0);
+            editAprArt.setSelectedIndex(0);
+            selectEditIdArt.setSelectedIndex(0);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectEditArtEvActionPerformed
+
+    private void selectEditArtEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectEditArtEdActionPerformed
+        if(selectEditArtEv.getSelectedIndex()==0) return;
+        if(selectEditArtEd.getSelectedIndex()==0) return;
+        DefaultComboBoxModel edPartModel = new DefaultComboBoxModel();
+        DefaultComboBoxModel aprModel = new DefaultComboBoxModel();
+        
+        Integer codEv;
+        try {
+            codEv = EventoBD.getCodeByName(selectEditArtEv.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(selectEditArtEd.getSelectedItem().toString());
+            edPartModel = ArtigoBD.getArtigos(codEv,numEd);
+            aprModel = InscritoBD.getApr(codEv,numEd);
+            selectEditIdArt.setModel(edPartModel);
+            editAprArt.setModel(aprModel);
+            editTituloArt.setText("");
+            editDataArt.setDate(null);
+            editHoraArt.setSelectedIndex(0);
+            editAprArt.setSelectedIndex(0);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaArtigo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectEditArtEdActionPerformed
+
+    private void selectEditIdArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectEditIdArtActionPerformed
+       if(selectEditArtEv.getSelectedIndex()==0 || selectEditArtEd.getSelectedIndex()==0) return;
+        if(selectEditIdArt.getSelectedIndex()==0) return;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy"); 
+        ArrayList<String> details = new ArrayList<String>();
+        ArrayList<String> detailsPe = new ArrayList<String>();
+        try {
+            Integer idArt = Integer.parseInt(selectEditIdArt.getSelectedItem().toString());
+            details = ArtigoBD.buscar(idArt);
+            detailsPe = PessoaBD.buscar(Integer.parseInt(details.get(5)));
+            editTituloArt.setText(details.get(0));
+            editDataArt.setDate(dateFormat.parse(details.get(1)));
+            editHoraArt.setSelectedItem(details.get(2));
+            editAprArt.setSelectedItem(detailsPe.get(2));
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaArtigo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectEditIdArtActionPerformed
+
     public void loadComboBox(){
         String time = new String();
         DefaultComboBoxModel evModel = new DefaultComboBoxModel();
@@ -964,6 +980,12 @@ public class TelaArtigo extends javax.swing.JFrame {
             searchArtAp.setModel(empty);
             
             insereTimeAp.setModel(timeModel);
+            selectEditArtEv.setModel(evModel);
+            selectEditArtEd.setModel(emptyModel);
+            selectEditIdArt.setModel(empty);
+            
+            editHoraArt.setModel(timeModel);
+            editAprArt.setModel(emptyModel2);
         } catch (SQLException ex) {
             Logger.getLogger(TelaArtigo.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1026,6 +1048,10 @@ public class TelaArtigo extends javax.swing.JFrame {
     private javax.swing.JPanel artigoEditar;
     private javax.swing.JPanel artigoInserir;
     protected javax.swing.JTabbedPane artigoTPane;
+    private javax.swing.JComboBox editAprArt;
+    private org.jdesktop.swingx.JXDatePicker editDataArt;
+    private javax.swing.JComboBox editHoraArt;
+    private javax.swing.JTextField editTituloArt;
     private javax.swing.JButton insereArtApr;
     private org.jdesktop.swingx.JXDatePicker insereDataAp;
     private javax.swing.JComboBox insereTimeAp;
@@ -1035,11 +1061,7 @@ public class TelaArtigo extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
     private javax.swing.JComboBox jComboBox7;
     private javax.swing.JComboBox jComboBox8;
     private javax.swing.JComboBox jComboBox9;
@@ -1048,9 +1070,9 @@ public class TelaArtigo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -1059,14 +1081,10 @@ public class TelaArtigo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -1085,13 +1103,8 @@ public class TelaArtigo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField27;
     private javax.swing.JTextField jTextField28;
     private javax.swing.JTextField jTextField29;
@@ -1105,6 +1118,9 @@ public class TelaArtigo extends javax.swing.JFrame {
     private javax.swing.JTextField searchDataApr;
     private javax.swing.JTextField searchHoraApr;
     private javax.swing.JTextField searchTituloArt;
+    private javax.swing.JComboBox selectEditArtEd;
+    private javax.swing.JComboBox selectEditArtEv;
+    private javax.swing.JComboBox selectEditIdArt;
     private javax.swing.JComboBox selectInsereAp;
     private javax.swing.JComboBox selectInsereCodEv;
     private javax.swing.JComboBox selectInsereNumEd;

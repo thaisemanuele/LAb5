@@ -46,6 +46,20 @@ public class InscritoBD {
         return details;
     }
     
+    public static DefaultComboBoxModel getApr(Integer codEv, Integer numEd) throws SQLException, ParseException{
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        String selectTableSQL = "SELECT idPart FROM Inscrito WHERE codEv = " + codEv +" AND numEd = " + numEd +" AND tipoApresentador = '1'";
+        System.out.println(selectTableSQL);
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectTableSQL);
+        model.addElement(" --- ");
+        while(rs.next()){
+            model.addElement(PessoaBD.getEmailById(Integer.parseInt(rs.getString("idPart"))));
+        }
+        rs.close();
+        return model;
+    }
+    
     public static void atualizar(Integer codEv, Integer numEd,Integer idPart,
         String dataInsc, Integer tipoApresentador) throws SQLException{
         String update = "UPDATE Inscrito SET dataInsc = TO_DATE('" +dataInsc+"','YYYY-MM-DD')"

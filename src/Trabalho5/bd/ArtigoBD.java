@@ -30,20 +30,6 @@ public class ArtigoBD {
 
     }
     
-    public static DefaultComboBoxModel getArtigos(Integer codEv, Integer numEd) throws SQLException, ParseException{
-        DefaultComboBoxModel model = new DefaultComboBoxModel();
-        String selectTableSQL = "SELECT idArt FROM Artigo WHERE codEv = " + codEv +" AND numEd = " + numEd + "";
-        System.out.println(selectTableSQL);
-        Statement statement = dbConnection.createStatement();
-        ResultSet rs = statement.executeQuery(selectTableSQL);
-        model.addElement(" --- ");
-        while(rs.next()){
-            model.addElement(rs.getString("idArt"));
-        }
-        rs.close();
-        return model;
-    }
-    
     public static ArrayList<String> buscar(Integer idArt) throws SQLException, ParseException{
         String selectTableSQL = "SELECT tituloArt, TO_CHAR(dataApresArt, 'DD-MM-YYYY'),"
                 + "TO_CHAR(horaApresArt, 'HH24:MI'), codEv, numEd,idApr"
@@ -61,6 +47,21 @@ public class ArtigoBD {
         return details;
     }
     
+    public static DefaultComboBoxModel getArtigos(Integer codEv, Integer numEd) throws SQLException, ParseException{
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        String selectTableSQL = "SELECT idArt FROM Artigo WHERE codEv = " + codEv +" AND numEd = " + numEd + "";
+        System.out.println(selectTableSQL);
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectTableSQL);
+        model.addElement(" --- ");
+        while(rs.next()){
+            model.addElement(rs.getString("idArt"));
+        }
+        rs.close();
+        return model;
+    }
+    
+      
     private static Integer getSeq()throws SQLException{
         String selectSql = "SELECT max(idArt) from Artigo";
         Statement statement = dbConnection.createStatement();
