@@ -46,6 +46,20 @@ public class InscritoBD {
         return details;
     }
     
+        public static ArrayList<String> buscarInscritos(Integer codEv, Integer numEd) throws SQLException, ParseException{
+        String selectTableSQL = "SELECT idPart "
+                + " FROM Inscrito WHERE codEv = " + codEv +" AND numEd = " + numEd + "";
+        System.out.println(selectTableSQL);
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectTableSQL);
+        ArrayList<String> details = new ArrayList<String>();
+        while(rs.next()){  
+            details.add(rs.getString("idPart"));
+        }
+        rs.close();
+        return details;
+    }
+    
     public static void atualizar(Integer codEv, Integer numEd,Integer idPart,
         String dataInsc, Integer tipoApresentador) throws SQLException{
         String update = "UPDATE Inscrito SET dataInsc = TO_DATE('" +dataInsc+"','YYYY-MM-DD')"
