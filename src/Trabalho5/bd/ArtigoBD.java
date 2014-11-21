@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -26,6 +28,37 @@ public class ArtigoBD {
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
 
+    }
+    
+    public static DefaultComboBoxModel getArtigos(Integer codEv, Integer numEd) throws SQLException, ParseException{
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        String selectTableSQL = "SELECT idArt FROM Artigo WHERE codEv = " + codEv +" AND numEd = " + numEd + "";
+        System.out.println(selectTableSQL);
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectTableSQL);
+        model.addElement(" --- ");
+        while(rs.next()){
+            model.addElement(rs.getString("idArt"));
+        }
+        rs.close();
+        return model;
+    }
+    
+    public static ArrayList<String> buscar(Integer idArt) throws SQLException, ParseException{
+        String selectTableSQL = "SELECT tituloArt, TO_CHAR(dataApresArt, 'DD-MM-YYYY'),"
+                + "TO_CHAR(horaApresArt, 'HH24:MI'), codEv, numEd,idApr"
+                + " FROM Artigo WHERE idArt = " + idArt;
+        System.out.println(selectTableSQL);
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectTableSQL);
+        ArrayList<String> details = new ArrayList<String>();
+        rs.next();
+        for(int i=1; i<=6;i++){
+            
+            details.add(rs.getString(i));
+        }
+        rs.close();
+        return details;
     }
     
     private static Integer getSeq()throws SQLException{
