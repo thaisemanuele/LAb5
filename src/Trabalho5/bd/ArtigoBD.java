@@ -78,6 +78,20 @@ public class ArtigoBD {
         return model;
     }
     
+    public static DefaultComboBoxModel getAllArtigos() throws SQLException, ParseException{
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        String selectTableSQL = "SELECT idArt FROM Artigo ";
+        System.out.println(selectTableSQL);
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectTableSQL);
+        model.addElement(" --- ");
+        while(rs.next()){
+            model.addElement(rs.getString("idArt"));
+        }
+        rs.close();
+        return model;
+    }
+    
       
     private static Integer getSeq()throws SQLException{
         String selectSql = "SELECT max(idArt) from Artigo";
