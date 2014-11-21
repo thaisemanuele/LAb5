@@ -46,7 +46,7 @@ public class InscritoBD {
         return details;
     }
     
-         public static ArrayList<String> buscarInscritos(Integer codEv, Integer numEd) throws SQLException, ParseException{
+    public static ArrayList<String> buscarInscritos(Integer codEv, Integer numEd) throws SQLException, ParseException{
         String selectTableSQL = "SELECT idPart "
                 + " FROM Inscrito WHERE codEv = " + codEv +" AND numEd = " + numEd + "";
         System.out.println(selectTableSQL);
@@ -161,6 +161,5 @@ public class InscritoBD {
             i++;
         }
        return model;
-    }
-    
+    }   
 }
