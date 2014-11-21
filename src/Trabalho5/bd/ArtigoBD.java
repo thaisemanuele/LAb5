@@ -47,6 +47,17 @@ public class ArtigoBD {
         return details;
     }
     
+    public static void atualizar(Integer idArt, String tituloArt, String dataApresArt, String horaApresArt, 
+        Integer codEv, Integer numEd,Integer idApr) throws SQLException, ParseException{
+            String update = "UPDATE Artigo SET tituloArt = '"+tituloArt+"',dataApresArt = TO_DATE('" +dataApresArt+"','YYYY-MM-DD'), "
+                + "horaApresArt = TO_DATE('"+horaApresArt+"', 'HH24:MI')"+ ", codEv = "+codEv 
+                + ", numEd = "+numEd+ ", idApr = "+idApr+" WHERE idArt = " +idArt;
+            System.out.println("insert statement " + update);
+            Statement statement = dbConnection.createStatement();
+            statement.executeUpdate(update);
+
+    }
+    
     public static DefaultComboBoxModel getArtigos(Integer codEv, Integer numEd) throws SQLException, ParseException{
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         String selectTableSQL = "SELECT idArt FROM Artigo WHERE codEv = " + codEv +" AND numEd = " + numEd + "";

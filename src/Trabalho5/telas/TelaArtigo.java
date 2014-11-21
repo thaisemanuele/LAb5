@@ -123,7 +123,7 @@ public class TelaArtigo extends javax.swing.JFrame {
         selectEditArtEd = new javax.swing.JComboBox();
         jLabel35 = new javax.swing.JLabel();
         selectEditIdArt = new javax.swing.JComboBox();
-        jButton3 = new javax.swing.JButton();
+        editArtButton = new javax.swing.JButton();
         editDataArt = new org.jdesktop.swingx.JXDatePicker();
         editHoraArt = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
@@ -218,7 +218,7 @@ public class TelaArtigo extends javax.swing.JFrame {
                                             .addComponent(insereTimeAp, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(20, 20, 20))))
                                 .addComponent(InseretituloArt, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 79, Short.MAX_VALUE))
+                .addGap(0, 81, Short.MAX_VALUE))
         );
         artigoInserirLayout.setVerticalGroup(
             artigoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,7 +251,7 @@ public class TelaArtigo extends javax.swing.JFrame {
                 .addGroup(artigoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(insereArtApr)
                     .addComponent(jButton5))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         artigoTPane.addTab("Inserir", artigoInserir);
@@ -622,7 +622,12 @@ public class TelaArtigo extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Editar");
+        editArtButton.setText("Editar");
+        editArtButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editArtButtonActionPerformed(evt);
+            }
+        });
 
         editHoraArt.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -651,7 +656,7 @@ public class TelaArtigo extends javax.swing.JFrame {
                                 .addComponent(jLabel27)
                                 .addGap(30, 30, 30)
                                 .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jButton3)
+                            .addComponent(editArtButton)
                             .addGroup(artigoEditarLayout.createSequentialGroup()
                                 .addComponent(editDataArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
@@ -694,9 +699,9 @@ public class TelaArtigo extends javax.swing.JFrame {
                     .addComponent(editAprArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(artigoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
+                    .addComponent(editArtButton)
                     .addComponent(jButton7))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         artigoTPane.addTab("Editar", artigoEditar);
@@ -950,6 +955,30 @@ public class TelaArtigo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_selectEditIdArtActionPerformed
 
+    private void editArtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editArtButtonActionPerformed
+        if(selectEditArtEv.getSelectedIndex()==0||selectEditArtEd.getSelectedIndex()==0) return;
+        if(selectEditIdArt.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(null, "Selecione um Artigo" , "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        java.sql.Date dataApr = new java.sql.Date(editDataArt.getDate().getTime());
+       
+        try {
+            Integer idArt = Integer.parseInt(selectEditIdArt.getSelectedItem().toString());
+            Integer codEv = EventoBD.getCodeByName(selectEditArtEv.getSelectedItem().toString());
+            Integer idPe = PessoaBD.getIdByEmail(editAprArt.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(selectEditArtEd.getSelectedItem().toString());
+            String titulo = editTituloArt.getText();
+            ArtigoBD.atualizar(idArt,titulo,dataApr.toString(),editHoraArt.getSelectedItem().toString(),codEv,numEd,idPe);
+            JOptionPane.showMessageDialog(null, "Artigo Atualizado" , "Successo", JOptionPane.INFORMATION_MESSAGE);
+            loadComboBox();
+            clearFields();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaArtigo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_editArtButtonActionPerformed
+
     public void loadComboBox(){
         String time = new String();
         DefaultComboBoxModel evModel = new DefaultComboBoxModel();
@@ -1005,6 +1034,14 @@ public class TelaArtigo extends javax.swing.JFrame {
         searchArtCodEv.setText("");
         searchArtNumEd.setText("");
         searchArtNamePart.setText("");
+        //Edicao
+        selectEditArtEv.setSelectedIndex(0);
+        selectEditArtEd.setSelectedIndex(0);
+        selectEditIdArt.setSelectedIndex(0);
+        editDataArt.setDate(null);
+        editHoraArt.setSelectedIndex(0);
+        editAprArt.setSelectedIndex(0);
+        editTituloArt.setText("");
     }
     /**
      * @param args the command line arguments
@@ -1049,6 +1086,7 @@ public class TelaArtigo extends javax.swing.JFrame {
     private javax.swing.JPanel artigoInserir;
     protected javax.swing.JTabbedPane artigoTPane;
     private javax.swing.JComboBox editAprArt;
+    private javax.swing.JButton editArtButton;
     private org.jdesktop.swingx.JXDatePicker editDataArt;
     private javax.swing.JComboBox editHoraArt;
     private javax.swing.JTextField editTituloArt;
@@ -1057,7 +1095,6 @@ public class TelaArtigo extends javax.swing.JFrame {
     private javax.swing.JComboBox insereTimeAp;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
