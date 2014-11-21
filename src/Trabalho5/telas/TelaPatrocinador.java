@@ -6,6 +6,17 @@
 
 package Trabalho5.telas;
 
+import Trabalho5.bd.EventoBD;
+import Trabalho5.bd.PatrocinadorBD;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gabriela
@@ -17,6 +28,7 @@ public class TelaPatrocinador extends javax.swing.JFrame {
      */
     public TelaPatrocinador() {
         initComponents();
+        loadComboBox();
     }
 
     /**
@@ -32,68 +44,56 @@ public class TelaPatrocinador extends javax.swing.JFrame {
         patrocinadorInserir = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        campoCnpjPat = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        campoNomePat = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        campoTelPat = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        campoEndPat = new javax.swing.JTextField();
+        insertButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        patrocinadorBuscar = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel8 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
-        jButton3 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
         patrocinadorDeletar = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
-        jLabel16 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
-        jButton5 = new javax.swing.JButton();
+        deleteByName = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        deleteCnpj = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        deleteNome = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        deleteTel = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        deleteEnd = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        deleteButtonPat = new javax.swing.JButton();
         patrocinadorEditar = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox();
-        jLabel25 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox();
-        jButton8 = new javax.swing.JButton();
+        editByName = new javax.swing.JComboBox();
         jLabel26 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        editNome = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
+        editTel = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
+        editEnd = new javax.swing.JTextField();
         jButton9 = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
+        editButtonPat = new javax.swing.JButton();
+        patrocinadorBuscar = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        searchByName = new javax.swing.JComboBox();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        searchCNPJ = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        searchNome = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        searchTel = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        searchEnd = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -107,10 +107,10 @@ public class TelaPatrocinador extends javax.swing.JFrame {
 
         jLabel5.setText("Endereço:");
 
-        jButton1.setText("Inserir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        insertButton.setText("Inserir");
+        insertButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                insertButtonActionPerformed(evt);
             }
         });
 
@@ -130,7 +130,7 @@ public class TelaPatrocinador extends javax.swing.JFrame {
                 .addGap(0, 11, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorInserirLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(insertButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
                 .addGap(27, 27, 27))
@@ -139,13 +139,13 @@ public class TelaPatrocinador extends javax.swing.JFrame {
                 .addGroup(patrocinadorInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(patrocinadorInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel2)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(campoCnpjPat, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel3)
                         .addComponent(jLabel4)
-                        .addComponent(jTextField3)
+                        .addComponent(campoTelPat)
                         .addComponent(jLabel5)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE))
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(campoEndPat, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE))
+                    .addComponent(campoNomePat, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         patrocinadorInserirLayout.setVerticalGroup(
@@ -156,42 +156,253 @@ public class TelaPatrocinador extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoCnpjPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoNomePat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoTelPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoEndPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85)
                 .addGroup(patrocinadorInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(insertButton)
                     .addComponent(jButton2))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         patrocinadorTPane.addTab("Inserir", patrocinadorInserir);
 
-        jLabel6.setText("Selecione uma das opções abaixo:");
+        jLabel14.setText("Buscar por nome fantasia:");
 
-        jLabel7.setText("1) Buscar por CNPJ:");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel8.setText("2) Buscar por nome fantasia:");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jButton3.setText("Buscar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        deleteByName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        deleteByName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                deleteByNameActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("As seguintes informações foram encontradas:");
+
+        jLabel18.setText("CNPJ:");
+
+        jLabel19.setText("Nome Fantasia:");
+
+        jLabel20.setText("Telefone:");
+
+        jLabel21.setText("Endereço:");
+
+        jButton6.setText("Voltar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jLabel22.setText("Realmente deseja deletar o patrocinador?");
+
+        deleteButtonPat.setText("Deletar");
+        deleteButtonPat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonPatActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout patrocinadorDeletarLayout = new javax.swing.GroupLayout(patrocinadorDeletar);
+        patrocinadorDeletar.setLayout(patrocinadorDeletarLayout);
+        patrocinadorDeletarLayout.setHorizontalGroup(
+            patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorDeletarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addGap(82, 82, 82))
+            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
+                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deleteByName, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorDeletarLayout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addGap(18, 18, 18)
+                                .addComponent(deleteButtonPat)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                .addComponent(jButton6))
+                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addGap(18, 18, 18)
+                                .addComponent(deleteTel))
+                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(deleteEnd))))
+                    .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(jLabel14)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorDeletarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorDeletarLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel18)
+                                .addGap(18, 18, 18)
+                                .addComponent(deleteCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorDeletarLayout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(deleteNome, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
+        );
+        patrocinadorDeletarLayout.setVerticalGroup(
+            patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deleteByName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
+                .addComponent(jLabel17)
+                .addGap(72, 72, 72)
+                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
+                .addGap(32, 32, 32)
+                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
+                .addGap(32, 32, 32)
+                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(deleteTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(deleteEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton6)
+                    .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel22)
+                        .addComponent(deleteButtonPat))))
+        );
+
+        patrocinadorTPane.addTab("Deletar", patrocinadorDeletar);
+
+        jLabel23.setText("Buscar por nome fantasia:");
+
+        editByName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editByName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editByNameActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setText("Edite as informações abaixo:");
+
+        jLabel28.setText("Nome Fantasia:");
+
+        jLabel29.setText("Telefone:");
+
+        jLabel30.setText("Endereço:");
+
+        jButton9.setText("Voltar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setText("Realmente deseja editar o patrocinador?");
+
+        editButtonPat.setText("Editar");
+        editButtonPat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonPatActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout patrocinadorEditarLayout = new javax.swing.GroupLayout(patrocinadorEditar);
+        patrocinadorEditar.setLayout(patrocinadorEditarLayout);
+        patrocinadorEditarLayout.setHorizontalGroup(
+            patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
+                .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editByName, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(patrocinadorEditarLayout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(jLabel26)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(patrocinadorEditarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
+                                .addComponent(jLabel31)
+                                .addGap(18, 18, 18)
+                                .addComponent(editButtonPat)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton9)
+                                .addGap(0, 24, Short.MAX_VALUE))
+                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
+                                .addComponent(jLabel28)
+                                .addGap(12, 12, 12)
+                                .addComponent(editNome))
+                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addGap(18, 18, 18)
+                                .addComponent(editTel))
+                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
+                                .addComponent(jLabel30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editEnd)))))
+                .addContainerGap())
+            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
+                .addGap(136, 136, 136)
+                .addComponent(jLabel23)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        patrocinadorEditarLayout.setVerticalGroup(
+            patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23)
+                .addGap(18, 18, 18)
+                .addComponent(editByName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addComponent(jLabel26)
+                .addGap(31, 31, 31)
+                .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(editNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(editTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(editEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(editButtonPat)
+                    .addComponent(jButton9))
+                .addGap(32, 32, 32))
+        );
+
+        patrocinadorTPane.addTab("Editar", patrocinadorEditar);
+
+        jLabel6.setText("Buscar pelo nome fantasia:");
+
+        searchByName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchByName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchByNameActionPerformed(evt);
             }
         });
 
@@ -218,51 +429,43 @@ public class TelaPatrocinador extends javax.swing.JFrame {
             patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
                 .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(searchByName, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                        .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                                .addGap(118, 118, 118)
-                                .addComponent(jLabel6))
-                            .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel7))
-                            .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel8))
-                            .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                                .addGap(181, 181, 181)
-                                .addComponent(jButton3))
-                            .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                                .addGap(79, 79, 79)
-                                .addComponent(jLabel9)))
-                        .addGap(0, 97, Short.MAX_VALUE))
-                    .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField5))
-                            .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField6)
-                                .addGap(6, 6, 6))
-                            .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField7))
-                            .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField8)))))
+                        .addGap(118, 118, 118)
+                        .addComponent(jLabel6)
+                        .addGap(0, 178, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorBuscarLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(26, 26, 26))
+            .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
+                .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jLabel9))
+                    .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(searchCNPJ)))
+                .addContainerGap())
+            .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(12, 12, 12)
+                        .addComponent(searchNome))
+                    .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchTel))
+                    .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchEnd)))
+                .addContainerGap())
         );
         patrocinadorBuscarLayout.setVerticalGroup(
             patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,298 +473,31 @@ public class TelaPatrocinador extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchByName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(30, 30, 30)
                 .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                    .addComponent(searchCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
                 .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(searchNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(searchTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jButton4))
+                    .addComponent(searchEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         patrocinadorTPane.addTab("Buscar", patrocinadorBuscar);
-
-        jLabel14.setText("Selecione uma das opções abaixo:");
-
-        jLabel15.setText("1) Buscar por CNPJ:");
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel16.setText("2) Buscar por nome fantasia:");
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jButton5.setText("Carregar Informações");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        jLabel17.setText("As seguintes informações foram encontradas:");
-
-        jLabel18.setText("CNPJ:");
-
-        jLabel19.setText("Nome Fantasia:");
-
-        jLabel20.setText("Telefone:");
-
-        jLabel21.setText("Endereço:");
-
-        jButton6.setText("Voltar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        jLabel22.setText("Realmente deseja deletar o patrocinador?");
-
-        jButton7.setText("Deletar");
-
-        javax.swing.GroupLayout patrocinadorDeletarLayout = new javax.swing.GroupLayout(patrocinadorDeletar);
-        patrocinadorDeletar.setLayout(patrocinadorDeletarLayout);
-        patrocinadorDeletarLayout.setHorizontalGroup(
-            patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                        .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                                .addGap(118, 118, 118)
-                                .addComponent(jLabel14))
-                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel15))
-                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel16))
-                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                                .addGap(79, 79, 79)
-                                .addComponent(jLabel17))
-                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                                .addGap(144, 144, 144)
-                                .addComponent(jButton5)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField9))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel22)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                                .addComponent(jButton6))
-                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField10))
-                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField11))
-                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField12)))))
-                .addContainerGap())
-        );
-        patrocinadorDeletarLayout.setVerticalGroup(
-            patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6)
-                    .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel22)
-                        .addComponent(jButton7))))
-        );
-
-        patrocinadorTPane.addTab("Deletar", patrocinadorDeletar);
-
-        jLabel23.setText("Selecione uma das opções abaixo:");
-
-        jLabel24.setText("1) Buscar por CNPJ:");
-
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel25.setText("2) Buscar por nome fantasia:");
-
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jButton8.setText("Carregar Informações");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        jLabel26.setText("Edite as informações abaixo:");
-
-        jLabel28.setText("Nome Fantasia:");
-
-        jLabel29.setText("Telefone:");
-
-        jLabel30.setText("Endereço:");
-
-        jButton9.setText("Voltar");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
-        jLabel31.setText("Realmente deseja editar o patrocinador?");
-
-        jButton10.setText("Editar");
-
-        javax.swing.GroupLayout patrocinadorEditarLayout = new javax.swing.GroupLayout(patrocinadorEditar);
-        patrocinadorEditar.setLayout(patrocinadorEditarLayout);
-        patrocinadorEditarLayout.setHorizontalGroup(
-            patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                        .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                                .addGap(118, 118, 118)
-                                .addComponent(jLabel23))
-                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel24))
-                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel25))
-                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                                .addGap(144, 144, 144)
-                                .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel26)
-                                    .addComponent(jButton8))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                                .addComponent(jLabel28)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField14)
-                                .addGap(6, 6, 6))
-                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                                .addComponent(jLabel30)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField16))
-                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                                .addComponent(jLabel29)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField15)))))
-                .addContainerGap())
-            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel31)
-                .addGap(18, 18, 18)
-                .addComponent(jButton10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton9)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-        patrocinadorEditarLayout.setVerticalGroup(
-            patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel24)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel25)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel26)
-                .addGap(22, 22, 22)
-                .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel31)
-                    .addComponent(jButton10)
-                    .addComponent(jButton9))
-                .addGap(32, 32, 32))
-        );
-
-        patrocinadorTPane.addTab("Editar", patrocinadorEditar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -582,21 +518,20 @@ public class TelaPatrocinador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
+      try {
+            PatrocinadorBD.inserir(campoCnpjPat.getText(), campoNomePat.getText(), campoTelPat.getText(), campoEndPat.getText());
+            JOptionPane.showMessageDialog(null, "Patrocinador cadastrado com sucesso " , "Success", JOptionPane.INFORMATION_MESSAGE);
+        } catch (SQLException ex){
+            System.err.println("SQL Error: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro de SQL: " + ex.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
+        }
+        finally{
+            clearFields();
+            loadComboBox();
+        }
+        
+    }//GEN-LAST:event_insertButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -622,6 +557,132 @@ public class TelaPatrocinador extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void searchByNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByNameActionPerformed
+        ArrayList <String> details = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        if(jcb.getSelectedIndex()==0) return;
+        try {
+            details = PatrocinadorBD.fetchNamePat(jcb.getSelectedItem().toString());
+            searchCNPJ.setText(details.get(0));
+            searchNome.setText(details.get(1));
+            searchTel.setText(details.get(2));
+            searchEnd.setText(details.get(3));
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPatrocinador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaPatrocinador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchByNameActionPerformed
+
+    private void editByNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editByNameActionPerformed
+        ArrayList <String> details = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        if(jcb.getSelectedIndex()==0) return;
+        try {
+            details = PatrocinadorBD.fetchNamePat(jcb.getSelectedItem().toString());
+            editNome.setText(details.get(1));
+            editTel.setText(details.get(2));
+            editEnd.setText(details.get(3));
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPatrocinador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaPatrocinador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_editByNameActionPerformed
+
+    private void editButtonPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonPatActionPerformed
+         if(editByName.getSelectedIndex()==0) return;
+        String cnpj = null;
+        try {
+            cnpj = PatrocinadorBD.getCnpjByName(editByName.getSelectedItem().toString());
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPatrocinador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String name = new String(editNome.getText());
+        String tel = new String(editTel.getText());
+        String end = new String(editEnd.getText());
+        try {
+            PatrocinadorBD.atualizar(cnpj, name, tel, end);
+             JOptionPane.showMessageDialog
+        (null, "Valores atualizados " , "Edição de Patrocinador", JOptionPane.INFORMATION_MESSAGE);
+        clearFields();
+        loadComboBox();   
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPatrocinador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_editButtonPatActionPerformed
+
+    private void deleteByNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteByNameActionPerformed
+         ArrayList <String> details = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        if(jcb.getSelectedIndex()==0) return;
+        try {
+            details = PatrocinadorBD.fetchNamePat(jcb.getSelectedItem().toString());
+            deleteCnpj.setText(details.get(0));
+            deleteNome.setText(details.get(1));
+            deleteTel.setText(details.get(2));
+            deleteEnd.setText(details.get(3));
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPatrocinador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaPatrocinador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deleteByNameActionPerformed
+
+    private void deleteButtonPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonPatActionPerformed
+          if(deleteByName.getSelectedIndex()==0) return;
+        String cnpj = deleteCnpj.getText();
+        try {
+            PatrocinadorBD.excluir(cnpj);
+            JOptionPane.showMessageDialog
+        (null, "Patrocinador removido" , "Remoção", JOptionPane.INFORMATION_MESSAGE);
+        clearFields();
+        loadComboBox();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPatrocinador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deleteButtonPatActionPerformed
+
+    private void loadComboBox(){
+        DefaultComboBoxModel modelNames = new DefaultComboBoxModel();
+        try {
+            modelNames = PatrocinadorBD.getPatName();
+            searchByName.setModel(modelNames);
+            deleteByName.setModel(modelNames);
+            editByName.setModel(modelNames);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPatrocinador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+     private void clearFields(){
+        campoCnpjPat.setText(" "); 
+        campoNomePat.setText(" ");
+        campoTelPat.setText(" ");
+        campoEndPat.setText(" ");
+        
+        editByName.setSelectedIndex(0);
+        editNome.setText("");
+        editTel.setText("");
+        editEnd.setText("");
+        
+        deleteByName.setSelectedIndex(0);
+        deleteCnpj.setText("");
+        deleteNome.setText("");
+        deleteTel.setText("");
+        deleteEnd.setText("");
+        
+        searchByName.setSelectedIndex(0);
+        searchNome.setText("");
+        searchCNPJ.setText("");
+        searchTel.setText("");
+        searchEnd.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -658,30 +719,32 @@ public class TelaPatrocinador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
+    private javax.swing.JTextField campoCnpjPat;
+    private javax.swing.JTextField campoEndPat;
+    private javax.swing.JTextField campoNomePat;
+    private javax.swing.JTextField campoTelPat;
+    private javax.swing.JButton deleteButtonPat;
+    private javax.swing.JComboBox deleteByName;
+    private javax.swing.JTextField deleteCnpj;
+    private javax.swing.JTextField deleteEnd;
+    private javax.swing.JTextField deleteNome;
+    private javax.swing.JTextField deleteTel;
+    private javax.swing.JButton editButtonPat;
+    private javax.swing.JComboBox editByName;
+    private javax.swing.JTextField editEnd;
+    private javax.swing.JTextField editNome;
+    private javax.swing.JTextField editTel;
+    private javax.swing.JButton insertButton;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -690,8 +753,6 @@ public class TelaPatrocinador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
@@ -701,28 +762,16 @@ public class TelaPatrocinador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel patrocinadorBuscar;
     private javax.swing.JPanel patrocinadorDeletar;
     private javax.swing.JPanel patrocinadorEditar;
     private javax.swing.JPanel patrocinadorInserir;
     protected javax.swing.JTabbedPane patrocinadorTPane;
+    private javax.swing.JComboBox searchByName;
+    private javax.swing.JTextField searchCNPJ;
+    private javax.swing.JTextField searchEnd;
+    private javax.swing.JTextField searchNome;
+    private javax.swing.JTextField searchTel;
     // End of variables declaration//GEN-END:variables
 }
