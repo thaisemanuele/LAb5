@@ -313,6 +313,11 @@ public class TelaEventos extends javax.swing.JFrame {
         jLabel9.setText("Website:");
 
         jButton5.setText("Buscar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         searchByCode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         searchByCode.addActionListener(new java.awt.event.ActionListener() {
@@ -324,6 +329,12 @@ public class TelaEventos extends javax.swing.JFrame {
         jLabel10.setText("Nome do Evento:");
 
         jLabel15.setText("Código do Evento:");
+
+        searchCodEv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchCodEvActionPerformed(evt);
+            }
+        });
 
         jLabel16.setText("2) Buscar evento por nome:");
 
@@ -815,6 +826,14 @@ public class TelaEventos extends javax.swing.JFrame {
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void searchCodEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCodEvActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchCodEvActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
