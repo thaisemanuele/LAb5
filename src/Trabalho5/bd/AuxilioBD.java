@@ -52,5 +52,4 @@ public class AuxilioBD {
         }
         rs.close();
         return details; */
-    }
 }
