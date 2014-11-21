@@ -21,8 +21,8 @@ public class dbConnection {
     
     public String driver = "oracle.jdbc.driver.OracleDriver";
     public String url = ("jdbc:oracle:thin:@grad.icmc.usp.br:15214:orcl14"); // final
-    public String username = "a6453087";
-    public String password = "a6453087";
+    public String username = "a7694220";
+    public String password = "a7694220";
     
      public static Statement createStatement() throws SQLException {
         return conn.createStatement();

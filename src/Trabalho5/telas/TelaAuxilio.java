@@ -6,6 +6,20 @@
 
 package Trabalho5.telas;
 
+import Trabalho5.bd.AuxilioBD;
+import Trabalho5.bd.EdicaoBD;
+import Trabalho5.bd.EventoBD;
+import Trabalho5.bd.InscritoBD;
+import Trabalho5.bd.PessoaBD;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gabriela
@@ -17,6 +31,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
      */
     public TelaAuxilio() {
         initComponents();
+        loadComboBox();
     }
 
     /**
@@ -28,29 +43,12 @@ public class TelaAuxilio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         auxilioTPane = new javax.swing.JTabbedPane();
-        auxilioInserir = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox2 = new javax.swing.JComboBox();
-        jComboBox3 = new javax.swing.JComboBox();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         auxilioBuscar = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
+        buscarAuxEv = new javax.swing.JComboBox();
         jButton3 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -66,6 +64,48 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
+        buscarAuxEd = new javax.swing.JComboBox();
+        buscarAuxTipoAux = new javax.swing.JComboBox();
+        buscarAuxBen = new javax.swing.JComboBox();
+        jLabel28 = new javax.swing.JLabel();
+        jTextField15 = new javax.swing.JTextField();
+        auxilioEditar = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        editarAuxTipoAux = new javax.swing.JComboBox();
+        jButton8 = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        jTextField18 = new javax.swing.JTextField();
+        jTextField19 = new javax.swing.JTextField();
+        jButton10 = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
+        jComboBox7 = new javax.swing.JComboBox();
+        jLabel34 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox();
+        editarAuxEv = new javax.swing.JComboBox();
+        editarAuxEd = new javax.swing.JComboBox();
+        editarAuxBen = new javax.swing.JComboBox();
+        auxilioInserir = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        inserirAuxEventos = new javax.swing.JComboBox();
+        inserirAuxEdicao = new javax.swing.JComboBox();
+        inserirAuxBen = new javax.swing.JComboBox();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        inserirAuxPat = new javax.swing.JComboBox();
+        inserirAuxTipoAux = new javax.swing.JComboBox();
         auxilioDeletar = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jComboBox5 = new javax.swing.JComboBox();
@@ -86,158 +126,34 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jTextField14 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
-        auxilioEditar = new javax.swing.JPanel();
-        jLabel25 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox();
-        jButton8 = new javax.swing.JButton();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jTextField18 = new javax.swing.JTextField();
-        jTextField19 = new javax.swing.JTextField();
-        jButton10 = new javax.swing.JButton();
-        jLabel33 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox();
+        jLabel29 = new javax.swing.JLabel();
+        jTextField16 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
+        jComboBox2 = new javax.swing.JComboBox();
+        jComboBox3 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Selecione e digite as informações desejadas e clique em inserir");
+        jLabel8.setText("Escolha o tipo de auxílio, evento, edição e beneficiário desejados, nessa ordem:");
 
-        jLabel2.setText("Código do evento:");
-
-        jLabel3.setText("Número da edição:");
-
-        jLabel4.setText("Beneficiário:");
-
-        jLabel5.setText("Tipo de auxílio:");
-
-        jLabel6.setText("Valor:");
-
-        jLabel7.setText("Data:");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jRadioButton1.setText("Alimentação");
-
-        jRadioButton2.setText("Transporte");
-
-        jRadioButton3.setText("Hospedagem");
-
-        jButton1.setText("Inserir");
-
-        jButton2.setText("Voltar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buscarAuxEv.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        buscarAuxEv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buscarAuxEvActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout auxilioInserirLayout = new javax.swing.GroupLayout(auxilioInserir);
-        auxilioInserir.setLayout(auxilioInserirLayout);
-        auxilioInserirLayout.setHorizontalGroup(
-            auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioInserirLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
-            .addGroup(auxilioInserirLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(auxilioInserirLayout.createSequentialGroup()
-                        .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(64, 64, 64))
-                    .addGroup(auxilioInserirLayout.createSequentialGroup()
-                        .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(auxilioInserirLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(auxilioInserirLayout.createSequentialGroup()
-                                .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton2)
-                                    .addComponent(jRadioButton1))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(auxilioInserirLayout.createSequentialGroup()
-                                .addComponent(jRadioButton3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2)
-                                .addGap(26, 26, 26))))))
-        );
-        auxilioInserirLayout.setVerticalGroup(
-            auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(auxilioInserirLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        auxilioTPane.addTab("Inserir", auxilioInserir);
-
-        jLabel8.setText("Escolha o tipo de auxílio para o beneficiário de acordo com a edição e o evento");
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton3.setText("Buscar");
 
         jLabel9.setText("As seguintes informações foram encontradas:");
 
-        jLabel10.setText("Código do evento:");
+        jLabel10.setText("Evento:");
 
-        jLabel11.setText("Número da edição:");
+        jLabel11.setText("Edição:");
 
         jLabel12.setText("Beneficiário:");
 
-        jLabel13.setText("Valor do auxílio:");
+        jLabel13.setText("Valor:");
 
         jLabel14.setText("Data:");
 
@@ -250,58 +166,88 @@ public class TelaAuxilio extends javax.swing.JFrame {
             }
         });
 
+        buscarAuxEd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        buscarAuxEd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarAuxEdActionPerformed(evt);
+            }
+        });
+
+        buscarAuxTipoAux.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        buscarAuxTipoAux.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarAuxTipoAuxActionPerformed(evt);
+            }
+        });
+
+        buscarAuxBen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        buscarAuxBen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarAuxBenActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setText("Patrocinador:");
+
         javax.swing.GroupLayout auxilioBuscarLayout = new javax.swing.GroupLayout(auxilioBuscar);
         auxilioBuscar.setLayout(auxilioBuscarLayout);
         auxilioBuscarLayout.setHorizontalGroup(
             auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(auxilioBuscarLayout.createSequentialGroup()
                 .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
                     .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                        .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                                .addGap(215, 215, 215)
-                                .addComponent(jButton3))
-                            .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                                .addGap(118, 118, 118)
-                                .addComponent(jLabel9))
-                            .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                                .addContainerGap()
+                        .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(buscarAuxEv, 0, 508, Short.MAX_VALUE)
+                                .addGroup(auxilioBuscarLayout.createSequentialGroup()
+                                    .addGap(212, 212, 212)
+                                    .addComponent(jButton3))
+                                .addComponent(buscarAuxEd, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buscarAuxBen, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(buscarAuxTipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(auxilioBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioBuscarLayout.createSequentialGroup()
                                 .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                                        .addComponent(jLabel12)
-                                        .addGap(59, 59, 59)
-                                        .addComponent(jTextField5))
+                                        .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(77, 77, 77))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioBuscarLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton4))
+                            .addGroup(auxilioBuscarLayout.createSequentialGroup()
+                                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(auxilioBuscarLayout.createSequentialGroup()
                                         .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel10))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField3)
-                                            .addComponent(jTextField4)))))
-                            .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addGap(103, 103, 103)
-                                        .addComponent(jTextField7))
-                                    .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                                        .addComponent(jLabel13)
-                                        .addGap(33, 33, 33)
-                                        .addComponent(jTextField6))
+                                            .addComponent(jLabel28)
+                                            .addComponent(jLabel13))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(auxilioBuscarLayout.createSequentialGroup()
+                                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jLabel14)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(auxilioBuscarLayout.createSequentialGroup()
                                         .addComponent(jLabel15)
-                                        .addGap(38, 38, 38)
-                                        .addComponent(jTextField8)))))
-                        .addGap(0, 30, Short.MAX_VALUE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField8)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioBuscarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(102, 102, 102))
         );
         auxilioBuscarLayout.setVerticalGroup(
             auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,43 +255,308 @@ public class TelaAuxilio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buscarAuxTipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buscarAuxEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buscarAuxEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buscarAuxBen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel28)
+                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel14)
+                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton4)
-                .addGap(153, 153, 153))
+                .addGap(34, 34, 34))
         );
 
         auxilioTPane.addTab("Buscar", auxilioBuscar);
 
-        jLabel16.setText("Escolha o tipo de auxílio para o beneficiário de acordo com a edição e o evento");
+        jLabel25.setText("Escolha o tipo de auxílio, evento, edição e beneficiário desejados, nessa ordem:");
+
+        editarAuxTipoAux.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton8.setText("Carregar Informações");
+
+        jLabel26.setText("Edite as informações abaixo");
+
+        jLabel30.setText("Valor do auxílio:");
+
+        jLabel31.setText("Data:");
+
+        jLabel32.setText("Tipo de auxílio:");
+
+        jButton9.setText("Voltar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("Editar");
+
+        jLabel33.setText("Realmente deseja editar o auxílio?");
+
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel34.setText("Patrocinador:");
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        editarAuxEv.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        editarAuxEd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        editarAuxBen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout auxilioEditarLayout = new javax.swing.GroupLayout(auxilioEditar);
+        auxilioEditar.setLayout(auxilioEditarLayout);
+        auxilioEditarLayout.setHorizontalGroup(
+            auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(auxilioEditarLayout.createSequentialGroup()
+                .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
+                    .addComponent(editarAuxTipoAux, 0, 544, Short.MAX_VALUE)
+                    .addGroup(auxilioEditarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel30))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField19, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                            .addComponent(jComboBox7, 0, 366, Short.MAX_VALUE)
+                            .addComponent(jTextField18, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(editarAuxEv, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(editarAuxBen, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(auxilioEditarLayout.createSequentialGroup()
+                            .addGap(36, 36, 36)
+                            .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton10)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton9))
+                        .addGroup(auxilioEditarLayout.createSequentialGroup()
+                            .addGap(169, 169, 169)
+                            .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton8)
+                                .addComponent(jLabel26)))
+                        .addGroup(auxilioEditarLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel34)))
+                    .addComponent(editarAuxEd, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        auxilioEditarLayout.setVerticalGroup(
+            auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(auxilioEditarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editarAuxTipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editarAuxEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editarAuxEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editarAuxBen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30))
+                .addGap(18, 18, 18)
+                .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(31, 31, 31)
+                .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(jButton10)
+                    .addComponent(jButton9))
+                .addGap(30, 30, 30))
+        );
+
+        auxilioTPane.addTab("Editar", auxilioEditar);
+
+        jLabel1.setText("Selecione e digite as informações desejadas e clique em inserir");
+
+        jLabel2.setText("Evento:");
+
+        jLabel3.setText("Edição:");
+
+        jLabel4.setText("Beneficiário:");
+
+        jLabel5.setText("Tipo de auxílio:");
+
+        jLabel6.setText("Valor:");
+
+        jLabel7.setText("Data:");
+
+        inserirAuxEventos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        inserirAuxEventos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inserirAuxEventosActionPerformed(evt);
+            }
+        });
+
+        inserirAuxEdicao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        inserirAuxEdicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inserirAuxEdicaoActionPerformed(evt);
+            }
+        });
+
+        inserirAuxBen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton1.setText("Inserir");
+
+        jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setText("Patrocinador:");
+
+        inserirAuxPat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        inserirAuxTipoAux.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout auxilioInserirLayout = new javax.swing.GroupLayout(auxilioInserir);
+        auxilioInserir.setLayout(auxilioInserirLayout);
+        auxilioInserirLayout.setHorizontalGroup(
+            auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(auxilioInserirLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioInserirLayout.createSequentialGroup()
+                        .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(auxilioInserirLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(inserirAuxPat, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inserirAuxEdicao, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inserirAuxEventos, javax.swing.GroupLayout.Alignment.LEADING, 0, 480, Short.MAX_VALUE)
+                            .addComponent(inserirAuxBen, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioInserirLayout.createSequentialGroup()
+                                .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(auxilioInserirLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(inserirAuxTipoAux, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(64, 64, 64))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioInserirLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioInserirLayout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 56, 56))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioInserirLayout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton2)
+                                .addGap(67, 67, 67))))
+                    .addGroup(auxilioInserirLayout.createSequentialGroup()
+                        .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(auxilioInserirLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)
+                                .addComponent(jLabel7))
+                            .addComponent(jLabel27))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        auxilioInserirLayout.setVerticalGroup(
+            auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(auxilioInserirLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(inserirAuxEventos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(inserirAuxEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(inserirAuxBen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(inserirAuxPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(inserirAuxTipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+
+        auxilioTPane.addTab("Inserir", auxilioInserir);
+
+        jLabel16.setText("Escolha o tipo de auxílio, evento, edição e beneficiário desejados, nessa ordem:");
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -353,9 +564,9 @@ public class TelaAuxilio extends javax.swing.JFrame {
 
         jLabel17.setText("As seguintes informações foram encontradas:");
 
-        jLabel18.setText("Código do evento:");
+        jLabel18.setText("Evento:");
 
-        jLabel19.setText("Número da edição:");
+        jLabel19.setText("Edição:");
 
         jLabel20.setText("Beneficiário:");
 
@@ -376,6 +587,14 @@ public class TelaAuxilio extends javax.swing.JFrame {
 
         jLabel24.setText("Realmente deseja deletar o auxílio?");
 
+        jLabel29.setText("Patrocinador:");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout auxilioDeletarLayout = new javax.swing.GroupLayout(auxilioDeletar);
         auxilioDeletar.setLayout(auxilioDeletarLayout);
         auxilioDeletarLayout.setHorizontalGroup(
@@ -384,55 +603,57 @@ public class TelaAuxilio extends javax.swing.JFrame {
                 .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                        .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                                .addGap(118, 118, 118)
-                                .addComponent(jLabel17))
+                        .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(auxilioDeletarLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                                        .addComponent(jLabel20)
-                                        .addGap(59, 59, 59)
-                                        .addComponent(jTextField11))
-                                    .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                                        .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel19)
-                                            .addComponent(jLabel18))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField9)
-                                            .addComponent(jTextField10)))))
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                                        .addComponent(jLabel22)
-                                        .addGap(103, 103, 103)
-                                        .addComponent(jTextField13))
-                                    .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                                        .addComponent(jLabel21)
-                                        .addGap(33, 33, 33)
-                                        .addComponent(jTextField12))
-                                    .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                                        .addComponent(jLabel23)
-                                        .addGap(38, 38, 38)
-                                        .addComponent(jTextField14))))
-                            .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(20, 20, 20)
                                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton6)
-                                .addGap(33, 33, 33)))
-                        .addGap(0, 30, Short.MAX_VALUE)))
+                                .addComponent(jButton6)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                .addGap(171, 171, 171)
+                .addGap(165, 165, 165)
                 .addComponent(jButton5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioDeletarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox5, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioDeletarLayout.createSequentialGroup()
+                        .addComponent(jLabel29)
+                        .addGap(26, 26, 26)
+                        .addComponent(jTextField16))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioDeletarLayout.createSequentialGroup()
+                        .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(auxilioDeletarLayout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField10)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioDeletarLayout.createSequentialGroup()
+                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(25, 25, 25))
         );
         auxilioDeletarLayout.setVerticalGroup(
             auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -442,144 +663,50 @@ public class TelaAuxilio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel21)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel21))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
                     .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
+                    .addComponent(jLabel24)
                     .addComponent(jButton7)
-                    .addComponent(jLabel24))
-                .addContainerGap(79, Short.MAX_VALUE))
+                    .addComponent(jButton6))
+                .addGap(12, 12, 12))
         );
 
         auxilioTPane.addTab("Deletar", auxilioDeletar);
-
-        jLabel25.setText("Escolha o tipo de auxílio para o beneficiário de acordo com a edição e o evento");
-
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jButton8.setText("Carregar Informações");
-
-        jLabel26.setText("Edite as informações abaixo");
-
-        jLabel30.setText("Valor do auxílio:");
-
-        jLabel31.setText("Data:");
-
-        jLabel32.setText("Tipo de auxílio:");
-
-        jButton9.setText("Voltar");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
-        jButton10.setText("Deletar");
-
-        jLabel33.setText("Realmente deseja editar o auxílio?");
-
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        javax.swing.GroupLayout auxilioEditarLayout = new javax.swing.GroupLayout(auxilioEditar);
-        auxilioEditar.setLayout(auxilioEditarLayout);
-        auxilioEditarLayout.setHorizontalGroup(
-            auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(auxilioEditarLayout.createSequentialGroup()
-                .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(auxilioEditarLayout.createSequentialGroup()
-                        .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(auxilioEditarLayout.createSequentialGroup()
-                                .addGap(171, 171, 171)
-                                .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel26)
-                                    .addComponent(jButton8)))
-                            .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jComboBox6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioEditarLayout.createSequentialGroup()
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton10)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton9)
-                                    .addGap(33, 33, 33))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioEditarLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioEditarLayout.createSequentialGroup()
-                                            .addComponent(jLabel30)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(auxilioEditarLayout.createSequentialGroup()
-                                            .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel31)
-                                                .addComponent(jLabel32))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jTextField19, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
-                                                .addComponent(jComboBox7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
-                        .addGap(0, 30, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        auxilioEditarLayout.setVerticalGroup(
-            auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(auxilioEditarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel26)
-                .addGap(43, 43, 43)
-                .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel31)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel32)
-                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10)
-                    .addComponent(jLabel33))
-                .addContainerGap(79, Short.MAX_VALUE))
-        );
-
-        auxilioTPane.addTab("Editar", auxilioEditar);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -590,7 +717,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(auxilioTPane, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(auxilioTPane, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -598,15 +725,13 @@ public class TelaAuxilio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -636,6 +761,131 @@ public class TelaAuxilio extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void inserirAuxEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirAuxEventosActionPerformed
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        try {
+            Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
+            model = EdicaoBD.getEditions(codEv);
+            inserirAuxEdicao.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_inserirAuxEventosActionPerformed
+
+    private void inserirAuxEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirAuxEdicaoActionPerformed
+        if(inserirAuxEventos.getSelectedIndex() == 0) return;
+        
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        
+        if(jcb.getSelectedIndex() == 0) return;
+        ArrayList <String> details = new ArrayList<String>();
+        try {
+            Integer codEv = EventoBD.getCodeByName(inserirAuxEventos.getSelectedItem().toString());
+            details = InscritoBD.buscarInscritos(codEv,
+                    Integer.parseInt(jcb.getSelectedItem().toString()));
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(String d : details){
+            try {
+                model.addElement(PessoaBD.getEmailById(Integer.parseInt(d)));
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        inserirAuxBen.setModel(model);
+    }//GEN-LAST:event_inserirAuxEdicaoActionPerformed
+
+    private void buscarAuxEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAuxEvActionPerformed
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        try {
+            Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
+            model = EdicaoBD.getEditions(codEv);
+            buscarAuxEd.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_buscarAuxEvActionPerformed
+
+    private void buscarAuxEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAuxEdActionPerformed
+        if(buscarAuxEv.getSelectedIndex() == 0) return;
+        if(buscarAuxTipoAux.getSelectedIndex() == 0) {
+             JOptionPane.showMessageDialog(null, "Selecione o Tipo do auxílio " , "Erro", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        
+        if(jcb.getSelectedIndex() == 0) return;
+        ArrayList <String> details = new ArrayList<String>();
+        try {
+            Integer codEv = EventoBD.getCodeByName(buscarAuxEv.getSelectedItem().toString());
+            details = AuxilioBD.buscarPorTipoAux(codEv, Integer.parseInt(jcb.getSelectedItem().toString()), 
+                    buscarAuxTipoAux.getSelectedItem().toString());
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(String d : details){
+            try {
+                model.addElement(PessoaBD.getEmailById(Integer.parseInt(d)));
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        buscarAuxBen.setModel(model);
+    }//GEN-LAST:event_buscarAuxEdActionPerformed
+
+    private void buscarAuxTipoAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAuxTipoAuxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarAuxTipoAuxActionPerformed
+
+    private void buscarAuxBenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAuxBenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarAuxBenActionPerformed
+
+    
+        private void loadComboBox(){
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        DefaultComboBoxModel emptyModel = new DefaultComboBoxModel();
+        DefaultComboBoxModel emptyModel2 = new DefaultComboBoxModel();
+        DefaultComboBoxModel emptyModel3 = new DefaultComboBoxModel();
+        DefaultComboBoxModel emptyModel4 = new DefaultComboBoxModel();
+        try {
+            model = EventoBD.getEventsName();
+            emptyModel.addElement(" --- ");
+            emptyModel.addElement(" Selecione um Evento ");
+            emptyModel2.addElement(" --- ");
+            emptyModel2.addElement(" Selecione Evento e Edição ");
+            emptyModel3.addElement(" --- ");
+            emptyModel3.addElement("alimentação");
+            emptyModel3.addElement("hospedagem");
+            emptyModel3.addElement("transporte");
+            emptyModel4.addElement(" --- ");
+            emptyModel4.addElement(" Selecione Evento, Edição e Tipo de Auxílio ");
+            inserirAuxEventos.setModel(model);
+            inserirAuxEdicao.setModel(emptyModel);
+            inserirAuxBen.setModel(emptyModel2);
+            inserirAuxPat.setModel(emptyModel2);
+            inserirAuxTipoAux.setModel(emptyModel3);
+            buscarAuxEv.setModel(model);
+            buscarAuxEd.setModel(emptyModel);
+            buscarAuxTipoAux.setModel(emptyModel3);
+            buscarAuxBen.setModel(emptyModel4);
+          
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -677,6 +927,20 @@ public class TelaAuxilio extends javax.swing.JFrame {
     private javax.swing.JPanel auxilioEditar;
     private javax.swing.JPanel auxilioInserir;
     protected javax.swing.JTabbedPane auxilioTPane;
+    private javax.swing.JComboBox buscarAuxBen;
+    private javax.swing.JComboBox buscarAuxEd;
+    private javax.swing.JComboBox buscarAuxEv;
+    private javax.swing.JComboBox buscarAuxTipoAux;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox editarAuxBen;
+    private javax.swing.JComboBox editarAuxEd;
+    private javax.swing.JComboBox editarAuxEv;
+    private javax.swing.JComboBox editarAuxTipoAux;
+    private javax.swing.JComboBox inserirAuxBen;
+    private javax.swing.JComboBox inserirAuxEdicao;
+    private javax.swing.JComboBox inserirAuxEventos;
+    private javax.swing.JComboBox inserirAuxPat;
+    private javax.swing.JComboBox inserirAuxTipoAux;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
@@ -692,7 +956,6 @@ public class TelaAuxilio extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
     private javax.swing.JComboBox jComboBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -713,11 +976,15 @@ public class TelaAuxilio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -725,15 +992,14 @@ public class TelaAuxilio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
