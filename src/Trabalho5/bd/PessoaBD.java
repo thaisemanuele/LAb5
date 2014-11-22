@@ -165,4 +165,19 @@ public class PessoaBD {
         }
        return model;
     }
+    
+    public static DefaultComboBoxModel getOrgs()throws SQLException{
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox codes = new JComboBox();
+        codes.isEditable();
+        String selectSql = "SELECT emailPe from Pessoa WHERE tipoOrganizador ='1' ORDER BY emailPe ASC";
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectSql);
+        model.addElement(" --- ");
+        while(rs.next()){
+            System.out.println(rs.getString("emailPe"));
+            model.addElement(rs.getString("emailPe"));
+        }
+       return model;
+    }
 }

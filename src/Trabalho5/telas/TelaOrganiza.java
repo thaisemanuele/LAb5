@@ -6,6 +6,17 @@
 
 package Trabalho5.telas;
 
+import Trabalho5.bd.EdicaoBD;
+import Trabalho5.bd.EventoBD;
+import Trabalho5.bd.OrganizaBD;
+import Trabalho5.bd.PessoaBD;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gabriela
@@ -17,6 +28,7 @@ public class TelaOrganiza extends javax.swing.JFrame {
      */
     public TelaOrganiza() {
         initComponents();
+        loadComboBox();
     }
 
     /**
@@ -33,14 +45,14 @@ public class TelaOrganiza extends javax.swing.JFrame {
         organizaInserir = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        insertOrganiza_Organizador = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        insertOrganiza_Evento = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
+        insertOrganiza_Edicao = new javax.swing.JComboBox();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        insertOrganiza_Cargo = new javax.swing.JTextField();
+        insertOrganiza_Button = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         organizaBuscar = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -90,21 +102,31 @@ public class TelaOrganiza extends javax.swing.JFrame {
 
         jLabel1.setText("Digite as informações desejadas nos campos abaixo e clique em inserir");
 
-        jLabel2.setText("ID Organizador:");
+        jLabel2.setText("Organizador:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        insertOrganiza_Organizador.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel3.setText("Código do Evento:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        insertOrganiza_Evento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        insertOrganiza_Evento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertOrganiza_EventoActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Número da Edição:");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        insertOrganiza_Edicao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setText("Cargo:");
 
-        jButton1.setText("Inserir");
+        insertOrganiza_Button.setText("Inserir");
+        insertOrganiza_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertOrganiza_ButtonActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Voltar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -123,12 +145,12 @@ public class TelaOrganiza extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1))
+                        .addComponent(insertOrganiza_Cargo))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, organizaInserirLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(insertOrganiza_Edicao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, organizaInserirLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,12 +162,12 @@ public class TelaOrganiza extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(21, 21, 21)
                         .addGroup(organizaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(insertOrganiza_Organizador, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(insertOrganiza_Evento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(51, 51, 51))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, organizaInserirLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(insertOrganiza_Button)
                 .addGap(36, 36, 36)
                 .addComponent(jButton2)
                 .addGap(72, 72, 72))
@@ -158,22 +180,22 @@ public class TelaOrganiza extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addGroup(organizaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(insertOrganiza_Organizador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(organizaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(insertOrganiza_Evento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(organizaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(insertOrganiza_Edicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(21, 21, 21)
                 .addGroup(organizaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(insertOrganiza_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(87, 87, 87)
                 .addGroup(organizaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(insertOrganiza_Button)
                     .addComponent(jButton2))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
@@ -538,6 +560,55 @@ public class TelaOrganiza extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void insertOrganiza_EventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertOrganiza_EventoActionPerformed
+        if(insertOrganiza_Evento.getSelectedIndex()==0) return;
+        DefaultComboBoxModel edModel = new DefaultComboBoxModel();
+        try {
+            Integer codEv = EventoBD.getCodeByName(insertOrganiza_Evento.getSelectedItem().toString());
+            edModel = EdicaoBD.getEditions(codEv);
+            insertOrganiza_Edicao.setModel(edModel);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaOrganiza.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_insertOrganiza_EventoActionPerformed
+
+    private void insertOrganiza_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertOrganiza_ButtonActionPerformed
+        if(insertOrganiza_Evento.getSelectedIndex()==0||
+                    insertOrganiza_Edicao.getSelectedIndex()==0||
+                    insertOrganiza_Organizador.getSelectedIndex()==0) return;
+        try {
+            Integer idOrg = PessoaBD.getIdByEmail(insertOrganiza_Organizador.getSelectedItem().toString());
+            Integer codEv = EventoBD.getCodeByName(insertOrganiza_Evento.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(insertOrganiza_Edicao.getSelectedItem().toString());
+            String cargoOrg = insertOrganiza_Cargo.getText();
+            OrganizaBD.inserir(idOrg, codEv, numEd, cargoOrg);
+            JOptionPane.showMessageDialog
+            (null, "Organizador Cadastrado" , "Inserir Organizador", JOptionPane.INFORMATION_MESSAGE);
+            insertOrganiza_Organizador.setSelectedIndex(0);
+            insertOrganiza_Evento.setSelectedIndex(0);
+            insertOrganiza_Edicao.setSelectedIndex(0);
+            insertOrganiza_Cargo.setText("");
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaOrganiza.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_insertOrganiza_ButtonActionPerformed
+
+    private void loadComboBox(){
+        DefaultComboBoxModel orgModel = new DefaultComboBoxModel();
+        DefaultComboBoxModel evModel = new DefaultComboBoxModel();
+        DefaultComboBoxModel emptyModel = new DefaultComboBoxModel();
+        try {
+            orgModel = PessoaBD.getOrgs();
+            evModel = EventoBD.getEventsName();
+            emptyModel.addElement(" --- ");
+            emptyModel.addElement(" Selecione um evento");
+            insertOrganiza_Organizador.setModel(orgModel);
+            insertOrganiza_Evento.setModel(evModel);
+            insertOrganiza_Edicao.setModel(emptyModel);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaOrganiza.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -574,7 +645,11 @@ public class TelaOrganiza extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton insertOrganiza_Button;
+    private javax.swing.JTextField insertOrganiza_Cargo;
+    private javax.swing.JComboBox insertOrganiza_Edicao;
+    private javax.swing.JComboBox insertOrganiza_Evento;
+    private javax.swing.JComboBox insertOrganiza_Organizador;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -584,9 +659,6 @@ public class TelaOrganiza extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
@@ -616,7 +688,6 @@ public class TelaOrganiza extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
