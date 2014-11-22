@@ -24,6 +24,14 @@ public class OrganizaBD {
         statement.executeUpdate(insert);
     }
     
+    public static void atualizar(Integer idOrg, Integer codEv,Integer numEd, String cargoOrg) throws SQLException{
+        String update = "UPDATE Organiza SET cargoOrg = '" 
+                +cargoOrg+ "' WHERE idOrg = " + idOrg +" AND codEv = "+codEv+" AND numEd = "+numEd;
+        System.out.println("insert statement " + update);
+        Statement statement = dbConnection.createStatement();
+        statement.executeUpdate(update);
+    }
+    
     public static DefaultComboBoxModel getOrgs(Integer codEv, Integer numEd) throws SQLException{
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         String selectSql = "SELECT idOrg from Organiza WHERE codEv = "+codEv+" AND numEd = "+numEd;

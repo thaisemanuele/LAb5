@@ -67,17 +67,6 @@ public class TelaOrganiza extends javax.swing.JFrame {
         searchOrganiza_Edicao = new javax.swing.JComboBox();
         jLabel27 = new javax.swing.JLabel();
         searchOrganiza_Organizadores = new javax.swing.JComboBox();
-        organizaEditar = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox();
-        jButton5 = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
         organizaDeletar = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -95,6 +84,18 @@ public class TelaOrganiza extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
+        organizaEditar = new javax.swing.JPanel();
+        editOrganiza_Evento = new javax.swing.JComboBox();
+        jLabel19 = new javax.swing.JLabel();
+        editOrganiza_Cargo = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        editOrganiza_Button = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        editOrganiza_Edicao = new javax.swing.JComboBox();
+        editOrganiza_Organizadores = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -307,98 +308,6 @@ public class TelaOrganiza extends javax.swing.JFrame {
 
         organizaTPane.addTab("Buscar", organizaBuscar);
 
-        jLabel13.setText("Selecione uma opção abaixo");
-
-        jLabel14.setText("Buscar organizador por código de acordo com o evento e a edição:");
-
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jButton5.setText("Carregar Informações");
-
-        jLabel15.setText("Edite a informação abaixo:");
-
-        jLabel19.setText("Cargo:");
-
-        jTextField9.setText("jTextField5");
-
-        jButton6.setText("Voltar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        jLabel16.setText("Realmente deseja editar o cargo?");
-
-        jButton7.setText("Editar");
-
-        javax.swing.GroupLayout organizaEditarLayout = new javax.swing.GroupLayout(organizaEditar);
-        organizaEditar.setLayout(organizaEditarLayout);
-        organizaEditarLayout.setHorizontalGroup(
-            organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, organizaEditarLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6)
-                .addGap(64, 64, 64))
-            .addGroup(organizaEditarLayout.createSequentialGroup()
-                .addGroup(organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(organizaEditarLayout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(organizaEditarLayout.createSequentialGroup()
-                        .addGap(215, 215, 215)
-                        .addGroup(organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5)
-                            .addGroup(organizaEditarLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel15))))
-                    .addGroup(organizaEditarLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addGroup(organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(organizaEditarLayout.createSequentialGroup()
-                                    .addComponent(jLabel19)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jComboBox5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(10, Short.MAX_VALUE))
-        );
-        organizaEditarLayout.setVerticalGroup(
-            organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(organizaEditarLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addGroup(organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(organizaEditarLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, organizaEditarLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
-                        .addGroup(organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(jButton6)
-                            .addComponent(jButton7))
-                        .addGap(52, 52, 52))))
-        );
-
-        organizaTPane.addTab("Editar", organizaEditar);
-
         jLabel17.setText("Selecione uma opção abaixo");
 
         jLabel18.setText("Buscar organizador por código de acordo com o evento e a edição:");
@@ -510,6 +419,108 @@ public class TelaOrganiza extends javax.swing.JFrame {
         );
 
         organizaTPane.addTab("Deletar", organizaDeletar);
+
+        editOrganiza_Evento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editOrganiza_Evento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editOrganiza_EventoActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setText("Cargo:");
+
+        jButton6.setText("Voltar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Realmente deseja editar o cargo?");
+
+        editOrganiza_Button.setText("Editar");
+        editOrganiza_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editOrganiza_ButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Selecione um evento:");
+
+        jLabel28.setText("Edição:");
+
+        jLabel29.setText("Lista de Organizadores:");
+
+        editOrganiza_Edicao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editOrganiza_Edicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editOrganiza_EdicaoActionPerformed(evt);
+            }
+        });
+
+        editOrganiza_Organizadores.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editOrganiza_Organizadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editOrganiza_OrganizadoresActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout organizaEditarLayout = new javax.swing.GroupLayout(organizaEditar);
+        organizaEditar.setLayout(organizaEditarLayout);
+        organizaEditarLayout.setHorizontalGroup(
+            organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(organizaEditarLayout.createSequentialGroup()
+                .addGroup(organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(organizaEditarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel29)
+                            .addComponent(editOrganiza_Organizadores, 0, 461, Short.MAX_VALUE)
+                            .addComponent(editOrganiza_Evento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(editOrganiza_Edicao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(organizaEditarLayout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(editOrganiza_Cargo))))
+                    .addGroup(organizaEditarLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(editOrganiza_Button)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton6)))
+                .addContainerGap(119, Short.MAX_VALUE))
+        );
+        organizaEditarLayout.setVerticalGroup(
+            organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(organizaEditarLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editOrganiza_Evento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editOrganiza_Edicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editOrganiza_Organizadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addGroup(organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(editOrganiza_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(organizaEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(editOrganiza_Button)
+                    .addComponent(jButton6))
+                .addContainerGap(194, Short.MAX_VALUE))
+        );
+
+        organizaTPane.addTab("Editar", organizaEditar);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -649,6 +660,76 @@ public class TelaOrganiza extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchOrganiza_OrganizadoresActionPerformed
 
+    private void editOrganiza_EventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editOrganiza_EventoActionPerformed
+        if(editOrganiza_Evento.getSelectedIndex()==0) return;
+        DefaultComboBoxModel edModel = new DefaultComboBoxModel();
+        try {
+            Integer codEv = EventoBD.getCodeByName(editOrganiza_Evento.getSelectedItem().toString());
+            edModel = EdicaoBD.getEditions(codEv);
+            editOrganiza_Edicao.setModel(edModel);
+            editOrganiza_Cargo.setText("");
+            editOrganiza_Organizadores.setSelectedIndex(0);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaOrganiza.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_editOrganiza_EventoActionPerformed
+
+    private void editOrganiza_EdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editOrganiza_EdicaoActionPerformed
+        if(editOrganiza_Evento.getSelectedIndex()==0||
+                    editOrganiza_Edicao.getSelectedIndex()==0) return;
+        try {
+            DefaultComboBoxModel orgsModel = new DefaultComboBoxModel();
+            Integer codEv = EventoBD.getCodeByName(editOrganiza_Evento.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(editOrganiza_Edicao.getSelectedItem().toString());
+            orgsModel = OrganizaBD.getOrgs(codEv, numEd);
+            editOrganiza_Organizadores.setModel(orgsModel);
+            editOrganiza_Cargo.setText("");
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaOrganiza.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_editOrganiza_EdicaoActionPerformed
+
+    private void editOrganiza_OrganizadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editOrganiza_OrganizadoresActionPerformed
+        if(editOrganiza_Evento.getSelectedIndex()==0||
+                    editOrganiza_Edicao.getSelectedIndex()==0||
+                    editOrganiza_Organizadores.getSelectedIndex()==0) return;
+        ArrayList<String> detailsPe = new ArrayList<String>();
+        String cargo = new String();
+        try {
+            Integer codEv = EventoBD.getCodeByName(editOrganiza_Evento.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(editOrganiza_Edicao.getSelectedItem().toString());
+            Integer idOrg = PessoaBD.getIdByEmail(
+                    editOrganiza_Organizadores.getSelectedItem().toString());
+            detailsPe = PessoaBD.buscar(idOrg);
+            cargo = OrganizaBD.getCargo(codEv, numEd, idOrg);
+            editOrganiza_Cargo.setText(cargo);
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaOrganiza.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_editOrganiza_OrganizadoresActionPerformed
+
+    private void editOrganiza_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editOrganiza_ButtonActionPerformed
+        if(editOrganiza_Evento.getSelectedIndex()==0||
+                    editOrganiza_Edicao.getSelectedIndex()==0) return;
+        if(editOrganiza_Organizadores.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(null, "Selecione um Organizador" , "ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        try {
+            Integer codEv = EventoBD.getCodeByName(editOrganiza_Evento.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(editOrganiza_Edicao.getSelectedItem().toString());
+            Integer idOrg = PessoaBD.getIdByEmail(
+                    editOrganiza_Organizadores.getSelectedItem().toString());
+            String cargo = editOrganiza_Cargo.getText();
+            OrganizaBD.atualizar(idOrg, codEv, numEd, cargo);
+            JOptionPane.showMessageDialog(null, "Cargo Atualizado" , "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            loadComboBox();
+            editOrganiza_Cargo.setText("");
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_editOrganiza_ButtonActionPerformed
+
     private void loadComboBox(){
         DefaultComboBoxModel orgModel = new DefaultComboBoxModel();
         DefaultComboBoxModel evModel = new DefaultComboBoxModel();
@@ -668,6 +749,10 @@ public class TelaOrganiza extends javax.swing.JFrame {
             searchOrganiza_Evento.setModel(evModel);
             searchOrganiza_Edicao.setModel(emptyModel);
             searchOrganiza_Organizadores.setModel(emptyModel2);
+            
+            editOrganiza_Evento.setModel(evModel);
+            editOrganiza_Edicao.setModel(emptyModel);
+            editOrganiza_Organizadores.setModel(emptyModel2);
         } catch (SQLException ex) {
             Logger.getLogger(TelaOrganiza.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -708,6 +793,11 @@ public class TelaOrganiza extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton editOrganiza_Button;
+    private javax.swing.JTextField editOrganiza_Cargo;
+    private javax.swing.JComboBox editOrganiza_Edicao;
+    private javax.swing.JComboBox editOrganiza_Evento;
+    private javax.swing.JComboBox editOrganiza_Organizadores;
     private javax.swing.JButton insertOrganiza_Button;
     private javax.swing.JTextField insertOrganiza_Cargo;
     private javax.swing.JComboBox insertOrganiza_Edicao;
@@ -716,18 +806,12 @@ public class TelaOrganiza extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -741,17 +825,19 @@ public class TelaOrganiza extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel organizaBuscar;
     private javax.swing.JPanel organizaDeletar;
     private javax.swing.JPanel organizaEditar;
