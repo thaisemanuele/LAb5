@@ -55,19 +55,16 @@ public class TelaEscreve extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         escreveBuscar = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        searchByAuthor = new javax.swing.JComboBox();
-        jLabel6 = new javax.swing.JLabel();
-        searchResultArtigo = new javax.swing.JComboBox();
         jLabel8 = new javax.swing.JLabel();
-        searchEscreveAutor = new javax.swing.JTextField();
-        searchEscreveArtigo = new javax.swing.JTextField();
+        buscarNomeAutor = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        jLabel20 = new javax.swing.JLabel();
-        searchByArtigo = new javax.swing.JComboBox();
+        buscarEscreveArtigo = new javax.swing.JComboBox();
         jLabel21 = new javax.swing.JLabel();
-        searchResultAuthor = new javax.swing.JComboBox();
+        buscarEscreveAutor = new javax.swing.JComboBox();
         jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        buscarNomeArtigo = new javax.swing.JTextArea();
         escreveDeletar = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -188,7 +185,7 @@ public class TelaEscreve extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addGap(8, 8, 8)
                 .addComponent(insertArtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addGroup(escreveInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(insertEscreveButton)
                     .addComponent(jButton2))
@@ -196,24 +193,6 @@ public class TelaEscreve extends javax.swing.JFrame {
         );
 
         escreveTPane.addTab("Inserir", escreveInserir);
-
-        jLabel5.setText("1) Buscar por autor:");
-
-        searchByAuthor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        searchByAuthor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchByAuthorActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setText("2) Buscar por ID do artigo:");
-
-        searchResultArtigo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        searchResultArtigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchResultArtigoActionPerformed(evt);
-            }
-        });
 
         jLabel8.setText("Autor:");
 
@@ -224,87 +203,78 @@ public class TelaEscreve extends javax.swing.JFrame {
             }
         });
 
-        jLabel20.setText("Artigos:");
-
-        searchByArtigo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        searchByArtigo.addActionListener(new java.awt.event.ActionListener() {
+        buscarEscreveArtigo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        buscarEscreveArtigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchByArtigoActionPerformed(evt);
+                buscarEscreveArtigoActionPerformed(evt);
             }
         });
 
-        jLabel21.setText("Autores:");
+        jLabel21.setText("Escolha o artigo:");
 
-        searchResultAuthor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        searchResultAuthor.addActionListener(new java.awt.event.ActionListener() {
+        buscarEscreveAutor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        buscarEscreveAutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchResultAuthorActionPerformed(evt);
+                buscarEscreveAutorActionPerformed(evt);
             }
         });
 
         jLabel22.setText("Artigo:");
+
+        jLabel23.setText("Listar autores:");
+
+        buscarNomeArtigo.setColumns(20);
+        buscarNomeArtigo.setRows(5);
+        jScrollPane1.setViewportView(buscarNomeArtigo);
 
         javax.swing.GroupLayout escreveBuscarLayout = new javax.swing.GroupLayout(escreveBuscar);
         escreveBuscar.setLayout(escreveBuscarLayout);
         escreveBuscarLayout.setHorizontalGroup(
             escreveBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escreveBuscarLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(escreveBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(escreveBuscarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel5))
+                        .addGroup(escreveBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buscarNomeAutor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE))
+                        .addGap(0, 21, Short.MAX_VALUE))
                     .addGroup(escreveBuscarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(escreveBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel22)
-                            .addComponent(searchEscreveAutor)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escreveBuscarLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(escreveBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel20)
-                                    .addComponent(searchByAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(searchResultArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(searchByArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(searchResultAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(searchEscreveArtigo)))
-                    .addGroup(escreveBuscarLayout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addComponent(jButton4)))
-                .addGap(0, 21, Short.MAX_VALUE))
+                        .addGroup(escreveBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buscarEscreveArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buscarEscreveAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escreveBuscarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(198, 198, 198))
         );
         escreveBuscarLayout.setVerticalGroup(
             escreveBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escreveBuscarLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchByAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(jLabel20)
-                .addGap(1, 1, 1)
-                .addComponent(searchResultArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchByArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchResultAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buscarEscreveArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buscarEscreveAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchEscreveAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buscarNomeAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel22)
-                .addGap(5, 5, 5)
-                .addComponent(searchEscreveArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addGap(58, 58, 58))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         escreveTPane.addTab("Buscar", escreveBuscar);
@@ -412,7 +382,7 @@ public class TelaEscreve extends javax.swing.JFrame {
                 .addGroup(escreveDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addGroup(escreveDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
                     .addComponent(jLabel16)
@@ -456,16 +426,6 @@ public class TelaEscreve extends javax.swing.JFrame {
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void insertArtTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertArtTitleActionPerformed
         // TODO add your handling code here:
@@ -525,37 +485,61 @@ public class TelaEscreve extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_selectEscreveArtigoActionPerformed
 
-    private void searchByAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByAuthorActionPerformed
-       
-    }//GEN-LAST:event_searchByAuthorActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void searchByArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByArtigoActionPerformed
-        
-    }//GEN-LAST:event_searchByArtigoActionPerformed
+    private void buscarEscreveAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarEscreveAutorActionPerformed
+        if(buscarEscreveArtigo.getSelectedIndex()==0||buscarEscreveAutor.getSelectedIndex()==0) return;
+        ArrayList autDetails = null;
+        try {
+            Integer idAut = PessoaBD.getIdByEmail(buscarEscreveAutor.getSelectedItem().toString());
+            autDetails = PessoaBD.buscar(idAut);
+            buscarNomeAutor.setText(autDetails.get(1).toString());
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaEscreve.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_buscarEscreveAutorActionPerformed
 
-    private void searchResultArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchResultArtigoActionPerformed
-        
-    }//GEN-LAST:event_searchResultArtigoActionPerformed
+    private void buscarEscreveArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarEscreveArtigoActionPerformed
+        if(buscarEscreveArtigo.getSelectedIndex()==0) return;
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        ArrayList artDetails = null;
+        buscarNomeAutor.setText("");
+        try {
+            Integer idArt = Integer.parseInt(buscarEscreveArtigo.getSelectedItem().toString());
+            artDetails = ArtigoBD.buscar(idArt);
+            model = EscreveBD.getAuthors(idArt);
+            buscarEscreveAutor.setModel(model);
+            buscarNomeArtigo.setText(artDetails.get(0).toString());
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaEscreve.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_buscarEscreveArtigoActionPerformed
 
-    private void searchResultAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchResultAuthorActionPerformed
-       
-    }//GEN-LAST:event_searchResultAuthorActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void loadComboBox(){
         DefaultComboBoxModel autModel = new DefaultComboBoxModel();
         DefaultComboBoxModel artModel = new DefaultComboBoxModel();
         DefaultComboBoxModel emptyModel = new DefaultComboBoxModel();
+        DefaultComboBoxModel emptyModel2 = new DefaultComboBoxModel();
         
         try {
             autModel = PessoaBD.getAuthors();
             artModel = ArtigoBD.getAllArtigos();
             emptyModel.addElement(" --- ");
+            emptyModel2.addElement(" --- ");
+            emptyModel2.addElement("Selecione o Artigo");
             selectEscreveAutor.setModel(autModel);
             selectEscreveArtigo.setModel(artModel);
-            searchByAuthor.setModel(autModel);
-            searchByArtigo.setModel(artModel);
-            searchResultArtigo.setModel(emptyModel);
-            searchResultAuthor.setModel(emptyModel);
+            buscarEscreveArtigo.setModel(artModel);
+            buscarEscreveArtigo.setModel(artModel);
+            buscarEscreveAutor.setModel(emptyModel2);
         } catch (SQLException ex) {
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
@@ -598,6 +582,10 @@ public class TelaEscreve extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox buscarEscreveArtigo;
+    private javax.swing.JComboBox buscarEscreveAutor;
+    private javax.swing.JTextArea buscarNomeArtigo;
+    private javax.swing.JTextField buscarNomeAutor;
     private javax.swing.JPanel escreveBuscar;
     private javax.swing.JPanel escreveDeletar;
     private javax.swing.JPanel escreveInserir;
@@ -621,24 +609,17 @@ public class TelaEscreve extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JComboBox searchByArtigo;
-    private javax.swing.JComboBox searchByAuthor;
-    private javax.swing.JTextField searchEscreveArtigo;
-    private javax.swing.JTextField searchEscreveAutor;
-    private javax.swing.JComboBox searchResultArtigo;
-    private javax.swing.JComboBox searchResultAuthor;
     private javax.swing.JComboBox selectEscreveArtigo;
     private javax.swing.JComboBox selectEscreveAutor;
     // End of variables declaration//GEN-END:variables
