@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 public class AuxilioBD {
     
+    
     public static ArrayList<String> buscarPorTipoAux(Integer codEv, Integer numEd, String tipoAux) 
             throws SQLException, ParseException{
         
@@ -36,21 +37,23 @@ public class AuxilioBD {
         return details;
     }
     
-       /* public static ArrayList<String> buscar(String cnpj, Integer codEv, Integer numEd, Integer idApr, 
-                Integer valorAux, String data, String tipoAux) throws SQLException, ParseException{
-        String selectTableSQL = "SELECT codEv, numEd, idPart, TO_CHAR(dataInsc, 'DD-MM-YYYY'), tipoApresentador"
-                + " FROM Inscrito WHERE codEv = " + codEv +" AND numEd = " + numEd + ""
-                + " AND idPart = "+idPart;
+        public static ArrayList<String> buscar(Integer codEv, Integer numEd, Integer idApr, 
+                 String tipoAux) throws SQLException, ParseException{
+        String selectTableSQL = "SELECT cnpjPat, codEvApr, numEdApr, idApr, valorAux, TO_CHAR(dataInsc, 'DD-MM-YYYY'), tipoAux"
+                + " FROM Auxilio WHERE codEvApr = " + codEv +" AND numEdApr = " + numEd + ""
+                + " AND codEvPat = " + codEv + "" + " AND numEdPat = " + numEd + "" 
+                + " AND idApr = "+idApr  + " AND tipoAux = '"+tipoAux+"'";
         System.out.println(selectTableSQL);
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
         ArrayList<String> details = new ArrayList<String>();
         rs.next();
-        for(int i=1; i<=5;i++){
+        for(int i=1; i<=7;i++){
             
             details.add(rs.getString(i));
         }
         rs.close();
-        return details; */
+        return details; 
+     }
  }
 
