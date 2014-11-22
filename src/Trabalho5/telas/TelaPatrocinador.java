@@ -6,7 +6,6 @@
 
 package Trabalho5.telas;
 
-import Trabalho5.bd.EventoBD;
 import Trabalho5.bd.PatrocinadorBD;
 import java.sql.SQLException;
 import java.text.ParseException;

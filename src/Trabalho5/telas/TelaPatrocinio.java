@@ -6,6 +6,21 @@
 
 package Trabalho5.telas;
 
+import Trabalho5.bd.EdicaoBD;
+import Trabalho5.bd.EventoBD;
+import Trabalho5.bd.InscritoBD;
+import Trabalho5.bd.PatrocinadorBD;
+import Trabalho5.bd.PatrocinioBD;
+import Trabalho5.bd.PessoaBD;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gabriela
@@ -17,6 +32,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
      */
     public TelaPatrocinio() {
         initComponents();
+        loadComboBox();
     }
 
     /**
@@ -33,17 +49,17 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         patrocinioInserir = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        insertByName = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        inserirEv = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
+        inserirEd = new javax.swing.JComboBox();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        inserirValor = new javax.swing.JTextField();
+        inserirButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        inserirData = new org.jdesktop.swingx.JXDatePicker();
         patrocinioBuscar = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox();
@@ -56,12 +72,12 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
+        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
         patrocinioDeletar = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jComboBox6 = new javax.swing.JComboBox();
@@ -101,23 +117,38 @@ public class TelaPatrocinio extends javax.swing.JFrame {
 
         jLabel1.setText("Selecione e digite as informações desejadas no campo abaixo e clique em inserir");
 
-        jLabel2.setText("CNPJ Patrocinador:");
+        jLabel2.setText("Patrocinador:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        insertByName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        insertByName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertByNameActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setText("Código do evento:");
+        jLabel3.setText("Evento:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        inserirEv.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        inserirEv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inserirEvActionPerformed(evt);
+            }
+        });
 
-        jLabel4.setText("Número da edição:");
+        jLabel4.setText("Edição:");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        inserirEd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setText("Data do patrocínio:");
 
         jLabel6.setText("Valor do patrocínio:");
 
-        jButton1.setText("Inserir");
+        inserirButton.setText("Inserir");
+        inserirButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inserirButtonActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Voltar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -130,33 +161,40 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         patrocinioInserir.setLayout(patrocinioInserirLayout);
         patrocinioInserirLayout.setHorizontalGroup(
             patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioInserirLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addGap(45, 45, 45))
             .addGroup(patrocinioInserirLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(patrocinioInserirLayout.createSequentialGroup()
-                        .addGroup(patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
+                        .addGroup(patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(patrocinioInserirLayout.createSequentialGroup()
-                                .addGroup(patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addGap(348, 348, 348)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                                .addGroup(patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(insertByName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(inserirEv, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(inserirEd, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(patrocinioInserirLayout.createSequentialGroup()
+                                        .addGroup(patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel4)
+                                            .addGroup(patrocinioInserirLayout.createSequentialGroup()
+                                                .addGap(22, 22, 22)
+                                                .addGroup(patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jLabel5)
+                                                    .addComponent(jLabel6))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(inserirValor, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(inserirData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(16, 16, 16)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioInserirLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(inserirButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addGap(45, 45, 45))))
         );
         patrocinioInserirLayout.setVerticalGroup(
             patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,28 +204,28 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(insertByName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inserirEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inserirEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(inserirValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(18, 18, 18)
+                .addGroup(patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(inserirData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62)
+                .addGroup(patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inserirButton)
                     .addComponent(jButton2))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         patrocinioTPane.addTab("Inserir", patrocinioInserir);
@@ -210,7 +248,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
 
         jLabel13.setText("Valor do patrocínio:");
 
-        jLabel14.setText("Saldo do patrocínio:");
+        jLabel14.setText("Saldo:");
 
         jButton4.setText("Voltar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -223,15 +261,6 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         patrocinioBuscar.setLayout(patrocinioBuscarLayout);
         patrocinioBuscarLayout.setHorizontalGroup(
             patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
-                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(68, 68, 68))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(47, 47, 47))))
             .addGroup(patrocinioBuscarLayout.createSequentialGroup()
                 .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(patrocinioBuscarLayout.createSequentialGroup()
@@ -249,25 +278,43 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                             .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(patrocinioBuscarLayout.createSequentialGroup()
                                 .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel14))
-                                .addGap(1, 1, 1)
-                                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField7)
-                                    .addComponent(jTextField8)))
-                            .addGroup(patrocinioBuscarLayout.createSequentialGroup()
-                                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel11)
-                                    .addComponent(jLabel12)
                                     .addComponent(jLabel10)
                                     .addComponent(jLabel9))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(9, 9, 9)
                                 .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField3)
                                     .addComponent(jTextField4)
-                                    .addComponent(jTextField5)
-                                    .addComponent(jTextField6))))))
+                                    .addComponent(jTextField5)))
+                            .addGroup(patrocinioBuscarLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(18, 18, 18)
+                                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(patrocinioBuscarLayout.createSequentialGroup()
+                                        .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(patrocinioBuscarLayout.createSequentialGroup()
+                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel14)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextField8)))))))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
+                        .addGap(0, 101, Short.MAX_VALUE)
+                        .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(68, 68, 68))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
+                                .addComponent(jButton4)
+                                .addGap(24, 24, 24))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         patrocinioBuscarLayout.setVerticalGroup(
             patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,21 +339,19 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                 .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                 .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
                 .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
 
         patrocinioTPane.addTab("Buscar", patrocinioBuscar);
@@ -347,7 +392,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         patrocinioDeletarLayout.setHorizontalGroup(
             patrocinioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioDeletarLayout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
+                .addContainerGap(107, Short.MAX_VALUE)
                 .addGroup(patrocinioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioDeletarLayout.createSequentialGroup()
                         .addComponent(jLabel23)
@@ -436,7 +481,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                     .addComponent(jButton8)
                     .addComponent(jLabel31)
                     .addComponent(jButton9))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         patrocinioTPane.addTab("Deletar", patrocinioDeletar);
@@ -482,7 +527,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(patrocinioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioEditarLayout.createSequentialGroup()
-                        .addGap(0, 92, Short.MAX_VALUE)
+                        .addGap(0, 101, Short.MAX_VALUE)
                         .addGroup(patrocinioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioEditarLayout.createSequentialGroup()
                                 .addComponent(jLabel32)
@@ -535,7 +580,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                     .addComponent(jButton11)
                     .addComponent(jLabel40)
                     .addComponent(jButton12))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         patrocinioTPane.addTab("Editar", patrocinioEditar);
@@ -593,6 +638,84 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    private void insertByNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertByNameActionPerformed
+     
+    }//GEN-LAST:event_insertByNameActionPerformed
+
+    private void inserirEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirEvActionPerformed
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        try {
+            Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
+            model = EdicaoBD.getEditions(codEv);
+            inserirEd.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPatrocinio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_inserirEvActionPerformed
+
+    private void inserirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirButtonActionPerformed
+
+        java.sql.Date dataInsc = new java.sql.Date(inserirData.getDate().getTime());
+        try {
+            String cnpj = PatrocinadorBD.getCnpjByName(insertByName.getSelectedItem().toString());
+            Integer codEv = EventoBD.getCodeByName(inserirEv.getSelectedItem().toString());
+            PatrocinioBD.inserir(cnpj, codEv, Integer.parseInt(inserirEd.getSelectedItem().toString()),
+               Integer.parseInt(inserirValor.toString()), dataInsc.toString());
+            JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso " , "Successo", JOptionPane.INFORMATION_MESSAGE);
+            clearFields();
+            loadComboBox();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_inserirButtonActionPerformed
+    
+    private void loadComboBox(){
+        DefaultComboBoxModel modelNames = new DefaultComboBoxModel();
+        DefaultComboBoxModel emptyModel = new DefaultComboBoxModel();
+        DefaultComboBoxModel evModel = new DefaultComboBoxModel();
+        try {
+            modelNames = PatrocinadorBD.getPatName();
+            evModel = EventoBD.getEventsName();
+            insertByName.setModel(modelNames);
+            emptyModel.addElement(" --- ");
+            emptyModel.addElement(" Selecione um Evento ");
+            inserirEv.setModel(evModel);
+            inserirEd.setModel(emptyModel);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPatrocinador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+     private void clearFields(){
+         
+        insertByName.setSelectedIndex(0); 
+        inserirEv.setSelectedIndex(0);
+        inserirEd.setSelectedIndex(0);
+        inserirValor.setText(" ");
+        inserirData.setDate(null);
+        
+        /*editByName.setSelectedIndex(0);
+        editNome.setText("");
+        editTel.setText("");
+        editEnd.setText("");
+        
+        deleteByName.setSelectedIndex(0);
+        deleteCnpj.setText("");
+        deleteNome.setText("");
+        deleteTel.setText("");
+        deleteEnd.setText("");
+        
+        searchByName.setSelectedIndex(0);
+        searchNome.setText("");
+        searchCNPJ.setText("");
+        searchTel.setText("");
+        searchEnd.setText("");*/
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -629,7 +752,12 @@ public class TelaPatrocinio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton inserirButton;
+    private org.jdesktop.swingx.JXDatePicker inserirData;
+    private javax.swing.JComboBox inserirEd;
+    private javax.swing.JComboBox inserirEv;
+    private javax.swing.JTextField inserirValor;
+    private javax.swing.JComboBox insertByName;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -639,9 +767,6 @@ public class TelaPatrocinio extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox6;
     private javax.swing.JComboBox jComboBox7;
@@ -675,13 +800,11 @@ public class TelaPatrocinio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField25;
@@ -689,9 +812,9 @@ public class TelaPatrocinio extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     private javax.swing.JPanel patrocinioBuscar;
     private javax.swing.JPanel patrocinioDeletar;
     private javax.swing.JPanel patrocinioEditar;
