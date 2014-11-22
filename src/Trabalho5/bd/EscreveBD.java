@@ -24,6 +24,13 @@ public class EscreveBD {
         statement.executeUpdate(insert);
     }
     
+    public static void excluir(Integer idAut, Integer idArt) throws SQLException{
+        String delete = "DELETE FROM Escreve WHERE idAut = '"+idAut+"' AND idArt = '"+idArt+"'";
+        System.out.println("delete statement " + delete);
+        Statement statement = dbConnection.createStatement();
+        statement.executeUpdate(delete);
+    }
+    
     public static DefaultComboBoxModel getArtigos(Integer idAut) throws SQLException, ParseException{
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         String select = "SELECT idArt FROM Escreve WHERE idAut = " +idAut;

@@ -66,20 +66,17 @@ public class TelaEscreve extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         buscarNomeArtigo = new javax.swing.JTextArea();
         escreveDeletar = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
-        jLabel12 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
-        jButton5 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        deleteNomeAutor = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        deleteEscreveButton = new javax.swing.JButton();
+        deleteEscreveArtigo = new javax.swing.JComboBox();
+        jLabel17 = new javax.swing.JLabel();
+        deleteEscreveAutor = new javax.swing.JComboBox();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        deleteNomeArtigo = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -185,7 +182,7 @@ public class TelaEscreve extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addGap(8, 8, 8)
                 .addComponent(insertArtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addGroup(escreveInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(insertEscreveButton)
                     .addComponent(jButton2))
@@ -274,33 +271,16 @@ public class TelaEscreve extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         escreveTPane.addTab("Buscar", escreveBuscar);
 
-        jLabel10.setText("Selecione uma das opções abaixo:");
+        jLabel13.setText("Escolha o Artigo:");
 
-        jLabel11.setText("1) Buscar por ID do autor:");
+        jLabel14.setText("Autor:");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel12.setText("2) Buscar por ID do artigo:");
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jButton5.setText("Carregar Informações");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        jLabel13.setText("As seguintes informações foram encontradas:");
-
-        jLabel14.setText("ID Autor:");
-
-        jLabel15.setText("ID Artigo:");
+        jLabel15.setText("Artigo:");
 
         jButton6.setText("Voltar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -309,85 +289,80 @@ public class TelaEscreve extends javax.swing.JFrame {
             }
         });
 
-        jLabel16.setText("Realmente deseja deletar a tupla?");
+        deleteEscreveButton.setText("Deletar");
+        deleteEscreveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteEscreveButtonActionPerformed(evt);
+            }
+        });
 
-        jButton7.setText("Deletar");
+        deleteEscreveArtigo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        deleteEscreveArtigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteEscreveArtigoActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("Listar Autores");
+
+        deleteEscreveAutor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        deleteEscreveAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteEscreveAutorActionPerformed(evt);
+            }
+        });
+
+        deleteNomeArtigo.setColumns(20);
+        deleteNomeArtigo.setRows(5);
+        jScrollPane2.setViewportView(deleteNomeArtigo);
 
         javax.swing.GroupLayout escreveDeletarLayout = new javax.swing.GroupLayout(escreveDeletar);
         escreveDeletar.setLayout(escreveDeletarLayout);
         escreveDeletarLayout.setHorizontalGroup(
             escreveDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escreveDeletarLayout.createSequentialGroup()
-                .addGroup(escreveDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, escreveDeletarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(escreveDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel11)
-                            .addComponent(jComboBox3, 0, 426, Short.MAX_VALUE)
-                            .addComponent(jLabel12)
-                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, escreveDeletarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField6))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, escreveDeletarLayout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(jLabel13))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, escreveDeletarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel14)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField5))
+                .addContainerGap()
+                .addGroup(escreveDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel14)
+                    .addGroup(escreveDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                        .addComponent(deleteNomeAutor, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(deleteEscreveArtigo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(deleteEscreveAutor, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(escreveDeletarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(escreveDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escreveDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(89, 89, 89))
-                            .addGroup(escreveDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                                .addComponent(jButton7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton6)))))
-                .addContainerGap(31, Short.MAX_VALUE))
-            .addGroup(escreveDeletarLayout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addComponent(jButton5)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(150, 150, 150)
+                        .addComponent(deleteEscreveButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton6)))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         escreveDeletarLayout.setVerticalGroup(
             escreveDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escreveDeletarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel13)
-                .addGap(16, 16, 16)
-                .addGroup(escreveDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(escreveDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deleteEscreveArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deleteEscreveAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deleteNomeAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addGroup(escreveDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
-                    .addComponent(jLabel16)
-                    .addComponent(jButton7))
-                .addGap(32, 32, 32))
+                    .addComponent(deleteEscreveButton))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         escreveTPane.addTab("Deletar", escreveDeletar);
@@ -485,10 +460,6 @@ public class TelaEscreve extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_selectEscreveArtigoActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void buscarEscreveAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarEscreveAutorActionPerformed
         if(buscarEscreveArtigo.getSelectedIndex()==0||buscarEscreveAutor.getSelectedIndex()==0) return;
         ArrayList autDetails = null;
@@ -523,6 +494,50 @@ public class TelaEscreve extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void deleteEscreveArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEscreveArtigoActionPerformed
+        if(deleteEscreveArtigo.getSelectedIndex()==0) return;
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        ArrayList artDetails = null;
+        deleteNomeAutor.setText("");
+        try {
+            Integer idArt = Integer.parseInt(deleteEscreveArtigo.getSelectedItem().toString());
+            artDetails = ArtigoBD.buscar(idArt);
+            model = EscreveBD.getAuthors(idArt);
+            deleteEscreveAutor.setModel(model);
+            deleteNomeArtigo.setText(artDetails.get(0).toString());
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaEscreve.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deleteEscreveArtigoActionPerformed
+
+    private void deleteEscreveAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEscreveAutorActionPerformed
+        if(deleteEscreveArtigo.getSelectedIndex()==0||deleteEscreveAutor.getSelectedIndex()==0) return;
+        ArrayList autDetails = null;
+        try {
+            Integer idAut = PessoaBD.getIdByEmail(deleteEscreveAutor.getSelectedItem().toString());
+            autDetails = PessoaBD.buscar(idAut);
+            deleteNomeAutor.setText(autDetails.get(1).toString());
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaEscreve.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deleteEscreveAutorActionPerformed
+
+    private void deleteEscreveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEscreveButtonActionPerformed
+        if(deleteEscreveArtigo.getSelectedIndex()==0||deleteEscreveAutor.getSelectedIndex()==0) return;
+        try {
+            Integer idArt = Integer.parseInt(deleteEscreveArtigo.getSelectedItem().toString());
+            Integer idAut = PessoaBD.getIdByEmail(deleteEscreveAutor.getSelectedItem().toString());
+            EscreveBD.excluir(idAut, idArt);
+            JOptionPane.showMessageDialog(null, "Escritor removido" , "Excluir", JOptionPane.INFORMATION_MESSAGE);
+            deleteNomeAutor.setText("");
+            deleteNomeArtigo.setText("");
+            deleteEscreveArtigo.setSelectedIndex(0);
+            deleteEscreveAutor.setSelectedIndex(0);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEscreve.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deleteEscreveButtonActionPerformed
+
     private void loadComboBox(){
         DefaultComboBoxModel autModel = new DefaultComboBoxModel();
         DefaultComboBoxModel artModel = new DefaultComboBoxModel();
@@ -540,6 +555,8 @@ public class TelaEscreve extends javax.swing.JFrame {
             buscarEscreveArtigo.setModel(artModel);
             buscarEscreveArtigo.setModel(artModel);
             buscarEscreveAutor.setModel(emptyModel2);
+            deleteEscreveArtigo.setModel(artModel);
+            deleteEscreveAutor.setModel(emptyModel2);
         } catch (SQLException ex) {
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
@@ -586,6 +603,11 @@ public class TelaEscreve extends javax.swing.JFrame {
     private javax.swing.JComboBox buscarEscreveAutor;
     private javax.swing.JTextArea buscarNomeArtigo;
     private javax.swing.JTextField buscarNomeAutor;
+    private javax.swing.JComboBox deleteEscreveArtigo;
+    private javax.swing.JComboBox deleteEscreveAutor;
+    private javax.swing.JButton deleteEscreveButton;
+    private javax.swing.JTextArea deleteNomeArtigo;
+    private javax.swing.JTextField deleteNomeAutor;
     private javax.swing.JPanel escreveBuscar;
     private javax.swing.JPanel escreveDeletar;
     private javax.swing.JPanel escreveInserir;
@@ -595,19 +617,12 @@ public class TelaEscreve extends javax.swing.JFrame {
     private javax.swing.JButton insertEscreveButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -618,8 +633,7 @@ public class TelaEscreve extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox selectEscreveArtigo;
     private javax.swing.JComboBox selectEscreveAutor;
     // End of variables declaration//GEN-END:variables
