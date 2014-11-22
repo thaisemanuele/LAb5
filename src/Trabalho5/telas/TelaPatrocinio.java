@@ -677,7 +677,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
             //String valorPat = valor;
             java.util.Date dataPat = new java.sql.Date(inserirData_Patrocinio.getDate().getTime());
             PatrocinioBD.inserir(cnpj, codEv, numEd,valorPat, dataPat.toString());
-            JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso " , "Successo", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Patrocino cadastrado com sucesso " , "Successo", JOptionPane.INFORMATION_MESSAGE);
             clearFields();
             loadComboBox();
         } catch (SQLException ex) {
