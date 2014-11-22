@@ -63,7 +63,6 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         patrocinioBuscar = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox();
-        jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
@@ -78,6 +77,8 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
+        jComboBox1 = new javax.swing.JComboBox();
+        jComboBox2 = new javax.swing.JComboBox();
         patrocinioDeletar = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jComboBox6 = new javax.swing.JComboBox();
@@ -225,24 +226,22 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                 .addGroup(patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inserirButton)
                     .addComponent(jButton2))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         patrocinioTPane.addTab("Inserir", patrocinioInserir);
 
-        jLabel7.setText("Escolha o patrocínio de acordo com o evento e a edição:");
+        jLabel7.setText("Escolha o patrocinador, o evento e a edição, nessa ordem:");
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton3.setText("Buscar");
-
         jLabel8.setText("As seguintes informações foram encontradas:");
 
-        jLabel9.setText("CNPJ Patrocinador:");
+        jLabel9.setText("Patrocinador:");
 
-        jLabel10.setText("Código do evento:");
+        jLabel10.setText("Evento:");
 
-        jLabel11.setText("Número da edição:");
+        jLabel11.setText("Edição:");
 
         jLabel12.setText("Data do patrocínio:");
 
@@ -257,37 +256,49 @@ public class TelaPatrocinio extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout patrocinioBuscarLayout = new javax.swing.GroupLayout(patrocinioBuscar);
         patrocinioBuscar.setLayout(patrocinioBuscarLayout);
         patrocinioBuscarLayout.setHorizontalGroup(
             patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patrocinioBuscarLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
+                        .addGap(0, 119, Short.MAX_VALUE)
+                        .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(106, 106, 106))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
+                                .addComponent(jButton4)
+                                .addGap(43, 43, 43))))
                     .addGroup(patrocinioBuscarLayout.createSequentialGroup()
                         .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(patrocinioBuscarLayout.createSequentialGroup()
-                                .addGap(196, 196, 196)
-                                .addComponent(jButton3))
-                            .addGroup(patrocinioBuscarLayout.createSequentialGroup()
-                                .addGap(98, 98, 98)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(patrocinioBuscarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(patrocinioBuscarLayout.createSequentialGroup()
                                 .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel9))
-                                .addGap(9, 9, 9)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(patrocinioBuscarLayout.createSequentialGroup()
+                                        .addGap(7, 7, 7)
+                                        .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel11))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField3)
-                                    .addComponent(jTextField4)
-                                    .addComponent(jTextField5)))
+                                    .addComponent(jTextField5)
+                                    .addComponent(jTextField4)))
                             .addGroup(patrocinioBuscarLayout.createSequentialGroup()
-                                .addComponent(jLabel13)
+                                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel12))
                                 .addGap(18, 18, 18)
                                 .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(patrocinioBuscarLayout.createSequentialGroup()
@@ -295,26 +306,11 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(patrocinioBuscarLayout.createSequentialGroup()
                                         .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGap(18, 18, 18)
                                         .addComponent(jLabel14)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField8)))))))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
-                        .addGap(0, 101, Short.MAX_VALUE)
-                        .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(68, 68, 68))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
-                                .addComponent(jButton4)
-                                .addGap(24, 24, 24))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioBuscarLayout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField8)))))
+                        .addContainerGap())))
         );
         patrocinioBuscarLayout.setVerticalGroup(
             patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,34 +320,38 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
+                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(patrocinioBuscarLayout.createSequentialGroup()
+                        .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(patrocinioBuscarLayout.createSequentialGroup()
+                                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel11))
+                .addGap(21, 21, 21)
                 .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
+                    .addComponent(jLabel13)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
                 .addGap(18, 18, 18)
+                .addGroup(patrocinioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jButton4)
-                .addGap(16, 16, 16))
+                .addGap(66, 66, 66))
         );
 
         patrocinioTPane.addTab("Buscar", patrocinioBuscar);
@@ -481,7 +481,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                     .addComponent(jButton8)
                     .addComponent(jLabel31)
                     .addComponent(jButton9))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         patrocinioTPane.addTab("Deletar", patrocinioDeletar);
@@ -580,7 +580,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                     .addComponent(jButton11)
                     .addComponent(jLabel40)
                     .addComponent(jButton12))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         patrocinioTPane.addTab("Editar", patrocinioEditar);
@@ -762,11 +762,12 @@ public class TelaPatrocinio extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox6;
     private javax.swing.JComboBox jComboBox7;
