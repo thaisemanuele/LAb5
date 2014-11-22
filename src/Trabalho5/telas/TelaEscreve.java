@@ -8,7 +8,6 @@ package Trabalho5.telas;
 
 import Trabalho5.bd.ArtigoBD;
 import Trabalho5.bd.EscreveBD;
-import Trabalho5.bd.EventoBD;
 import Trabalho5.bd.PessoaBD;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -487,7 +486,8 @@ public class TelaEscreve extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Escritor cadastrado " , "Cadastro", JOptionPane.INFORMATION_MESSAGE);
             selectEscreveAutor.setSelectedIndex(0);
             selectEscreveArtigo.setSelectedIndex(0);
-            clearFields();
+            insertAuthorName.setText("");
+            insertArtTitle.setText("");
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(TelaEscreve.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -526,83 +526,21 @@ public class TelaEscreve extends javax.swing.JFrame {
     }//GEN-LAST:event_selectEscreveArtigoActionPerformed
 
     private void searchByAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByAuthorActionPerformed
-        if(searchByAuthor.getSelectedIndex()==0) return;
-        DefaultComboBoxModel model = new DefaultComboBoxModel();
-        ArrayList<String> details = new ArrayList<String>();
-        ArrayList<String> artDetails = new ArrayList<String>();
-        
-        try {
-            clearFields();
-            Integer idAut = PessoaBD.getIdByEmail(searchByAuthor.getSelectedItem().toString());
-            model = EscreveBD.getArtigos(idAut);
-            details = PessoaBD.buscar(idAut);
-            searchResultArtigo.setModel(model);
-            searchEscreveArtigo.setText("");
-            searchByArtigo.setSelectedIndex(0);
-            searchResultAuthor.setSelectedIndex(0);
-            searchEscreveAutor.setText(details.get(1));
-            if(searchByArtigo.getSelectedIndex()!=0){
-                artDetails = ArtigoBD.buscar(Integer.parseInt(searchByArtigo.getSelectedItem().toString()));
-                searchEscreveArtigo.setText(artDetails.get(0));
-            }
-        } catch (SQLException | ParseException ex) {
-            Logger.getLogger(TelaEscreve.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
     }//GEN-LAST:event_searchByAuthorActionPerformed
 
     private void searchByArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByArtigoActionPerformed
-        if(searchByArtigo.getSelectedIndex()==0) return;
-        DefaultComboBoxModel model = new DefaultComboBoxModel();
-        ArrayList<String> artDetails = new ArrayList<String>();
-        try {
-            Integer idArt = Integer.parseInt(searchByArtigo.getSelectedItem().toString());
-            artDetails = ArtigoBD.buscar(idArt);
-            model = EscreveBD.getAuthors(idArt);
-            searchResultAuthor.setModel(model);
-            searchEscreveAutor.setText("");
-            searchByAuthor.setSelectedIndex(0);
-            searchResultArtigo.setSelectedIndex(0);
-            searchEscreveArtigo.setText(artDetails.get(0));
-        } catch (SQLException | ParseException ex) {
-            Logger.getLogger(TelaEscreve.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_searchByArtigoActionPerformed
 
     private void searchResultArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchResultArtigoActionPerformed
-        ArrayList<String> artDetails = new ArrayList<String>();
-        if(searchResultArtigo.getSelectedIndex()!=0){
-            Integer idArt = Integer.parseInt(searchResultArtigo.getSelectedItem().toString());
-            try {
-                artDetails = ArtigoBD.buscar(idArt);
-                searchEscreveArtigo.setText(artDetails.get(0));
-            } catch (SQLException | ParseException ex) {
-                Logger.getLogger(TelaEscreve.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
         
     }//GEN-LAST:event_searchResultArtigoActionPerformed
 
     private void searchResultAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchResultAuthorActionPerformed
-        ArrayList<String> autDetails = new ArrayList<String>();
-        if(searchResultAuthor.getSelectedIndex()!=0){
-            try {
-                Integer idAut = PessoaBD.getIdByEmail(searchResultAuthor.getSelectedItem().toString());
-                autDetails = PessoaBD.buscar(idAut);
-                searchEscreveAutor.setText(autDetails.get(1));
-            } catch (SQLException | ParseException ex) {
-                Logger.getLogger(TelaEscreve.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+       
     }//GEN-LAST:event_searchResultAuthorActionPerformed
 
-    private void clearFields(){
-        insertAuthorName.setText("");
-        insertArtTitle.setText("");
-        
-        searchEscreveAutor.setText("");
-        searchEscreveArtigo.setText("");
-    }
     private void loadComboBox(){
         DefaultComboBoxModel autModel = new DefaultComboBoxModel();
         DefaultComboBoxModel artModel = new DefaultComboBoxModel();
