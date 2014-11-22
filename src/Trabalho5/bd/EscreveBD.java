@@ -5,9 +5,11 @@
  */
 package Trabalho5.bd;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -20,6 +22,39 @@ public class EscreveBD {
         System.out.println("insert statement " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
+    }
+    
+    public static void excluir(Integer idAut, Integer idArt) throws SQLException{
+        String delete = "DELETE FROM Escreve WHERE idAut = '"+idAut+"' AND idArt = '"+idArt+"'";
+        System.out.println("delete statement " + delete);
+        Statement statement = dbConnection.createStatement();
+        statement.executeUpdate(delete);
+    }
+    
+    public static DefaultComboBoxModel getArtigos(Integer idAut) throws SQLException, ParseException{
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        String select = "SELECT idArt FROM Escreve WHERE idAut = " +idAut;
+        System.out.println("select statement " + select);
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(select);
+        model.addElement(" --- ");
+        while(rs.next()){
+            model.addElement(rs.getString("idArt"));
+        }
+        return model;
+    }
+    
+    public static DefaultComboBoxModel getAuthors(Integer idArt) throws SQLException, ParseException{
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        String select = "SELECT idAut FROM Escreve WHERE idArt = " +idArt;
+        System.out.println("select statement " + select);
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(select);
+        model.addElement(" --- ");
+        while(rs.next()){
+            model.addElement(PessoaBD.getEmailById(Integer.parseInt(rs.getString("idAut"))));
+        }
+        return model;
     }
     
 }
