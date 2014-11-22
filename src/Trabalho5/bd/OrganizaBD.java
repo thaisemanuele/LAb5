@@ -5,9 +5,11 @@
  */
 package Trabalho5.bd;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -22,4 +24,27 @@ public class OrganizaBD {
         statement.executeUpdate(insert);
     }
     
+    public static DefaultComboBoxModel getOrgs(Integer codEv, Integer numEd) throws SQLException{
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        String selectSql = "SELECT idOrg from Organiza WHERE codEv = "+codEv+" AND numEd = "+numEd;
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectSql);
+        model.addElement(" --- ");
+        while(rs.next()){
+            model.addElement(PessoaBD.getEmailById(Integer.parseInt(rs.getString("idOrg"))));
+        }
+       return model;
+    }
+    
+    public static String getCargo(Integer codEv, Integer numEd, Integer idOrg) throws SQLException{
+        String cargo = new String();
+        String selectSql = "SELECT cargoOrg from Organiza WHERE codEv = "
+                +codEv+" AND numEd = "+numEd+" AND idOrg = "+idOrg;
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectSql);
+        if(rs.next()){
+            cargo = rs.getString("cargoOrg");
+        }
+       return cargo;
+    }
 }

@@ -12,6 +12,7 @@ import Trabalho5.bd.OrganizaBD;
 import Trabalho5.bd.PessoaBD;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -55,20 +56,17 @@ public class TelaOrganiza extends javax.swing.JFrame {
         insertOrganiza_Button = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         organizaBuscar = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
-        jButton3 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        searchOrganiza_Evento = new javax.swing.JComboBox();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        searchOrganiza_Organizador = new javax.swing.JTextField();
+        searchOrganiza_Cargo = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        searchOrganiza_Edicao = new javax.swing.JComboBox();
+        jLabel27 = new javax.swing.JLabel();
+        searchOrganiza_Organizadores = new javax.swing.JComboBox();
         organizaEditar = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -202,21 +200,16 @@ public class TelaOrganiza extends javax.swing.JFrame {
 
         organizaTPane.addTab("Inserir", organizaInserir);
 
-        jLabel6.setText("Selecione uma opção abaixo");
+        jLabel7.setText("Selecione um evento:");
 
-        jLabel7.setText("Buscar organizador por código de acordo com o evento e a edição:");
+        searchOrganiza_Evento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchOrganiza_Evento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchOrganiza_EventoActionPerformed(evt);
+            }
+        });
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jButton3.setText("Buscar");
-
-        jLabel8.setText("As seguintes informações foram encontradas:");
-
-        jLabel9.setText("ID Organizador:");
-
-        jLabel10.setText("Código do evento:");
-
-        jLabel11.setText("Número da edição:");
+        jLabel9.setText("Organizador:");
 
         jLabel12.setText("Cargo:");
 
@@ -227,78 +220,89 @@ public class TelaOrganiza extends javax.swing.JFrame {
             }
         });
 
+        jLabel26.setText("Edição:");
+
+        searchOrganiza_Edicao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchOrganiza_Edicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchOrganiza_EdicaoActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setText("Lista de Organizadores:");
+
+        searchOrganiza_Organizadores.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchOrganiza_Organizadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchOrganiza_OrganizadoresActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout organizaBuscarLayout = new javax.swing.GroupLayout(organizaBuscar);
         organizaBuscar.setLayout(organizaBuscarLayout);
         organizaBuscarLayout.setHorizontalGroup(
             organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(organizaBuscarLayout.createSequentialGroup()
-                .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(organizaBuscarLayout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(organizaBuscarLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel7)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(organizaBuscarLayout.createSequentialGroup()
-                                .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12))
-                                .addGap(46, 46, 46)
-                                .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jTextField4)
-                                    .addComponent(jTextField5)))))
-                    .addGroup(organizaBuscarLayout.createSequentialGroup()
-                        .addGap(254, 254, 254)
-                        .addComponent(jButton3))
-                    .addGroup(organizaBuscarLayout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(jLabel8)))
-                .addContainerGap(10, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, organizaBuscarLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton4)
-                .addGap(97, 97, 97))
+                .addGap(252, 252, 252))
+            .addGroup(organizaBuscarLayout.createSequentialGroup()
+                .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(organizaBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7))
+                    .addGroup(organizaBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(organizaBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel27))
+                    .addGroup(organizaBuscarLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel12))
+                        .addGap(18, 18, 18)
+                        .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(searchOrganiza_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchOrganiza_Organizador, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(organizaBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(searchOrganiza_Organizadores, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(organizaBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(searchOrganiza_Evento, 0, 514, Short.MAX_VALUE)
+                            .addComponent(searchOrganiza_Edicao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         organizaBuscarLayout.setVerticalGroup(
             organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(organizaBuscarLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(searchOrganiza_Evento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchOrganiza_Edicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(organizaBuscarLayout.createSequentialGroup()
-                        .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(organizaBuscarLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel10))
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel11))
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
+                        .addComponent(jLabel27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(searchOrganiza_Organizadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(79, 79, 79)
+                        .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(searchOrganiza_Organizador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel12))
+                    .addComponent(searchOrganiza_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
                 .addComponent(jButton4)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         organizaTPane.addTab("Buscar", organizaBuscar);
@@ -593,18 +597,77 @@ public class TelaOrganiza extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_insertOrganiza_ButtonActionPerformed
 
+    private void searchOrganiza_EventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrganiza_EventoActionPerformed
+        if(searchOrganiza_Evento.getSelectedIndex()==0) return;
+        DefaultComboBoxModel edModel = new DefaultComboBoxModel();
+        try {
+            Integer codEv = EventoBD.getCodeByName(searchOrganiza_Evento.getSelectedItem().toString());
+            edModel = EdicaoBD.getEditions(codEv);
+            searchOrganiza_Edicao.setModel(edModel);
+            searchOrganiza_Organizador.setText("");
+            searchOrganiza_Cargo.setText("");
+            searchOrganiza_Organizadores.setSelectedIndex(0);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaOrganiza.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchOrganiza_EventoActionPerformed
+
+    private void searchOrganiza_EdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrganiza_EdicaoActionPerformed
+        if(searchOrganiza_Evento.getSelectedIndex()==0||
+                    searchOrganiza_Edicao.getSelectedIndex()==0) return;
+        try {
+            DefaultComboBoxModel orgsModel = new DefaultComboBoxModel();
+            Integer codEv = EventoBD.getCodeByName(searchOrganiza_Evento.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(searchOrganiza_Edicao.getSelectedItem().toString());
+            orgsModel = OrganizaBD.getOrgs(codEv, numEd);
+            searchOrganiza_Organizadores.setModel(orgsModel);
+            searchOrganiza_Organizador.setText("");
+            searchOrganiza_Cargo.setText("");
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaOrganiza.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_searchOrganiza_EdicaoActionPerformed
+
+    private void searchOrganiza_OrganizadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrganiza_OrganizadoresActionPerformed
+        if(searchOrganiza_Evento.getSelectedIndex()==0||
+                    searchOrganiza_Edicao.getSelectedIndex()==0||
+                    searchOrganiza_Organizadores.getSelectedIndex()==0) return;
+        ArrayList<String> detailsPe = new ArrayList<String>();
+        String cargo = new String();
+        try {
+            Integer codEv = EventoBD.getCodeByName(searchOrganiza_Evento.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(searchOrganiza_Edicao.getSelectedItem().toString());
+            Integer idOrg = PessoaBD.getIdByEmail(
+                    searchOrganiza_Organizadores.getSelectedItem().toString());
+            detailsPe = PessoaBD.buscar(idOrg);
+            cargo = OrganizaBD.getCargo(codEv, numEd, idOrg);
+            searchOrganiza_Organizador.setText(detailsPe.get(1));
+            searchOrganiza_Cargo.setText(cargo);
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaOrganiza.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchOrganiza_OrganizadoresActionPerformed
+
     private void loadComboBox(){
         DefaultComboBoxModel orgModel = new DefaultComboBoxModel();
         DefaultComboBoxModel evModel = new DefaultComboBoxModel();
         DefaultComboBoxModel emptyModel = new DefaultComboBoxModel();
+        DefaultComboBoxModel emptyModel2 = new DefaultComboBoxModel();
         try {
             orgModel = PessoaBD.getOrgs();
             evModel = EventoBD.getEventsName();
             emptyModel.addElement(" --- ");
             emptyModel.addElement(" Selecione um evento");
+            emptyModel2.addElement(" --- ");
+            emptyModel2.addElement(" Selecione evento e edição");
             insertOrganiza_Organizador.setModel(orgModel);
             insertOrganiza_Evento.setModel(evModel);
             insertOrganiza_Edicao.setModel(emptyModel);
+            
+            searchOrganiza_Evento.setModel(evModel);
+            searchOrganiza_Edicao.setModel(emptyModel);
+            searchOrganiza_Organizadores.setModel(emptyModel2);
         } catch (SQLException ex) {
             Logger.getLogger(TelaOrganiza.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -652,19 +715,15 @@ public class TelaOrganiza extends javax.swing.JFrame {
     private javax.swing.JComboBox insertOrganiza_Organizador;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -680,19 +739,15 @@ public class TelaOrganiza extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
@@ -702,5 +757,10 @@ public class TelaOrganiza extends javax.swing.JFrame {
     private javax.swing.JPanel organizaEditar;
     private javax.swing.JPanel organizaInserir;
     protected javax.swing.JTabbedPane organizaTPane;
+    private javax.swing.JTextField searchOrganiza_Cargo;
+    private javax.swing.JComboBox searchOrganiza_Edicao;
+    private javax.swing.JComboBox searchOrganiza_Evento;
+    private javax.swing.JTextField searchOrganiza_Organizador;
+    private javax.swing.JComboBox searchOrganiza_Organizadores;
     // End of variables declaration//GEN-END:variables
 }
