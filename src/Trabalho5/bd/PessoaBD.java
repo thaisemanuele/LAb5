@@ -66,6 +66,7 @@ public class PessoaBD {
             
             details.add(rs.getString(i));
         }
+        rs.close();
         return details;
     }
     
@@ -92,6 +93,7 @@ public class PessoaBD {
             
             details.add(rs.getString(i));
         }
+        rs.close();
         return details;
     }
     
