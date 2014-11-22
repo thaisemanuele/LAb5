@@ -32,6 +32,13 @@ public class OrganizaBD {
         statement.executeUpdate(update);
     }
     
+    public static void excluir(Integer idOrg, Integer codEv,Integer numEd) throws SQLException{
+        String delete = "DELETE FROM Organiza WHERE idOrg = '" 
+                + idOrg +"' and codEv = '" + codEv + "' and numEd = '" + numEd + "'";
+        Statement statement = dbConnection.createStatement();
+        statement.executeUpdate(delete);
+    }
+    
     public static DefaultComboBoxModel getOrgs(Integer codEv, Integer numEd) throws SQLException{
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         String selectSql = "SELECT idOrg from Organiza WHERE codEv = "+codEv+" AND numEd = "+numEd;
