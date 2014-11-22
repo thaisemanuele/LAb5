@@ -66,6 +66,7 @@ public class PatrocinadorBD {
         public static String getCnpjByName(String name) throws SQLException{
         String id = null;
         String selectSql = "SELECT cnpjPat from Patrocinador WHERE razaoSocialPat = '"+name+"'";
+        System.out.println("select statement " + selectSql);
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectSql);
         if(rs.next()){

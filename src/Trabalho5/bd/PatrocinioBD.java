@@ -15,7 +15,7 @@ import java.sql.Statement;
  */
 public class PatrocinioBD {
     
-        public static void inserir(String cnpj, Integer codEv, Integer numEd, Integer valorPat, String data) throws SQLException{
+        public static void inserir(String cnpj, Integer codEv, Integer numEd, String valorPat, String data) throws SQLException{
         
         String insert = "INSERT INTO Patrocinio VALUES( " + cnpj + ", " +codEv+ "," +numEd+ ", " +valorPat+", " + 0 +",  TO_DATE('" +data+"','YYYY-MM-DD'))";
         System.out.println("insert statement " + insert);

@@ -81,8 +81,8 @@
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="insertByName" max="32767" attributes="0"/>
-                                              <Component id="inserirEv" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="inserirEd" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="inserirEv_Patrocinador" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="inserirEd_Patrocinador" alignment="0" max="32767" attributes="0"/>
                                               <Group type="102" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -96,8 +96,8 @@
                                                           </Group>
                                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                                           <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="inserirValor" min="-2" pref="292" max="-2" attributes="0"/>
-                                                              <Component id="inserirData" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="inserirValor_Patrocinio" min="-2" pref="292" max="-2" attributes="0"/>
+                                                              <Component id="inserirData_Patrocinio" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                   </Group>
@@ -133,20 +133,20 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="inserirEv" min="-2" max="-2" attributes="0"/>
+                          <Component id="inserirEv_Patrocinador" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="inserirEd" min="-2" max="-2" attributes="0"/>
+                          <Component id="inserirEd_Patrocinador" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="inserirValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="inserirValor_Patrocinio" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="inserirData" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="inserirData_Patrocinio" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -189,7 +189,7 @@
                     <Property name="text" type="java.lang.String" value="Evento:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="inserirEv">
+                <Component class="javax.swing.JComboBox" name="inserirEv_Patrocinador">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -201,7 +201,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inserirEvActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inserirEv_PatrocinadorActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel4">
@@ -209,7 +209,7 @@
                     <Property name="text" type="java.lang.String" value="Edi&#xe7;&#xe3;o:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="inserirEd">
+                <Component class="javax.swing.JComboBox" name="inserirEd_Patrocinador">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -231,7 +231,7 @@
                     <Property name="text" type="java.lang.String" value="Valor do patroc&#xed;nio:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="inserirValor">
+                <Component class="javax.swing.JTextField" name="inserirValor_Patrocinio">
                 </Component>
                 <Component class="javax.swing.JButton" name="inserirButton">
                   <Properties>
@@ -249,7 +249,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="org.jdesktop.swingx.JXDatePicker" name="inserirData">
+                <Component class="org.jdesktop.swingx.JXDatePicker" name="inserirData_Patrocinio">
                 </Component>
               </SubComponents>
             </Container>
