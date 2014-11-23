@@ -68,17 +68,14 @@ public class TelaAuxilio extends javax.swing.JFrame {
         auxilioEditar = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         editarAuxTipoAux = new javax.swing.JComboBox();
-        jButton8 = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
-        editAuxValor = new javax.swing.JTextField();
-        editAuxDate = new javax.swing.JTextField();
+        editValor = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        editAuxPat = new javax.swing.JComboBox();
+        editPat = new javax.swing.JComboBox();
         editarAuxEv = new javax.swing.JComboBox();
         editarAuxEd = new javax.swing.JComboBox();
         editarAuxBen = new javax.swing.JComboBox();
@@ -105,19 +102,13 @@ public class TelaAuxilio extends javax.swing.JFrame {
         deletarAuxTipoAux = new javax.swing.JComboBox();
         jButton5 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
-        deleteEv = new javax.swing.JTextField();
-        deleteEd = new javax.swing.JTextField();
         deleteBen = new javax.swing.JTextField();
         deleteValor = new javax.swing.JTextField();
         deleteDate = new javax.swing.JTextField();
-        deleteTipoAux = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -269,13 +260,9 @@ public class TelaAuxilio extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("Carregar Informações");
-
-        jLabel26.setText("Edite as informações abaixo");
+        jLabel26.setText("Edite as informações abaixo:");
 
         jLabel30.setText("Valor do auxílio:");
-
-        jLabel31.setText("Data:");
 
         jButton9.setText("Voltar");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -290,7 +277,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
 
         jLabel34.setText("Patrocinador:");
 
-        editAuxPat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editPat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         editarAuxEv.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         editarAuxEv.addActionListener(new java.awt.event.ActionListener() {
@@ -307,6 +294,11 @@ public class TelaAuxilio extends javax.swing.JFrame {
         });
 
         editarAuxBen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editarAuxBen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarAuxBenActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout auxilioEditarLayout = new javax.swing.GroupLayout(auxilioEditar);
         auxilioEditar.setLayout(auxilioEditarLayout);
@@ -314,37 +306,36 @@ public class TelaAuxilio extends javax.swing.JFrame {
             auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(auxilioEditarLayout.createSequentialGroup()
                 .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
-                    .addComponent(editarAuxTipoAux, 0, 716, Short.MAX_VALUE)
-                    .addGroup(auxilioEditarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel31)
-                            .addComponent(jLabel30))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(editAuxDate, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
-                            .addComponent(editAuxValor, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
-                            .addComponent(editAuxPat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
+                    .addComponent(editarAuxTipoAux, 0, 760, Short.MAX_VALUE)
                     .addComponent(editarAuxEv, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(editarAuxBen, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(editarAuxEd, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(auxilioEditarLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton9))
-                    .addGroup(auxilioEditarLayout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton8)
-                            .addComponent(jLabel26)))
-                    .addGroup(auxilioEditarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel34))
-                    .addComponent(editarAuxEd, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(auxilioEditarLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editValor, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(auxilioEditarLayout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton9))
+                            .addGroup(auxilioEditarLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel34)
+                                .addGap(18, 18, 18)
+                                .addComponent(editPat, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(auxilioEditarLayout.createSequentialGroup()
+                .addGap(227, 227, 227)
+                .addComponent(jLabel26)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         auxilioEditarLayout.setVerticalGroup(
             auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,23 +350,17 @@ public class TelaAuxilio extends javax.swing.JFrame {
                 .addComponent(editarAuxEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(editarAuxBen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel26)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34)
-                    .addComponent(editAuxPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(editPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editAuxValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel30))
-                .addGap(18, 18, 18)
-                .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(editAuxDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(76, 76, 76)
+                .addGap(122, 122, 122)
                 .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
                     .addComponent(jButton10)
@@ -528,7 +513,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
                 .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         auxilioTPane.addTab("Inserir", auxilioInserir);
@@ -546,17 +531,11 @@ public class TelaAuxilio extends javax.swing.JFrame {
 
         jLabel17.setText("As seguintes informações foram encontradas:");
 
-        jLabel18.setText("Evento:");
-
-        jLabel19.setText("Edição:");
-
         jLabel20.setText("Beneficiário:");
 
         jLabel21.setText("Valor do auxílio:");
 
         jLabel22.setText("Data:");
-
-        jLabel23.setText("Tipo de auxílio:");
 
         jButton6.setText("Voltar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -586,66 +565,66 @@ public class TelaAuxilio extends javax.swing.JFrame {
         });
 
         deletarAuxBen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        deletarAuxBen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletarAuxBenActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout auxilioDeletarLayout = new javax.swing.GroupLayout(auxilioDeletar);
         auxilioDeletar.setLayout(auxilioDeletarLayout);
         auxilioDeletarLayout.setHorizontalGroup(
             auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                        .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel23)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(deleteTipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton6)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addComponent(jButton5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioDeletarLayout.createSequentialGroup()
+                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(auxilioDeletarLayout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(jButton5))
+                    .addGroup(auxilioDeletarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel20)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteBen)))
+                .addGap(39, 39, 39))
+            .addGroup(auxilioDeletarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(deletarAuxBen, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(deletarAuxTipoAux, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(deletarAuxEd, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(deletarAuxEv, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioDeletarLayout.createSequentialGroup()
-                        .addComponent(jLabel29)
-                        .addGap(26, 26, 26)
-                        .addComponent(deletePat))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioDeletarLayout.createSequentialGroup()
-                        .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel18))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(auxilioDeletarLayout.createSequentialGroup()
+                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioDeletarLayout.createSequentialGroup()
+                        .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(deletarAuxBen, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(deletarAuxTipoAux, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(deletarAuxEd, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(deletarAuxEv, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioDeletarLayout.createSequentialGroup()
+                                .addGap(109, 109, 109)
                                 .addComponent(jLabel17)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(deleteEv, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(deleteEd)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioDeletarLayout.createSequentialGroup()
-                                .addComponent(deleteValor, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
-                                .addComponent(jLabel22)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(deleteDate, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(deleteBen, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(25, 25, 25))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(25, 25, 25))
+                    .addGroup(auxilioDeletarLayout.createSequentialGroup()
+                        .addComponent(jLabel29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(deletePat)
+                        .addGap(39, 39, 39))
+                    .addGroup(auxilioDeletarLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteValor, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel22)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteDate, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 206, Short.MAX_VALUE))))
+            .addGroup(auxilioDeletarLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton6)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         auxilioDeletarLayout.setVerticalGroup(
             auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -660,42 +639,30 @@ public class TelaAuxilio extends javax.swing.JFrame {
                 .addComponent(deletarAuxEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(deletarAuxBen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(21, 21, 21)
                 .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(deleteEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteBen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20))
+                    .addComponent(jLabel20)
+                    .addComponent(deleteBen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deletePat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel29))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel29)
+                    .addComponent(deletePat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
                     .addComponent(deleteValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22)
-                    .addComponent(jLabel21))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
-                    .addComponent(deleteTipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(deleteDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
                 .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
                     .addComponent(jButton7)
                     .addComponent(jButton6))
-                .addGap(12, 12, 12))
+                .addGap(53, 53, 53))
         );
 
         auxilioTPane.addTab("Deletar", auxilioDeletar);
@@ -738,12 +705,6 @@ public class TelaAuxilio extends javax.swing.JFrame {
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        dispose();
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
@@ -891,52 +852,6 @@ public class TelaAuxilio extends javax.swing.JFrame {
         editarAuxBen.setModel(model);
     }//GEN-LAST:event_editarAuxEdActionPerformed
 
-    private void deletarAuxTipoAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarAuxTipoAuxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deletarAuxTipoAuxActionPerformed
-
-    private void deletarAuxEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarAuxEvActionPerformed
-        DefaultComboBoxModel model = new DefaultComboBoxModel();
-        JComboBox jcb = new JComboBox();
-        jcb = (JComboBox) evt.getSource();
-        try {
-            Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
-            model = EdicaoBD.getEditions(codEv);
-            deletarAuxEd.setModel(model);
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_deletarAuxEvActionPerformed
-
-    private void deletarAuxEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarAuxEdActionPerformed
-        if(deletarAuxEv.getSelectedIndex() == 0) return;
-        if(deletarAuxTipoAux.getSelectedIndex() == 0) {
-             JOptionPane.showMessageDialog(null, "Selecione o Tipo do auxílio " , "Erro", JOptionPane.INFORMATION_MESSAGE);
-        }
-        
-        DefaultComboBoxModel model = new DefaultComboBoxModel();
-        JComboBox jcb = new JComboBox();
-        jcb = (JComboBox) evt.getSource();
-        
-        if(jcb.getSelectedIndex() == 0) return;
-        ArrayList <String> details = new ArrayList<String>();
-        try {
-            Integer codEv = EventoBD.getCodeByName(deletarAuxEv.getSelectedItem().toString());
-            details = AuxilioBD.buscarPorTipoAux(codEv, Integer.parseInt(jcb.getSelectedItem().toString()), 
-                    deletarAuxTipoAux.getSelectedItem().toString());
-        } catch (SQLException | ParseException ex) {
-            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        for(String d : details){
-            try {
-                model.addElement(PessoaBD.getEmailById(Integer.parseInt(d)));
-            } catch (SQLException ex) {
-                Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        deletarAuxBen.setModel(model);
-    }//GEN-LAST:event_deletarAuxEdActionPerformed
-
     private void editarAuxTipoAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarAuxTipoAuxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editarAuxTipoAuxActionPerformed
@@ -966,6 +881,117 @@ public class TelaAuxilio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inserirAuxTipoAuxActionPerformed
 
+    private void editarAuxBenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarAuxBenActionPerformed
+       if(editarAuxBen.getSelectedIndex() == 0) return;
+        ArrayList <String> details = new ArrayList<String>();
+        ArrayList <String> details2 = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        if(jcb.getSelectedIndex()==0) return;
+        jcb = (JComboBox) evt.getSource();
+        try {
+            DefaultComboBoxModel evPartModel = new DefaultComboBoxModel();
+            Integer codEv = EventoBD.getCodeByName(editarAuxEv.getSelectedItem().toString());
+            Integer idApr = PessoaBD.getIdByEmail(jcb.getSelectedItem().toString());
+            details = PessoaBD.buscar(idApr);
+            //editBen.setText(details.get(1));
+            //String Pat = PatrocinadorBD.getNameByCnpj(jcb.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(deletarAuxEd.getSelectedItem().toString());
+            //String cnpj = AuxilioBD.getCnpjPat(codEv, numEd)
+            String tipoAux = deletarAuxTipoAux.getSelectedItem().toString();
+            details2 = AuxilioBD.buscar(codEv, numEd, idApr, tipoAux);
+            deletePat.setText(details2.get(0));
+            editValor.setText(details2.get(6));
+            //deleteDate.setText(details2.get(7));
+
+            details.clear();
+            details2.clear();
+
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_editarAuxBenActionPerformed
+
+    private void deletarAuxBenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarAuxBenActionPerformed
+        if(deletarAuxBen.getSelectedIndex() == 0) return;
+        ArrayList <String> details = new ArrayList<String>();
+        ArrayList <String> details2 = new ArrayList<String>();
+        JComboBox jcb = new JComboBox();
+        if(jcb.getSelectedIndex()==0) return;
+        jcb = (JComboBox) evt.getSource();
+        try {
+            DefaultComboBoxModel evPartModel = new DefaultComboBoxModel();
+            Integer codEv = EventoBD.getCodeByName(deletarAuxEv.getSelectedItem().toString());
+            Integer idApr = PessoaBD.getIdByEmail(jcb.getSelectedItem().toString());
+            details = PessoaBD.buscar(idApr);
+            deleteBen.setText(details.get(1));
+            //String Pat = PatrocinadorBD.getNameByCnpj(jcb.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(deletarAuxEd.getSelectedItem().toString());
+            String tipoAux = deletarAuxTipoAux.getSelectedItem().toString();
+            details2 = AuxilioBD.buscar(codEv, numEd, idApr, tipoAux);
+            deletePat.setText(details2.get(0));
+            deleteValor.setText(details2.get(6));
+            deleteDate.setText(details2.get(7));
+
+            details.clear();
+            details2.clear();
+
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deletarAuxBenActionPerformed
+
+    private void deletarAuxEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarAuxEdActionPerformed
+        if(deletarAuxEv.getSelectedIndex() == 0) return;
+        if(deletarAuxTipoAux.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Selecione o Tipo do auxílio " , "Erro", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+
+        if(jcb.getSelectedIndex() == 0) return;
+        ArrayList <String> details = new ArrayList<String>();
+        try {
+            Integer codEv = EventoBD.getCodeByName(deletarAuxEv.getSelectedItem().toString());
+            details = AuxilioBD.buscarPorTipoAux(codEv, Integer.parseInt(jcb.getSelectedItem().toString()),
+                deletarAuxTipoAux.getSelectedItem().toString());
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(String d : details){
+            try {
+                model.addElement(PessoaBD.getEmailById(Integer.parseInt(d)));
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        deletarAuxBen.setModel(model);
+    }//GEN-LAST:event_deletarAuxEdActionPerformed
+
+    private void deletarAuxEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarAuxEvActionPerformed
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        try {
+            Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
+            model = EdicaoBD.getEditions(codEv);
+            deletarAuxEd.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deletarAuxEvActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void deletarAuxTipoAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarAuxTipoAuxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deletarAuxTipoAuxActionPerformed
+
         public void clearFields(){
         
            buscarAux_Beneficiario.setSelectedIndex(0);
@@ -983,20 +1009,17 @@ public class TelaAuxilio extends javax.swing.JFrame {
            deletarAuxEv.setSelectedIndex(0);
            deletarAuxTipoAux.setSelectedIndex(0);
            deletePat.setText(" ");
-           deleteEv.setText(" ");
-           deleteEd.setText(" ");
            deleteBen.setText(" ");
            deleteValor.setText(" ");
            deleteDate.setText(" ");
-           deleteTipoAux.setText(" ");
            
            editarAuxBen.setSelectedIndex(0);
            editarAuxEd.setSelectedIndex(0);
            editarAuxEv.setSelectedIndex(0);
            editarAuxTipoAux.setSelectedIndex(0);
-           editAuxPat.setSelectedIndex(0);
-           editAuxValor.setText(" ");
-           editAuxDate.setText(" ");
+           editPat.setSelectedIndex(0);
+           editValor.setText(" ");
+           //editDate.setText(" ");
            
             
     }
@@ -1026,14 +1049,17 @@ public class TelaAuxilio extends javax.swing.JFrame {
             inserirAuxBen.setModel(emptyModel2);
             inserirAuxPat.setModel(emptyModel2);
             inserirAuxTipoAux.setModel(emptyModel3);
+            
             buscarAux_Evento.setModel(model);
             buscarAux_Edicao.setModel(emptyModel);
             buscarAux_TipoAux.setModel(emptyModel5);
             buscarAux_Beneficiario.setModel(emptyModel4);
+            
             editarAuxTipoAux.setModel(emptyModel3);
             editarAuxEv.setModel(model);
             editarAuxEd.setModel(emptyModel);
             editarAuxBen.setModel(emptyModel4);
+            
             deletarAuxTipoAux.setModel(emptyModel3);
             deletarAuxEv.setModel(model);
             deletarAuxEd.setModel(emptyModel);
@@ -1101,14 +1127,10 @@ public class TelaAuxilio extends javax.swing.JFrame {
     private javax.swing.JComboBox deletarAuxTipoAux;
     private javax.swing.JTextField deleteBen;
     private javax.swing.JTextField deleteDate;
-    private javax.swing.JTextField deleteEd;
-    private javax.swing.JTextField deleteEv;
     private javax.swing.JTextField deletePat;
-    private javax.swing.JTextField deleteTipoAux;
     private javax.swing.JTextField deleteValor;
-    private javax.swing.JTextField editAuxDate;
-    private javax.swing.JComboBox editAuxPat;
-    private javax.swing.JTextField editAuxValor;
+    private javax.swing.JComboBox editPat;
+    private javax.swing.JTextField editValor;
     private javax.swing.JComboBox editarAuxBen;
     private javax.swing.JComboBox editarAuxEd;
     private javax.swing.JComboBox editarAuxEv;
@@ -1126,7 +1148,6 @@ public class TelaAuxilio extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1137,13 +1158,10 @@ public class TelaAuxilio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -1152,7 +1170,6 @@ public class TelaAuxilio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;

@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -52,5 +53,21 @@ public class AuxilioBD {
         rs.close();
         return details; 
      }
+        
+        public static DefaultComboBoxModel getCnpjPat(Integer codEv, Integer numEd) throws SQLException{
+         int i=1;
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+          String selectSQL = "SELECT cnpjPat FROM Patrocinio "
+                + "WHERE codEvPat = " + codEv + " AND numEdPat = " +numEd+ "";
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectSQL);
+        model.addElement(" --- ");
+        while(rs.next()){
+            
+            model.addElement(rs.getString("cnpjPat"));
+            i++;
+        }
+       return model;
+    }
  }
 
