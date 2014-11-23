@@ -74,6 +74,17 @@ public class PatrocinadorBD {
         }
        return id;
     }
+        
+        public static String getName(String cnpjPat) throws SQLException{
+            String id = null;
+            String selectSql = "SELECT razaoSocialPat from Patrocinador WHERE cnpjPat = '"+cnpjPat+"'";
+            Statement statement = dbConnection.createStatement();
+            ResultSet rs = statement.executeQuery(selectSql);
+            if(rs.next()){
+                id = rs.getString("razaoSocialPat");
+            }
+            return id;
+        }
     
     public static ArrayList<String> fetchNamePat(String nomePat) throws SQLException, ParseException{
         String selectTableSQL = "SELECT cnpjPat, razaoSocialPat, telefonePat, enderecoPat FROM Patrocinador "
