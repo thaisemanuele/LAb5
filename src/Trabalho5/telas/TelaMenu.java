@@ -719,7 +719,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private void EditarAuxilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarAuxilioActionPerformed
         // TODO add your handling code here:
         TelaAuxilio telaAuxilio = new TelaAuxilio();
-        telaAuxilio.auxilioTPane.setSelectedIndex(0);
+        telaAuxilio.auxilioTPane.setSelectedIndex(1);
         telaAuxilio.setVisible(true);
     }//GEN-LAST:event_EditarAuxilioActionPerformed
 
@@ -800,7 +800,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private void BuscarAuxilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarAuxilioActionPerformed
         // TODO add your handling code here:
         TelaAuxilio telaAuxilio = new TelaAuxilio();
-        telaAuxilio.auxilioTPane.setSelectedIndex(1);
+        telaAuxilio.auxilioTPane.setSelectedIndex(0);
         telaAuxilio.setVisible(true);
     }//GEN-LAST:event_BuscarAuxilioActionPerformed
 
