@@ -15,6 +15,7 @@ import Trabalho5.bd.PessoaBD;
 import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -68,7 +69,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jLabel32 = new javax.swing.JLabel();
         auxilioEditar = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
-        editarAuxTipoAux = new javax.swing.JComboBox();
+        editarAux_TipoAux = new javax.swing.JComboBox();
         jLabel30 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
         editValor = new javax.swing.JTextField();
@@ -77,7 +78,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
         editarAux_Edicao = new javax.swing.JComboBox();
         editarAux_Beneficiario = new javax.swing.JComboBox();
         jLabel8 = new javax.swing.JLabel();
-        editDate = new org.jdesktop.swingx.JXDatePicker();
+        editarAux_Data = new org.jdesktop.swingx.JXDatePicker();
         jLabel26 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
@@ -254,10 +255,10 @@ public class TelaAuxilio extends javax.swing.JFrame {
 
         jLabel25.setText("Evento:");
 
-        editarAuxTipoAux.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        editarAuxTipoAux.addActionListener(new java.awt.event.ActionListener() {
+        editarAux_TipoAux.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editarAux_TipoAux.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarAuxTipoAuxActionPerformed(evt);
+                editarAux_TipoAuxActionPerformed(evt);
             }
         });
 
@@ -324,7 +325,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                         .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel26)
-                            .addComponent(editarAuxTipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(editarAux_TipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(auxilioEditarLayout.createSequentialGroup()
                         .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel30)
@@ -339,9 +340,9 @@ public class TelaAuxilio extends javax.swing.JFrame {
                                         .addComponent(editButton)
                                         .addGap(40, 40, 40)
                                         .addComponent(jButton9))
-                                    .addComponent(editDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(editarAux_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
         auxilioEditarLayout.setVerticalGroup(
             auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -356,7 +357,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(3, 3, 3)
                 .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editarAuxTipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editarAux_TipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editarAux_Edicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -369,8 +370,8 @@ public class TelaAuxilio extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(editDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                    .addComponent(editarAux_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editButton)
                     .addComponent(jButton9))
@@ -846,12 +847,19 @@ public class TelaAuxilio extends javax.swing.JFrame {
 
     private void editarAux_EventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarAux_EventoActionPerformed
         DefaultComboBoxModel model = new DefaultComboBoxModel();
+        DefaultComboBoxModel tipoAuxModel = new DefaultComboBoxModel();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         try {
             Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
             model = EdicaoBD.getEditions(codEv);
             editarAux_Edicao.setModel(model);
+            tipoAuxModel.addElement(" --- ");
+            tipoAuxModel.addElement("alimentação");
+            tipoAuxModel.addElement("hospedagem");
+            tipoAuxModel.addElement("transporte");
+            
+            editarAux_TipoAux.setModel(tipoAuxModel);
         } catch (SQLException ex) {
             Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -859,22 +867,44 @@ public class TelaAuxilio extends javax.swing.JFrame {
 
     private void editarAux_EdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarAux_EdicaoActionPerformed
         if(editarAux_Evento.getSelectedIndex() == 0) return;
-        if(editarAuxTipoAux.getSelectedIndex() == 0) {
-             JOptionPane.showMessageDialog(null, "Selecione o Tipo do auxílio " , "Erro", JOptionPane.INFORMATION_MESSAGE);
-        }
         
         DefaultComboBoxModel model = new DefaultComboBoxModel();
-         DefaultComboBoxModel patModel = new DefaultComboBoxModel();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
-        
         if(jcb.getSelectedIndex() == 0) return;
         ArrayList <String> details = new ArrayList<String>();
         try {
             Integer codEv = EventoBD.getCodeByName(editarAux_Evento.getSelectedItem().toString());
             details = AuxilioBD.buscarPorTipoAux(codEv, Integer.parseInt(jcb.getSelectedItem().toString()), 
-                    editarAuxTipoAux.getSelectedItem().toString());
-            patModel = AuxilioBD.getNamePat(codEv, Integer.parseInt(jcb.getSelectedItem().toString()));
+                    editarAux_TipoAux.getSelectedItem().toString());
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(String d : details){
+            try {
+                model.addElement(PessoaBD.getEmailById(Integer.parseInt(d)));
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        editarAux_Beneficiario.setModel(model);
+    }//GEN-LAST:event_editarAux_EdicaoActionPerformed
+
+    private void editarAux_TipoAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarAux_TipoAuxActionPerformed
+        if(editarAux_Evento.getSelectedIndex() == 0) return;
+        if(editarAux_Edicao.getSelectedIndex() == 0){
+            editarAux_TipoAux.setSelectedIndex(0);
+            return;
+        }
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        if(jcb.getSelectedIndex() == 0) return;
+        ArrayList <String> details = new ArrayList<String>();
+        try {
+            Integer codEv = EventoBD.getCodeByName(editarAux_Evento.getSelectedItem().toString());
+            details = AuxilioBD.buscarPorTipoAux(codEv, Integer.parseInt(editarAux_Edicao.getSelectedItem().toString()), 
+                    editarAux_TipoAux.getSelectedItem().toString());
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -887,12 +917,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
             }
         }
         editarAux_Beneficiario.setModel(model);
-        
-    }//GEN-LAST:event_editarAux_EdicaoActionPerformed
-
-    private void editarAuxTipoAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarAuxTipoAuxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editarAuxTipoAuxActionPerformed
+    }//GEN-LAST:event_editarAux_TipoAuxActionPerformed
 
     private void inserirEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirEvActionPerformed
         if(inserirEv.getSelectedIndex()==0) return;
@@ -932,13 +957,13 @@ public class TelaAuxilio extends javax.swing.JFrame {
             Integer idApr = PessoaBD.getIdByEmail(jcb.getSelectedItem().toString());
             details = PessoaBD.buscar(idApr);
             Integer numEd = Integer.parseInt(editarAux_Edicao.getSelectedItem().toString());
-            String tipoAux = editarAuxTipoAux.getSelectedItem().toString();
+            String tipoAux = editarAux_TipoAux.getSelectedItem().toString();
             details2 = AuxilioBD.buscar(codEv, numEd, idApr, tipoAux);
-            //editPat.setText(details2.get(0));
             String valor = new String(details2.get(6));
             valor = NumberFormat.getCurrencyInstance().format(Double.parseDouble(valor));
             editValor.setText(valor);
-            //buscarAux_Data.setText(details2.get(7));
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy"); 
+            editarAux_Data.setDate(dateFormat.parse(details2.get(7)));
            
             details.clear();
             details2.clear();
@@ -1036,8 +1061,29 @@ public class TelaAuxilio extends javax.swing.JFrame {
             Integer codEv = EventoBD.getCodeByName(inserirEv.getSelectedItem().toString());
             Integer idPe = PessoaBD.getIdByEmail(inserirBen.getSelectedItem().toString());
             String cnpj = PatrocinadorBD.getCnpjByName(inserirPat.getSelectedItem().toString());
+            String valorPat = inserirValor.getText();
+            if(valorPat.startsWith("£")||(valorPat.startsWith("$"))||(valorPat.startsWith("€"))){
+                System.out.println(valorPat);
+                valorPat = valorPat.substring(1);
+                if(valorPat.contains(",")){
+                    valorPat = valorPat.replace(",", "");
+                }
+            }
+            else if(valorPat.contains("R$ ")){
+                valorPat = valorPat.substring(3);
+                if(valorPat.contains(",")){
+                    valorPat = valorPat.replace(",", ".");
+                }
+            }
+            else if(valorPat.contains(",")){
+                valorPat = valorPat.replace(",", "");
+            }
+            
+            System.out.println(valorPat);
+            Double valor = Double.parseDouble(valorPat);
+            
             AuxilioBD.inserir(cnpj, codEv, Integer.parseInt(inserirEd.getSelectedItem().toString()),
-                idPe, Integer.parseInt(inserirValor.getText()), dataInsc.toString(), inserirTipoAux.getSelectedItem().toString());
+                idPe, valor.toString(), dataInsc.toString(), inserirTipoAux.getSelectedItem().toString());
             JOptionPane.showMessageDialog(null, "Auxilio inserido com sucesso " , "Successo", JOptionPane.INFORMATION_MESSAGE);
             clearFields();
             loadComboBox();
@@ -1051,7 +1097,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
                 editarAux_Edicao.getSelectedIndex()==0) return;
         
         try {
-            java.sql.Date dataAux = new java.sql.Date(editDate.getDate().getTime());
+            java.sql.Date dataAux = new java.sql.Date(editarAux_Data.getDate().getTime());
             Integer codEv = EventoBD.getCodeByName(editarAux_Evento.getSelectedItem().toString());
             Integer idPe = PessoaBD.getIdByEmail(editarAux_Beneficiario.getSelectedItem().toString());
             //String cnpj = PatrocinadorBD.getCnpjByName(editPat.getSelectedItem().toString());
@@ -1076,7 +1122,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
             System.out.println(valorPat);
             Double valor = Double.parseDouble(valorPat);
             AuxilioBD.atualizar(codEv, Integer.parseInt(editarAux_Edicao.getSelectedItem().toString()),
-                idPe, valor.toString(), dataAux.toString(), inserirTipoAux.getSelectedItem().toString());
+                idPe, valor.toString(), dataAux.toString(), editarAux_TipoAux.getSelectedItem().toString());
             JOptionPane.showMessageDialog(null, "Auxilio atualizado com sucesso " , "Successo", JOptionPane.INFORMATION_MESSAGE);
             clearFields();
             loadComboBox();
@@ -1115,9 +1161,9 @@ public class TelaAuxilio extends javax.swing.JFrame {
            editarAux_Beneficiario.setSelectedIndex(0);
            editarAux_Edicao.setSelectedIndex(0);
            editarAux_Evento.setSelectedIndex(0);
-           editarAuxTipoAux.setSelectedIndex(0);
+           editarAux_TipoAux.setSelectedIndex(0);
            editValor.setText(" ");
-           editDate.setDate(null);
+           editarAux_Data.setDate(null);
            
            inserirData.setDate(null);
            inserirEv.setSelectedIndex(0);
@@ -1160,7 +1206,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
             buscarAux_TipoAux.setModel(emptyModel5);
             buscarAux_Beneficiario.setModel(emptyModel4);
             
-            editarAuxTipoAux.setModel(emptyModel3);
+            editarAux_TipoAux.setModel(emptyModel3);
             editarAux_Evento.setModel(model);
             editarAux_Edicao.setModel(emptyModel);
             editarAux_Beneficiario.setModel(emptyModel4);
@@ -1236,12 +1282,12 @@ public class TelaAuxilio extends javax.swing.JFrame {
     private javax.swing.JTextField deletePat;
     private javax.swing.JTextField deleteValor;
     private javax.swing.JButton editButton;
-    private org.jdesktop.swingx.JXDatePicker editDate;
     private javax.swing.JTextField editValor;
-    private javax.swing.JComboBox editarAuxTipoAux;
     private javax.swing.JComboBox editarAux_Beneficiario;
+    private org.jdesktop.swingx.JXDatePicker editarAux_Data;
     private javax.swing.JComboBox editarAux_Edicao;
     private javax.swing.JComboBox editarAux_Evento;
+    private javax.swing.JComboBox editarAux_TipoAux;
     private javax.swing.JComboBox inserirBen;
     private org.jdesktop.swingx.JXDatePicker inserirData;
     private javax.swing.JComboBox inserirEd;

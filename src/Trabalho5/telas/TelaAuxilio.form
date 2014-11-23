@@ -314,7 +314,7 @@
                                   <EmptySpace pref="65" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
-                                      <Component id="editarAuxTipoAux" min="-2" pref="151" max="-2" attributes="0"/>
+                                      <Component id="editarAux_TipoAux" min="-2" pref="151" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -333,14 +333,14 @@
                                                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                                   <Component id="jButton9" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="editDate" min="-2" max="-2" attributes="0"/>
+                                              <Component id="editarAux_Data" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="67" max="32767" attributes="0"/>
+                          <EmptySpace pref="197" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -358,7 +358,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="editarAuxTipoAux" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="editarAux_TipoAux" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="editarAux_Edicao" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -373,9 +373,9 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="editDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="editarAux_Data" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="74" max="32767" attributes="0"/>
+                          <EmptySpace pref="115" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="editButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton9" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -391,7 +391,7 @@
                     <Property name="text" type="java.lang.String" value="Evento:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="editarAuxTipoAux">
+                <Component class="javax.swing.JComboBox" name="editarAux_TipoAux">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -403,7 +403,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editarAuxTipoAuxActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editarAux_TipoAuxActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel30">
@@ -479,7 +479,7 @@
                     <Property name="text" type="java.lang.String" value="Data:"/>
                   </Properties>
                 </Component>
-                <Component class="org.jdesktop.swingx.JXDatePicker" name="editDate">
+                <Component class="org.jdesktop.swingx.JXDatePicker" name="editarAux_Data">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel26">
                   <Properties>

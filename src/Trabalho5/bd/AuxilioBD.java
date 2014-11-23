@@ -20,7 +20,7 @@ import javax.swing.DefaultComboBoxModel;
 
 public class AuxilioBD {
     
-    public static void inserir(String cnpj, Integer codEv, Integer numEd,Integer idApr,Integer valor,
+    public static void inserir(String cnpj, Integer codEv, Integer numEd,Integer idApr,String valor,
         String dataInsc, String tipoAux) throws SQLException, ParseException{
             String insert = "INSERT INTO Auxilio VALUES( '"+cnpj+"', " + codEv + ", "+numEd+ ", "
                     + " " + codEv + ", "+numEd+ ", "+idApr+ ", "
