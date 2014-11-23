@@ -13,6 +13,7 @@ import Trabalho5.bd.InscritoBD;
 import Trabalho5.bd.PatrocinadorBD;
 import Trabalho5.bd.PessoaBD;
 import java.sql.SQLException;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -769,12 +770,19 @@ public class TelaAuxilio extends javax.swing.JFrame {
 
     private void buscarAux_EventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAux_EventoActionPerformed
         DefaultComboBoxModel model = new DefaultComboBoxModel();
+        DefaultComboBoxModel tipoAuxModel = new DefaultComboBoxModel();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         try {
             Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
             model = EdicaoBD.getEditions(codEv);
             buscarAux_Edicao.setModel(model);
+            tipoAuxModel.addElement(" --- ");
+            tipoAuxModel.addElement("alimentação");
+            tipoAuxModel.addElement("hospedagem");
+            tipoAuxModel.addElement("transporte");
+            
+            buscarAux_TipoAux.setModel(tipoAuxModel);
         } catch (SQLException ex) {
             Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -784,7 +792,6 @@ public class TelaAuxilio extends javax.swing.JFrame {
         if(buscarAux_Evento.getSelectedIndex() == 0) return;
         
         DefaultComboBoxModel model = new DefaultComboBoxModel();
-        DefaultComboBoxModel tipoAuxModel = new DefaultComboBoxModel();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         if(jcb.getSelectedIndex() == 0) return;
@@ -803,16 +810,37 @@ public class TelaAuxilio extends javax.swing.JFrame {
                 Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        tipoAuxModel.addElement("alimentação");
-        tipoAuxModel.addElement("hospedagem");
-        tipoAuxModel.addElement("transporte");
-            
         buscarAux_Beneficiario.setModel(model);
-        buscarAux_TipoAux.setModel(tipoAuxModel);
+        
     }//GEN-LAST:event_buscarAux_EdicaoActionPerformed
 
     private void buscarAux_TipoAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAux_TipoAuxActionPerformed
-        // TODO add your handling code here:
+        if(buscarAux_Evento.getSelectedIndex() == 0) return;
+        if(buscarAux_Edicao.getSelectedIndex() == 0){
+            buscarAux_TipoAux.setSelectedIndex(0);
+            return;
+        }
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        if(jcb.getSelectedIndex() == 0) return;
+        ArrayList <String> details = new ArrayList<String>();
+        try {
+            Integer codEv = EventoBD.getCodeByName(buscarAux_Evento.getSelectedItem().toString());
+            details = AuxilioBD.buscarPorTipoAux(codEv, Integer.parseInt(buscarAux_Edicao.getSelectedItem().toString()), 
+                    buscarAux_TipoAux.getSelectedItem().toString());
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        model.addElement(" --- ");
+        for(String d : details){
+            try {
+                model.addElement(PessoaBD.getEmailById(Integer.parseInt(d)));
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        buscarAux_Beneficiario.setModel(model);
     }//GEN-LAST:event_buscarAux_TipoAuxActionPerformed
 
     private void buscarAux_BeneficiarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAux_BeneficiarioActionPerformed
@@ -833,7 +861,9 @@ public class TelaAuxilio extends javax.swing.JFrame {
             String tipoAux = buscarAux_TipoAux.getSelectedItem().toString();
             details2 = AuxilioBD.buscar(codEv, numEd, idApr, tipoAux);
             buscarAux_Pat.setText(details2.get(0));
-            buscarAux_Valor.setText(details2.get(6));
+            String valor = new String(details2.get(6));
+            valor = NumberFormat.getCurrencyInstance().format(Double.parseDouble(valor));
+            buscarAux_Valor.setText(valor);
             buscarAux_Data.setText(details2.get(7));
            
             details.clear();
