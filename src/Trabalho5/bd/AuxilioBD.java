@@ -22,7 +22,7 @@ public class AuxilioBD {
     
     public static void inserir(String cnpj, Integer codEv, Integer numEd,Integer idApr,Integer valor,
         String dataInsc, String tipoAux) throws SQLException, ParseException{
-            String insert = "INSERT INTO Auxilio VALUES( '"+cnpj+"'" + codEv + ", "+numEd+ ", "
+            String insert = "INSERT INTO Auxilio VALUES( '"+cnpj+"', " + codEv + ", "+numEd+ ", "
                     + " " + codEv + ", "+numEd+ ", "+idApr+ ", "
                     + ""+valor+", TO_DATE('" +dataInsc+"','YYYY-MM-DD'), '" +tipoAux+"')";
         System.out.println("insert statement " + insert);
@@ -89,7 +89,7 @@ public class AuxilioBD {
         model.addElement(" --- ");
         while(rs.next()){
             
-            //model.addElement(PatrocinadorBD.getName(rs.getString("cnpjPat")));
+            model.addElement(PatrocinadorBD.getName(rs.getString("cnpjPat")));
             i++;
         }
        return model;

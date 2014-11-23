@@ -1017,11 +1017,11 @@ public class TelaAuxilio extends javax.swing.JFrame {
     }//GEN-LAST:event_deletarAuxTipoAuxActionPerformed
 
     private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
-        /*java.sql.Date dataInsc = new java.sql.Date(inserirData.getDate().getTime());
+        java.sql.Date dataInsc = new java.sql.Date(inserirData.getDate().getTime());
         try {
             Integer codEv = EventoBD.getCodeByName(inserirEv.getSelectedItem().toString());
             Integer idPe = PessoaBD.getIdByEmail(inserirBen.getSelectedItem().toString());
-            String cnpj =;
+            String cnpj = PatrocinadorBD.getCnpjByName(inserirPat.getSelectedItem().toString());
             AuxilioBD.inserir(cnpj, codEv, Integer.parseInt(inserirEd.getSelectedItem().toString()),
                 idPe, Integer.parseInt(inserirValor.getText()), dataInsc.toString(), inserirTipoAux.getSelectedItem().toString());
             JOptionPane.showMessageDialog(null, "Auxilio inserido com sucesso " , "Successo", JOptionPane.INFORMATION_MESSAGE);
@@ -1029,7 +1029,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
             loadComboBox();
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
     }//GEN-LAST:event_insertButtonActionPerformed
 
         public void clearFields(){
