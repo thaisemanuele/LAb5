@@ -64,6 +64,15 @@ public class AuxilioBD {
         return details; 
      }
         
+        public static void atualizar(String cnpj, Integer codEvApr, Integer numEdApr, Integer idApr, String valorAux, 
+                 String dataAux, String tipoAux) throws SQLException, ParseException{
+        String selectTableSQL = "UPDATE Auxilio  SET cnpjPat = '"+cnpj+"', valorAux = '"+valorAux+"', dataAux = TO_DATE('" +dataAux+"','YYYY-MM-DD')"
+                + "WHERE codEvApr = " + codEvApr +" AND numEdApr = " 
+                + numEdApr + " AND idApr = "+idApr  + " AND tipoAux = '"+tipoAux+"'";
+        Statement statement = dbConnection.createStatement();
+        statement.executeUpdate(selectTableSQL);
+     }
+        
         public static DefaultComboBoxModel getCnpjPat(Integer codEv, Integer numEd) throws SQLException{
          int i=1;
         DefaultComboBoxModel model = new DefaultComboBoxModel();

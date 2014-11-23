@@ -80,6 +80,8 @@ public class TelaAuxilio extends javax.swing.JFrame {
         editarAuxEv = new javax.swing.JComboBox();
         editarAuxEd = new javax.swing.JComboBox();
         editarAuxBen = new javax.swing.JComboBox();
+        jLabel8 = new javax.swing.JLabel();
+        editDate = new org.jdesktop.swingx.JXDatePicker();
         auxilioDeletar = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         deletarAuxTipoAux = new javax.swing.JComboBox();
@@ -272,6 +274,11 @@ public class TelaAuxilio extends javax.swing.JFrame {
         });
 
         editButton.setText("Editar");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         jLabel33.setText("Realmente deseja editar o auxílio?");
 
@@ -300,6 +307,8 @@ public class TelaAuxilio extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setText("Data:");
+
         javax.swing.GroupLayout auxilioEditarLayout = new javax.swing.GroupLayout(auxilioEditar);
         auxilioEditar.setLayout(auxilioEditarLayout);
         auxilioEditarLayout.setHorizontalGroup(
@@ -313,17 +322,22 @@ public class TelaAuxilio extends javax.swing.JFrame {
                                 .addComponent(editarAuxBen, javax.swing.GroupLayout.Alignment.LEADING, 0, 508, Short.MAX_VALUE)
                                 .addComponent(editarAuxEd, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(editarAuxEv, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(editarAuxTipoAux, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioEditarLayout.createSequentialGroup()
                                     .addContainerGap()
-                                    .addComponent(jLabel30)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(editValor, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioEditarLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jLabel34)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(editPat, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(editarAuxTipoAux, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioEditarLayout.createSequentialGroup()
+                                            .addComponent(jLabel34)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(editPat, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioEditarLayout.createSequentialGroup()
+                                            .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel30)
+                                                .addComponent(jLabel8))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(editDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(editValor, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(auxilioEditarLayout.createSequentialGroup()
                                 .addGap(227, 227, 227)
                                 .addComponent(jLabel26))
@@ -360,7 +374,11 @@ public class TelaAuxilio extends javax.swing.JFrame {
                 .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel30))
-                .addGap(53, 53, 53)
+                .addGap(18, 18, 18)
+                .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(editDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
                 .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
                     .addComponent(editButton)
@@ -395,6 +413,11 @@ public class TelaAuxilio extends javax.swing.JFrame {
         });
 
         deleteButton.setText("Deletar");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
 
         jLabel24.setText("Realmente deseja deletar o auxílio?");
 
@@ -1032,6 +1055,41 @@ public class TelaAuxilio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_insertButtonActionPerformed
 
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        java.sql.Date dataInsc = new java.sql.Date(editDate.getDate().getTime());
+        if(editarAuxEv.getSelectedIndex()==0||
+                editarAuxEd.getSelectedIndex()==0||
+                editPat.getSelectedIndex()==0) return;
+        
+        try {
+            Integer codEv = EventoBD.getCodeByName(editarAuxEv.getSelectedItem().toString());
+            Integer idPe = PessoaBD.getIdByEmail(editarAuxBen.getSelectedItem().toString());
+            String cnpj = PatrocinadorBD.getCnpjByName(editPat.getSelectedItem().toString());
+            String valorPat = editValor.getText();
+            if(valorPat.startsWith("£")||(valorPat.startsWith("$"))||(valorPat.startsWith("€"))){
+                System.out.println(valorPat);
+                valorPat = valorPat.substring(1);
+            }
+            if(valorPat.contains("R$")) valorPat = valorPat.substring(2);
+            if(valorPat.contains(",")){
+                valorPat = valorPat.replace(",", "");
+            }
+            System.out.println(valorPat);
+            Double valor = Double.parseDouble(valorPat);
+            AuxilioBD.atualizar(cnpj, codEv, Integer.parseInt(editarAuxEd.getSelectedItem().toString()),
+                idPe, valor.toString(), dataInsc.toString(), inserirTipoAux.getSelectedItem().toString());
+            JOptionPane.showMessageDialog(null, "Auxilio atualizado com sucesso " , "Successo", JOptionPane.INFORMATION_MESSAGE);
+            clearFields();
+            loadComboBox();
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_editButtonActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
         public void clearFields(){
         
            buscarAux_Beneficiario.setSelectedIndex(0);
@@ -1059,7 +1117,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
            editarAuxTipoAux.setSelectedIndex(0);
            editPat.setSelectedIndex(0);
            editValor.setText(" ");
-           //editDate.setDate(null);
+           editDate.setDate(null);
            
            inserirData.setDate(null);
            inserirEv.setSelectedIndex(0);
@@ -1178,6 +1236,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
     private javax.swing.JTextField deletePat;
     private javax.swing.JTextField deleteValor;
     private javax.swing.JButton editButton;
+    private org.jdesktop.swingx.JXDatePicker editDate;
     private javax.swing.JComboBox editPat;
     private javax.swing.JTextField editValor;
     private javax.swing.JComboBox editarAuxBen;
@@ -1224,6 +1283,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
