@@ -62,13 +62,7 @@ public class PatrocinioBD {
             statement.executeUpdate(delete);
         }
         
-        public static void excluir(String cnpjPat,Integer codEv, Integer numEd) throws SQLException{
-            String delete = "DELETE FROM Patrocinio WHERE cnpjPat = '"+cnpjPat+"' AND numEd = '" + numEd + "' and codEv = '" + codEv + "'";
-            Statement statement = dbConnection.createStatement();
-            statement.executeUpdate(delete);
-        }
-    
-        
+               
         public static DefaultComboBoxModel buscarPat(Integer codEv, Integer numEd)throws SQLException{
             
             DefaultComboBoxModel model = new DefaultComboBoxModel();
