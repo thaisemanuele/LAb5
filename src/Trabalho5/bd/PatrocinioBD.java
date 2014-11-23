@@ -45,6 +45,18 @@ public class PatrocinioBD {
             return details;
         }
         
+        public static void atualizar(String cnpjPat, Integer codEv, Integer numEd, String valorPat, 
+                String dataPat) throws SQLException{
+            
+            String update = "UPDATE Patrocinio SET valorPat = " 
+                    +valorPat+ ", dataPat = TO_DATE('" +dataPat+"','YYYY-MM-DD')"+
+                    " WHERE cnpjPat = '"+cnpjPat+"' AND numEd = " + numEd + " and codEv = " + codEv + "";
+            System.out.println("insert statement " + update);
+            Statement statement = dbConnection.createStatement();
+            statement.executeUpdate(update);
+        }
+    
+        
         public static DefaultComboBoxModel buscarPat(Integer codEv, Integer numEd)throws SQLException{
             
             DefaultComboBoxModel model = new DefaultComboBoxModel();

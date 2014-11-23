@@ -16,6 +16,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -98,20 +99,19 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
-        patrocinioEditar = new javax.swing.JPanel();
+        editarPatrocinio_Valor = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox();
-        jButton10 = new javax.swing.JButton();
+        editarPatrocinio_Evento = new javax.swing.JComboBox();
         jLabel33 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        jTextField24 = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
-        jTextField25 = new javax.swing.JTextField();
-        jLabel39 = new javax.swing.JLabel();
-        jTextField26 = new javax.swing.JTextField();
+        editarPatrocinio_valor = new javax.swing.JTextField();
         jButton11 = new javax.swing.JButton();
-        jLabel40 = new javax.swing.JLabel();
-        jButton12 = new javax.swing.JButton();
+        editarPatrocinio_Button = new javax.swing.JButton();
+        editarPatrocinio_Edicao = new javax.swing.JComboBox();
+        jLabel34 = new javax.swing.JLabel();
+        editarPatrocinio_Pat = new javax.swing.JComboBox();
+        editarPatrocinio_Data = new org.jdesktop.swingx.JXDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -230,7 +230,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                 .addGroup(patrocinioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inserirButton)
                     .addComponent(jButton2))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(461, Short.MAX_VALUE))
         );
 
         patrocinioTPane.addTab("Inserir", patrocinioInserir);
@@ -365,7 +365,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buscarPatrocinio_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 383, Short.MAX_VALUE)
                 .addComponent(buscarPatrocinio_Button)
                 .addGap(90, 90, 90))
         );
@@ -497,24 +497,25 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                     .addComponent(jButton8)
                     .addComponent(jLabel31)
                     .addComponent(jButton9))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(439, Short.MAX_VALUE))
         );
 
         patrocinioTPane.addTab("Deletar", patrocinioDeletar);
 
-        jLabel32.setText("Escolha o patrocínio de acordo com o evento e a edição:");
+        jLabel32.setText("Evento");
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editarPatrocinio_Evento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editarPatrocinio_Evento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarPatrocinio_EventoActionPerformed(evt);
+            }
+        });
 
-        jButton10.setText("Carregar Informações");
-
-        jLabel33.setText("Edite as informações abaixo:");
+        jLabel33.setText("Edição:");
 
         jLabel37.setText("Data do patrocínio:");
 
         jLabel38.setText("Valor do patrocínio:");
-
-        jLabel39.setText("Saldo do patrocínio:");
 
         jButton11.setText("Voltar");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -523,83 +524,96 @@ public class TelaPatrocinio extends javax.swing.JFrame {
             }
         });
 
-        jLabel40.setText("Realmente deseja editar?");
+        editarPatrocinio_Button.setText("Editar");
+        editarPatrocinio_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarPatrocinio_ButtonActionPerformed(evt);
+            }
+        });
 
-        jButton12.setText("Editar");
+        editarPatrocinio_Edicao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editarPatrocinio_Edicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarPatrocinio_EdicaoActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout patrocinioEditarLayout = new javax.swing.GroupLayout(patrocinioEditar);
-        patrocinioEditar.setLayout(patrocinioEditarLayout);
-        patrocinioEditarLayout.setHorizontalGroup(
-            patrocinioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioEditarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(patrocinioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(patrocinioEditarLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel33))
-                    .addComponent(jButton10))
-                .addGap(144, 144, 144))
-            .addGroup(patrocinioEditarLayout.createSequentialGroup()
+        jLabel34.setText("Patrocinador:");
+
+        editarPatrocinio_Pat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editarPatrocinio_Pat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarPatrocinio_PatActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout editarPatrocinio_ValorLayout = new javax.swing.GroupLayout(editarPatrocinio_Valor);
+        editarPatrocinio_Valor.setLayout(editarPatrocinio_ValorLayout);
+        editarPatrocinio_ValorLayout.setHorizontalGroup(
+            editarPatrocinio_ValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editarPatrocinio_ValorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(patrocinioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioEditarLayout.createSequentialGroup()
-                        .addGap(0, 103, Short.MAX_VALUE)
-                        .addGroup(patrocinioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioEditarLayout.createSequentialGroup()
-                                .addComponent(jLabel32)
-                                .addGap(68, 68, 68))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinioEditarLayout.createSequentialGroup()
-                                .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton11)
-                                .addGap(47, 47, 47))))
-                    .addGroup(patrocinioEditarLayout.createSequentialGroup()
-                        .addComponent(jComboBox7, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addComponent(jTextField24)
-                    .addComponent(jTextField25, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(patrocinioEditarLayout.createSequentialGroup()
-                        .addGroup(patrocinioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel37)
-                            .addComponent(jLabel38)
-                            .addComponent(jLabel39))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTextField26)))
+                .addGroup(editarPatrocinio_ValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(editarPatrocinio_ValorLayout.createSequentialGroup()
+                        .addComponent(editarPatrocinio_Evento, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))
+                    .addGroup(editarPatrocinio_ValorLayout.createSequentialGroup()
+                        .addGroup(editarPatrocinio_ValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel33)
+                            .addComponent(editarPatrocinio_Edicao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel34)
+                            .addComponent(editarPatrocinio_Pat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(editarPatrocinio_ValorLayout.createSequentialGroup()
+                                .addGroup(editarPatrocinio_ValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(editarPatrocinio_ValorLayout.createSequentialGroup()
+                                        .addGroup(editarPatrocinio_ValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel37)
+                                            .addComponent(editarPatrocinio_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(61, 61, 61))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editarPatrocinio_ValorLayout.createSequentialGroup()
+                                        .addComponent(editarPatrocinio_Button)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(editarPatrocinio_ValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editarPatrocinio_valor)
+                                    .addGroup(editarPatrocinio_ValorLayout.createSequentialGroup()
+                                        .addGroup(editarPatrocinio_ValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jButton11)
+                                            .addComponent(jLabel38))
+                                        .addGap(0, 68, Short.MAX_VALUE)))))
+                        .addGap(0, 0, 0))))
         );
-        patrocinioEditarLayout.setVerticalGroup(
-            patrocinioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patrocinioEditarLayout.createSequentialGroup()
+        editarPatrocinio_ValorLayout.setVerticalGroup(
+            editarPatrocinio_ValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editarPatrocinio_ValorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel32)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(editarPatrocinio_Evento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel33)
-                .addGap(22, 22, 22)
-                .addComponent(jLabel37)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel38)
+                .addComponent(editarPatrocinio_Edicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel34)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel39)
+                .addComponent(editarPatrocinio_Pat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(editarPatrocinio_ValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel37)
+                    .addComponent(jLabel38))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addGroup(patrocinioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11)
-                    .addComponent(jLabel40)
-                    .addComponent(jButton12))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGroup(editarPatrocinio_ValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editarPatrocinio_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editarPatrocinio_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addGroup(editarPatrocinio_ValorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editarPatrocinio_Button)
+                    .addComponent(jButton11))
+                .addContainerGap(516, Short.MAX_VALUE))
         );
 
-        patrocinioTPane.addTab("Editar", patrocinioEditar);
+        patrocinioTPane.addTab("Editar", editarPatrocinio_Valor);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -743,13 +757,15 @@ public class TelaPatrocinio extends javax.swing.JFrame {
             String cnpjPat = PatrocinadorBD.getCnpjByName(jcb.getSelectedItem().toString());
             details = PatrocinioBD.buscar(cnpjPat, codEv, numEd);
             buscarPatrocinio_CNPJ.setText(details.get(0));
-            buscarPatrocinio_Valor.setText(details.get(3));
+            String valor = new String(details.get(3));
+            valor = NumberFormat.getCurrencyInstance().format(Double.parseDouble(valor));
+            buscarPatrocinio_Valor.setText(valor);
             buscarPatrocinio_Saldo.setText(details.get(4));
             buscarPatrocinio_Data.setText(details.get(5));
         } catch (SQLException ex) {
             Logger.getLogger(TelaPatrocinio.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ParseException ex) {
-                Logger.getLogger(TelaPatrocinio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaPatrocinio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_buscarPatrocinio_PatActionPerformed
 
@@ -768,6 +784,98 @@ public class TelaPatrocinio extends javax.swing.JFrame {
             Logger.getLogger(TelaPatrocinio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_buscarPatrocinio_EdicaoActionPerformed
+
+    private void editarPatrocinio_EventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPatrocinio_EventoActionPerformed
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        if(jcb.getSelectedIndex()==0) return;
+        try {
+            Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
+            model = EdicaoBD.getEditions(codEv);
+            clearFields();
+            editarPatrocinio_Pat.setSelectedIndex(0);
+            editarPatrocinio_Edicao.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPatrocinio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_editarPatrocinio_EventoActionPerformed
+
+    private void editarPatrocinio_EdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPatrocinio_EdicaoActionPerformed
+        if(editarPatrocinio_Evento.getSelectedIndex()==0) return;
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        if(jcb.getSelectedIndex()==0) return;
+        try {
+            Integer codEv = EventoBD.getCodeByName(editarPatrocinio_Evento.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(jcb.getSelectedItem().toString());
+            model = PatrocinioBD.buscarPat(codEv, numEd);
+            editarPatrocinio_Pat.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPatrocinio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_editarPatrocinio_EdicaoActionPerformed
+
+    private void editarPatrocinio_PatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPatrocinio_PatActionPerformed
+        if(editarPatrocinio_Evento.getSelectedIndex()==0||
+                editarPatrocinio_Edicao.getSelectedIndex()==0) return;
+        JComboBox jcb = new JComboBox();
+        jcb = (JComboBox) evt.getSource();
+        if(jcb.getSelectedIndex()==0) return;
+        ArrayList<String> details = new ArrayList<String>();
+        try {
+            Integer codEv = EventoBD.getCodeByName(editarPatrocinio_Evento.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(editarPatrocinio_Edicao.getSelectedItem().toString());
+            String cnpjPat = PatrocinadorBD.getCnpjByName(jcb.getSelectedItem().toString());
+            details = PatrocinioBD.buscar(cnpjPat, codEv, numEd);
+            String valor = new String(details.get(3));
+            valor = NumberFormat.getCurrencyInstance().format(Double.parseDouble(valor));
+            editarPatrocinio_valor.setText(valor);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy"); 
+            editarPatrocinio_Data.setDate(dateFormat.parse(details.get(5)));
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPatrocinio.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ParseException ex) {
+                Logger.getLogger(TelaPatrocinio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_editarPatrocinio_PatActionPerformed
+
+    private void editarPatrocinio_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPatrocinio_ButtonActionPerformed
+        if(editarPatrocinio_Evento.getSelectedIndex()==0||
+                editarPatrocinio_Edicao.getSelectedIndex()==0||
+                editarPatrocinio_Pat.getSelectedIndex()==0) return;
+        try {
+            String cnpjPat = PatrocinadorBD.getCnpjByName(
+                    editarPatrocinio_Pat.getSelectedItem().toString());
+            Integer codEv = EventoBD.getCodeByName(editarPatrocinio_Evento.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(editarPatrocinio_Edicao.getSelectedItem().toString());
+            java.sql.Date dataPat = new java.sql.Date(editarPatrocinio_Data.getDate().getTime());
+            String valorPat = editarPatrocinio_valor.getText();
+            if(valorPat.startsWith("£")||(valorPat.startsWith("$"))||(valorPat.startsWith("€"))){
+                System.out.println(valorPat);
+                valorPat = valorPat.substring(1);
+            }
+            if(valorPat.contains("R$")) valorPat = valorPat.substring(2);
+            if(valorPat.contains(",")){
+                valorPat = valorPat.replace(",", "");
+            }
+            System.out.println(valorPat);
+            Double valor = Double.parseDouble(valorPat);
+            PatrocinioBD.atualizar(cnpjPat, codEv, numEd, valor.toString(), dataPat.toString());
+            JOptionPane.showMessageDialog(null, "Atualização Realizada" , "Atualizar", JOptionPane.INFORMATION_MESSAGE);
+            clearFields();
+            editarPatrocinio_Evento.setSelectedIndex(0);
+            editarPatrocinio_Edicao.setSelectedIndex(0);
+            editarPatrocinio_Pat.setSelectedIndex(0);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPatrocinio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Valor do Patrocinio incorreto " , "Erro", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, e);
+        }
+       
+    }//GEN-LAST:event_editarPatrocinio_ButtonActionPerformed
     
     private void loadComboBox(){
         DefaultComboBoxModel modelNames = new DefaultComboBoxModel();
@@ -787,7 +895,11 @@ public class TelaPatrocinio extends javax.swing.JFrame {
             
             buscarPatrocinio_Evento.setModel(evModel);
             buscarPatrocinio_Edicao.setModel(emptyModel);
-            buscarPatrocinio_Pat.setModel(emptyModel);
+            buscarPatrocinio_Pat.setModel(emptyModel2);
+            
+            editarPatrocinio_Evento.setModel(evModel);
+            editarPatrocinio_Edicao.setModel(emptyModel);
+            editarPatrocinio_Pat.setModel(emptyModel2);
             
         } catch (SQLException ex) {
             Logger.getLogger(TelaPatrocinador.class.getName()).log(Level.SEVERE, null, ex);
@@ -800,10 +912,8 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         inserirData_Patrocinio.setDate(null);
         
 //        editByName.setSelectedIndex(0);
-//        editNome.setText("");
-//        editTel.setText("");
-//        editEnd.setText("");
-//        
+        editarPatrocinio_valor.setText("");
+        editarPatrocinio_Data.setDate(null);
 //        deleteByName.setSelectedIndex(0);
 //        deleteCnpj.setText("");
 //        deleteNome.setText("");
@@ -860,21 +970,25 @@ public class TelaPatrocinio extends javax.swing.JFrame {
     private javax.swing.JComboBox buscarPatrocinio_Pat;
     private javax.swing.JTextField buscarPatrocinio_Saldo;
     private javax.swing.JTextField buscarPatrocinio_Valor;
+    private javax.swing.JButton editarPatrocinio_Button;
+    private org.jdesktop.swingx.JXDatePicker editarPatrocinio_Data;
+    private javax.swing.JComboBox editarPatrocinio_Edicao;
+    private javax.swing.JComboBox editarPatrocinio_Evento;
+    private javax.swing.JComboBox editarPatrocinio_Pat;
+    private javax.swing.JPanel editarPatrocinio_Valor;
+    private javax.swing.JTextField editarPatrocinio_valor;
     private javax.swing.JButton inserirButton;
     private org.jdesktop.swingx.JXDatePicker inserirData_Patrocinio;
     private javax.swing.JComboBox inserirEd_Patrocinador;
     private javax.swing.JComboBox inserirEv_Patrocinador;
     private javax.swing.JTextField inserirValor_Patrocinio;
     private javax.swing.JComboBox insertByName;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JComboBox jComboBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -895,11 +1009,10 @@ public class TelaPatrocinio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -910,12 +1023,8 @@ public class TelaPatrocinio extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
     private javax.swing.JPanel patrocinioBuscar;
     private javax.swing.JPanel patrocinioDeletar;
-    private javax.swing.JPanel patrocinioEditar;
     private javax.swing.JPanel patrocinioInserir;
     protected javax.swing.JTabbedPane patrocinioTPane;
     // End of variables declaration//GEN-END:variables

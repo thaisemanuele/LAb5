@@ -286,6 +286,9 @@
                   </Events>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="datePickerEditIni">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="datePickerEditIniActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="datePickerEditFim">
                 </Component>

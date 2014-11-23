@@ -192,6 +192,12 @@ public class TelaEdicao extends javax.swing.JFrame {
             }
         });
 
+        datePickerEditIni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                datePickerEditIniActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout edicaoEditarLayout = new javax.swing.GroupLayout(edicaoEditar);
         edicaoEditar.setLayout(edicaoEditarLayout);
         edicaoEditarLayout.setHorizontalGroup(
@@ -278,7 +284,7 @@ public class TelaEdicao extends javax.swing.JFrame {
                     .addComponent(EditarEdButton)
                     .addComponent(jButton2)
                     .addComponent(jLabel1))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         edicaoTPane.addTab("Editar", edicaoEditar);
@@ -720,7 +726,7 @@ public class TelaEdicao extends javax.swing.JFrame {
                 .addComponent(searchEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(searchEdNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(edicaoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editionCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1013,6 +1019,10 @@ public class TelaEdicao extends javax.swing.JFrame {
     private void selectInsertEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectInsertEvActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_selectInsertEvActionPerformed
+
+    private void datePickerEditIniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datePickerEditIniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_datePickerEditIniActionPerformed
 
     private void loadComboBox(){
         DefaultComboBoxModel model = new DefaultComboBoxModel();
