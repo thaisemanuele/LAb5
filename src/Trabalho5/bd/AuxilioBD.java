@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -19,6 +20,16 @@ import java.util.ArrayList;
 
 public class AuxilioBD {
     
+    public static void inserir(String cnpj, Integer codEv, Integer numEd,Integer idApr,Integer valor,
+        String dataInsc, String tipoAux) throws SQLException, ParseException{
+            String insert = "INSERT INTO Auxilio VALUES( '"+cnpj+"', " + codEv + ", "+numEd+ ", "
+                    + " " + codEv + ", "+numEd+ ", "+idApr+ ", "
+                    + ""+valor+", TO_DATE('" +dataInsc+"','YYYY-MM-DD'), '" +tipoAux+"')";
+        System.out.println("insert statement " + insert);
+        Statement statement = dbConnection.createStatement();
+        statement.executeUpdate(insert);
+
+    }
     
     public static ArrayList<String> buscarPorTipoAux(Integer codEv, Integer numEd, String tipoAux) 
             throws SQLException, ParseException{
@@ -52,5 +63,36 @@ public class AuxilioBD {
         rs.close();
         return details; 
      }
+        
+        public static DefaultComboBoxModel getCnpjPat(Integer codEv, Integer numEd) throws SQLException{
+         int i=1;
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+          String selectSQL = "SELECT cnpjPat FROM Patrocinio "
+                + "WHERE codEv = " + codEv + " AND numEd = " +numEd+ "";
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectSQL);
+        model.addElement(" --- ");
+        while(rs.next()){
+            
+            model.addElement(rs.getString("cnpjPat"));
+            i++;
+        }
+       return model;
+    }
+        public static DefaultComboBoxModel getNamePat(Integer codEv, Integer numEd) throws SQLException{
+         int i=1;
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+          String selectSQL = "SELECT cnpjPat FROM Patrocinio "
+                + "WHERE codEv = " + codEv + " AND numEd = " +numEd+ "";
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectSQL);
+        model.addElement(" --- ");
+        while(rs.next()){
+            
+            model.addElement(PatrocinadorBD.getName(rs.getString("cnpjPat")));
+            i++;
+        }
+       return model;
+    }
  }
 
