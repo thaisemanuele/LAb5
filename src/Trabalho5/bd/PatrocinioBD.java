@@ -51,12 +51,18 @@ public class PatrocinioBD {
             String update = "UPDATE Patrocinio SET valorPat = " 
                     +valorPat+ ", dataPat = TO_DATE('" +dataPat+"','YYYY-MM-DD')"+
                     " WHERE cnpjPat = '"+cnpjPat+"' AND numEd = " + numEd + " and codEv = " + codEv + "";
-            System.out.println("insert statement " + update);
+            System.out.println("update statement " + update);
             Statement statement = dbConnection.createStatement();
             statement.executeUpdate(update);
         }
-    
         
+        public static void excluir(String cnpjPat,Integer codEv, Integer numEd) throws SQLException{
+            String delete = "DELETE FROM Patrocinio WHERE cnpjPat = '"+cnpjPat+"' AND numEd = '" + numEd + "' and codEv = '" + codEv + "'";
+            Statement statement = dbConnection.createStatement();
+            statement.executeUpdate(delete);
+        }
+        
+               
         public static DefaultComboBoxModel buscarPat(Integer codEv, Integer numEd)throws SQLException{
             
             DefaultComboBoxModel model = new DefaultComboBoxModel();
