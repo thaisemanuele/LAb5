@@ -1056,12 +1056,12 @@ public class TelaAuxilio extends javax.swing.JFrame {
     }//GEN-LAST:event_insertButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        java.sql.Date dataInsc = new java.sql.Date(editDate.getDate().getTime());
         if(editarAuxEv.getSelectedIndex()==0||
                 editarAuxEd.getSelectedIndex()==0||
                 editPat.getSelectedIndex()==0) return;
         
         try {
+            java.sql.Date dataAux = new java.sql.Date(editDate.getDate().getTime());
             Integer codEv = EventoBD.getCodeByName(editarAuxEv.getSelectedItem().toString());
             Integer idPe = PessoaBD.getIdByEmail(editarAuxBen.getSelectedItem().toString());
             String cnpj = PatrocinadorBD.getCnpjByName(editPat.getSelectedItem().toString());
@@ -1069,15 +1069,24 @@ public class TelaAuxilio extends javax.swing.JFrame {
             if(valorPat.startsWith("£")||(valorPat.startsWith("$"))||(valorPat.startsWith("€"))){
                 System.out.println(valorPat);
                 valorPat = valorPat.substring(1);
+                if(valorPat.contains(",")){
+                    valorPat = valorPat.replace(",", "");
+                }
             }
-            if(valorPat.contains("R$")) valorPat = valorPat.substring(2);
-            if(valorPat.contains(",")){
+            else if(valorPat.contains("R$ ")){
+                valorPat = valorPat.substring(3);
+                if(valorPat.contains(",")){
+                    valorPat = valorPat.replace(",", ".");
+                }
+            }
+            else if(valorPat.contains(",")){
                 valorPat = valorPat.replace(",", "");
             }
+            
             System.out.println(valorPat);
             Double valor = Double.parseDouble(valorPat);
             AuxilioBD.atualizar(cnpj, codEv, Integer.parseInt(editarAuxEd.getSelectedItem().toString()),
-                idPe, valor.toString(), dataInsc.toString(), inserirTipoAux.getSelectedItem().toString());
+                idPe, valor.toString(), dataAux.toString(), inserirTipoAux.getSelectedItem().toString());
             JOptionPane.showMessageDialog(null, "Auxilio atualizado com sucesso " , "Successo", JOptionPane.INFORMATION_MESSAGE);
             clearFields();
             loadComboBox();
