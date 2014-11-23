@@ -48,10 +48,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         auxilioTPane = new javax.swing.JTabbedPane();
         auxilioBuscar = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        buscarAuxEv = new javax.swing.JComboBox();
-        jButton3 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        buscarAux_Evento = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -59,17 +56,15 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        searchEv = new javax.swing.JTextField();
-        searchEd = new javax.swing.JTextField();
-        searchBen = new javax.swing.JTextField();
-        searchValor = new javax.swing.JTextField();
-        searchDate = new javax.swing.JTextField();
-        searchTipoAux = new javax.swing.JTextField();
-        buscarAuxEd = new javax.swing.JComboBox();
-        buscarAuxTipoAux = new javax.swing.JComboBox();
-        buscarAuxBen = new javax.swing.JComboBox();
+        buscarAux_Nome = new javax.swing.JTextField();
+        buscarAux_Valor = new javax.swing.JTextField();
+        buscarAux_Data = new javax.swing.JTextField();
+        buscarAux_Edicao = new javax.swing.JComboBox();
+        buscarAux_TipoAux = new javax.swing.JComboBox();
+        buscarAux_Beneficiario = new javax.swing.JComboBox();
         jLabel28 = new javax.swing.JLabel();
-        searchPat = new javax.swing.JTextField();
+        buscarAux_Pat = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
         auxilioEditar = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         editarAuxTipoAux = new javax.swing.JComboBox();
@@ -95,8 +90,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        inserirAuxEventos = new javax.swing.JComboBox();
-        inserirAuxEdicao = new javax.swing.JComboBox();
+        inserirAux_Edicao = new javax.swing.JComboBox();
         inserirAuxBen = new javax.swing.JComboBox();
         jTextField1 = new javax.swing.JTextField();
         insertDate = new javax.swing.JTextField();
@@ -105,6 +99,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         inserirAuxPat = new javax.swing.JComboBox();
         inserirAuxTipoAux = new javax.swing.JComboBox();
+        inserirAux_Evento = new javax.swing.JComboBox();
         auxilioDeletar = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         deletarAuxTipoAux = new javax.swing.JComboBox();
@@ -133,18 +128,12 @@ public class TelaAuxilio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel8.setText("Escolha o tipo de auxílio, evento, edição e beneficiário desejados, nessa ordem:");
-
-        buscarAuxEv.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        buscarAuxEv.addActionListener(new java.awt.event.ActionListener() {
+        buscarAux_Evento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        buscarAux_Evento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarAuxEvActionPerformed(evt);
+                buscarAux_EventoActionPerformed(evt);
             }
         });
-
-        jButton3.setText("Buscar");
-
-        jLabel9.setText("As seguintes informações foram encontradas:");
 
         jLabel10.setText("Evento:");
 
@@ -165,28 +154,30 @@ public class TelaAuxilio extends javax.swing.JFrame {
             }
         });
 
-        buscarAuxEd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        buscarAuxEd.addActionListener(new java.awt.event.ActionListener() {
+        buscarAux_Edicao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        buscarAux_Edicao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarAuxEdActionPerformed(evt);
+                buscarAux_EdicaoActionPerformed(evt);
             }
         });
 
-        buscarAuxTipoAux.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        buscarAuxTipoAux.addActionListener(new java.awt.event.ActionListener() {
+        buscarAux_TipoAux.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        buscarAux_TipoAux.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarAuxTipoAuxActionPerformed(evt);
+                buscarAux_TipoAuxActionPerformed(evt);
             }
         });
 
-        buscarAuxBen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        buscarAuxBen.addActionListener(new java.awt.event.ActionListener() {
+        buscarAux_Beneficiario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        buscarAux_Beneficiario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarAuxBenActionPerformed(evt);
+                buscarAux_BeneficiarioActionPerformed(evt);
             }
         });
 
         jLabel28.setText("Patrocinador:");
+
+        jLabel32.setText("Nome:");
 
         javax.swing.GroupLayout auxilioBuscarLayout = new javax.swing.GroupLayout(auxilioBuscar);
         auxilioBuscar.setLayout(auxilioBuscarLayout);
@@ -194,107 +185,77 @@ public class TelaAuxilio extends javax.swing.JFrame {
             auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(auxilioBuscarLayout.createSequentialGroup()
                 .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
-                    .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                        .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(buscarAuxEv, 0, 508, Short.MAX_VALUE)
-                                .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                                    .addGap(212, 212, 212)
-                                    .addComponent(jButton3))
-                                .addComponent(buscarAuxEd, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(buscarAuxBen, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(buscarAuxTipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(auxilioBuscarLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioBuscarLayout.createSequentialGroup()
-                                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(searchEd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(searchBen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                                        .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel9)
-                                            .addComponent(searchEv, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(77, 77, 77))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioBuscarLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton4))
+                            .addComponent(jLabel10)
+                            .addComponent(buscarAux_Evento, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                                        .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel28)
-                                            .addComponent(jLabel13))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                                                .addComponent(searchValor, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabel14)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(searchDate, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(searchPat, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                                        .addComponent(jLabel15)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(searchTipoAux)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
+                                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(buscarAux_Edicao, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(52, 52, 52)
+                                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(buscarAux_TipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel28)
+                            .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(buscarAux_Pat, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(buscarAux_Nome, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(buscarAux_Beneficiario, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(auxilioBuscarLayout.createSequentialGroup()
+                                    .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(buscarAux_Valor, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel13))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                                    .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel14)
+                                        .addComponent(buscarAux_Data, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(auxilioBuscarLayout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(jButton4)))
+                .addGap(63, 63, 63))
         );
         auxilioBuscarLayout.setVerticalGroup(
             auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(auxilioBuscarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buscarAuxTipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buscarAuxEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buscarAuxEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buscarAuxBen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buscarAux_Evento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchBen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel28)
-                    .addComponent(searchPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
-                    .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(searchValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel14)
-                        .addComponent(searchDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchTipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
                     .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buscarAux_Edicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscarAux_TipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buscarAux_Beneficiario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel32)
+                .addGap(2, 2, 2)
+                .addComponent(buscarAux_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buscarAux_Pat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14))
+                .addGap(2, 2, 2)
+                .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buscarAux_Valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscarAux_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addGap(34, 34, 34))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         auxilioTPane.addTab("Buscar", auxilioBuscar);
@@ -302,6 +263,11 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jLabel25.setText("Escolha o tipo de auxílio, evento, edição e beneficiário desejados, nessa ordem:");
 
         editarAuxTipoAux.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editarAuxTipoAux.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarAuxTipoAuxActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("Carregar Informações");
 
@@ -348,8 +314,8 @@ public class TelaAuxilio extends javax.swing.JFrame {
             auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(auxilioEditarLayout.createSequentialGroup()
                 .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
-                    .addComponent(editarAuxTipoAux, 0, 544, Short.MAX_VALUE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
+                    .addComponent(editarAuxTipoAux, 0, 716, Short.MAX_VALUE)
                     .addGroup(auxilioEditarLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(auxilioEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -433,21 +399,19 @@ public class TelaAuxilio extends javax.swing.JFrame {
 
         jLabel7.setText("Data:");
 
-        inserirAuxEventos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        inserirAuxEventos.addActionListener(new java.awt.event.ActionListener() {
+        inserirAux_Edicao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        inserirAux_Edicao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inserirAuxEventosActionPerformed(evt);
-            }
-        });
-
-        inserirAuxEdicao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        inserirAuxEdicao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inserirAuxEdicaoActionPerformed(evt);
+                inserirAux_EdicaoActionPerformed(evt);
             }
         });
 
         inserirAuxBen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        inserirAuxBen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inserirAuxBenActionPerformed(evt);
+            }
+        });
 
         insertDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -467,58 +431,65 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jLabel27.setText("Patrocinador:");
 
         inserirAuxPat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        inserirAuxPat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inserirAuxPatActionPerformed(evt);
+            }
+        });
 
         inserirAuxTipoAux.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        inserirAuxTipoAux.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inserirAuxTipoAuxActionPerformed(evt);
+            }
+        });
+
+        inserirAux_Evento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        inserirAux_Evento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inserirAux_EventoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout auxilioInserirLayout = new javax.swing.GroupLayout(auxilioInserir);
         auxilioInserir.setLayout(auxilioInserirLayout);
         auxilioInserirLayout.setHorizontalGroup(
             auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(auxilioInserirLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioInserirLayout.createSequentialGroup()
-                        .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(auxilioInserirLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(insertDate, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(inserirAuxPat, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inserirAuxEdicao, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inserirAuxEventos, javax.swing.GroupLayout.Alignment.LEADING, 0, 480, Short.MAX_VALUE)
-                            .addComponent(inserirAuxBen, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioInserirLayout.createSequentialGroup()
-                                .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(auxilioInserirLayout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(inserirAuxTipoAux, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(64, 64, 64))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioInserirLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioInserirLayout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(56, 56, 56))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioInserirLayout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2)
-                                .addGap(67, 67, 67))))
                     .addGroup(auxilioInserirLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(auxilioInserirLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(inserirAuxTipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(auxilioInserirLayout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(jButton1)
+                        .addGap(27, 27, 27)
+                        .addComponent(jButton2))
+                    .addGroup(auxilioInserirLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(auxilioInserirLayout.createSequentialGroup()
-                                .addGap(11, 11, 11)
                                 .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
+                                .addGap(184, 184, 184)
                                 .addComponent(jLabel7))
-                            .addComponent(jLabel27))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel5)
+                            .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(inserirAuxPat, javax.swing.GroupLayout.Alignment.LEADING, 0, 390, Short.MAX_VALUE)
+                                .addComponent(inserirAuxBen, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(inserirAux_Edicao, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(inserirAux_Evento, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addGroup(auxilioInserirLayout.createSequentialGroup()
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(insertDate, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         auxilioInserirLayout.setVerticalGroup(
             auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -527,35 +498,37 @@ public class TelaAuxilio extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inserirAuxEventos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addComponent(jLabel3)
+                .addGap(4, 4, 4)
+                .addComponent(inserirAux_Evento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(inserirAuxEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(inserirAux_Edicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inserirAuxBen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel27)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(inserirAuxPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(12, 12, 12)
+                .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
                     .addComponent(insertDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(inserirAuxTipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(inserirAuxTipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
                 .addGroup(auxilioInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         auxilioTPane.addTab("Inserir", auxilioInserir);
@@ -667,7 +640,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
                             .addComponent(deleteEd)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, auxilioDeletarLayout.createSequentialGroup()
                                 .addComponent(deleteValor, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
                                 .addComponent(jLabel22)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(deleteDate, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -748,9 +721,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -780,75 +751,48 @@ public class TelaAuxilio extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void inserirAuxEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirAuxEventosActionPerformed
-        DefaultComboBoxModel model = new DefaultComboBoxModel();
+    private void inserirAux_EdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirAux_EdicaoActionPerformed
+        if(inserirAux_Evento.getSelectedIndex() == 0) return;
+        DefaultComboBoxModel aprModel = new DefaultComboBoxModel();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
-        try {
-            Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
-            model = EdicaoBD.getEditions(codEv);
-            inserirAuxEdicao.setModel(model);
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_inserirAuxEventosActionPerformed
-
-    private void inserirAuxEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirAuxEdicaoActionPerformed
-        if(inserirAuxEventos.getSelectedIndex() == 0) return;
-        
-        DefaultComboBoxModel model = new DefaultComboBoxModel();
-        JComboBox jcb = new JComboBox();
-        jcb = (JComboBox) evt.getSource();
-        
         if(jcb.getSelectedIndex() == 0) return;
-        ArrayList <String> details = new ArrayList<String>();
         try {
-            Integer codEv = EventoBD.getCodeByName(inserirAuxEventos.getSelectedItem().toString());
-            details = InscritoBD.buscarInscritos(codEv,
-                    Integer.parseInt(jcb.getSelectedItem().toString()));
+            Integer codEv = EventoBD.getCodeByName(inserirAux_Evento.getSelectedItem().toString());
+            Integer numEd = Integer.parseInt(jcb.getSelectedItem().toString());
+            aprModel = InscritoBD.getApr(codEv,numEd);
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
         }
-        for(String d : details){
-            try {
-                model.addElement(PessoaBD.getEmailById(Integer.parseInt(d)));
-            } catch (SQLException ex) {
-                Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        inserirAuxBen.setModel(model);
-    }//GEN-LAST:event_inserirAuxEdicaoActionPerformed
+        inserirAuxBen.setModel(aprModel);
+    }//GEN-LAST:event_inserirAux_EdicaoActionPerformed
 
-    private void buscarAuxEvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAuxEvActionPerformed
+    private void buscarAux_EventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAux_EventoActionPerformed
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         try {
             Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
             model = EdicaoBD.getEditions(codEv);
-            buscarAuxEd.setModel(model);
+            buscarAux_Edicao.setModel(model);
         } catch (SQLException ex) {
             Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_buscarAuxEvActionPerformed
+    }//GEN-LAST:event_buscarAux_EventoActionPerformed
 
-    private void buscarAuxEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAuxEdActionPerformed
-        if(buscarAuxEv.getSelectedIndex() == 0) return;
-        if(buscarAuxTipoAux.getSelectedIndex() == 0) {
-             JOptionPane.showMessageDialog(null, "Selecione o Tipo do auxílio " , "Erro", JOptionPane.INFORMATION_MESSAGE);
-        }
+    private void buscarAux_EdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAux_EdicaoActionPerformed
+        if(buscarAux_Evento.getSelectedIndex() == 0) return;
         
         DefaultComboBoxModel model = new DefaultComboBoxModel();
+        DefaultComboBoxModel tipoAuxModel = new DefaultComboBoxModel();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
-        
         if(jcb.getSelectedIndex() == 0) return;
         ArrayList <String> details = new ArrayList<String>();
         try {
-            Integer codEv = EventoBD.getCodeByName(buscarAuxEv.getSelectedItem().toString());
+            Integer codEv = EventoBD.getCodeByName(buscarAux_Evento.getSelectedItem().toString());
             details = AuxilioBD.buscarPorTipoAux(codEv, Integer.parseInt(jcb.getSelectedItem().toString()), 
-                    buscarAuxTipoAux.getSelectedItem().toString());
+                    buscarAux_TipoAux.getSelectedItem().toString());
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -859,16 +803,20 @@ public class TelaAuxilio extends javax.swing.JFrame {
                 Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        buscarAuxBen.setModel(model);
-    }//GEN-LAST:event_buscarAuxEdActionPerformed
+        tipoAuxModel.addElement("alimentação");
+        tipoAuxModel.addElement("hospedagem");
+        tipoAuxModel.addElement("transporte");
+            
+        buscarAux_Beneficiario.setModel(model);
+        buscarAux_TipoAux.setModel(tipoAuxModel);
+    }//GEN-LAST:event_buscarAux_EdicaoActionPerformed
 
-    private void buscarAuxTipoAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAuxTipoAuxActionPerformed
+    private void buscarAux_TipoAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAux_TipoAuxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buscarAuxTipoAuxActionPerformed
+    }//GEN-LAST:event_buscarAux_TipoAuxActionPerformed
 
-    private void buscarAuxBenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAuxBenActionPerformed
-       if(buscarAuxBen.getSelectedIndex() == 0) return;
-       
+    private void buscarAux_BeneficiarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarAux_BeneficiarioActionPerformed
+      if(buscarAux_Beneficiario.getSelectedIndex() == 0) return;
         ArrayList <String> details = new ArrayList<String>();
         ArrayList <String> details2 = new ArrayList<String>();
         JComboBox jcb = new JComboBox();
@@ -876,20 +824,18 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jcb = (JComboBox) evt.getSource();
         try {
             DefaultComboBoxModel evPartModel = new DefaultComboBoxModel();
-            Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
+            Integer codEv = EventoBD.getCodeByName(buscarAux_Evento.getSelectedItem().toString());
             Integer idApr = PessoaBD.getIdByEmail(jcb.getSelectedItem().toString());
             details = PessoaBD.buscar(idApr);
-            searchBen.setText(details.get(1));
+            buscarAux_Nome.setText(details.get(1));
             //String Pat = PatrocinadorBD.getNameByCnpj(jcb.getSelectedItem().toString());
-            details2 = AuxilioBD.buscar(codEv, Integer.parseInt(searchEd.toString()), idApr, searchTipoAux.toString());
-            searchPat.setText(details2.get(0));
-            searchEv.setText(details2.get(1));
-            searchEd.setText(details2.get(2));
-            searchValor.setText(details2.get(4));
-            searchDate.setText(details2.get(5));
-            searchTipoAux.setText(details2.get(6));
-            
-    
+            Integer numEd = Integer.parseInt(buscarAux_Edicao.getSelectedItem().toString());
+            String tipoAux = buscarAux_TipoAux.getSelectedItem().toString();
+            details2 = AuxilioBD.buscar(codEv, numEd, idApr, tipoAux);
+            buscarAux_Pat.setText(details2.get(0));
+            buscarAux_Valor.setText(details2.get(6));
+            buscarAux_Data.setText(details2.get(7));
+           
             details.clear();
             details2.clear();
 
@@ -897,7 +843,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
             Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }//GEN-LAST:event_buscarAuxBenActionPerformed
+    }//GEN-LAST:event_buscarAux_BeneficiarioActionPerformed
 
     private void insertDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertDateActionPerformed
         // TODO add your handling code here:
@@ -917,7 +863,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
     }//GEN-LAST:event_editarAuxEvActionPerformed
 
     private void editarAuxEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarAuxEdActionPerformed
-       if(editarAuxEv.getSelectedIndex() == 0) return;
+        if(editarAuxEv.getSelectedIndex() == 0) return;
         if(editarAuxTipoAux.getSelectedIndex() == 0) {
              JOptionPane.showMessageDialog(null, "Selecione o Tipo do auxílio " , "Erro", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -963,7 +909,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
     }//GEN-LAST:event_deletarAuxEvActionPerformed
 
     private void deletarAuxEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarAuxEdActionPerformed
-       if(deletarAuxEv.getSelectedIndex() == 0) return;
+        if(deletarAuxEv.getSelectedIndex() == 0) return;
         if(deletarAuxTipoAux.getSelectedIndex() == 0) {
              JOptionPane.showMessageDialog(null, "Selecione o Tipo do auxílio " , "Erro", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -991,19 +937,46 @@ public class TelaAuxilio extends javax.swing.JFrame {
         deletarAuxBen.setModel(model);
     }//GEN-LAST:event_deletarAuxEdActionPerformed
 
+    private void editarAuxTipoAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarAuxTipoAuxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editarAuxTipoAuxActionPerformed
+
+    private void inserirAux_EventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirAux_EventoActionPerformed
+        if(inserirAux_Evento.getSelectedIndex()==0) return;
+        try {
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            Integer codEv = EventoBD.getCodeByName(inserirAux_Evento.getSelectedItem().toString());
+            model = EdicaoBD.getEditions(codEv);
+            inserirAux_Edicao.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_inserirAux_EventoActionPerformed
+
+    private void inserirAuxBenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirAuxBenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inserirAuxBenActionPerformed
+
+    private void inserirAuxPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirAuxPatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inserirAuxPatActionPerformed
+
+    private void inserirAuxTipoAuxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirAuxTipoAuxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inserirAuxTipoAuxActionPerformed
+
         public void clearFields(){
         
-           buscarAuxBen.setSelectedIndex(0);
-           buscarAuxEd.setSelectedIndex(0);
-           buscarAuxEv.setSelectedIndex(0);
-           buscarAuxTipoAux.setSelectedIndex(0);
-           searchPat.setText(" ");
-           searchEv.setText(" ");
-           searchEd.setText(" ");
-           searchBen.setText(" ");
-           searchValor.setText(" ");
-           searchDate.setText(" ");
-           searchTipoAux.setText(" ");
+           buscarAux_Beneficiario.setSelectedIndex(0);
+           buscarAux_Edicao.setSelectedIndex(0);
+           buscarAux_Evento.setSelectedIndex(0);
+           buscarAux_TipoAux.setSelectedIndex(0);
+           buscarAux_Pat.setText(" ");
+           buscarAux_Nome.setText(" ");
+           buscarAux_Valor.setText(" ");
+           buscarAux_Data.setText(" ");
+           
            
            deletarAuxBen.setSelectedIndex(0);
            deletarAuxEd.setSelectedIndex(0);
@@ -1034,6 +1007,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
         DefaultComboBoxModel emptyModel2 = new DefaultComboBoxModel();
         DefaultComboBoxModel emptyModel3 = new DefaultComboBoxModel();
         DefaultComboBoxModel emptyModel4 = new DefaultComboBoxModel();
+        DefaultComboBoxModel emptyModel5 = new DefaultComboBoxModel();
         try {
             model = EventoBD.getEventsName();
             emptyModel.addElement(" --- ");
@@ -1046,15 +1020,16 @@ public class TelaAuxilio extends javax.swing.JFrame {
             emptyModel3.addElement("transporte");
             emptyModel4.addElement(" --- ");
             emptyModel4.addElement(" Selecione Evento, Edição e Tipo de Auxílio ");
-            inserirAuxEventos.setModel(model);
-            inserirAuxEdicao.setModel(emptyModel);
+            emptyModel5.addElement(" --- ");
+            inserirAux_Evento.setModel(model);
+            inserirAux_Edicao.setModel(emptyModel);
             inserirAuxBen.setModel(emptyModel2);
             inserirAuxPat.setModel(emptyModel2);
             inserirAuxTipoAux.setModel(emptyModel3);
-            buscarAuxEv.setModel(model);
-            buscarAuxEd.setModel(emptyModel);
-            buscarAuxTipoAux.setModel(emptyModel3);
-            buscarAuxBen.setModel(emptyModel4);
+            buscarAux_Evento.setModel(model);
+            buscarAux_Edicao.setModel(emptyModel);
+            buscarAux_TipoAux.setModel(emptyModel5);
+            buscarAux_Beneficiario.setModel(emptyModel4);
             editarAuxTipoAux.setModel(emptyModel3);
             editarAuxEv.setModel(model);
             editarAuxEd.setModel(emptyModel);
@@ -1111,10 +1086,14 @@ public class TelaAuxilio extends javax.swing.JFrame {
     private javax.swing.JPanel auxilioEditar;
     private javax.swing.JPanel auxilioInserir;
     protected javax.swing.JTabbedPane auxilioTPane;
-    private javax.swing.JComboBox buscarAuxBen;
-    private javax.swing.JComboBox buscarAuxEd;
-    private javax.swing.JComboBox buscarAuxEv;
-    private javax.swing.JComboBox buscarAuxTipoAux;
+    private javax.swing.JComboBox buscarAux_Beneficiario;
+    private javax.swing.JTextField buscarAux_Data;
+    private javax.swing.JComboBox buscarAux_Edicao;
+    private javax.swing.JComboBox buscarAux_Evento;
+    private javax.swing.JTextField buscarAux_Nome;
+    private javax.swing.JTextField buscarAux_Pat;
+    private javax.swing.JComboBox buscarAux_TipoAux;
+    private javax.swing.JTextField buscarAux_Valor;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox deletarAuxBen;
     private javax.swing.JComboBox deletarAuxEd;
@@ -1135,15 +1114,14 @@ public class TelaAuxilio extends javax.swing.JFrame {
     private javax.swing.JComboBox editarAuxEv;
     private javax.swing.JComboBox editarAuxTipoAux;
     private javax.swing.JComboBox inserirAuxBen;
-    private javax.swing.JComboBox inserirAuxEdicao;
-    private javax.swing.JComboBox inserirAuxEventos;
     private javax.swing.JComboBox inserirAuxPat;
     private javax.swing.JComboBox inserirAuxTipoAux;
+    private javax.swing.JComboBox inserirAux_Edicao;
+    private javax.swing.JComboBox inserirAux_Evento;
     private javax.swing.JTextField insertDate;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -1175,22 +1153,14 @@ public class TelaAuxilio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField searchBen;
-    private javax.swing.JTextField searchDate;
-    private javax.swing.JTextField searchEd;
-    private javax.swing.JTextField searchEv;
-    private javax.swing.JTextField searchPat;
-    private javax.swing.JTextField searchTipoAux;
-    private javax.swing.JTextField searchValor;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,7 +26,6 @@ public class AuxilioBD {
         String selectTableSQL = "SELECT idApr "
                 + " FROM Auxilio WHERE codEvApr = " + codEv +" AND numEdApr = " + numEd + "" 
                 + " AND tipoAux = '"+tipoAux+"'";
-        System.out.println(selectTableSQL);
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
         ArrayList<String> details = new ArrayList<String>();
@@ -36,20 +35,18 @@ public class AuxilioBD {
         rs.close();
         return details;
     }
-    
-        public static ArrayList<String> buscar(Integer codEv, Integer numEd, Integer idApr, 
+        public static ArrayList<String> buscar(Integer codEvApr, Integer numEdApr, Integer idApr, 
                  String tipoAux) throws SQLException, ParseException{
-        String selectTableSQL = "SELECT cnpjPat, codEvApr, numEdApr, idApr, valorAux, TO_CHAR(dataInsc, 'DD-MM-YYYY'), tipoAux"
-                + " FROM Auxilio WHERE codEvApr = " + codEv +" AND numEdApr = " + numEd + ""
-                + " AND codEvPat = " + codEv + "" + " AND numEdPat = " + numEd + "" 
-                + " AND idApr = "+idApr  + " AND tipoAux = '"+tipoAux+"'";
+        String selectTableSQL = "SELECT cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, "
+                + "idApr, valorAux, TO_CHAR(dataAux, 'DD-MM-YYYY'), tipoAux"
+                + " FROM Auxilio WHERE codEvApr = " + codEvApr +" AND numEdApr = " 
+                + numEdApr + " AND idApr = "+idApr  + " AND tipoAux = '"+tipoAux+"'";
         System.out.println(selectTableSQL);
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
         ArrayList<String> details = new ArrayList<String>();
         rs.next();
-        for(int i=1; i<=7;i++){
-            
+        for(int i=1; i<=9;i++){
             details.add(rs.getString(i));
         }
         rs.close();

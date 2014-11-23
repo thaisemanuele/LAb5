@@ -63,7 +63,6 @@ public class InscritoBD {
     public static DefaultComboBoxModel getApr(Integer codEv, Integer numEd) throws SQLException, ParseException{
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         String selectTableSQL = "SELECT idPart FROM Inscrito WHERE codEv = " + codEv +" AND numEd = " + numEd +" AND tipoApresentador = '1'";
-        System.out.println(selectTableSQL);
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
         model.addElement(" --- ");

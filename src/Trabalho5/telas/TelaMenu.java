@@ -586,7 +586,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private void InserirAuxilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirAuxilioActionPerformed
         // TODO add your handling code here:
         TelaAuxilio telaAuxilio = new TelaAuxilio();
-        telaAuxilio.auxilioTPane.setSelectedIndex(0);
+        telaAuxilio.auxilioTPane.setSelectedIndex(2);
         telaAuxilio.setVisible(true);
     }//GEN-LAST:event_InserirAuxilioActionPerformed
 
@@ -661,7 +661,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private void DeletarAuxilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarAuxilioActionPerformed
         // TODO add your handling code here:
         TelaAuxilio telaAuxilio = new TelaAuxilio();
-        telaAuxilio.auxilioTPane.setSelectedIndex(2);
+        telaAuxilio.auxilioTPane.setSelectedIndex(3);
         telaAuxilio.setVisible(true);
         
     }//GEN-LAST:event_DeletarAuxilioActionPerformed
@@ -719,7 +719,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private void EditarAuxilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarAuxilioActionPerformed
         // TODO add your handling code here:
         TelaAuxilio telaAuxilio = new TelaAuxilio();
-        telaAuxilio.auxilioTPane.setSelectedIndex(3);
+        telaAuxilio.auxilioTPane.setSelectedIndex(0);
         telaAuxilio.setVisible(true);
     }//GEN-LAST:event_EditarAuxilioActionPerformed
 

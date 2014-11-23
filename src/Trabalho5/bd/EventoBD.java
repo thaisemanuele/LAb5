@@ -157,7 +157,6 @@ public class EventoBD {
         Integer id = -1;
         String selectSql = "SELECT codEv from Evento WHERE nomeEv = '"+name+"'";
         Statement statement = dbConnection.createStatement();
-        System.out.println("select statement " + selectSql);
         ResultSet rs = statement.executeQuery(selectSql);
         if(rs.next()){
             id = Integer.parseInt(rs.getString("codEv"));
