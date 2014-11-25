@@ -53,7 +53,6 @@ public class TelaInscrito extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         insertInscApType = new javax.swing.JCheckBox();
         inserirInsButton = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
         selectInsertInscCod = new javax.swing.JComboBox();
         selectInsertInscNumEd = new javax.swing.JComboBox();
@@ -82,9 +81,7 @@ public class TelaInscrito extends javax.swing.JFrame {
         deleteInscDate = new javax.swing.JTextField();
         deleteNomePart = new javax.swing.JTextField();
         selectDeleteInscEmail = new javax.swing.JComboBox();
-        jLabel24 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
-        jLabel25 = new javax.swing.JLabel();
         deleteInscButton = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         selectDeleteInscEv = new javax.swing.JComboBox();
@@ -116,8 +113,6 @@ public class TelaInscrito extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setText("Digite as informações desejadas nos campos abaixo e clique em \"inserir\"");
-
         jButton10.setText("Voltar");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,60 +136,47 @@ public class TelaInscrito extends javax.swing.JFrame {
         inscritoInserirLayout.setHorizontalGroup(
             inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inscritoInserirLayout.createSequentialGroup()
-                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(24, 24, 24)
+                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3)
+                    .addComponent(selectInsertInscNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
                     .addGroup(inscritoInserirLayout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(jLabel10))
-                    .addGroup(inscritoInserirLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoInserirLayout.createSequentialGroup()
-                                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addGroup(inscritoInserirLayout.createSequentialGroup()
-                                        .addGap(109, 109, 109)
-                                        .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(insertInscDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(inserirInsButton))))
-                                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(inscritoInserirLayout.createSequentialGroup()
-                                        .addGap(32, 32, 32)
-                                        .addComponent(insertInscApType))
-                                    .addGroup(inscritoInserirLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton10))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoInserirLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(selectInsertInscPart, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inscritoInserirLayout.createSequentialGroup()
-                                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
-                                .addGap(42, 42, 42)
-                                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(selectInsertInscCod, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(selectInsertInscNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(81, Short.MAX_VALUE))
+                        .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(inscritoInserirLayout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(insertInscDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(inserirInsButton))))
+                        .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(inscritoInserirLayout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(insertInscApType))
+                            .addGroup(inscritoInserirLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton10))))
+                    .addComponent(jLabel1)
+                    .addComponent(selectInsertInscCod, 0, 370, Short.MAX_VALUE)
+                    .addComponent(selectInsertInscPart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         inscritoInserirLayout.setVerticalGroup(
             inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inscritoInserirLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel10)
-                .addGap(52, 52, 52)
-                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(selectInsertInscCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(selectInsertInscNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(selectInsertInscPart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(48, 48, 48)
+                .addGap(54, 54, 54)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(selectInsertInscCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(selectInsertInscNumEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(selectInsertInscPart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
                 .addGroup(inscritoInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(insertInscDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
@@ -304,16 +286,16 @@ public class TelaInscrito extends javax.swing.JFrame {
                         .addGap(192, 192, 192)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                        .addGap(161, 161, 161)
+                        .addGap(163, 163, 163)
                         .addComponent(jLabel15)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         inscritoBuscarLayout.setVerticalGroup(
             inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inscritoBuscarLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel15)
-                .addGap(38, 38, 38)
+                .addGap(18, 18, 18)
                 .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(inscritoBuscarLayout.createSequentialGroup()
                         .addGroup(inscritoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -373,16 +355,12 @@ public class TelaInscrito extends javax.swing.JFrame {
             }
         });
 
-        jLabel24.setText("As seguintes informações foram encontradas:");
-
         jButton7.setText("Voltar");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-
-        jLabel25.setText("Realmente deseja deletar o inscrito?");
 
         deleteInscButton.setText("Deletar");
         deleteInscButton.addActionListener(new java.awt.event.ActionListener() {
@@ -421,32 +399,29 @@ public class TelaInscrito extends javax.swing.JFrame {
                     .addGroup(inscritoDeletarLayout.createSequentialGroup()
                         .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(jLabel25)
-                                .addGap(18, 18, 18)
-                                .addComponent(deleteInscButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton7))
-                            .addGroup(inscritoDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(deleteInscDate, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(deleteApType))
-                            .addGroup(inscritoDeletarLayout.createSequentialGroup()
                                 .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel18)
                                     .addComponent(jLabel19)
                                     .addComponent(jLabel26))
                                 .addGap(18, 18, 18)
-                                .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel24)
-                                        .addComponent(selectDeleteInscEd, javax.swing.GroupLayout.Alignment.LEADING, 0, 250, Short.MAX_VALUE)
-                                        .addComponent(selectDeleteInscEv, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(selectDeleteInscEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(selectDeleteInscEmail, 0, 352, Short.MAX_VALUE)
+                                    .addComponent(selectDeleteInscEv, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(selectDeleteInscEd, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(inscritoDeletarLayout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(deleteInscDate, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(deleteApType)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(52, Short.MAX_VALUE))
+            .addGroup(inscritoDeletarLayout.createSequentialGroup()
+                .addGap(167, 167, 167)
+                .addComponent(deleteInscButton)
+                .addGap(18, 18, 18)
+                .addComponent(jButton7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         inscritoDeletarLayout.setVerticalGroup(
             inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -463,23 +438,20 @@ public class TelaInscrito extends javax.swing.JFrame {
                 .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(selectDeleteInscEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel26))
-                .addGap(56, 56, 56)
-                .addComponent(jLabel24)
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteNomePart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(33, 33, 33)
                 .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(deleteInscDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteApType))
-                .addGap(41, 41, 41)
+                .addGap(56, 56, 56)
                 .addGroup(inscritoDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteInscButton)
                     .addComponent(jButton7))
-                .addGap(61, 61, 61))
+                .addGap(98, 98, 98))
         );
 
         inscritoTPane.addTab("Deletar", inscritoDeletar);
@@ -824,7 +796,6 @@ public class TelaInscrito extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
@@ -832,8 +803,6 @@ public class TelaInscrito extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

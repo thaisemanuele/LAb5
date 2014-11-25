@@ -44,7 +44,6 @@ public class TelaOrganiza extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         organizaTPane = new javax.swing.JTabbedPane();
         organizaInserir = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         insertOrganiza_Organizador = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
@@ -94,8 +93,6 @@ public class TelaOrganiza extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Digite as informações desejadas nos campos abaixo e clique em inserir");
-
         jLabel2.setText("Organizador:");
 
         insertOrganiza_Organizador.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -138,7 +135,7 @@ public class TelaOrganiza extends javax.swing.JFrame {
                 .addComponent(insertOrganiza_Button)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
             .addGroup(organizaInserirLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(organizaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +146,6 @@ public class TelaOrganiza extends javax.swing.JFrame {
                                 .addComponent(insertOrganiza_Edicao, 0, 383, Short.MAX_VALUE)
                                 .addComponent(insertOrganiza_Cargo, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(insertOrganiza_Evento, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(insertOrganiza_Organizador, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addContainerGap(70, Short.MAX_VALUE))
                     .addGroup(organizaInserirLayout.createSequentialGroup()
@@ -162,21 +158,19 @@ public class TelaOrganiza extends javax.swing.JFrame {
         organizaInserirLayout.setVerticalGroup(
             organizaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(organizaInserirLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addGap(38, 38, 38)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(insertOrganiza_Organizador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(insertOrganiza_Evento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(insertOrganiza_Organizador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(insertOrganiza_Evento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(insertOrganiza_Edicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(insertOrganiza_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -244,13 +238,7 @@ public class TelaOrganiza extends javax.swing.JFrame {
                             .addComponent(searchOrganiza_Cargo)))
                     .addGroup(organizaBuscarLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel7))
-                    .addGroup(organizaBuscarLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(organizaBuscarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel27))
                     .addGroup(organizaBuscarLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -259,7 +247,13 @@ public class TelaOrganiza extends javax.swing.JFrame {
                             .addComponent(searchOrganiza_Edicao, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(organizaBuscarLayout.createSequentialGroup()
                         .addGap(243, 243, 243)
-                        .addComponent(jButton4)))
+                        .addComponent(jButton4))
+                    .addGroup(organizaBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(organizaBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         organizaBuscarLayout.setVerticalGroup(
@@ -274,10 +268,10 @@ public class TelaOrganiza extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchOrganiza_Edicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(organizaBuscarLayout.createSequentialGroup()
-                        .addComponent(jLabel27)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(searchOrganiza_Organizadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(79, 79, 79)
                         .addGroup(organizaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -871,7 +865,6 @@ public class TelaOrganiza extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel19;
