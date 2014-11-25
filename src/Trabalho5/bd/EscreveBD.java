@@ -19,7 +19,7 @@ public class EscreveBD {
     
     public static void inserir(Integer idAut, Integer idArt) throws SQLException, ParseException{
         String insert = "INSERT INTO Escreve VALUES( " +idAut+ ", "+idArt+")";
-        System.out.println("insert statement " + insert);
+        System.out.println("Insert statement: " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
     }
@@ -34,7 +34,7 @@ public class EscreveBD {
     public static DefaultComboBoxModel getArtigos(Integer idAut) throws SQLException, ParseException{
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         String select = "SELECT idArt FROM Escreve WHERE idAut = " +idAut;
-        System.out.println("select statement " + select);
+        System.out.println("Select statement: " + select);
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(select);
         model.addElement(" --- ");

@@ -10,13 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Vector;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
 
 
 /**
@@ -29,7 +24,7 @@ public class PatrocinadorBD {
         
         String insert = "INSERT INTO Patrocinador VALUES( '"+cnpjPat+"', '"+razaoSocialPat+"',"
                 + "'"+telefone+"', '" +endereco+"')";
-        System.out.println("insert statement " + insert);
+        System.out.println("Insert statement: " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
 
@@ -38,12 +33,14 @@ public class PatrocinadorBD {
      public static void atualizar(String cnpj, String nomePat, String tel, String end) throws SQLException{
         String update = "UPDATE Patrocinador SET razaoSocialPat = '" +nomePat+ "', telefonePat = '" 
                 +tel+ "', enderecoPat = '" +end+ "' WHERE cnpjPat = '" + cnpj + "'";
+        System.out.println("Update statement: " + update);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(update);
     }
      
         public static void excluir(String cnpj) throws SQLException{
         String delete = "DELETE FROM Patrocinador WHERE cnpjPat = '" + cnpj + "'";
+        System.out.println("Delete statement: " + delete);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(delete);
     } 
@@ -66,7 +63,6 @@ public class PatrocinadorBD {
         public static String getCnpjByName(String name) throws SQLException{
         String id = null;
         String selectSql = "SELECT cnpjPat from Patrocinador WHERE razaoSocialPat = '"+name+"'";
-        System.out.println("select statement " + selectSql);
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectSql);
         if(rs.next()){
@@ -91,7 +87,7 @@ public class PatrocinadorBD {
                 + "WHERE razaoSocialPat = '" + nomePat + "'";
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
-        ArrayList<String> details = new ArrayList<String>();
+        ArrayList<String> details = new ArrayList<>();
         rs.next();
         for(int i=1; i<=4;i++){
             

@@ -5,7 +5,6 @@
  */
 package Trabalho5.bd;
 
-import static Trabalho5.bd.EventoBD.seqCodEv;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -28,7 +27,7 @@ public class PessoaBD {
                 + idPe + ", '"+ nomePe +"', '" +emailPe+ "', '" +instituicaoPe+"',"+"'" +telefonePe
                 +"','"+nacionalidadePe+"','"+enderecoPe+"',"+tipoOrganizador+
                 ","+tipoParticipante+","+tipoAutor+")";
-        System.out.println("insert statement " + insert);
+        System.out.println("Insert statement: " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
 
@@ -43,13 +42,14 @@ public class PessoaBD {
                 "',tipoOrganizador = " +tipoOrganizador+",tipoParticipante = " +tipoParticipante+
                 ",tipoAutor = " +tipoAutor+
                 " WHERE idPe = " + idPe +"";
-        System.out.println("insert statement " + update);
+        System.out.println("Update statement: " + update);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(update);
     }
     
     public static void excluir(Integer idPe) throws SQLException{
         String delete = "DELETE FROM Pessoa WHERE idPe = '" + idPe + "'";
+        System.out.println("Delete statement: " + delete);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(delete);
     }
@@ -60,7 +60,7 @@ public class PessoaBD {
                 + " FROM Pessoa WHERE idPe = " + idPe +"";
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
-        ArrayList<String> details = new ArrayList<String>();
+        ArrayList<String> details = new ArrayList<>();
         rs.next();
         for(int i=1; i<=10;i++){
             
@@ -87,7 +87,7 @@ public class PessoaBD {
                 + " FROM Pessoa WHERE emailPe = '" + emailPe +"'";
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
-        ArrayList<String> details = new ArrayList<String>();
+        ArrayList<String> details = new ArrayList<>();
         rs.next();
         for(int i=1; i<=10;i++){
             
@@ -107,7 +107,7 @@ public class PessoaBD {
         ResultSet rs = statement.executeQuery(selectSql);
         model.addElement(" --- ");
         while(rs.next()){
-            System.out.println(rs.getString("idPe"));
+            
             model.addElement(rs.getString("idPe"));
             i++;
         }
@@ -146,7 +146,7 @@ public class PessoaBD {
         ResultSet rs = statement.executeQuery(selectSql);
         model.addElement(" --- ");
         while(rs.next()){
-            System.out.println(rs.getString("emailPe"));
+            
             model.addElement(rs.getString("emailPe"));
             i++;
         }
@@ -162,7 +162,7 @@ public class PessoaBD {
         ResultSet rs = statement.executeQuery(selectSql);
         model.addElement(" --- ");
         while(rs.next()){
-            System.out.println(rs.getString("emailPe"));
+            
             model.addElement(rs.getString("emailPe"));
         }
        return model;
@@ -177,7 +177,7 @@ public class PessoaBD {
         ResultSet rs = statement.executeQuery(selectSql);
         model.addElement(" --- ");
         while(rs.next()){
-            System.out.println(rs.getString("emailPe"));
+            
             model.addElement(rs.getString("emailPe"));
         }
        return model;

@@ -23,7 +23,7 @@ public class InscritoBD {
         String dataInsc, Integer tipoApresentador) throws SQLException, ParseException{
             String insert = "INSERT INTO Inscrito VALUES( " 
                 + codEv + ", "+numEd+ ", "+idPart+ ",TO_DATE('" +dataInsc+"','YYYY-MM-DD'), " +tipoApresentador+")";
-        System.out.println("insert statement " + insert);
+        System.out.println("Insert statement: " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
 

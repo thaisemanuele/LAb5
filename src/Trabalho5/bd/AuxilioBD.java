@@ -25,7 +25,7 @@ public class AuxilioBD {
             String insert = "INSERT INTO Auxilio VALUES( '"+cnpj+"', " + codEv + ", "+numEd+ ", "
                     + " " + codEv + ", "+numEd+ ", "+idApr+ ", "
                     + ""+valor+", TO_DATE('" +dataInsc+"','YYYY-MM-DD'), '" +tipoAux+"')";
-        System.out.println("insert statement " + insert);
+        System.out.println("Insert statement: " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
 
@@ -37,9 +37,10 @@ public class AuxilioBD {
         String selectTableSQL = "SELECT idApr "
                 + " FROM Auxilio WHERE codEvApr = " + codEv +" AND numEdApr = " + numEd + "" 
                 + " AND tipoAux = '"+tipoAux+"'";
+        System.out.println("Select statement " + selectTableSQL);
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
-        ArrayList<String> details = new ArrayList<String>();
+        ArrayList<String> details = new ArrayList<>();
         while(rs.next()){  
             details.add(rs.getString("idApr"));
         }
@@ -55,7 +56,7 @@ public class AuxilioBD {
         System.out.println(selectTableSQL);
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
-        ArrayList<String> details = new ArrayList<String>();
+        ArrayList<String> details = new ArrayList<>();
         rs.next();
         for(int i=1; i<=9;i++){
             details.add(rs.getString(i));
@@ -69,7 +70,7 @@ public class AuxilioBD {
         String selectTableSQL = "UPDATE Auxilio  SET valorAux = '"+valorAux+"', dataAux = TO_DATE('" +dataAux+"','YYYY-MM-DD')"
                 + " WHERE codEvApr = " + codEvApr +" AND numEdApr = " 
                 + numEdApr + " AND idApr = "+idApr  + " AND tipoAux = '"+tipoAux+"'";
-        System.out.println(selectTableSQL);
+        System.out.println("Update statemente: " + selectTableSQL);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(selectTableSQL);
      }

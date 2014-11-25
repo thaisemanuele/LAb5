@@ -5,7 +5,6 @@
  */
 package Trabalho5.bd;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,7 +23,7 @@ public class ArtigoBD {
             String insert = "INSERT INTO Artigo VALUES( " +
                 getSeq()+ ", '"+tituloArt+"',TO_DATE('" +dataApresArt+"','YYYY-MM-DD'), TO_DATE('"
                     +horaApresArt+"', 'HH24:MI')"+ ", "+codEv + ", "+numEd+ ", "+idApr+")";
-        System.out.println("insert statement " + insert);
+        System.out.println("Insert statement: " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
 
@@ -34,10 +33,10 @@ public class ArtigoBD {
         String selectTableSQL = "SELECT tituloArt, TO_CHAR(dataApresArt, 'DD-MM-YYYY'),"
                 + "TO_CHAR(horaApresArt, 'HH24:MI'), codEv, numEd,idApr"
                 + " FROM Artigo WHERE idArt = " + idArt;
-        System.out.println(selectTableSQL);
+        System.out.println("Select statement " + selectTableSQL);
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
-        ArrayList<String> details = new ArrayList<String>();
+        ArrayList<String> details = new ArrayList<>();
         rs.next();
         for(int i=1; i<=6;i++){
             
@@ -52,7 +51,7 @@ public class ArtigoBD {
             String update = "UPDATE Artigo SET tituloArt = '"+tituloArt+"',dataApresArt = TO_DATE('" +dataApresArt+"','YYYY-MM-DD'), "
                 + "horaApresArt = TO_DATE('"+horaApresArt+"', 'HH24:MI')"+ ", codEv = "+codEv 
                 + ", numEd = "+numEd+ ", idApr = "+idApr+" WHERE idArt = " +idArt;
-            System.out.println("insert statement " + update);
+            System.out.println("Update statement: " + update);
             Statement statement = dbConnection.createStatement();
             statement.executeUpdate(update);
 
@@ -60,6 +59,7 @@ public class ArtigoBD {
     
     public static void excluir(Integer idArt) throws SQLException{
         String delete = "DELETE FROM Artigo WHERE idArt = '" + idArt + "'";
+        System.out.println("Delete statement: " + delete);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(delete);
     }
@@ -81,7 +81,6 @@ public class ArtigoBD {
     public static DefaultComboBoxModel getAllArtigos() throws SQLException, ParseException{
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         String selectTableSQL = "SELECT idArt FROM Artigo ";
-        System.out.println(selectTableSQL);
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
         model.addElement(" --- ");

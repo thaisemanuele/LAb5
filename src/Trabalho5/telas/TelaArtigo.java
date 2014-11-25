@@ -15,13 +15,11 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import javax.swing.JSpinner;
 
 /**
  *
@@ -781,7 +779,6 @@ public class TelaArtigo extends javax.swing.JFrame {
         if(selectInsereCodEv.getSelectedIndex()==0) return;
         DefaultComboBoxModel edModel = new DefaultComboBoxModel();
         JComboBox jcb = (JComboBox) evt.getSource();
-        Integer idPart;
         try {
             Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
             edModel = EdicaoBD.getEditions(codEv);
@@ -863,8 +860,8 @@ public class TelaArtigo extends javax.swing.JFrame {
     private void searchArtApActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchArtApActionPerformed
         if(searchArtEv.getSelectedIndex()==0 || searchArtEd.getSelectedIndex()==0) return;
         if(searchArtAp.getSelectedIndex()==0) return;
-        ArrayList<String> details = new ArrayList<String>();
-        ArrayList<String> detailsPe = new ArrayList<String>();
+        ArrayList<String> details = new ArrayList<>();
+        ArrayList<String> detailsPe = new ArrayList<>();
         try {
             Integer idArt = Integer.parseInt(searchArtAp.getSelectedItem().toString());
             details = ArtigoBD.buscar(idArt);
@@ -930,8 +927,8 @@ public class TelaArtigo extends javax.swing.JFrame {
        if(selectEditArtEv.getSelectedIndex()==0 || selectEditArtEd.getSelectedIndex()==0) return;
         if(selectEditIdArt.getSelectedIndex()==0) return;
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy"); 
-        ArrayList<String> details = new ArrayList<String>();
-        ArrayList<String> detailsPe = new ArrayList<String>();
+        ArrayList<String> details = new ArrayList<>();
+        ArrayList<String> detailsPe = new ArrayList<>();
         try {
             Integer idArt = Integer.parseInt(selectEditIdArt.getSelectedItem().toString());
             details = ArtigoBD.buscar(idArt);
@@ -1023,8 +1020,8 @@ public class TelaArtigo extends javax.swing.JFrame {
     private void deleteArtApActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteArtApActionPerformed
         if(deleteArtEv.getSelectedIndex()==0 || deleteArtEd.getSelectedIndex()==0) return;
         if(deleteArtAp.getSelectedIndex()==0) return;
-        ArrayList<String> details = new ArrayList<String>();
-        ArrayList<String> detailsPe = new ArrayList<String>();
+        ArrayList<String> details = new ArrayList<>();
+        ArrayList<String> detailsPe = new ArrayList<>();
         try {
             Integer idArt = Integer.parseInt(deleteArtAp.getSelectedItem().toString());
             details = ArtigoBD.buscar(idArt);

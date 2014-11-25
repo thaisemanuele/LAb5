@@ -11,8 +11,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -24,7 +22,7 @@ public class PatrocinioBD {
         public static void inserir(String cnpj, Integer codEv, Integer numEd, String valorPat, String data) throws SQLException{
         
             String insert = "INSERT INTO Patrocinio VALUES( '" + cnpj + "', " +codEv+ "," +numEd+ ", " +valorPat+", " + 0 +",  TO_DATE('" +data+"','YYYY-MM-DD'))";
-            System.out.println("insert statement " + insert);
+            System.out.println("Insert statement: " + insert);
             Statement statement = dbConnection.createStatement();
             statement.executeUpdate(insert);
         }
@@ -36,7 +34,7 @@ public class PatrocinioBD {
                     +"FROM Patrocinio WHERE cnpjPat = '"+cnpjPat+"' AND numEd = '" + numEd + "' and codEv = '" + codEv + "'";
             Statement statement = dbConnection.createStatement();
             ResultSet rs = statement.executeQuery(selectTableSQL);
-            ArrayList<String> details = new ArrayList<String>();
+            ArrayList<String> details = new ArrayList<>();
             rs.next();
             for(int i=1; i<=6;i++){
 
@@ -51,13 +49,14 @@ public class PatrocinioBD {
             String update = "UPDATE Patrocinio SET valorPat = " 
                     +valorPat+ ", dataPat = TO_DATE('" +dataPat+"','YYYY-MM-DD')"+
                     " WHERE cnpjPat = '"+cnpjPat+"' AND numEd = " + numEd + " and codEv = " + codEv + "";
-            System.out.println("update statement " + update);
+            System.out.println("Update statement: " + update);
             Statement statement = dbConnection.createStatement();
             statement.executeUpdate(update);
         }
         
         public static void excluir(String cnpjPat,Integer codEv, Integer numEd) throws SQLException{
             String delete = "DELETE FROM Patrocinio WHERE cnpjPat = '"+cnpjPat+"' AND numEd = '" + numEd + "' and codEv = '" + codEv + "'";
+            System.out.println("Delete statement: " + delete);
             Statement statement = dbConnection.createStatement();
             statement.executeUpdate(delete);
         }

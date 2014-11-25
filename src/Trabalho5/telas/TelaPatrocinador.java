@@ -136,20 +136,19 @@ public class TelaPatrocinador extends javax.swing.JFrame {
             .addGroup(patrocinadorInserirLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(patrocinadorInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(patrocinadorInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel2)
-                        .addComponent(campoCnpjPat, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel4)
-                        .addComponent(campoTelPat)
-                        .addComponent(jLabel5)
-                        .addComponent(campoEndPat, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE))
-                    .addComponent(campoNomePat, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(campoCnpjPat, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(campoTelPat)
+                    .addComponent(jLabel5)
+                    .addComponent(campoEndPat, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
+                    .addComponent(campoNomePat, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE))
+                .addGap(17, 17, 17))
         );
         patrocinadorInserirLayout.setVerticalGroup(
             patrocinadorInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patrocinadorInserirLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorInserirLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
@@ -168,16 +167,16 @@ public class TelaPatrocinador extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoEndPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(patrocinadorInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(insertButton)
                     .addComponent(jButton2))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGap(55, 55, 55))
         );
 
         patrocinadorTPane.addTab("Inserir", patrocinadorInserir);
 
-        jLabel14.setText("Buscar por nome fantasia:");
+        jLabel14.setText("Buscar por Razão Social:");
 
         deleteByName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         deleteByName.addActionListener(new java.awt.event.ActionListener() {
@@ -190,7 +189,7 @@ public class TelaPatrocinador extends javax.swing.JFrame {
 
         jLabel18.setText("CNPJ:");
 
-        jLabel19.setText("Nome Fantasia:");
+        jLabel19.setText("Razão Social:");
 
         jLabel20.setText("Telefone:");
 
@@ -216,46 +215,47 @@ public class TelaPatrocinador extends javax.swing.JFrame {
         patrocinadorDeletar.setLayout(patrocinadorDeletarLayout);
         patrocinadorDeletarLayout.setHorizontalGroup(
             patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorDeletarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel17)
-                .addGap(82, 82, 82))
             .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
                 .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(deleteByName, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel22)
-                                .addGap(18, 18, 18)
-                                .addComponent(deleteButtonPat)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                                .addComponent(jButton6))
-                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(18, 18, 18)
-                                .addComponent(deleteTel))
-                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(deleteEnd))))
-                    .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
                         .addGap(151, 151, 151)
                         .addComponent(jLabel14)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorDeletarLayout.createSequentialGroup()
-                        .addContainerGap()
+                    .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
                         .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
+                                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jLabel20))
+                                    .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jLabel21)))
+                                .addGap(21, 21, 21))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorDeletarLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel18)
-                                .addGap(18, 18, 18)
-                                .addComponent(deleteCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap()
+                                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel19))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(patrocinadorDeletarLayout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(deleteEnd, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                            .addComponent(deleteTel)
+                            .addComponent(deleteCnpj, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(deleteNome)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorDeletarLayout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(deleteNome, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorDeletarLayout.createSequentialGroup()
+                                        .addComponent(deleteButtonPat)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton6))
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING))))))
                 .addContainerGap())
         );
         patrocinadorDeletarLayout.setVerticalGroup(
@@ -265,35 +265,36 @@ public class TelaPatrocinador extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(deleteByName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel17)
-                .addGap(72, 72, 72)
+                .addGap(31, 31, 31)
                 .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deleteCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18))
-                .addGap(32, 32, 32)
+                .addGap(27, 27, 27)
                 .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deleteNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19))
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(deleteTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                    .addComponent(deleteTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20))
+                .addGap(26, 26, 26)
                 .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(deleteEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deleteEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21))
+                .addGap(67, 67, 67)
+                .addComponent(jLabel22)
+                .addGap(31, 31, 31)
+                .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
-                    .addGroup(patrocinadorDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel22)
-                        .addComponent(deleteButtonPat))))
+                    .addComponent(deleteButtonPat))
+                .addContainerGap())
         );
 
         patrocinadorTPane.addTab("Deletar", patrocinadorDeletar);
 
-        jLabel23.setText("Buscar por nome fantasia:");
+        jLabel23.setText("Buscar por Razão Social:");
 
         editByName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         editByName.addActionListener(new java.awt.event.ActionListener() {
@@ -304,7 +305,7 @@ public class TelaPatrocinador extends javax.swing.JFrame {
 
         jLabel26.setText("Edite as informações abaixo:");
 
-        jLabel28.setText("Nome Fantasia:");
+        jLabel28.setText("Razão Social:");
 
         jLabel29.setText("Telefone:");
 
@@ -331,46 +332,42 @@ public class TelaPatrocinador extends javax.swing.JFrame {
         patrocinadorEditarLayout.setHorizontalGroup(
             patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patrocinadorEditarLayout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(jLabel23)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
                 .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(editByName, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(patrocinadorEditarLayout.createSequentialGroup()
                         .addGap(144, 144, 144)
                         .addComponent(jLabel26)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 179, Short.MAX_VALUE))
                     .addGroup(patrocinadorEditarLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                                .addComponent(jLabel31)
-                                .addGap(18, 18, 18)
-                                .addComponent(editButtonPat)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton9)
-                                .addGap(0, 24, Short.MAX_VALUE))
-                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                                .addComponent(jLabel28)
-                                .addGap(12, 12, 12)
-                                .addComponent(editNome))
-                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                                .addComponent(jLabel29)
-                                .addGap(18, 18, 18)
-                                .addComponent(editTel))
-                            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                                .addComponent(jLabel30)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(editEnd)))))
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel29)
+                            .addComponent(jLabel30))
+                        .addGap(12, 12, 12)
+                        .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(editEnd)
+                            .addComponent(editTel)
+                            .addComponent(editNome)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorEditarLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel31)
+                        .addGap(18, 18, 18)
+                        .addComponent(editButtonPat)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton9)))
                 .addContainerGap())
-            .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(jLabel23)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         patrocinadorEditarLayout.setVerticalGroup(
             patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patrocinadorEditarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel23)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(editByName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75)
                 .addComponent(jLabel26)
@@ -386,17 +383,17 @@ public class TelaPatrocinador extends javax.swing.JFrame {
                 .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
                     .addComponent(editEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGap(83, 83, 83)
                 .addGroup(patrocinadorEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
                     .addComponent(editButtonPat)
                     .addComponent(jButton9))
-                .addGap(32, 32, 32))
+                .addGap(26, 26, 26))
         );
 
         patrocinadorTPane.addTab("Editar", patrocinadorEditar);
 
-        jLabel6.setText("Buscar pelo nome fantasia:");
+        jLabel6.setText("Buscar por Razão Social:");
 
         searchByName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         searchByName.addActionListener(new java.awt.event.ActionListener() {
@@ -409,7 +406,7 @@ public class TelaPatrocinador extends javax.swing.JFrame {
 
         jLabel10.setText("CNPJ:");
 
-        jLabel11.setText("Nome Fantasia:");
+        jLabel11.setText("Razão Social");
 
         jLabel12.setText("Telefone:");
 
@@ -426,14 +423,6 @@ public class TelaPatrocinador extends javax.swing.JFrame {
         patrocinadorBuscar.setLayout(patrocinadorBuscarLayout);
         patrocinadorBuscarLayout.setHorizontalGroup(
             patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(searchByName, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(jLabel6)
-                        .addGap(0, 178, Short.MAX_VALUE)))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patrocinadorBuscarLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton4)
@@ -441,41 +430,40 @@ public class TelaPatrocinador extends javax.swing.JFrame {
             .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
                 .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(jLabel9))
+                        .addGap(137, 137, 137)
+                        .addComponent(jLabel6))
                     .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(searchCNPJ)))
-                .addContainerGap())
+                        .addGap(115, 115, 115)
+                        .addComponent(jLabel9)))
+                .addContainerGap(136, Short.MAX_VALUE))
             .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(searchByName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                        .addComponent(jLabel11)
+                        .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
                         .addGap(12, 12, 12)
-                        .addComponent(searchNome))
-                    .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(searchTel))
-                    .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchEnd)))
+                        .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(searchEnd)
+                            .addComponent(searchTel)
+                            .addComponent(searchCNPJ)
+                            .addComponent(searchNome))))
                 .addContainerGap())
         );
         patrocinadorBuscarLayout.setVerticalGroup(
             patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patrocinadorBuscarLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(searchByName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addGap(52, 52, 52)
                 .addComponent(jLabel9)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(patrocinadorBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(searchCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -493,7 +481,7 @@ public class TelaPatrocinador extends javax.swing.JFrame {
                     .addComponent(searchEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         patrocinadorTPane.addTab("Buscar", patrocinadorBuscar);

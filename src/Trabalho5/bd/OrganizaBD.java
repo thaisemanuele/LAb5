@@ -19,7 +19,7 @@ public class OrganizaBD {
     
     public static void inserir(Integer idOrg, Integer codEv, Integer numEd, String cargoOrg) throws SQLException, ParseException{
         String insert = "INSERT INTO Organiza VALUES( " +idOrg+ ", "+codEv+ ", "+numEd+ ", '"+cargoOrg+"')";
-        System.out.println("insert statement " + insert);
+        System.out.println("Insert statement: " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
     }
@@ -27,7 +27,7 @@ public class OrganizaBD {
     public static void atualizar(Integer idOrg, Integer codEv,Integer numEd, String cargoOrg) throws SQLException{
         String update = "UPDATE Organiza SET cargoOrg = '" 
                 +cargoOrg+ "' WHERE idOrg = " + idOrg +" AND codEv = "+codEv+" AND numEd = "+numEd;
-        System.out.println("insert statement " + update);
+        System.out.println("Update statement: " + update);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(update);
     }
@@ -35,6 +35,7 @@ public class OrganizaBD {
     public static void excluir(Integer idOrg, Integer codEv,Integer numEd) throws SQLException{
         String delete = "DELETE FROM Organiza WHERE idOrg = '" 
                 + idOrg +"' and codEv = '" + codEv + "' and numEd = '" + numEd + "'";
+        System.out.println("Delete statement: " + delete);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(delete);
     }

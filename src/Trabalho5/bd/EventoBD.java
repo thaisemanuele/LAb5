@@ -10,11 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Vector;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
@@ -23,12 +19,7 @@ import javax.swing.JComboBox;
  * @author Clayton
  */
 public class EventoBD {
-    /*codEv NUMBER(4) NOT NULL,                       	 -- Chave Primária
-    nomeEv VARCHAR2(40) NOT NULL, 		-- Campo de valor único, não devem haver nomes iguais 
-    descricaoEv VARCHAR2(400),
-    websiteEv VARCHAR2(40),
-    totalArtigosApresentadosEv NUMBER(4) DEFAULT 0, 	-- atributo derivado armazena o numero de artigos apresentados em todas edições do evento
-     */
+    
     public Integer codEv;
     public String nomeEv;
     public String descricaoEv;
@@ -58,7 +49,7 @@ public class EventoBD {
     public static void inserir(String nomeEv, String descricaoEv, String website) throws SQLException{
         
         String insert = "INSERT INTO Evento VALUES( " + getSeq() + ", '" +nomeEv+ "','" +descricaoEv+ "', '" +website+"', " + 0 +" )";
-        System.out.println("insert statement " + insert);
+        System.out.println("Insert statement: " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);
 
@@ -66,18 +57,21 @@ public class EventoBD {
     
     public static void atualizar(Integer codEv, String nomeEv, String descricaoEv, String website) throws SQLException{
         String update = "UPDATE Evento SET nomeEv = '" +nomeEv+ "',descricaoEv = '" +descricaoEv+ "',websiteEv = '" +website+ "' WHERE codEv = '" + codEv + "'";
+        System.out.println("Update statement: " + update);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(update);
     }
     
     public static void excluir(Integer codEv) throws SQLException{
         String delete = "DELETE FROM Evento WHERE codEv = '" + codEv + "'";
+        System.out.println("Delete statement: " + delete);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(delete);
     }
     
     public static EventoBD buscar(Integer codEv) throws SQLException, ParseException{
         String selectTableSQL = "SELECT codEv, nomeEv, descricaoEv, website, totalArtigosApresentados, tipo FROM Evento WHERE codEv = '" + codEv + "'";
+        System.out.println("Select statement " + selectTableSQL);
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
              
@@ -89,7 +83,7 @@ public class EventoBD {
         String selectTableSQL = "SELECT codEv, nomeEv, descricaoEv, websiteEv FROM Evento WHERE codEv = '" + codEv + "'";
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
-        ArrayList<String> details = new ArrayList<String>();
+        ArrayList<String> details = new ArrayList<>();
         rs.next();
         for(int i=1; i<=4;i++){
             
@@ -118,7 +112,7 @@ public class EventoBD {
         ResultSet rs = statement.executeQuery(selectSql);
         model.addElement(" --- ");
         while(rs.next()){
-            System.out.println(rs.getString("codEv"));
+            
             model.addElement(rs.getString("codEv"));
             i++;
         }
@@ -144,7 +138,7 @@ public class EventoBD {
         String selectTableSQL = "SELECT codEv, nomeEv, descricaoEv, websiteEv FROM Evento WHERE nomeEv = '" + nomeEv + "'";
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
-        ArrayList<String> details = new ArrayList<String>();
+        ArrayList<String> details = new ArrayList<>();
         rs.next();
         for(int i=1; i<=4;i++){
             

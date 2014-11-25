@@ -48,7 +48,6 @@ public class TelaMenu extends javax.swing.JFrame {
         EditarEdicao = new javax.swing.JMenuItem();
         EditarPessoa = new javax.swing.JMenuItem();
         EditarArtigo = new javax.swing.JMenuItem();
-        EditarEscreve = new javax.swing.JMenuItem();
         EditarOrganiza = new javax.swing.JMenuItem();
         EditarPatrocinador = new javax.swing.JMenuItem();
         EditarPatrocinio = new javax.swing.JMenuItem();
@@ -241,14 +240,6 @@ public class TelaMenu extends javax.swing.JFrame {
             }
         });
         Editar.add(EditarArtigo);
-
-        EditarEscreve.setText("Escreve");
-        EditarEscreve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarEscreveActionPerformed(evt);
-            }
-        });
-        Editar.add(EditarEscreve);
 
         EditarOrganiza.setText("Organiza");
         EditarOrganiza.addActionListener(new java.awt.event.ActionListener() {
@@ -565,7 +556,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private void InserirPatrocinioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirPatrocinioActionPerformed
         // TODO add your handling code here:
         TelaPatrocinio telaPatrocinio = new TelaPatrocinio();
-        telaPatrocinio.patrocinioTPane.setSelectedIndex(1);
+        telaPatrocinio.patrocinioTPane.setSelectedIndex(0);
         telaPatrocinio.setVisible(true);
     }//GEN-LAST:event_InserirPatrocinioActionPerformed
 
@@ -580,14 +571,6 @@ public class TelaMenu extends javax.swing.JFrame {
     private void InserirEventosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InserirEventosMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_InserirEventosMouseClicked
-
-    private void EditarEscreveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarEscreveActionPerformed
-        // TODO add your handling code here:
-        // TODO add your handling code here:
-        TelaEscreve telaEscreve = new TelaEscreve();
-        telaEscreve.escreveTPane.setSelectedIndex(3);
-        telaEscreve.setVisible(true);
-    }//GEN-LAST:event_EditarEscreveActionPerformed
 
     private void EditarArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarArtigoActionPerformed
         // TODO add your handling code here:
@@ -649,7 +632,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private void InserirAuxilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirAuxilioActionPerformed
         // TODO add your handling code here:
         TelaAuxilio telaAuxilio = new TelaAuxilio();
-        telaAuxilio.auxilioTPane.setSelectedIndex(2);
+        telaAuxilio.auxilioTPane.setSelectedIndex(3);
         telaAuxilio.setVisible(true);
     }//GEN-LAST:event_InserirAuxilioActionPerformed
 
@@ -693,7 +676,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private void DeletarOrganizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarOrganizaActionPerformed
         // TODO add your handling code here:
         TelaOrganiza telaOrganiza = new TelaOrganiza();
-        telaOrganiza.organizaTPane.setSelectedIndex(3);
+        telaOrganiza.organizaTPane.setSelectedIndex(2);
         telaOrganiza.setVisible(true);
         
     }//GEN-LAST:event_DeletarOrganizaActionPerformed
@@ -702,7 +685,7 @@ public class TelaMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         // TODO add your handling code here:
         TelaPatrocinador telaPatrocinador = new TelaPatrocinador();
-        telaPatrocinador.patrocinadorTPane.setSelectedIndex(2);
+        telaPatrocinador.patrocinadorTPane.setSelectedIndex(1);
         telaPatrocinador.setVisible(true);
     }//GEN-LAST:event_DeletarPatrocinadorActionPerformed
 
@@ -724,7 +707,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private void DeletarAuxilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarAuxilioActionPerformed
         // TODO add your handling code here:
         TelaAuxilio telaAuxilio = new TelaAuxilio();
-        telaAuxilio.auxilioTPane.setSelectedIndex(3);
+        telaAuxilio.auxilioTPane.setSelectedIndex(2);
         telaAuxilio.setVisible(true);
         
     }//GEN-LAST:event_DeletarAuxilioActionPerformed
@@ -753,14 +736,14 @@ public class TelaMenu extends javax.swing.JFrame {
     private void EditarOrganizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarOrganizaActionPerformed
         // TODO add your handling code here:
         TelaOrganiza telaOrganiza = new TelaOrganiza();
-        telaOrganiza.organizaTPane.setSelectedIndex(2);
+        telaOrganiza.organizaTPane.setSelectedIndex(3);
         telaOrganiza.setVisible(true);
     }//GEN-LAST:event_EditarOrganizaActionPerformed
 
     private void EditarPatrocinadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarPatrocinadorActionPerformed
         // TODO add your handling code here:
         TelaPatrocinador telaPatrocinador = new TelaPatrocinador();
-        telaPatrocinador.patrocinadorTPane.setSelectedIndex(3);
+        telaPatrocinador.patrocinadorTPane.setSelectedIndex(2);
         telaPatrocinador.setVisible(true);
         
     }//GEN-LAST:event_EditarPatrocinadorActionPerformed
@@ -840,7 +823,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private void BuscarPatrocinadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarPatrocinadorActionPerformed
         // TODO add your handling code here:
         TelaPatrocinador telaPatrocinador = new TelaPatrocinador();
-        telaPatrocinador.patrocinadorTPane.setSelectedIndex(1);
+        telaPatrocinador.patrocinadorTPane.setSelectedIndex(3);
         telaPatrocinador.setVisible(true);
     }//GEN-LAST:event_BuscarPatrocinadorActionPerformed
 
@@ -963,7 +946,6 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem EditarAuxilio;
     private javax.swing.JMenuItem EditarDespesa;
     private javax.swing.JMenuItem EditarEdicao;
-    private javax.swing.JMenuItem EditarEscreve;
     private javax.swing.JMenuItem EditarEvento;
     private javax.swing.JMenuItem EditarOrganiza;
     private javax.swing.JMenuItem EditarPatrocinador;
