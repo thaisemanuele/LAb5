@@ -71,6 +71,7 @@ public class PatrocinadorBD {
        return id;
     }
         
+        
         public static String getName(String cnpjPat) throws SQLException{
             String id = null;
             String selectSql = "SELECT razaoSocialPat from Patrocinador WHERE cnpjPat = '"+cnpjPat+"'";

@@ -65,7 +65,7 @@ public class AuxilioBD {
         return details; 
      }
         
-        public static void atualizar(Integer codEvApr, Integer numEdApr, Integer idApr, String valorAux, 
+    public static void atualizar(Integer codEvApr, Integer numEdApr, Integer idApr, String valorAux, 
                  String dataAux, String tipoAux) throws SQLException, ParseException{
         String selectTableSQL = "UPDATE Auxilio  SET valorAux = '"+valorAux+"', dataAux = TO_DATE('" +dataAux+"','YYYY-MM-DD')"
                 + " WHERE codEvApr = " + codEvApr +" AND numEdApr = " 
@@ -73,7 +73,16 @@ public class AuxilioBD {
         System.out.println("Update statemente: " + selectTableSQL);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(selectTableSQL);
-     }
+    }
+    
+    public static void excluir(Integer codEvApr, Integer numEdApr, Integer idApr, String tipoAux) throws SQLException{
+            String delete = "DELETE FROM Auxilio WHERE codEvApr = '"+codEvApr
+                    +"' AND numEdApr = '" + numEdApr + "' and idApr = " 
+                    +idApr  + " AND tipoAux = '"+tipoAux+"'";
+            System.out.println("Delete statement: " + delete);
+            Statement statement = dbConnection.createStatement();
+            statement.executeUpdate(delete);
+        }
         
         public static DefaultComboBoxModel getCnpjPat(Integer codEv, Integer numEd) throws SQLException{
          int i=1;
