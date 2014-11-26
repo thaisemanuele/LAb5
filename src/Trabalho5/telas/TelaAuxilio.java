@@ -204,7 +204,9 @@ public class TelaAuxilio extends javax.swing.JFrame {
                             .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel14)
                                 .addComponent(buscarAux_Data, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jButton4)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, auxilioBuscarLayout.createSequentialGroup()
+                            .addGap(171, 171, 171)
+                            .addComponent(jButton4))))
                 .addGap(63, 63, 63))
         );
         auxilioBuscarLayout.setVerticalGroup(
@@ -242,9 +244,9 @@ public class TelaAuxilio extends javax.swing.JFrame {
                 .addGroup(auxilioBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buscarAux_Valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscarAux_Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         auxilioTPane.addTab("Buscar", auxilioBuscar);
@@ -461,9 +463,9 @@ public class TelaAuxilio extends javax.swing.JFrame {
                                 .addComponent(deletarAux_TipoAux, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel19)
                     .addGroup(auxilioDeletarLayout.createSequentialGroup()
-                        .addGap(160, 160, 160)
+                        .addGap(105, 105, 105)
                         .addComponent(deletarAux_Button)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton6))
                     .addGroup(auxilioDeletarLayout.createSequentialGroup()
                         .addGroup(auxilioDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
