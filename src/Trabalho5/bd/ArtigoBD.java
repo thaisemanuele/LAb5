@@ -18,6 +18,18 @@ import javax.swing.DefaultComboBoxModel;
  */
 public class ArtigoBD {
     
+    /**
+     * recebe os parametro de entrada e cria um insert statement
+     * para a tabela artigo
+     * @param tituloArt
+     * @param dataApresArt
+     * @param horaApresArt
+     * @param codEv
+     * @param numEd
+     * @param idApr
+     * @throws SQLException se houver um erro com o sql statement
+     * @throws ParseException se um dos parametros não for do tipo correto
+     */
     public static void inserir(String tituloArt, String dataApresArt, String horaApresArt, 
             Integer codEv, Integer numEd,Integer idApr) throws SQLException, ParseException{
             String insert = "INSERT INTO Artigo VALUES( " +
@@ -29,6 +41,13 @@ public class ArtigoBD {
 
     }
     
+    /**
+     * recebei idArt e monta um select statement para a tabela artigo
+     * @param idArt - id do artigo buscado
+     * @return details - strings com os dados da tupla selecionada
+     * @throws SQLException - se houver algum problema com o sql statmente
+     * @throws ParseException se houver algum dos parametros não for do tipo correto
+     */
     public static ArrayList<String> buscar(Integer idArt) throws SQLException, ParseException{
         String selectTableSQL = "SELECT tituloArt, TO_CHAR(dataApresArt, 'DD-MM-YYYY'),"
                 + "TO_CHAR(horaApresArt, 'HH24:MI'), codEv, numEd,idApr"
@@ -46,6 +65,18 @@ public class ArtigoBD {
         return details;
     }
     
+    /**
+     *  cria um update statement para a tabela artiga com os parametro enviados 
+     * @param idArt - id do artigo
+     * @param tituloArt - titulo do artigo
+     * @param dataApresArt - data da apresentação no formato yyyy-mm-dd
+     * @param horaApresArt - hora da apresentacao no formato HH24:MI
+     * @param codEv - codigo do evento
+     * @param numEd - numero da edicao
+     * @param idApr - id do apresentador
+     * @throws SQLException - se houver problemas com sql statemente
+     * @throws ParseException - se houver um parametro incorreto
+     */
     public static void atualizar(Integer idArt, String tituloArt, String dataApresArt, String horaApresArt, 
         Integer codEv, Integer numEd,Integer idApr) throws SQLException, ParseException{
             String update = "UPDATE Artigo SET tituloArt = '"+tituloArt+"',dataApresArt = TO_DATE('" +dataApresArt+"','YYYY-MM-DD'), "
@@ -57,6 +88,11 @@ public class ArtigoBD {
 
     }
     
+    /**
+     * cria e executa um delete statemente na tabela artigo
+     * @param idArt - id do artigo a ser exluido
+     * @throws SQLException se houver algum erro com o sql statemnte
+     */
     public static void excluir(Integer idArt) throws SQLException{
         String delete = "DELETE FROM Artigo WHERE idArt = '" + idArt + "'";
         System.out.println("Delete statement: " + delete);
@@ -64,7 +100,14 @@ public class ArtigoBD {
         statement.executeUpdate(delete);
     }
     
-    public static DefaultComboBoxModel getArtigos(Integer codEv, Integer numEd) throws SQLException, ParseException{
+    /**
+     * retorna um modelo de combobox com todos os artigos de acordo com o evento e a edicao
+     * @param codEv - codigo do evento
+     * @param numEd - numedo da edicao
+     * @return model - ComboBoxModel
+     * @throws SQLException - se houver algum erro com o sql statement que busca os artigos
+     */
+    public static DefaultComboBoxModel getArtigos(Integer codEv, Integer numEd) throws SQLException{
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         String selectTableSQL = "SELECT idArt FROM Artigo WHERE codEv = " + codEv +" AND numEd = " + numEd + "";
         System.out.println(selectTableSQL);
@@ -78,6 +121,12 @@ public class ArtigoBD {
         return model;
     }
     
+    /**
+     * cria e retorna um combobox preenchido com todos os artigos 
+     * @return model - ComboBoxModel
+     * @throws SQLException - se houver problemas com o sql statement
+     * @throws ParseException
+     */
     public static DefaultComboBoxModel getAllArtigos() throws SQLException, ParseException{
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         String selectTableSQL = "SELECT idArt FROM Artigo ";
@@ -91,7 +140,11 @@ public class ArtigoBD {
         return model;
     }
     
-      
+    /**
+     * encontra o maior valor da sequencia de artigos 
+     * @return seqIdpe - retorna o maior valor armazenado no cadastro+1
+     * @throws SQLException - se houver problemas com o sql statement
+     */  
     private static Integer getSeq()throws SQLException{
         String selectSql = "SELECT max(idArt) from Artigo";
         Statement statement = dbConnection.createStatement();
