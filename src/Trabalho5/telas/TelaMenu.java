@@ -878,8 +878,8 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        TelaRelatorio telaRelatorio = new TelaRelatorio();
-        telaRelatorio.setVisible(true);
+        TelaRelatorio2 telaRelatorio2 = new TelaRelatorio2();
+        telaRelatorio2.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
