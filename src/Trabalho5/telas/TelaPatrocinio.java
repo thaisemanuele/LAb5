@@ -632,24 +632,44 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Metodo que fechará a janela quando o botão voltar da Tela Inserir for clicado
+     * @param evt
+     * @return void
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Metodo que fechará a janela quando o botão voltar da Tela Buscar for clicado
+     * @param evt
+     * @return void
+     */
     private void buscarPatrocinio_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPatrocinio_ButtonActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_buscarPatrocinio_ButtonActionPerformed
 
+    /**
+     * Metodo que fechará a janela quando o botão voltar da Tela Deletar for clicado
+     * @param evt
+     * @return void
+     */
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    /**
+     * Metodo que fechará a janela quando o botão voltar da Tela Editar for clicado
+     * @param evt
+     * @return void
+     */
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
@@ -660,13 +680,18 @@ public class TelaPatrocinio extends javax.swing.JFrame {
      
     }//GEN-LAST:event_insertByNameActionPerformed
 
+    /**
+     * Metodo que atuará quando um evento da combobox na Tela Inserir for selecionado
+     * @param evt
+     * @return void
+     */
     private void inserirEv_PatrocinadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirEv_PatrocinadorActionPerformed
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
-        try {
+        try {//busca o codigo pelo nove do evento
             Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
-            model = EdicaoBD.getEditions(codEv);
+            model = EdicaoBD.getEditions(codEv);//seta as edicoes daquele evento
             inserirEd_Patrocinador.setModel(model);
         } catch (SQLException ex) {
             Logger.getLogger(TelaPatrocinio.class.getName()).log(Level.SEVERE, null, ex);
@@ -674,28 +699,50 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         
     }//GEN-LAST:event_inserirEv_PatrocinadorActionPerformed
 
+    /**
+     * Metodo que atuará quando o botao inserir for clicado
+     * @param evt
+     * @return void
+     */
     private void inserirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirButtonActionPerformed
 
         
         try {
+            //le o valor do patrocinio na tela
             String valor = new String(inserirValor_Patrocinio.getText());
+            //formata para a forma monetaria
             String valorPat = NumberFormat.getCurrencyInstance().format(Double.parseDouble(valor));
-            if(valorPat.startsWith("£")||(valorPat.startsWith("$"))){
+            //Se a moeda for £, $, €, retira o simbolo e substitui a virgula por nada
+            if(valorPat.startsWith("£")||(valorPat.startsWith("$"))||(valorPat.startsWith("€"))){
+                System.out.println(valorPat);
+                valorPat = valorPat.substring(1);
+                if(valorPat.contains(",")){
+                    valorPat = valorPat.replace(",", "");
+                }
+            }
+            // se a moeda for real, retira o R$ e o espaco apos ele, e substitui a virgula por ponto
+            else if(valorPat.contains("R$ ")){
+                valorPat = valorPat.substring(3);
+                if(valorPat.contains(",")){
+                    valorPat = valorPat.replace(",", ".");
+                }
+            }//nao havendo simbolos, sbstitui-se a virgul por nada
+            else if(valorPat.contains(",")){
+                valorPat = valorPat.replace(",", "");
+            }
+            // obtem-se valores, por exemplo do tipo 400.50 para R$ 400,50
+            // obtem-se valores, por exemplo do tipo 4000.50 para £4,000.50
             System.out.println(valorPat);
-            valorPat = valorPat.substring(1);
-        }
-        if(valorPat.contains("R$")) valorPat = valorPat.substring(2);
-        if(valorPat.contains(",")){
-            valorPat = valorPat.replace(",", "");
-        }
-        System.out.println(valorPat);
+            Double valorP = Double.parseDouble(valorPat);
+            
         
             String cnpj = PatrocinadorBD.getCnpjByName(insertByName.getSelectedItem().toString());
             Integer codEv = EventoBD.getCodeByName(inserirEv_Patrocinador.getSelectedItem().toString());
             Integer numEd = Integer.parseInt(inserirEd_Patrocinador.getSelectedItem().toString());
-            //String valorPat = valor;
+            //usa-se java util Date para trabalhar com o DatePicker
             java.util.Date dataPat = new java.sql.Date(inserirData_Patrocinio.getDate().getTime());
-            PatrocinioBD.inserir(cnpj, codEv, numEd,valorPat, dataPat.toString());
+            // Insere os valores
+            PatrocinioBD.inserir(cnpj, codEv, numEd,valorP.toString(), dataPat.toString());
             JOptionPane.showMessageDialog(null, "Patrocino cadastrado com sucesso " , "Successo", JOptionPane.INFORMATION_MESSAGE);
             insertByName.setSelectedIndex(0); 
             clearFields();
@@ -716,14 +763,20 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_buscarPatrocinio_CNPJActionPerformed
 
+    /**
+     * Metodo que atuará quando um evento da combobox na Tela Buscar for selecionado
+     * @param evt
+     * @return void
+     */
     private void buscarPatrocinio_EventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPatrocinio_EventoActionPerformed
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         if(jcb.getSelectedIndex()==0) return;
         try {
+            //recupera o codigo pelo nome do evento
             Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
-            model = EdicaoBD.getEditions(codEv);
+            model = EdicaoBD.getEditions(codEv);// seta as edicoes para aquele evento
             clearFields();
             buscarPatrocinio_Pat.setSelectedIndex(0);
             buscarPatrocinio_Edicao.setModel(model);
@@ -736,6 +789,11 @@ public class TelaPatrocinio extends javax.swing.JFrame {
        
     }//GEN-LAST:event_inserirEd_PatrocinadorActionPerformed
 
+    /**
+     * Metodo que atuará quando um patrocinador da combobox na Tela Buscar for selecionado
+     * @param evt
+     * @return void
+     */
     private void buscarPatrocinio_PatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPatrocinio_PatActionPerformed
         if(buscarPatrocinio_Evento.getSelectedIndex()==0||
                 buscarPatrocinio_Edicao.getSelectedIndex()==0) return;
@@ -747,10 +805,13 @@ public class TelaPatrocinio extends javax.swing.JFrame {
             Integer codEv = EventoBD.getCodeByName(buscarPatrocinio_Evento.getSelectedItem().toString());
             Integer numEd = Integer.parseInt(buscarPatrocinio_Edicao.getSelectedItem().toString());
             String cnpjPat = PatrocinadorBD.getCnpjByName(jcb.getSelectedItem().toString());
+            //busca dados do patrocinador e salva em details
             details = PatrocinioBD.buscar(cnpjPat, codEv, numEd);
             buscarPatrocinio_CNPJ.setText(details.get(0));
             String valor = new String(details.get(3));
+            //transforma para formato monetario
             valor = NumberFormat.getCurrencyInstance().format(Double.parseDouble(valor));
+            //preenche campos com os dados
             buscarPatrocinio_Valor.setText(valor);
             buscarPatrocinio_Saldo.setText(details.get(4));
             buscarPatrocinio_Data.setText(details.get(5));
@@ -761,6 +822,11 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buscarPatrocinio_PatActionPerformed
 
+    /**
+     * Metodo que atuará quando uma edicao da combobox na Tela buscar for selecionada
+     * @param evt
+     * @return void
+     */
     private void buscarPatrocinio_EdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPatrocinio_EdicaoActionPerformed
         if(buscarPatrocinio_Evento.getSelectedIndex()==0) return;
         DefaultComboBoxModel model = new DefaultComboBoxModel();
@@ -770,6 +836,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         try {
             Integer codEv = EventoBD.getCodeByName(buscarPatrocinio_Evento.getSelectedItem().toString());
             Integer numEd = Integer.parseInt(jcb.getSelectedItem().toString());
+            //modelo recebera patrocinadores daquele evento e edicao
             model = PatrocinioBD.buscarPat(codEv, numEd);
             buscarPatrocinio_Pat.setModel(model);
         } catch (SQLException ex) {
@@ -777,14 +844,20 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buscarPatrocinio_EdicaoActionPerformed
 
+    /**
+     * Metodo que atuará quando um evento da combobox na Tela Editar for selecionado
+     * @param evt
+     * @return void
+     */
     private void editarPatrocinio_EventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPatrocinio_EventoActionPerformed
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         if(jcb.getSelectedIndex()==0) return;
         try {
+            // recupera o cod do evento por meio do nome do evento
             Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
-            model = EdicaoBD.getEditions(codEv);
+            model = EdicaoBD.getEditions(codEv);// seta as edicoes daquele evento
             clearFields();
             editarPatrocinio_Pat.setSelectedIndex(0);
             editarPatrocinio_Edicao.setModel(model);
@@ -793,6 +866,11 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_editarPatrocinio_EventoActionPerformed
 
+    /**
+     * Metodo que atuará quando uma edicao da combobox na Tela Editar for selecionada
+     * @param evt
+     * @return void
+     */
     private void editarPatrocinio_EdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPatrocinio_EdicaoActionPerformed
         if(editarPatrocinio_Evento.getSelectedIndex()==0) return;
         DefaultComboBoxModel model = new DefaultComboBoxModel();
@@ -802,6 +880,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         try {
             Integer codEv = EventoBD.getCodeByName(editarPatrocinio_Evento.getSelectedItem().toString());
             Integer numEd = Integer.parseInt(jcb.getSelectedItem().toString());
+            //modelo recebera todos os patrocinadores daquela edicao
             model = PatrocinioBD.buscarPat(codEv, numEd);
             editarPatrocinio_Pat.setModel(model);
         } catch (SQLException ex) {
@@ -809,6 +888,11 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_editarPatrocinio_EdicaoActionPerformed
 
+    /**
+     * Metodo que atuará quando um patrocinador da combobox na Tela Editar for selecionada
+     * @param evt
+     * @return void
+     */
     private void editarPatrocinio_PatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPatrocinio_PatActionPerformed
         if(editarPatrocinio_Evento.getSelectedIndex()==0||
                 editarPatrocinio_Edicao.getSelectedIndex()==0) return;
@@ -820,9 +904,12 @@ public class TelaPatrocinio extends javax.swing.JFrame {
             Integer codEv = EventoBD.getCodeByName(editarPatrocinio_Evento.getSelectedItem().toString());
             Integer numEd = Integer.parseInt(editarPatrocinio_Edicao.getSelectedItem().toString());
             String cnpjPat = PatrocinadorBD.getCnpjByName(jcb.getSelectedItem().toString());
+            //info do patrocinio sao buscadas e salvas em details
             details = PatrocinioBD.buscar(cnpjPat, codEv, numEd);
             String valor = new String(details.get(3));
+            //formato monetario
             valor = NumberFormat.getCurrencyInstance().format(Double.parseDouble(valor));
+            //preenche os campos com valores iniciais
             editarPatrocinio_valor.setText(valor);
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy"); 
             editarPatrocinio_Data.setDate(dateFormat.parse(details.get(5)));
@@ -833,17 +920,25 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_editarPatrocinio_PatActionPerformed
 
+    /**
+     * Metodo que atuará quando o botao editar for clicado
+     * @param evt
+     * @return void
+     */
     private void editarPatrocinio_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPatrocinio_ButtonActionPerformed
+        /*Retorna caso um dos campos obrigatorios nao tenham sido preenchidos*/
         if(editarPatrocinio_Evento.getSelectedIndex()==0||
                 editarPatrocinio_Edicao.getSelectedIndex()==0||
                 editarPatrocinio_Pat.getSelectedIndex()==0) return;
-        try {
+        try {/*Le os valores na tela*/
             String cnpjPat = PatrocinadorBD.getCnpjByName(
                     editarPatrocinio_Pat.getSelectedItem().toString());
             Integer codEv = EventoBD.getCodeByName(editarPatrocinio_Evento.getSelectedItem().toString());
             Integer numEd = Integer.parseInt(editarPatrocinio_Edicao.getSelectedItem().toString());
             java.sql.Date dataPat = new java.sql.Date(editarPatrocinio_Data.getDate().getTime());
+            //Trata o valor monetario
             String valorPat = editarPatrocinio_valor.getText();
+            //Por exemplo de £4,000.30 ->4000.30
             if(valorPat.startsWith("£")||(valorPat.startsWith("$"))||(valorPat.startsWith("€"))){
                 System.out.println(valorPat);
                 valorPat = valorPat.substring(1);
@@ -851,17 +946,20 @@ public class TelaPatrocinio extends javax.swing.JFrame {
                     valorPat = valorPat.replace(",", "");
                 }
             }
+            //Por exemplo de R$ 400,30 ->400.30
             else if(valorPat.contains("R$ ")){
                 valorPat = valorPat.substring(3);
                 if(valorPat.contains(",")){
                     valorPat = valorPat.replace(",", ".");
                 }
             }
+            //Por exemplo de 4,000 ->4000
             else if(valorPat.contains(",")){
                 valorPat = valorPat.replace(",", "");
             }
             System.out.println(valorPat);
             Double valor = Double.parseDouble(valorPat);
+            // atualiza valores lidos da tela
             PatrocinioBD.atualizar(cnpjPat, codEv, numEd, valor.toString(), dataPat.toString());
             JOptionPane.showMessageDialog(null, "Atualização Realizada" , "Atualizar", JOptionPane.INFORMATION_MESSAGE);
             clearFields();
@@ -881,14 +979,20 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_deletarPatrocinio_SaldoActionPerformed
 
+    /**
+     * Metodo que atuará quando um evento da combobox na Tela Deletar for selecionado
+     * @param evt
+     * @return void
+     */
     private void deletarPatrocinio_EventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarPatrocinio_EventoActionPerformed
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         if(jcb.getSelectedIndex()==0) return;
         try {
+            // Rcupera o codigo por meio do nome
             Integer codEv = EventoBD.getCodeByName(jcb.getSelectedItem().toString());
-            model = EdicaoBD.getEditions(codEv);
+            model = EdicaoBD.getEditions(codEv);// seta as edicoes daquele evento
             clearFields();
             deletarPatrocinio_Pat.setSelectedIndex(0);
             deletarPatrocinio_Edicao.setModel(model);
@@ -897,6 +1001,11 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deletarPatrocinio_EventoActionPerformed
 
+    /**
+     * Metodo que atuará quando uma edicao da combobox na Tela Deletar for selecionada
+     * @param evt
+     * @return void
+     */
     private void deletarPatrocinio_EdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarPatrocinio_EdicaoActionPerformed
         if(deletarPatrocinio_Evento.getSelectedIndex()==0) return;
         DefaultComboBoxModel model = new DefaultComboBoxModel();
@@ -913,6 +1022,11 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deletarPatrocinio_EdicaoActionPerformed
 
+    /**
+     * Metodo que atuará quando um patrocinador da combobox na Tela Deletar for selecionado
+     * @param evt
+     * @return void
+     */
     private void deletarPatrocinio_PatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarPatrocinio_PatActionPerformed
          if(deletarPatrocinio_Evento.getSelectedIndex()==0||
                 deletarPatrocinio_Edicao.getSelectedIndex()==0) return;
@@ -924,7 +1038,9 @@ public class TelaPatrocinio extends javax.swing.JFrame {
             Integer codEv = EventoBD.getCodeByName(deletarPatrocinio_Evento.getSelectedItem().toString());
             Integer numEd = Integer.parseInt(deletarPatrocinio_Edicao.getSelectedItem().toString());
             String cnpjPat = PatrocinadorBD.getCnpjByName(jcb.getSelectedItem().toString());
+            /*Info do patrocinio sao buscadas e salvas em details*/
             details = PatrocinioBD.buscar(cnpjPat, codEv, numEd);
+            //preenche os campos com seus respectivos valores
             deletarPatrocinio_CNPJ.setText(details.get(0));
             String valor = new String(details.get(3));
             valor = NumberFormat.getCurrencyInstance().format(Double.parseDouble(valor));
@@ -938,7 +1054,14 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deletarPatrocinio_PatActionPerformed
 
+    /**
+     * Metodo que atuará quando o botao deletar for clicado
+     * @param evt
+     * @return void
+     */
     private void deletarPatrocinio_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarPatrocinio_ButtonActionPerformed
+        
+        /*Verifica preenchimento de campos obrigatorios*/
         if(deletarPatrocinio_Evento.getSelectedIndex()==0||
                 deletarPatrocinio_Edicao.getSelectedIndex()==0||
                 deletarPatrocinio_Pat.getSelectedIndex()==0) return;
@@ -946,6 +1069,7 @@ public class TelaPatrocinio extends javax.swing.JFrame {
             Integer codEv = EventoBD.getCodeByName(deletarPatrocinio_Evento.getSelectedItem().toString());
             Integer numEd = Integer.parseInt(deletarPatrocinio_Edicao.getSelectedItem().toString());
             String cnpjPat = PatrocinadorBD.getCnpjByName(deletarPatrocinio_Pat.getSelectedItem().toString());
+            //Exclui Patrocinio
             PatrocinioBD.excluir(cnpjPat, codEv, numEd);
             JOptionPane.showMessageDialog
         (null, "Patrocinio removido" , "Remoção", JOptionPane.INFORMATION_MESSAGE);
@@ -956,14 +1080,18 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deletarPatrocinio_ButtonActionPerformed
     
+    /**
+     * Metodo que preenche a comboBox com seus valores iniciais
+     * @return void
+     */
     private void loadComboBox(){
         DefaultComboBoxModel modelNames = new DefaultComboBoxModel();
         DefaultComboBoxModel emptyModel = new DefaultComboBoxModel();
         DefaultComboBoxModel emptyModel2 = new DefaultComboBoxModel();
         DefaultComboBoxModel evModel = new DefaultComboBoxModel();
         try {
-            modelNames = PatrocinadorBD.getPatName();
-            evModel = EventoBD.getEventsName();
+            modelNames = PatrocinadorBD.getPatName();//nomes de patrocinadores
+            evModel = EventoBD.getEventsName();// eventos
             insertByName.setModel(modelNames);
             emptyModel.addElement(" --- ");
             emptyModel.addElement(" Selecione um Evento ");
@@ -989,12 +1117,15 @@ public class TelaPatrocinio extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Metodo que limpa os campos apos utilizacao
+     * @return void
+     */
      private void clearFields(){
          
         inserirValor_Patrocinio.setText(" ");
         inserirData_Patrocinio.setDate(null);
         
-//        editByName.setSelectedIndex(0);
         editarPatrocinio_valor.setText("");
         editarPatrocinio_Data.setDate(null);
 
