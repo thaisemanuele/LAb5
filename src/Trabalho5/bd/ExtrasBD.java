@@ -13,10 +13,16 @@ import java.util.ArrayList;
 
 /**
  *
- * @author thatitis
+ * @author Clayton
  */
 public class ExtrasBD {
     
+    /**
+     * cria um select statement na view valor_patrocinios
+     * @return details- arraylist com todo o conteudo de valor_patrocinios
+     * @throws SQLException - se houver algum erro no SQL
+     * @throws ParseException
+     */
     public static ArrayList<String> fetchPat() throws SQLException, ParseException{
         String patrocinios = "SELECT * FROM valor_patrocinios";
         Statement statement = dbConnection.createStatement();
@@ -41,6 +47,12 @@ public class ExtrasBD {
         return details;
     }
     
+    /**
+     * cria um select statement na view instituicao_art
+     * @return details- arraylist com todo o conteudo de instituicao_art
+     * @throws SQLException - se houver algum erro no SQL
+     * @throws ParseException
+     */
     public static ArrayList<String> fetchInstArt() throws SQLException, ParseException{
         String art = "SELECT * FROM instituicao_art";
         Statement statement = dbConnection.createStatement();
@@ -64,6 +76,13 @@ public class ExtrasBD {
         }
         return details;
     }
+    
+    /**
+     * cria um select statement na view autores_instituicao
+     * @return details- arraylist com todo o conteudo de autores_intituicao
+     * @throws SQLException - se houver algum erro no SQL
+     * @throws ParseException
+     */
     
     public static ArrayList<String> fetchInstAut() throws SQLException, ParseException{
         String art = "SELECT * FROM autores_instituicao";
