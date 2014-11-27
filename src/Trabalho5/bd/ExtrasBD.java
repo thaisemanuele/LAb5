@@ -23,7 +23,7 @@ public class ExtrasBD {
         ResultSet rs = statement.executeQuery(patrocinios);
         ArrayList<String> details = new ArrayList<>();
         StringBuilder label = new StringBuilder();
-        label.append("Nome Evento\t" + "Edicao\t" + "Patrocinio\t\t" + "Patrocinador");
+        label.append("Nome Evento\t" + "Edicao\t" + "Patrocinador\t\t" + "Patrocinio");
         details.add(label.toString());
         while (rs.next()){
             StringBuilder S = new StringBuilder();

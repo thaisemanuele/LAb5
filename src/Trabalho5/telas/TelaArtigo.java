@@ -832,8 +832,6 @@ public class TelaArtigo extends javax.swing.JFrame {
             
         } catch (SQLException ex) {
             Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(TelaArtigo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_searchArtEdActionPerformed
 
@@ -992,8 +990,6 @@ public class TelaArtigo extends javax.swing.JFrame {
             
         } catch (SQLException ex) {
             Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(TelaArtigo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_deleteArtEdActionPerformed
 

@@ -764,13 +764,18 @@ public class TelaAuxilio extends javax.swing.JFrame {
         jcb = (JComboBox) evt.getSource();
         if(jcb.getSelectedIndex() == 0) return;
         ArrayList <String> details = new ArrayList<String>();
+        
+            Integer codEv;
         try {
-            Integer codEv = EventoBD.getCodeByName(buscarAux_Evento.getSelectedItem().toString());
+            codEv = EventoBD.getCodeByName(buscarAux_Evento.getSelectedItem().toString());
             details = AuxilioBD.buscarPorTipoAux(codEv, Integer.parseInt(jcb.getSelectedItem().toString()), 
-                    buscarAux_TipoAux.getSelectedItem().toString());
-        } catch (SQLException | ParseException ex) {
+            buscarAux_TipoAux.getSelectedItem().toString());
+         
+        } catch (SQLException ex) {
             Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
         }
+            
+        
         for(String d : details){
             try {
                 model.addElement(PessoaBD.getEmailById(Integer.parseInt(d)));
@@ -796,7 +801,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
             Integer codEv = EventoBD.getCodeByName(buscarAux_Evento.getSelectedItem().toString());
             details = AuxilioBD.buscarPorTipoAux(codEv, Integer.parseInt(buscarAux_Edicao.getSelectedItem().toString()), 
                     buscarAux_TipoAux.getSelectedItem().toString());
-        } catch (SQLException | ParseException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
         }
         model.addElement(" --- ");
@@ -912,7 +917,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
             Integer codEv = EventoBD.getCodeByName(deletarAux_Evento.getSelectedItem().toString());
             details = AuxilioBD.buscarPorTipoAux(codEv, Integer.parseInt(jcb.getSelectedItem().toString()), 
                     deletarAux_TipoAux.getSelectedItem().toString());
-        } catch (SQLException | ParseException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
         }
         for(String d : details){
@@ -966,7 +971,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
             Integer codEv = EventoBD.getCodeByName(deletarAux_Evento.getSelectedItem().toString());
             details = AuxilioBD.buscarPorTipoAux(codEv, Integer.parseInt(deletarAux_Edicao.getSelectedItem().toString()), 
                     deletarAux_TipoAux.getSelectedItem().toString());
-        } catch (SQLException | ParseException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
         }
         model.addElement(" --- ");
@@ -1079,7 +1084,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
             Integer codEv = EventoBD.getCodeByName(editarAux_Evento.getSelectedItem().toString());
             details = AuxilioBD.buscarPorTipoAux(codEv, Integer.parseInt(jcb.getSelectedItem().toString()),
                 editarAux_TipoAux.getSelectedItem().toString());
-        } catch (SQLException | ParseException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
         }
         for(String d : details){
@@ -1174,7 +1179,7 @@ public class TelaAuxilio extends javax.swing.JFrame {
             Integer codEv = EventoBD.getCodeByName(editarAux_Evento.getSelectedItem().toString());
             details = AuxilioBD.buscarPorTipoAux(codEv, Integer.parseInt(editarAux_Edicao.getSelectedItem().toString()),
                 editarAux_TipoAux.getSelectedItem().toString());
-        } catch (SQLException | ParseException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(TelaAuxilio.class.getName()).log(Level.SEVERE, null, ex);
         }
         model.addElement(" --- ");
