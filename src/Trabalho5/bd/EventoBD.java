@@ -46,6 +46,13 @@ public class EventoBD {
         
     }
     
+    /**
+     * Cria e executa um insert statement na tabela de evento
+     * @param nomeEv - nome do evento
+     * @param descricaoEv - descrição do evento
+     * @param website -website do evento
+     * @throws SQLException - se houver algum erro com o sql
+     */
     public static void inserir(String nomeEv, String descricaoEv, String website) throws SQLException{
         
         String insert = "INSERT INTO Evento VALUES( " + getSeq() + ", '" +nomeEv+ "','" +descricaoEv+ "', '" +website+"', " + 0 +" )";
@@ -55,6 +62,14 @@ public class EventoBD {
 
     }
     
+    /**
+     * cria um update statement na tabela evento
+     * @param codEv - codigo do evento
+     * @param nomeEv = nome do evento
+     * @param descricaoEv - descricao do evento
+     * @param website - website do evento
+     * @throws SQLException - se houver algum erro com o sql
+     */
     public static void atualizar(Integer codEv, String nomeEv, String descricaoEv, String website) throws SQLException{
         String update = "UPDATE Evento SET nomeEv = '" +nomeEv+ "',descricaoEv = '" +descricaoEv+ "',websiteEv = '" +website+ "' WHERE codEv = '" + codEv + "'";
         System.out.println("Update statement: " + update);
@@ -62,6 +77,11 @@ public class EventoBD {
         statement.executeUpdate(update);
     }
     
+    /**
+     * cria e execua um delete statement
+     * @param codEv - codigo do evento
+     * @throws SQLException
+     */
     public static void excluir(Integer codEv) throws SQLException{
         String delete = "DELETE FROM Evento WHERE codEv = '" + codEv + "'";
         System.out.println("Delete statement: " + delete);
@@ -69,6 +89,13 @@ public class EventoBD {
         statement.executeUpdate(delete);
     }
     
+    /**
+     * cria e executa um select statement
+     * @param codEv -codigo do evento
+     * @return evento - objeto do tipo evento
+     * @throws SQLException
+     * @throws ParseException
+     */
     public static EventoBD buscar(Integer codEv) throws SQLException, ParseException{
         String selectTableSQL = "SELECT codEv, nomeEv, descricaoEv, website, totalArtigosApresentados, tipo FROM Evento WHERE codEv = '" + codEv + "'";
         System.out.println("Select statement " + selectTableSQL);
@@ -79,6 +106,14 @@ public class EventoBD {
         else return null;
     }
     
+    /**
+     * retorna um arraylist de strings de acordo com o parametro de entrada
+     * @param codEv - codigo do evento
+     * @return details - arraylist de string com os dados de um evento
+     * de acordo com a entrada
+     * @throws SQLException - se der erro no sql
+     * @throws ParseException
+     */
     public static ArrayList<String> fetchEvent(String codEv) throws SQLException, ParseException{
         String selectTableSQL = "SELECT codEv, nomeEv, descricaoEv, websiteEv FROM Evento WHERE codEv = '" + codEv + "'";
         Statement statement = dbConnection.createStatement();
@@ -92,6 +127,11 @@ public class EventoBD {
         return details;
     }
     
+    /**
+     * retorna o proimo numero na sequencia de eventos
+     * @return details - arraylist de string com os dados de um evento
+     * @throws SQLException - se der erro no sql
+     */
     private static Integer getSeq()throws SQLException{
         String selectSql = "SELECT max(codEv) from Evento";
         Statement statement = dbConnection.createStatement();
@@ -102,7 +142,12 @@ public class EventoBD {
        return seqCodEv + 1;  
     }
     
-     public static DefaultComboBoxModel getEventsCode() throws SQLException{
+    /**
+     * cria e retorna uma combobox com os codigos dos eventos
+     * @return model - combobox com os cofigos dos eventos
+     * @throws SQLException - se der algum erro no sql
+     */
+    public static DefaultComboBoxModel getEventsCode() throws SQLException{
          int i=1;
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         JComboBox codes = new JComboBox();
@@ -119,7 +164,12 @@ public class EventoBD {
        return model;
     }
      
-     public static DefaultComboBoxModel getEventsName() throws SQLException{
+    /**
+     * Cria e retorna um combobox com os nomes dos eventos
+     * @return model - comboBox com 0s nomes dos eventos
+     * @throws SQLException
+     */
+    public static DefaultComboBoxModel getEventsName() throws SQLException{
          int i=1;
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         String selectSql = "SELECT NomeEv from Evento";
@@ -134,7 +184,15 @@ public class EventoBD {
        return model;
     }
     
-     public static ArrayList<String> fetchNameEvent(String nomeEv) throws SQLException, ParseException{
+    /**
+     * retorna arraylist com os cadoas do evento
+     * @param nomeEv - nome do evento
+     * @return details - arraylist com os dados de ume evento de acordo com o dado
+     * de entrada
+     * @throws SQLException
+     * @throws ParseException
+     */
+    public static ArrayList<String> fetchNameEvent(String nomeEv) throws SQLException, ParseException{
         String selectTableSQL = "SELECT codEv, nomeEv, descricaoEv, websiteEv FROM Evento WHERE nomeEv = '" + nomeEv + "'";
         Statement statement = dbConnection.createStatement();
         ResultSet rs = statement.executeQuery(selectTableSQL);
@@ -147,7 +205,13 @@ public class EventoBD {
         return details;
     }
      
-     public static Integer getCodeByName(String name) throws SQLException{
+    /**
+     * de acordo com o parametro de entrada retorna o codigo do evento
+     * @param name - nome do evento
+     * @return id - codigo do evento
+     * @throws SQLException
+     */
+    public static Integer getCodeByName(String name) throws SQLException{
         Integer id = -1;
         String selectSql = "SELECT codEv from Evento WHERE nomeEv = '"+name+"'";
         Statement statement = dbConnection.createStatement();
@@ -158,7 +222,13 @@ public class EventoBD {
        return id;
     }
      
-     public static String getNameByCode(String code) throws SQLException{
+    /**
+     * de acordo com o codigo de entrada encontra o nome do evento
+     * @param code - codigo do evento
+     * @return i nome do evento
+     * @throws SQLException
+     */
+    public static String getNameByCode(String code) throws SQLException{
         String name = null;
         String selectSql = "SELECT nomeEv from Evento WHERE codEv = '"+code+"'";
         Statement statement = dbConnection.createStatement();

@@ -19,6 +19,16 @@ import javax.swing.JComboBox;
  */
 public class InscritoBD {
     
+    /**
+     *Cria e executa um insert statement na tabela inscrito
+     * @param codEv
+     * @param numEd
+     * @param idPart
+     * @param dataInsc
+     * @param tipoApresentador
+     * @throws SQLException
+     * @throws ParseException
+     */
     public static void inserir(Integer codEv, Integer numEd,Integer idPart,
         String dataInsc, Integer tipoApresentador) throws SQLException, ParseException{
             String insert = "INSERT INTO Inscrito VALUES( " 
@@ -29,6 +39,15 @@ public class InscritoBD {
 
     }
     
+    /**
+     * cria e retorna um arraylist de string com os dados de um inscrito de acordo com os parametros de entrada
+     * @param codEv
+     * @param numEd
+     * @param idPart
+     * @return details - arraylist de strings com os dados de um particante
+     * @throws SQLException
+     * @throws ParseException
+     */
     public static ArrayList<String> buscar(Integer codEv, Integer numEd,Integer idPart) throws SQLException, ParseException{
         String selectTableSQL = "SELECT codEv, numEd, idPart, TO_CHAR(dataInsc, 'DD-MM-YYYY'), tipoApresentador"
                 + " FROM Inscrito WHERE codEv = " + codEv +" AND numEd = " + numEd + ""
@@ -46,6 +65,14 @@ public class InscritoBD {
         return details;
     }
     
+    /**
+     * busca o id de todos os inscritos em um dado evento e edição
+     * @param codEv
+     * @param numEd
+     * @return details- arraylist com os id de particpantes de acordo com a entrada
+     * @throws SQLException
+     * @throws ParseException
+     */
     public static ArrayList<String> buscarInscritos(Integer codEv, Integer numEd) throws SQLException, ParseException{
         String selectTableSQL = "SELECT idPart "
                 + " FROM Inscrito WHERE codEv = " + codEv +" AND numEd = " + numEd + "";
