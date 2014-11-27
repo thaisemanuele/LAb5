@@ -907,8 +907,12 @@ public class TelaPessoa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchPartTypeActionPerformed
 
+     /**
+     * Metodo que fechará a janela quando o botão voltar da Tela Editar for clicado
+     * @param evt
+     * @return void
+     */
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -928,7 +932,12 @@ public class TelaPessoa extends javax.swing.JFrame {
     private void campoEndPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEndPeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoEndPeActionPerformed
-
+    
+    /**
+     * Metodo que fechará a janela quando o botão voltar da Tela Buscar for clicado
+     * @param evt
+     * @return void
+     */
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         this.setVisible(false);
         dispose();
@@ -950,40 +959,53 @@ public class TelaPessoa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteEndPeActionPerformed
 
+     /**
+     * Metodo que fechará a janela quando o botão voltar da Tela Deletar for clicado
+     * @param evt
+     * @return void
+     */
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton10ActionPerformed
 
+     /**
+     * Metodo que atuará quando um item da comboBox busca por ID
+     * da tela Buscar for selecionado
+     * @param evt
+     * @return void
+     */
     private void selectIdPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectIdPeActionPerformed
-        if(selectIdPe.getSelectedIndex()==0)return;
-        selectEmailPe.setSelectedIndex(0);
+        if(selectIdPe.getSelectedIndex()==0)return; // retorna se item selecionado foi " --- "
+        selectEmailPe.setSelectedIndex(0); //limpa campo email
         ArrayList <String> details = new ArrayList<String>();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         try {
+            /*Busca valores da Pessoa por ID e salva em details*/
             details = PessoaBD.buscar(Integer.parseInt(jcb.getSelectedItem().toString()));
             clearFields();
-            campoIdPe.setText(details.get(0));
-            campoNomePe.setText(details.get(1));
-            campoEmailPe.setText(details.get(2));
-            campoInstPe.setText(details.get(3));
-            campoTelPe.setText(details.get(4));
-            campoNacPe.setText(details.get(5));
-            campoEndPe.setText(details.get(6));
+            /*Insercao dos valores buscados nos seus respectivos campos*/
+            campoIdPe.setText(details.get(0));//id
+            campoNomePe.setText(details.get(1));//Nome
+            campoEmailPe.setText(details.get(2));//email
+            campoInstPe.setText(details.get(3));//instituicao
+            campoTelPe.setText(details.get(4));//telefone
+            campoNacPe.setText(details.get(5));//nacionalidade
+            campoEndPe.setText(details.get(6));//endereco
             checkOrg.setEnabled(false);
             checkPart.setEnabled(false);
             checkAut.setEnabled(false);
-            if(Integer.parseInt(details.get(7))==1){
+            if(Integer.parseInt(details.get(7))==1){//se organizador (marca checkbox)
                 checkOrg.setEnabled(true);
                 checkOrg.setSelected(true);
             }
-            if(Integer.parseInt(details.get(8))==1){
+            if(Integer.parseInt(details.get(8))==1){//se participante(marca checkbox)
                 checkPart.setEnabled(true);
                 checkPart.setSelected(true);
             }
-            if(Integer.parseInt(details.get(9))==1){
+            if(Integer.parseInt(details.get(9))==1){//se autor(marca checkbox)
                 checkAut.setEnabled(true);
                 checkAut.setSelected(true);
             }
@@ -995,34 +1017,42 @@ public class TelaPessoa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_selectIdPeActionPerformed
 
+     /**
+     * Metodo que atuará quando um item da comboBox busca por email
+     * da tela Buscar for selecionado
+     * @param evt
+     * @return void
+     */
     private void selectEmailPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectEmailPeActionPerformed
-        if(selectEmailPe.getSelectedIndex() ==0)return;
-        selectIdPe.setSelectedIndex(0);
+        if(selectEmailPe.getSelectedIndex() ==0)return;// retorna se item selecionado foi " --- "
+        selectIdPe.setSelectedIndex(0);//limpa o campo
         ArrayList <String> details = new ArrayList<String>();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         try {
+             /*Busca valores da Pessoa por email e salva em details*/
             details = PessoaBD.searchByEmail(jcb.getSelectedItem().toString());
             clearFields();
-            campoIdPe.setText(details.get(0));
-            campoNomePe.setText(details.get(1));
-            campoEmailPe.setText(details.get(2));
-            campoInstPe.setText(details.get(3));
-            campoTelPe.setText(details.get(4));
-            campoNacPe.setText(details.get(5));
-            campoEndPe.setText(details.get(6));
+            /*Insercao dos valores buscados nos seus respectivos campos*/
+            campoIdPe.setText(details.get(0));//id
+            campoNomePe.setText(details.get(1));//nome
+            campoEmailPe.setText(details.get(2));//email
+            campoInstPe.setText(details.get(3));//instituicao
+            campoTelPe.setText(details.get(4));//telefone
+            campoNacPe.setText(details.get(5));//nacionalidade
+            campoEndPe.setText(details.get(6));//endereco
             checkOrg.setEnabled(false);
             checkPart.setEnabled(false);
             checkAut.setEnabled(false);
-            if(Integer.parseInt(details.get(7))==1){
+            if(Integer.parseInt(details.get(7))==1){//se organizador marca checkBox
                 checkOrg.setEnabled(true);
                 checkOrg.setSelected(true);
             }
-            if(Integer.parseInt(details.get(8))==1){
+            if(Integer.parseInt(details.get(8))==1){//se participante marca checkbox
                 checkPart.setEnabled(true);
                 checkPart.setSelected(true);
             }
-            if(Integer.parseInt(details.get(9))==1){
+            if(Integer.parseInt(details.get(9))==1){//se autor marca checkbox
                 checkAut.setEnabled(true);
                 checkAut.setSelected(true);
             }
@@ -1033,12 +1063,16 @@ public class TelaPessoa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_selectEmailPeActionPerformed
 
+     /**
+     * Metodo que coloca valores iniciais nas comboBoxes
+     * @return void
+     */
     private void loadComboBox(){
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         DefaultComboBoxModel emailsModel = new DefaultComboBoxModel();
         try {
-            model = PessoaBD.getIdPe();
-            emailsModel = PessoaBD.getEmailPe();
+            model = PessoaBD.getIdPe();// modelo com id de pessoas
+            emailsModel = PessoaBD.getEmailPe();//modelo com email de pessoas
             selectIdPe.setModel(model);
             selectSearchIdPe.setModel(model);
             selectDeletePe.setModel(model);
@@ -1051,8 +1085,12 @@ public class TelaPessoa extends javax.swing.JFrame {
         }
     }
     
+     /**
+     * Metodo que limpa os campos apos utilizacao
+     * @return void
+     */
     public void clearFields(){
-        //Busca
+        //campos em Edicao
         campoIdPe.setText("");
         campoNomePe.setText("");
         campoEmailPe.setText("");
@@ -1066,7 +1104,7 @@ public class TelaPessoa extends javax.swing.JFrame {
         checkOrg.setSelected(false);
         checkPart.setSelected(false);
         checkAut.setSelected(false);
-        //Insercao
+        //campos em Insercao
         insertNomePe.setText("");
         insertEmailPe.setText("");
         insertInstPe.setText("");
@@ -1079,7 +1117,7 @@ public class TelaPessoa extends javax.swing.JFrame {
         insertOrgType.setSelected(false);
         insertPartType.setSelected(false);
         insertAutType.setSelected(false);
-        //Busca
+        //campos em Busca
         searchNomePe.setText("");
         searchEmailPe.setText("");
         searchInstPe.setText("");
@@ -1089,7 +1127,7 @@ public class TelaPessoa extends javax.swing.JFrame {
         searchOrgType.setSelected(false);
         searchPartType.setSelected(false);
         searchAutType.setSelected(false);
-        //Delete
+        //campos em Delete
         deleteIdPe.setText("");
         deleteNomePe.setText("");
         deleteEmailPe.setText("");
@@ -1102,18 +1140,38 @@ public class TelaPessoa extends javax.swing.JFrame {
         deleteAutType.setSelected(false);
         
     }
+    
+     /**
+     * Metodo que fechará a janela quando o botão voltar da Tela Inserir for clicado
+     * @param evt
+     * @return void
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    /**
+     * Metodo que atuara quando o botão Inserir for clicado em tela pessoa
+     * @param evt
+     * @return void
+     */
     private void InsertPeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPeButtonActionPerformed
         Integer tipoOrg=0,tipoPart=0,tipoAut=0;
+        /*Faz com que o usuario insira um tipo*/
+        if((!insertOrgType.isSelected()) && (!insertPartType.isSelected())&&
+                (!insertOrgType.isSelected())){
+            JOptionPane.showMessageDialog
+            (null, "Selecione o tipo do Participante" , "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        /*Verifica o tipo dos participantes conforme checkBox*/
         if(insertOrgType.isSelected()) tipoOrg = 1;
         if(insertPartType.isSelected())tipoPart = 1;
         if(insertAutType.isSelected()) tipoAut = 1;
         try {
+            /*Insere dados da Pessoa no banco*/
             PessoaBD.inserir(insertNomePe.getText(), insertEmailPe.getText(), insertInstPe.getText(),
                     insertNacPe.getText(), insertTelPe.getText(),insertEndPe.getText(), tipoOrg, tipoPart, tipoAut);
             JOptionPane.showMessageDialog
@@ -1127,27 +1185,35 @@ public class TelaPessoa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_InsertPeButtonActionPerformed
 
+    /**
+     * Metodo que atuara quando um item do comboBox buscar por ID
+     * em Editar for selecionado
+     * @param evt
+     * @return void
+     */
     private void selectSearchIdPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectSearchIdPeActionPerformed
-        if(selectSearchIdPe.getSelectedIndex()==0)return;
-        selectSearchEmailPe.setSelectedIndex(0);
+        if(selectSearchIdPe.getSelectedIndex()==0)return;// retorna se o item selecionado for " --- "
+        selectSearchEmailPe.setSelectedIndex(0);//limpa o campo
         ArrayList <String> details = new ArrayList<String>();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         try {
+            /*Busca em Pessoa as informacoes por ID e salva resltados em details*/
             details = PessoaBD.buscar(Integer.parseInt(jcb.getSelectedItem().toString()));
-            searchNomePe.setText(details.get(1));
-            searchEmailPe.setText(details.get(2));
-            searchInstPe.setText(details.get(3));
-            searchTelPe.setText(details.get(4));
-            searchNacPe.setText(details.get(5));
-            searchEndPe.setText(details.get(6));
-            if(Integer.parseInt(details.get(7))==1){
+            /*Preenche campos com seus respectivos valores*/
+            searchNomePe.setText(details.get(1));// nome
+            searchEmailPe.setText(details.get(2));// email
+            searchInstPe.setText(details.get(3));// instituicao
+            searchTelPe.setText(details.get(4));// telefone
+            searchNacPe.setText(details.get(5));// nacionalidade
+            searchEndPe.setText(details.get(6));// endereco
+            if(Integer.parseInt(details.get(7))==1){// se tipo organizador marca checkBox
                 searchOrgType.setSelected(true);
             }
-            if(Integer.parseInt(details.get(8))==1){
+            if(Integer.parseInt(details.get(8))==1){// se tipo participante marca checkBox
                 searchPartType.setSelected(true);
             }
-            if(Integer.parseInt(details.get(9))==1){
+            if(Integer.parseInt(details.get(9))==1){// se tipo autor marca checkBox
                 searchAutType.setSelected(true);
             }
             
@@ -1158,27 +1224,35 @@ public class TelaPessoa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_selectSearchIdPeActionPerformed
 
+    /**
+     * Metodo que atuara quando um item do comboBox buscar por Email
+     * em Editar for selecionado
+     * @param evt
+     * @return void
+     */
     private void selectSearchEmailPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectSearchEmailPeActionPerformed
-        if(selectSearchEmailPe.getSelectedIndex() ==0)return;
-        selectSearchIdPe.setSelectedIndex(0);
+        if(selectSearchEmailPe.getSelectedIndex() ==0)return;// retorna se item selecionado for " --- "
+        selectSearchIdPe.setSelectedIndex(0);//lmpa o campo
         ArrayList <String> details = new ArrayList<String>();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         try {
+            /*Busca os dados de Pessoa por email e salva o resultado em details*/
             details = PessoaBD.searchByEmail(jcb.getSelectedItem().toString());
-            searchNomePe.setText(details.get(1));
-            searchEmailPe.setText(details.get(2));
-            searchInstPe.setText(details.get(3));
-            searchTelPe.setText(details.get(4));
-            searchNacPe.setText(details.get(5));
-            searchEndPe.setText(details.get(6));
-            if(Integer.parseInt(details.get(7))==1){
+            /*Preenche os campos com seus respectivos valores*/
+            searchNomePe.setText(details.get(1));// nome
+            searchEmailPe.setText(details.get(2));// email
+            searchInstPe.setText(details.get(3));// instituicao
+            searchTelPe.setText(details.get(4));// telefone
+            searchNacPe.setText(details.get(5));// nacionalidade
+            searchEndPe.setText(details.get(6));//endereco
+            if(Integer.parseInt(details.get(7))==1){// se tipo organizador, marca checkbox
                 searchOrgType.setSelected(true);
             }
-            if(Integer.parseInt(details.get(8))==1){
+            if(Integer.parseInt(details.get(8))==1){// se tipo participante, marca checkbox
                 searchPartType.setSelected(true);
             }
-            if(Integer.parseInt(details.get(9))==1){
+            if(Integer.parseInt(details.get(9))==1){// se tipo autor, marca checkbox
                 searchAutType.setSelected(true);
             }
             
@@ -1189,29 +1263,44 @@ public class TelaPessoa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_selectSearchEmailPeActionPerformed
 
+    /**
+     * Metodo que atuara quando o botao Editar for clicado
+     * @param evt
+     * @return void
+     */
     private void editPeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPeButtonActionPerformed
+        /*Verifica se os campos obrigatorios foram selecionados e retorna caso contrario*/
         if(selectSearchIdPe.getSelectedIndex()==0 && selectSearchEmailPe.getSelectedIndex()==0) return;
         Integer idPe=0;
         Integer tipoOrganizador=0, tipoParticipante=0,tipoAutor=0;
-        if(selectSearchEmailPe.getSelectedIndex()==0){
+        if(selectSearchEmailPe.getSelectedIndex()==0){//se o email nao foi selecionado, busca por id
             idPe = Integer.parseInt(selectSearchIdPe.getSelectedItem().toString());
         }else{
-            try {   
+            try {   // caso contrario busca por email
                 idPe = PessoaBD.getIdByEmail(selectSearchEmailPe.getSelectedItem().toString());
             } catch (SQLException ex) {
                 Logger.getLogger(TelaPessoa.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        /*Faz com que o usuario insira um tipo*/
+        if((!searchOrgType.isSelected()) && (!searchPartType.isSelected())&&
+                (!searchOrgType.isSelected())){
+            JOptionPane.showMessageDialog
+            (null, "Selecione o tipo do Participante" , "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         if(searchOrgType.isSelected()) tipoOrganizador=1;
         if(searchPartType.isSelected()) tipoParticipante=1;
         if(searchAutType.isSelected()) tipoAutor=1;
         try {
+            /*Envia os dados da tela para atualizar as tabelas*/
             PessoaBD.atualizar(idPe, searchNomePe.getText(), searchEmailPe.getText(), searchInstPe.getText(),
                     searchTelPe.getText(), searchNacPe.getText(), searchEndPe.getText(),
                     tipoOrganizador, tipoParticipante, tipoAutor);
             
                 JOptionPane.showMessageDialog
         (null, "Dados Atualizados" , "Editar Cadastro", JOptionPane.INFORMATION_MESSAGE);
+         //limpa os campos
          clearFields();
          selectSearchIdPe.setSelectedIndex(0);
          selectSearchEmailPe.setSelectedIndex(0);
@@ -1220,29 +1309,36 @@ public class TelaPessoa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_editPeButtonActionPerformed
 
+    /**
+     * Metodo que atuara quando um item da combobox buscar por id em DELETAR for selecionado
+     * @param evt
+     * @return void
+     */
     private void selectDeletePeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDeletePeActionPerformed
-        if(selectDeletePe.getSelectedIndex()==0) return;
-        selectDeleteEmailPe.setSelectedIndex(0);
+        if(selectDeletePe.getSelectedIndex()==0) return; // retorna se valor selecionado for " --- "
+        selectDeleteEmailPe.setSelectedIndex(0);// limpa o campo
         ArrayList <String> details = new ArrayList<String>();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         try {
+            /*busca os dados da pessoa por ID e salva em details*/
             details = PessoaBD.buscar(Integer.parseInt(jcb.getSelectedItem().toString()));
             clearFields();
-            deleteIdPe.setText(details.get(0));
-            deleteNomePe.setText(details.get(1));
-            deleteEmailPe.setText(details.get(2));
-            deleteInstPe.setText(details.get(3));
-            deleteTelPe.setText(details.get(4));
-            deleteNacPe.setText(details.get(5));
-            deleteEndPe.setText(details.get(6));
-            if(Integer.parseInt(details.get(7))==1){
+            /*Preenche os campos com seus respectivos valores*/
+            deleteIdPe.setText(details.get(0));// id
+            deleteNomePe.setText(details.get(1));// nome
+            deleteEmailPe.setText(details.get(2));// email
+            deleteInstPe.setText(details.get(3));// instituicao
+            deleteTelPe.setText(details.get(4));// telefone
+            deleteNacPe.setText(details.get(5));// nacionalidade
+            deleteEndPe.setText(details.get(6));// endereco
+            if(Integer.parseInt(details.get(7))==1){// tipo organizador
                 deleteOrgType.setSelected(true);
             }
-            if(Integer.parseInt(details.get(8))==1){
+            if(Integer.parseInt(details.get(8))==1){// tipo participante
                 deletePartType.setSelected(true);
             }
-            if(Integer.parseInt(details.get(9))==1){
+            if(Integer.parseInt(details.get(9))==1){// tipo autor
                 deleteAutType.setSelected(true);
             }
             
@@ -1253,35 +1349,43 @@ public class TelaPessoa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_selectDeletePeActionPerformed
 
+    /**
+     * Metodo que atuara quando um item da combobox buscar por email em DELETAR for selecionado
+     * @param evt
+     * @return void
+     */
     private void selectDeleteEmailPeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDeleteEmailPeActionPerformed
-        if(selectDeleteEmailPe.getSelectedIndex()==0) return;
+        if(selectDeleteEmailPe.getSelectedIndex()==0) return;// retorna se valor selecionado for " --- "
         selectDeletePe.setSelectedIndex(0);
         ArrayList <String> details = new ArrayList<String>();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         Integer idPe = 0;
         try {
+            /*pega o email, transforma em Id*/
             idPe = PessoaBD.getIdByEmail(selectDeleteEmailPe.getSelectedItem().toString());
         } catch (SQLException ex) {
             Logger.getLogger(TelaPessoa.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
+            /*Faz a busca dos dados por email*/
             details = PessoaBD.searchByEmail(jcb.getSelectedItem().toString());
             clearFields();
-            deleteIdPe.setText(idPe.toString());
-            deleteNomePe.setText(details.get(1));
-            deleteEmailPe.setText(details.get(2));
-            deleteInstPe.setText(details.get(3));
-            deleteTelPe.setText(details.get(4));
-            deleteNacPe.setText(details.get(5));
-            deleteEndPe.setText(details.get(6));
-            if(Integer.parseInt(details.get(7))==1){
+            /*Preenche os campos com seus respectivo valores*/
+            deleteIdPe.setText(idPe.toString());// id
+            deleteNomePe.setText(details.get(1));// nome
+            deleteEmailPe.setText(details.get(2));// email
+            deleteInstPe.setText(details.get(3));// instituicao
+            deleteTelPe.setText(details.get(4));// telefone
+            deleteNacPe.setText(details.get(5));// nacionalidade
+            deleteEndPe.setText(details.get(6));// endereco
+            if(Integer.parseInt(details.get(7))==1){//tipo organizador
                 deleteOrgType.setSelected(true);
             }
-            if(Integer.parseInt(details.get(8))==1){
+            if(Integer.parseInt(details.get(8))==1){// tipo participante
                 deletePartType.setSelected(true);
             }
-            if(Integer.parseInt(details.get(9))==1){
+            if(Integer.parseInt(details.get(9))==1){// tipo autor
                 deleteAutType.setSelected(true);
             }
             
@@ -1292,19 +1396,25 @@ public class TelaPessoa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_selectDeleteEmailPeActionPerformed
 
+    /**
+     * Metodo que atuara quando o botao DELETAR for clicado
+     * @param evt
+     * @return void
+     */
     private void deletePeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePeButtonActionPerformed
+        /*Verifica se campos obrigatorios foram preenchidos e retorna caso contrario*/
         if(selectDeletePe.getSelectedIndex()==0 && selectDeleteEmailPe.getSelectedIndex()==0) return;
         Integer idPe=0;
         if(selectDeleteEmailPe.getSelectedIndex()==0){
             idPe = Integer.parseInt(selectDeletePe.getSelectedItem().toString());
         }else{
-            try {   
+            try {   // Busca o id por email
                 idPe = PessoaBD.getIdByEmail(selectDeleteEmailPe.getSelectedItem().toString());
             } catch (SQLException ex) {
                 Logger.getLogger(TelaPessoa.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        try {
+        try {// exclui Pessoa
             PessoaBD.excluir(idPe);
             JOptionPane.showMessageDialog
         (null, "Cadastro Removido" , "Remoção", JOptionPane.INFORMATION_MESSAGE);
