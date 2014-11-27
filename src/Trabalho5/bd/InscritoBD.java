@@ -109,7 +109,7 @@ public class InscritoBD {
     }
     
     /**
-     * cria um update statement na tabela evento
+     * cria um update statement na tabela inscrito
      * @param codEv
      * @param numEd
      * @param idPart
@@ -128,7 +128,7 @@ public class InscritoBD {
     }
     
    /**
-     * cria e executa um delete statement
+     * cria e executa um delete statement na tabela inscrito
      * @param codEv
      * @param numEd
      * @param idPart
