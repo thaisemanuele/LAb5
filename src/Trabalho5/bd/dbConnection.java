@@ -4,7 +4,6 @@
  */
 package Trabalho5.bd;
 
-import java.awt.Window;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Gabriela
+ * @author Clayton
  */
 public class dbConnection {
 
@@ -23,35 +22,41 @@ public class dbConnection {
 
     
     public String driver = "oracle.jdbc.driver.OracleDriver";
-    public String url = ("jdbc:oracle:thin:@grad.icmc.usp.br:15214:orcl14"); // final
-    public String username = "a6453087";
-    public String password = "a6453087";
+    public String url = ("jdbc:oracle:thin:@grad.icmc.usp.br:15214:orcl14"); // url fora do lab
+    public String url2 = ("jdbc:oracle:thin:@grad.icmc.usp.br:15214:orcl14"); // url dentro do lab
+    public String username = "a7161591";
+    public String password = "a7161591";
     private CallableStatement enable_stmt;
     private CallableStatement disable_stmt;
     private CallableStatement show_stmt;
-    /*String stringqvcquer;*/
-     public static Statement createStatement() throws SQLException {
+    public static Statement createStatement() throws SQLException {
         return conn.createStatement();
     }
     
     public dbConnection() throws Exception {
 
-		// carrega a classe org.postgresql.Driver na
-		// memoria da JVM e carrega as demais classes que
+		// carrega a o Driver na memória
+                //memoria da JVM e carrega as demais classes que
 		// sao necessarias para o funcionamento do BD
 		Class.forName(driver);
-		// ela usa a classe org.postgresql.Driver para
-		// chegar na PGConnection e criar uma conexao
+                //estabelece conexão com o Banco
 		dbConnection.conn = DriverManager.getConnection(
 				url, username, password);
-                //DbmsOutput dbmsOutput = new DbmsOutput( conn );
+                //cria o sql statement
                 Statement stmt = conn.createStatement();
-                enable_stmt  = conn.prepareCall( "begin dbms_output.enable(:1); end;" );
-                disable_stmt = conn.prepareCall( "begin dbms_output.disable; end;" );
+               
 
 
     	}
     /*função baseada em https://asktom.oracle.com/pls/asktom/f?p=100:11:0::::P11_QUESTION_ID:45027262935845*/
+
+    /**
+     *
+     * @param s
+     * @return dbmsOutput
+     * @throws Exception
+     */
+    
     public ArrayList<String> dbmsOutput(String s) throws Exception {
 
 		// carrega a classe org.postgresql.Driver na
@@ -62,20 +67,26 @@ public class dbConnection {
 		// chegar na PGConnection e criar uma conexao
 		dbConnection.conn = DriverManager.getConnection(
 				url, username, password);
-                //DbmsOutput dbmsOutput = new DbmsOutput( conn );
+               
                 Statement stmt = conn.createStatement();
+                //cria um CallableStatement para poder usar stored procedures
                 enable_stmt  = conn.prepareCall( "begin dbms_output.enable(:1); end;" );
                 disable_stmt = conn.prepareCall( "begin dbms_output.disable; end;" );
                 ArrayList<String> output = new ArrayList<>();
                 output = dbOutput(s);
                 return output;
-                /*
-                this.stringqvcquer = dmsOutput(s);
-                */
+                
 
 
     	}
     
+    /**
+     *
+     * @param sql
+     * @return boolean
+     * @throws Exception
+     * cria um bd statement
+     */
     public boolean execute(String sql) throws Exception {
 		Statement stmt = dbConnection.conn.createStatement();
 		boolean ret = stmt.execute(sql); // insert, create table
