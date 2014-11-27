@@ -73,68 +73,68 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="checkOrg" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="checkPart" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="checkAut" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                              <Component id="jButton9" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="selectEmailPe" min="-2" pref="375" max="-2" attributes="0"/>
-                                  </Group>
+                              <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="checkOrg" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="selectIdPe" max="32767" attributes="0"/>
+                                      <Component id="checkPart" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="checkAut" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                      <Component id="jButton9" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="selectEmailPe" min="-2" pref="375" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="campoNomePe" max="32767" attributes="0"/>
-                                          <Component id="campoIdPe" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="selectIdPe" max="32767" attributes="0"/>
                                       </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="campoNomePe" max="32767" attributes="0"/>
+                                              <Component id="campoIdPe" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="campoEmailPe" max="32767" attributes="0"/>
-                                          <Component id="campoInstPe" max="32767" attributes="0"/>
-                                          <Component id="campoTelPe" max="32767" attributes="0"/>
-                                          <Component id="campoNacPe" max="32767" attributes="0"/>
-                                          <Component id="campoEndPe" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="campoEmailPe" max="32767" attributes="0"/>
+                                              <Component id="campoInstPe" max="32767" attributes="0"/>
+                                              <Component id="campoTelPe" max="32767" attributes="0"/>
+                                              <Component id="campoNacPe" max="32767" attributes="0"/>
+                                              <Component id="campoEndPe" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
-                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
