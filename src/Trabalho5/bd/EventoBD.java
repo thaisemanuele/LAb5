@@ -78,7 +78,7 @@ public class EventoBD {
     }
     
     /**
-     * cria e execua um delete statement
+     * cria e executa um delete statement
      * @param codEv - codigo do evento
      * @throws SQLException
      */
@@ -128,7 +128,7 @@ public class EventoBD {
     }
     
     /**
-     * retorna o proimo numero na sequencia de eventos
+     * retorna o proximo numero na sequencia de eventos
      * @return details - arraylist de string com os dados de um evento
      * @throws SQLException - se der erro no sql
      */

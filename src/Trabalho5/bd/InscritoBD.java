@@ -87,6 +87,14 @@ public class InscritoBD {
         return details;
     }
     
+    /**
+     * busca o id de todos os apresentadores em um dado evento e edição
+     * @param codEv
+     * @param numEd
+     * @return model - comboBox com os id dos participantes
+     * @throws SQLException
+     * @throws ParseException
+     */
     public static DefaultComboBoxModel getApr(Integer codEv, Integer numEd) throws SQLException, ParseException{
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         String selectTableSQL = "SELECT idPart FROM Inscrito WHERE codEv = " + codEv +" AND numEd = " + numEd +" AND tipoApresentador = '1'";
@@ -100,6 +108,15 @@ public class InscritoBD {
         return model;
     }
     
+    /**
+     * cria um update statement na tabela evento
+     * @param codEv
+     * @param numEd
+     * @param idPart
+     * @param dataInsc
+     * @param tipoApresentador
+     * @throws SQLException
+     */
     public static void atualizar(Integer codEv, Integer numEd,Integer idPart,
         String dataInsc, Integer tipoApresentador) throws SQLException{
         String update = "UPDATE Inscrito SET dataInsc = TO_DATE('" +dataInsc+"','YYYY-MM-DD')"
@@ -110,13 +127,25 @@ public class InscritoBD {
         statement.executeUpdate(update);
     }
     
+   /**
+     * cria e executa um delete statement
+     * @param codEv
+     * @param numEd
+     * @param idPart
+     * @throws SQLException
+     */
     public static void excluir(Integer codEv, Integer numEd,Integer idPart) throws SQLException{
         String delete = "DELETE FROM Inscrito WHERE numEd = '" + numEd +"' and idPart = '" + idPart + "' and codEv = '" + codEv + "'";
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(delete);
     }
     
-    
+   /**
+     * busca os eventos de um dado participante
+     * @param idPart
+     * @return model - comboBox com os codigos dos eventos
+     * @throws SQLException
+     */
     public static DefaultComboBoxModel getPartEvents(Integer idPart) throws SQLException{
         int i=1;
         DefaultComboBoxModel model = new DefaultComboBoxModel();
@@ -135,6 +164,13 @@ public class InscritoBD {
        return model;
     }
     
+    /**
+     * busca os participantes de um dado evento
+     * @param codEv
+     * @param numEd
+     * @return model - comboBox com os id dos participantes
+     * @throws SQLException
+     */
     public static DefaultComboBoxModel getEventParts(Integer codEv, Integer numEd) throws SQLException{
         int i=1;
         DefaultComboBoxModel model = new DefaultComboBoxModel();
@@ -153,6 +189,14 @@ public class InscritoBD {
        return model;
     }
     
+    
+   /**
+     * busca os participantes de uma dada edicao
+     * @param codEv
+     * @param numEd
+     * @return model - comboBox com os id dos participantes
+     * @throws SQLException
+     */
     public static DefaultComboBoxModel getEditionParts(Integer codEv, Integer numEd) throws SQLException{
         int i=1;
         DefaultComboBoxModel model = new DefaultComboBoxModel();
@@ -171,6 +215,13 @@ public class InscritoBD {
        return model;
     }
     
+   /**
+     * busca as edicoes de um dado participante
+     * @param codEv
+     * @param idPart
+     * @return model - comboBox com as edicoes
+     * @throws SQLException
+     */
     public static DefaultComboBoxModel getPartEditions(Integer codEv, Integer idPart) throws SQLException{
         int i=1;
         DefaultComboBoxModel model = new DefaultComboBoxModel();
