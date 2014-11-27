@@ -10,6 +10,7 @@ import Trabalho5.bd.EdicaoBD;
 import Trabalho5.bd.EventoBD;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -866,8 +867,34 @@ public class TelaEdicao extends javax.swing.JFrame {
         try{
           Integer num = Integer.parseInt(campoNumEd.getText());
           System.out.println(num);
+          String valorEd = new String(taxaInsertEd.getText());
+            //formata para a forma monetaria
+            //Se a moeda for £, $, €, retira o simbolo e substitui a virgula por nada
+            if(valorEd.startsWith("£")||(valorEd.startsWith("$"))||(valorEd.startsWith("€"))){
+                System.out.println(valorEd);
+                valorEd = valorEd.substring(1);
+                if(valorEd.contains(",")){
+                    valorEd = valorEd.replace(",", "");
+                }
+            }
+            // se a moeda for real, retira o R$ e o espaco apos ele, e substitui a virgula por ponto
+            else if(valorEd.contains("R$ ")){
+                valorEd = valorEd.substring(3);
+                if(valorEd.contains(",")){
+                    valorEd = valorEd.replace(",", ".");
+                }
+            }//nao havendo simbolos, sbstitui-se a virgul por nada
+            else if(valorEd.contains(",")){
+                valorEd = valorEd.replace(",", "");
+            }
+            // obtem-se valores, por exemplo do tipo 400.50 para R$ 400,50
+            // obtem-se valores, por exemplo do tipo 4000.50 para £4,000.50
+            System.out.println(valorEd);
+            Double valorT = Double.parseDouble(valorEd);
+            
+
             try {
-                EdicaoBD.inserir(evento, num, desc, sqlIniDate.toString(), sqlFimDate.toString(), localInsertEd.getText(),taxaInsertEd.getText());
+                EdicaoBD.inserir(evento, num, desc, sqlIniDate.toString(), sqlFimDate.toString(), localInsertEd.getText(),valorT.toString());
                 JOptionPane.showMessageDialog
         (null, "Edição Cadastrada" , "Nova Edição", JOptionPane.INFORMATION_MESSAGE);
                 clearFields();
@@ -876,8 +903,8 @@ public class TelaEdicao extends javax.swing.JFrame {
             }
         } catch (NumberFormatException e){
             System.err.println("SQL Error: " + e.getMessage());
-            JOptionPane.showMessageDialog(null, "Numero de Edição inválido", "Erro", JOptionPane.WARNING_MESSAGE);
-            campoNumEd.setText("");
+            JOptionPane.showMessageDialog(null, "Insira um valor valido", "Erro", JOptionPane.WARNING_MESSAGE);
+            
         } catch (SQLException ex) {
             Logger.getLogger(TelaEdicao.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -927,8 +954,12 @@ public class TelaEdicao extends javax.swing.JFrame {
             searchDateIni.setText(details.get(3));
             searchDateFim.setText(details.get(4));
             searchLocal.setText(details.get(5));
-            searchTaxa.setText(details.get(6));
-            searchSaldo.setText(details.get(7));
+            String valorT = details.get(6);
+            String valorS = details.get(7);
+            //String valorTaxa = NumberFormat.getCurrencyInstance().format(Double.parseDouble(valorT));
+            String valorSaldo = NumberFormat.getCurrencyInstance().format(Double.parseDouble(valorS));
+            searchTaxa.setText(valorT);
+            searchSaldo.setText(valorSaldo);
             searchQtdArtigos.setText(details.get(8));
             
         } catch (SQLException ex) {

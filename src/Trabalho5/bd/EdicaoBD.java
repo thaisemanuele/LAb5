@@ -54,7 +54,7 @@ public class EdicaoBD {
     public static void inserir(Integer codEv, Integer numEd, String descricaoEd, 
             String dataInicioEd, String dataFimEd, String localEd, String taxaEd) throws SQLException, ParseException{
         String insert = "INSERT INTO Edicao VALUES( " 
-                + codEv + ", "+ numEd +", '" +descricaoEd+ "',TO_DATE('" +dataInicioEd+"','YYYY-MM-DD')"+",TO_DATE('" +dataFimEd+"','YYYY-MM-DD')" +",'"+localEd+"',"+Integer.parseInt(taxaEd)+","+0+","+0+")";
+                + codEv + ", "+ numEd +", '" +descricaoEd+ "',TO_DATE('" +dataInicioEd+"','YYYY-MM-DD')"+",TO_DATE('" +dataFimEd+"','YYYY-MM-DD')" +",'"+localEd+"',"+taxaEd+","+0+","+0+")";
         System.out.println("Insert statement: " + insert);
         Statement statement = dbConnection.createStatement();
         statement.executeUpdate(insert);

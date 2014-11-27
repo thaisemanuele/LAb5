@@ -438,10 +438,20 @@ public class TelaArtigo extends javax.swing.JFrame {
         });
 
         editHoraArt.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editHoraArt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editHoraArtActionPerformed(evt);
+            }
+        });
 
         jLabel17.setText("Apresentador:");
 
         editAprArt.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editAprArt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editAprArtActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout artigoEditarLayout = new javax.swing.GroupLayout(artigoEditar);
         artigoEditar.setLayout(artigoEditarLayout);
@@ -1027,6 +1037,14 @@ public class TelaArtigo extends javax.swing.JFrame {
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_deleteArtButtonActionPerformed
+
+    private void editHoraArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editHoraArtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editHoraArtActionPerformed
+
+    private void editAprArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAprArtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editAprArtActionPerformed
 
     public void loadComboBox(){
         String time = new String();
