@@ -788,11 +788,13 @@ public class TelaArtigo extends javax.swing.JFrame {
         try {
             codEv = EventoBD.getCodeByName(selectInsereCodEv.getSelectedItem().toString());
             Integer numEd = Integer.parseInt(selectInsereNumEd.getSelectedItem().toString());
-            edPartModel = InscritoBD.getEditionParts(codEv,numEd);
+            edPartModel = InscritoBD.getAut(codEv,numEd);
             selectInsereAp.setModel(edPartModel);
             
         } catch (SQLException ex) {
             Logger.getLogger(TelaInscrito.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaArtigo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_selectInsereNumEdActionPerformed
 
@@ -1034,6 +1036,8 @@ public class TelaArtigo extends javax.swing.JFrame {
         clearFields();
         loadComboBox();
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog
+        (null, "Primeiro remova as dependencias" , "Remoção", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(TelaEventos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_deleteArtButtonActionPerformed

@@ -108,6 +108,32 @@ public class InscritoBD {
         return model;
     }
     
+    
+    /**
+     * busca o id de todos os autores em um dado evento e edição
+     * @param codEv
+     * @param numEd
+     * @return model - comboBox com os id dos participantes
+     * @throws SQLException
+     * @throws ParseException
+     */
+    public static DefaultComboBoxModel getAut(Integer codEv, Integer numEd) throws SQLException, ParseException{
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        String selectTableSQL = "SELECT idPart FROM Inscrito WHERE codEv = " + codEv +" AND numEd = " + numEd ;
+        Statement statement = dbConnection.createStatement();
+        ResultSet rs = statement.executeQuery(selectTableSQL);
+        model.addElement(" --- ");
+        while(rs.next()){
+            ArrayList<String> details = PessoaBD.buscar(Integer.parseInt(rs.getString("idPart")));
+            Integer tipoAut = Integer.parseInt(details.get(9));
+            if(tipoAut==1){
+                model.addElement(PessoaBD.getEmailById(Integer.parseInt(rs.getString("idPart"))));
+            }
+        }
+        rs.close();
+        return model;
+    }
+    
     /**
      * cria um update statement na tabela inscrito
      * @param codEv
@@ -214,6 +240,8 @@ public class InscritoBD {
         }
        return model;
     }
+    
+    
     
    /**
      * busca as edicoes de um dado participante
