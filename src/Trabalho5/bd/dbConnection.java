@@ -44,17 +44,21 @@ public class dbConnection {
 				url, username, password);
                 //cria o sql statement
                 Statement stmt = conn.createStatement();
-               
+                //
+                enable_stmt  = conn.prepareCall( "begin dbms_output.enable(:1); end;" );
+                disable_stmt = conn.prepareCall( "begin dbms_output.disable; end;" );
 
 
     	}
-    /*função baseada em https://asktom.oracle.com/pls/asktom/f?p=100:11:0::::P11_QUESTION_ID:45027262935845*/
+    
+    /**/
 
     /**
-     *
+     *função baseada em https://asktom.oracle.com/pls/asktom/f?p=100:11:0::::P11_QUESTION_ID:45027262935845
+     * canaliza o DbmsOutput para um arraylist<string>
      * @param s
-     * @return dbmsOutput
-     * @throws Exception
+     * @return output
+     * @throws Exception se ocorrer o driver não conseguir conectar
      */
     
     public ArrayList<String> dbmsOutput(String s) throws Exception {
@@ -67,25 +71,26 @@ public class dbConnection {
 		// chegar na PGConnection e criar uma conexao
 		dbConnection.conn = DriverManager.getConnection(
 				url, username, password);
-               
+                //DbmsOutput dbmsOutput = new DbmsOutput( conn );
                 Statement stmt = conn.createStatement();
-                //cria um CallableStatement para poder usar stored procedures
                 enable_stmt  = conn.prepareCall( "begin dbms_output.enable(:1); end;" );
                 disable_stmt = conn.prepareCall( "begin dbms_output.disable; end;" );
                 ArrayList<String> output = new ArrayList<>();
                 output = dbOutput(s);
                 return output;
-                
+                /*
+                this.stringqvcquer = dmsOutput(s);
+                */
 
 
     	}
     
     /**
-     *
+     * Cria o statement de acordo com a string de entrada
+     * retorna true se o comando for bem sucedido e false caso contrario
      * @param sql
-     * @return boolean
+     * @return ret
      * @throws Exception
-     * cria um bd statement
      */
     public boolean execute(String sql) throws Exception {
 		Statement stmt = dbConnection.conn.createStatement();
@@ -94,19 +99,35 @@ public class dbConnection {
 		return ret;
 	}
 
-	public ResultSet query(String sql) throws Exception {
+    /**
+     * retorna o result set da query de entrada
+     * @param sql
+     * @return ResultSet
+     * @throws Exception se ocorrer algum erro com o sql
+     */
+    public ResultSet query(String sql) throws Exception {
 		Statement stmt = dbConnection.conn.createStatement();
 		return stmt.executeQuery(sql); // select * from msn_user;
 	}
 
-	public void close() throws Exception {
+    /**
+     * comando para fechar a conexão com o banco
+     * @throws Exception se o banco ja estiver sido fechado
+     */
+    public void close() throws Exception {
 		dbConnection.conn.close();
 	}
         
-    
-     public ArrayList<String> dbOutput(String s) throws Exception {  
-
+    /**
+     * executa o statemente que canaliza o dbmsoutput para um arrayList
+     * @param s
+     * @return dbms
+     * @throws Exception caso haja um erro com o BD
+     */
+    public ArrayList<String> dbOutput(String s) throws Exception {  
+        //prepara a chamada do stored procedure
         show_stmt = conn.prepareCall(
+                //imita a estrutura de uma execução de pl/sql
                 "declare "
                 + "    l_line varchar2(255); "
                 + "    l_done number; "
@@ -120,10 +141,12 @@ public class dbConnection {
                 + " :done := l_done; "
                 + " :buffer := l_buffer; "
                 + "end;");
-        
+        // cria o statement 
         Statement stmt = conn.createStatement();
         String call = new String();
+        //monta a chamada do procedimento
         call = "begin "+s+"; end;";
+        //habilita a canalização do dbmsoutput para o arraylist
         enable( 1000000 );
         stmt.execute( call );
         stmt.close();
@@ -131,7 +154,7 @@ public class dbConnection {
         show_stmt.registerOutParameter(3, java.sql.Types.VARCHAR);
         int done = 0;
         ArrayList<String> dbms = new ArrayList<>();
-        
+        //loop enquanto houver texto no dbmsoutput pega 255 bytes de texto por linha
         for (;;) {
             show_stmt.setInt(1, 32000);
             show_stmt.executeUpdate();
@@ -140,18 +163,28 @@ public class dbConnection {
                 break;
             }
         }
+        //fecha a canalização do dbms
         dbmsClose();
         return dbms;
         
     }       
     
+    /**
+     * habilita a canalização do dbmsoutput
+     * e seta o tamanho do buffer utilizado
+     * @param size
+     * @throws SQLException se houver erro na execução da query
+     */
     public void enable(int size) throws SQLException {
         enable_stmt.setInt(1, size);
         enable_stmt.executeUpdate();
 
     }
 
-    
+    /**
+     * fecha a canalização do dbmsoutput
+     * @throws SQLException
+     */
     public void dbmsClose() throws SQLException{
         enable_stmt.close();
         disable_stmt.close();
