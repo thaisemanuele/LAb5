@@ -129,7 +129,7 @@ public class EventoBD {
     
     /**
      * retorna o proximo numero na sequencia de eventos
-     * @return details - arraylist de string com os dados de um evento
+     * @return o próximo inteiro da sequencia
      * @throws SQLException - se der erro no sql
      */
     private static Integer getSeq()throws SQLException{

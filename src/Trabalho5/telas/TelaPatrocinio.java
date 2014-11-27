@@ -809,11 +809,14 @@ public class TelaPatrocinio extends javax.swing.JFrame {
             details = PatrocinioBD.buscar(cnpjPat, codEv, numEd);
             buscarPatrocinio_CNPJ.setText(details.get(0));
             String valor = new String(details.get(3));
+            String saldo = new String(details.get(4));
             //transforma para formato monetario
             valor = NumberFormat.getCurrencyInstance().format(Double.parseDouble(valor));
+            saldo = NumberFormat.getCurrencyInstance().format(Double.parseDouble(saldo));
+            
             //preenche campos com os dados
             buscarPatrocinio_Valor.setText(valor);
-            buscarPatrocinio_Saldo.setText(details.get(4));
+            buscarPatrocinio_Saldo.setText(saldo);
             buscarPatrocinio_Data.setText(details.get(5));
         } catch (SQLException ex) {
             Logger.getLogger(TelaPatrocinio.class.getName()).log(Level.SEVERE, null, ex);
@@ -1043,9 +1046,11 @@ public class TelaPatrocinio extends javax.swing.JFrame {
             //preenche os campos com seus respectivos valores
             deletarPatrocinio_CNPJ.setText(details.get(0));
             String valor = new String(details.get(3));
+            String saldo = new String(details.get(4));
             valor = NumberFormat.getCurrencyInstance().format(Double.parseDouble(valor));
+            saldo = NumberFormat.getCurrencyInstance().format(Double.parseDouble(saldo));
             deletarPatrocinio_Valor.setText(valor);
-            deletarPatrocinio_Saldo.setText(details.get(4));
+            deletarPatrocinio_Saldo.setText(saldo);
             deletarPatrocinio_Data.setText(details.get(5));
         } catch (SQLException ex) {
             Logger.getLogger(TelaPatrocinio.class.getName()).log(Level.SEVERE, null, ex);
