@@ -24,8 +24,8 @@ public class dbConnection {
     public String driver = "oracle.jdbc.driver.OracleDriver";
     public String url = ("jdbc:oracle:thin:@grad.icmc.usp.br:15214:orcl14"); // url fora do lab
     public String url2 = ("jdbc:oracle:thin:@grad.icmc.usp.br:15214:orcl14"); // url dentro do lab
-    public String username = "a7161591";
-    public String password = "a7161591";
+    public String username = "a6453087";
+    public String password = "a6453087";
     private CallableStatement enable_stmt;
     private CallableStatement disable_stmt;
     private CallableStatement show_stmt;

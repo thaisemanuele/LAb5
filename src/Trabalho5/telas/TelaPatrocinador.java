@@ -505,8 +505,13 @@ public class TelaPatrocinador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     /**
+     * Metodo que atuará quando o botao inserir for clicado
+     * @param evt
+     * @return void
+     */
     private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
-      try {
+      try {//tenta inserir o patrocinador com os campos da tela
             PatrocinadorBD.inserir(campoCnpjPat.getText(), campoNomePat.getText(), campoTelPat.getText(), campoEndPat.getText());
             JOptionPane.showMessageDialog(null, "Patrocinador cadastrado com sucesso " , "Success", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex){
@@ -520,37 +525,64 @@ public class TelaPatrocinador extends javax.swing.JFrame {
         
     }//GEN-LAST:event_insertButtonActionPerformed
 
+     /**
+     * Metodo que fechará a tela quando o botao voltar da tela inserir for clicado
+     * @param evt
+     * @return void
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Metodo que fechará a tela quando o botao voltar da tela buscar for clicado
+     * @param evt
+     * @return void
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    /**
+     * Metodo que fechará a tela quando o botao voltar da tela deletar for clicado
+     * @param evt
+     * @return void
+     */
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    /**
+     * Metodo que fechará a tela quando o botao voltar da tela editar for clicado
+     * @param evt
+     * @return void
+     */
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    /**
+     * Metodo que atuará quando uma razao social da tela buscar for selecionada
+     * @param evt
+     * @return void
+     */
     private void searchByNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByNameActionPerformed
         ArrayList <String> details = new ArrayList<String>();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         if(jcb.getSelectedIndex()==0) return;
         try {
+            //busca detalhes do patrocinador
             details = PatrocinadorBD.fetchNamePat(jcb.getSelectedItem().toString());
+            // preenche os campos com os valores
             searchCNPJ.setText(details.get(0));
             searchNome.setText(details.get(1));
             searchTel.setText(details.get(2));
@@ -562,13 +594,20 @@ public class TelaPatrocinador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchByNameActionPerformed
 
+    /**
+     * Metodo que atuará quando uma razao social da tela Editar for selecionada
+     * @param evt
+     * @return void
+     */
     private void editByNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editByNameActionPerformed
         ArrayList <String> details = new ArrayList<String>();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         if(jcb.getSelectedIndex()==0) return;
         try {
+            //busca detalhes do patrocinador
             details = PatrocinadorBD.fetchNamePat(jcb.getSelectedItem().toString());
+            //preenche os campos com seus valores
             editNome.setText(details.get(1));
             editTel.setText(details.get(2));
             editEnd.setText(details.get(3));
@@ -579,18 +618,24 @@ public class TelaPatrocinador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_editByNameActionPerformed
 
+    /**
+     * Metodo que atuará quando o botao editar for clicado
+     * @param evt
+     * @return void
+     */
     private void editButtonPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonPatActionPerformed
-         if(editByName.getSelectedIndex()==0) return;
+         if(editByName.getSelectedIndex()==0) return;// se um patrocinador nao foi selecionado, retorna
         String cnpj = null;
         try {
             cnpj = PatrocinadorBD.getCnpjByName(editByName.getSelectedItem().toString());
         } catch (SQLException ex) {
             Logger.getLogger(TelaPatrocinador.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //le os valores da tela
         String name = new String(editNome.getText());
         String tel = new String(editTel.getText());
         String end = new String(editEnd.getText());
-        try {
+        try {//atualiza valores
             PatrocinadorBD.atualizar(cnpj, name, tel, end);
              JOptionPane.showMessageDialog
         (null, "Valores atualizados " , "Edição de Patrocinador", JOptionPane.INFORMATION_MESSAGE);
@@ -601,13 +646,20 @@ public class TelaPatrocinador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_editButtonPatActionPerformed
 
+    /**
+     * Metodo que atuará quando uma razao social na tela deletar for clicada
+     * @param evt
+     * @return void
+     */
     private void deleteByNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteByNameActionPerformed
          ArrayList <String> details = new ArrayList<String>();
         JComboBox jcb = new JComboBox();
         jcb = (JComboBox) evt.getSource();
         if(jcb.getSelectedIndex()==0) return;
         try {
+            //busca detalhes do patrocinador
             details = PatrocinadorBD.fetchNamePat(jcb.getSelectedItem().toString());
+            //preenche a tela com os detalhes
             deleteCnpj.setText(details.get(0));
             deleteNome.setText(details.get(1));
             deleteTel.setText(details.get(2));
@@ -619,10 +671,15 @@ public class TelaPatrocinador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deleteByNameActionPerformed
 
+    /**
+     * Metodo que atuará quando o botao deletar for clicado
+     * @param evt
+     * @return void
+     */
     private void deleteButtonPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonPatActionPerformed
           if(deleteByName.getSelectedIndex()==0) return;
         String cnpj = deleteCnpj.getText();
-        try {
+        try {//exclui Patrocinador
             PatrocinadorBD.excluir(cnpj);
             JOptionPane.showMessageDialog
         (null, "Patrocinador removido" , "Remoção", JOptionPane.INFORMATION_MESSAGE);
@@ -633,6 +690,10 @@ public class TelaPatrocinador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deleteButtonPatActionPerformed
 
+    /**
+     * Metodo que prepara as combobox
+     * @return void
+     */
     private void loadComboBox(){
         DefaultComboBoxModel modelNames = new DefaultComboBoxModel();
         try {
@@ -646,6 +707,10 @@ public class TelaPatrocinador extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Metodo que limpa os campos apos utilizacao
+     * @return void
+     */
      private void clearFields(){
         campoCnpjPat.setText(" "); 
         campoNomePat.setText(" ");
